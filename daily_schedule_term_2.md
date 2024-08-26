@@ -8,3 +8,5 @@ Course [home page](./)
 
 * Tuesday, Aug. 27 &mdash; [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf)
 * Friday, Aug. 30 &mdash;
+
+<img src="./resources/GaltonBox.jpg" alt="Galton Box" width="70%">
