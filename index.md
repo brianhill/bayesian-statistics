@@ -1,4 +1,4 @@
-# The Foundation of Rigorous Inference: Bayesian Statistics &mdash; Syllabus
+# The Foundation of Rigorous Inference: Bayesian Statistics
 
 *Unofficial/Short Course Title: Bayesian Statistics*
 
@@ -44,7 +44,7 @@ We are going to use three texts. How much of the third one we get to will depend
 ## Problem Sets / Handouts / Being Neat and Organized
 
 There will be at least one problem set every week, and ideally more if I can produce one for every class.
-There will also be handouts, problem set solutions, exams, and exam solutions. To be organized, locate a three-ring binder and a three-ring hole punch, and file everything chronologically. Reverse-chronological is actually the most convenient, because you always open your binder to what you are currently working on. Problem sets should be *neat* and on standard 8 1/2 x 11 paper. Multi-page problem sets should be stapled. The nicest technical work is facilitated by engineering pads, such as these [stinking expensive Roaring Spring Engineering Pads at Amazon](https://www.amazon.com/dp/B09F6XWTGM?ref_=cm_sw_r_cp_ud_dp_7GWBKBA1722GFRYTP4K6&th=1), and done with a mechanical pencil, a ruler, and an eraser at hand.
+There will also be handouts, problem set solutions, exams, and exam solutions. To be organized, locate a three-ring binder and a three-ring hole punch, and file everything chronologically. Reverse-chronological is actually the most convenient, because you always open your binder to what you are currently working on. Problem sets should be *neat* and on standard 8 1/2 x 11 paper. Multi-page problem sets should be stapled. The nicest technical work is facilitated by engineering pads, such as these [Roaring Spring Engineering Pads at Amazon](https://www.amazon.com/Roaring-Signature-Collection-Covered-Engineering/dp/B09F724P4X) (which are pretty expensive unless you buy by the case), and done with a mechanical pencil, a ruler, and an eraser at hand.
 
 ## Absences (and late work)
 
