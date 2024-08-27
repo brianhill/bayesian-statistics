@@ -6,7 +6,7 @@ Course [home page](./)
 
 ### Week 1
 
-* Tuesday, Aug. 27 &mdash; [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf)
-* Friday, Aug. 30 &mdash;
+* Tuesday, Aug. 27 &mdash; [Syllabus](./BayesianStatisticsSyllabus.pdf)
+* Friday, Aug. 30 &mdash; [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf)
 
 <img src="./resources/GaltonBox.jpg" alt="Galton Box" width="70%">
