@@ -11,6 +11,6 @@ Course [home page](./)
 
 ### Week 2 &mdash; Combinatorics and Probability Distributions &mdash; Variance
 
-* Tuesday, Sep. 2 &mdash; Carefully read to p. 35 of Young (the end of Chapter 2) &mdash; Come prepared with any remaining questions about pp. 16-37 &mdash; Do the [Assignment for Tuesday - FORTHCOMING](./assignments/AssignmentFor2024-09-02.nb.pdf) &mdash; Copy all of Chapter 3 (pp. 38-91) of Young (a printout that you can copy from is across from the copier or you can easily find PDF scans of Young online)
+* Tuesday, Sep. 3 &mdash; Carefully read to p. 35 of Young (the end of Chapter 2) &mdash; Come prepared with any remaining questions about pp. 16-35 &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-03.nb.pdf) &mdash; Copy all of Chapter 3 (pp. 38-91) of Young (a printout that you can copy from is across from the copier or you can easily find PDF scans of Young online)
 
 <img src="./resources/15BilliardBalls.png" alt="Racking the Billiard Balls" width="100%">
