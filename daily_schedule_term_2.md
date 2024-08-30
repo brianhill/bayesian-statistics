@@ -4,9 +4,13 @@ Course [home page](./)
 
 ## Daily Schedule Term 2
 
-### Week 1
+### Week 1 &mdash; Uncertainty, Fractional Error, Propogation of Error and Random Variables &mdash; Mean
 
 * Tuesday, Aug. 27 &mdash; [Syllabus](./BayesianStatisticsSyllabus.pdf) &mdash; Today's class prepares you (like meat tenderizer) to study pp. 4-15 of Young &mdash; Change in volume of a cylinder due to change in radius &mdash; The formula for the mean (aka average) &mdash; The bar notation for the mean &mdash; The formula for a &ldquo;weighted&rdquo; mean (in case you have more faith in some of the contributions to the average, you can weight those contributions more) &mdash; The &Sigma; summation notation &mdash; The formula for &sigma;&sup2; where &sigma; is the &ldquo;standard deviation of the mean&ldquo; &mdash; Contrasting standard deviation (which uses squares of differences) with the average of the absolute differences
-* Friday, Aug. 30 &mdash; Carefully read pp. 1-15 of Young now that we have quickly discussed all those topics &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf) &mdash; Come prepared with any remaining questions about pp. 1-15 &mdash; What is a &ldquo;random variable?&ldquo; &mdash; What is a &ldquo;statistic?&rdquo; &mdash; Galton's box and coin tosses &mdash; Understanding the pattern that emerges in Galton's box &mdash; Combinatorics (how many ways there are of arriving at the same result) &mdash; The factorial notation and combinatoric formulae
+* Friday, Aug. 30 &mdash; Carefully read pp. 1-15 of Young &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf) &mdash; Come prepared with any remaining questions about pp. 1-15 &mdash; Let's give some classic examples of and define, what is a &ldquo;random variable?&ldquo; &mdash; A coin toss (repeated) &mdash; A toss of a handful of coins (repeated) &mdash; Let's define, what is a  &ldquo;statistic?&rdquo; &mdash; Galton's box (and its relation to coin tosses) &mdash; Combinatorics (which is essentially the study of how many ways there are of arriving at the same result) &mdash; Pascal's triangle &mdash; The choose notation &mdash; The factorial notation and its application to combinatoric formulae
 
-<img src="./resources/GaltonBox.jpg" alt="A Galton Box" width="70%">
+### Week 2 &mdash; Combinatorics and Probability Distributions &mdash; Variance
+
+* Tuesday, Sep. 2 &mdash; Carefully read to p. 35 of Young (the end of Chapter 2) &mdash; Come prepared with any remaining questions about pp. 16-37 &mdash; Do the [Assignment for Tuesday - FORTHCOMING](./assignments/AssignmentFor2024-09-02.nb.pdf) &mdash; Copy all of Chapter 3 (pp. 38-91) of Young (a printout that you can copy from is across from the copier or you can easily find PDF scans of Young online)
+
+<img src="./resources/15BilliardBalls.png" alt="Racking the Billiard Balls" width="100%">
