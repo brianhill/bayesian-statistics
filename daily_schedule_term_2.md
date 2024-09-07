@@ -12,10 +12,10 @@ Course [home page](./)
 ### Week 2 &mdash; Combinatorics and Probability Distributions &mdash; Binomial Distribution &mdash; Variance
 
 * Tuesday, Sept. 3 &mdash; Carefully read to p. 35 of Young (the end of Chapter 2) &mdash; Come prepared with any remaining questions about pp. 16-35 &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-03.nb.pdf) &mdash; Copy all of Chapter 3 (pp. 38-91) of Young (a printout that you can copy from is across from the copier or you can easily find PDF scans of Young online)
-* Friday, Sept. 6 &mdash; Carefully read to p. 57 of Young (stop just before he starts the Poisson distribution) &mdash; Come prepared with any remaining questions about pp. 39-57 &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-06.nb.pdf) &mdash; The relation between small changes, &ldquo;infinitesimal calculus,&rdquo; and derivatives &mdash; The relation of the Poisson distribution to the binomial distribution
+* Friday, Sept. 6 &mdash; Carefully read to p. 57 of Young (stop just before he starts the Poisson distribution) &mdash; Come prepared with any remaining questions about pp. 39-57 &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-06.nb.pdf) &mdash; The relation between small changes, &ldquo;infinitesimal calculus,&rdquo; and partial derivatives (I finally explain equations 2.7, 2.8, and 2.9 on p. 7) &mdash; The relation of the Poisson distribution to the binomial distribution (the tricky derivation on p. 59)
 
 ### Week 3 &mdash; Poisson Distribution &mdash; Gaussian Distribution
 
-* Tuesday, Sept. 10 &mdash; Carefully read to p. 64 of Young (the Poisson distribution) &mdash; ASSIGNMENT COMING &mdash; It will include some radioactive decay problems
+* Tuesday, Sept. 10 &mdash; Carefully read to p. 64 of Young (the Poisson distribution) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-10.nb.pdf)
 
 <img src="./resources/GeigerCounter.png" alt="Geiger Counter" width="35%">
