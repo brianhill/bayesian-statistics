@@ -1,14 +1,5 @@
 # Bayesian Statistics
 
-Course [home page](./)
-
-## Daily Schedule Term 2
-
-### Week 1 &mdash; Uncertainty, Fractional Error, Propagation of Error, and Random Variables &mdash; Mean
-
-* Tuesday, Aug. 27 &mdash; [Syllabus](./BayesianStatisticsSyllabus.pdf) &mdash; Study pp. 4-15 of Young &mdash; Change in volume of a cylinder due to change in radius &mdash; The formula for the mean (aka average) &mdash; The bar notation for the mean &mdash; The formula for a &ldquo;weighted&rdquo; mean (in case you have more faith in some of the contributions to the average, you can weight those contributions more) &mdash; The &Sigma; summation notation &mdash; The formula for &sigma;&sup2; where &sigma; is the &ldquo;standard deviation of the mean&ldquo; &mdash; Contrasting standard deviation (which uses squares of differences) with the average of the absolute differences
-* Friday, Aug. 30 &mdash; Carefully read pp. 1-15 of Young &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf) &mdash; Come prepared with any remaining questions about pp. 1-15 &mdash; Let's give some classic examples of and define, what is a &ldquo;random variable?&ldquo; &mdash; A coin toss (repeated) &mdash; A toss of a handful of coins (repeated) &mdash; Let's define, what is a  &ldquo;statistic?&rdquo; &mdash; Galton's box (and its relation to coin tosses) &mdash; Combinatorics (which is essentially the study of how many ways there are of arriving at the same result) &mdash; Pascal's triangle &mdash; The choose notation &mdash; The factorial notation and its application to combinatoric formulae
-
 ### Week 2 &mdash; Combinatorics and Probability Distributions &mdash; Binomial Distribution &mdash; Variance
 
 * Tuesday, Sept. 3 &mdash; Carefully read to p. 35 of Young (the end of Chapter 2) &mdash; Come prepared with any remaining questions about pp. 16-35 &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-03.nb.pdf)
@@ -19,8 +10,8 @@ Course [home page](./)
 * Tuesday, Sept. 10 &mdash; Carefully read to p. 64 of Young (the Poisson distribution) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-10.nb.pdf) &mdash; Histograms and Integrals &mdash; Discussion of Histogram, Probability Distribution Functions (PDFs), and Cumulative Distribution Functions (CDFs), using deaths of males aged 0-109 as our example
 * Friday, Sept 17 &mdash; To give everyone a break (especially me), there is no assignment due for Friday &mdash; Please use this time *to get started* on pp. 64-75 of Young, *but stop in that reading* as soon as you hit something that you really don't yet have the tools to understand, and come prepared with questions about the reading at the point that you decided to stop &mdash; Figures like Figure 9.2 on p. 68 should be starting to make sense given Tuesday's discussion
 
-### Week 4 &mdash; Linear Regression &mdash; Goodness of Fit
+### Week 4 &mdash; Gaussian Distribution &mdash; Linear Regression &mdash; Goodness of Fit
 
 * Tuesday, Sept. 17 &mdash; You will be doing your last major topic in Young (the Gaussian distribution), pp. 64-75, which you already started on last week
 
-<img src="./resources/ProbabilityDistributions.png" alt="Probability Distributions" width="35%">
+<img src="./resources/ProbabilityDistributions.png" alt="Probability Distributions" width="65%">
