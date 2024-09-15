@@ -29,4 +29,4 @@ Course [home page](./)
 * Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics and Linear Regression
 
 
-<img src="./resources/ProbabilityDistributions.png" alt="Probability Distributions" width="65%">
+<img src="./resources/GaussianWithSquares.png" alt="Gaussian with squares" width="65%">
