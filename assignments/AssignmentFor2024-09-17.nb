@@ -1,0 +1,456 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     22630,        448]
+NotebookOptionsPosition[     21579,        418]
+NotebookOutlinePosition[     22032,        436]
+CellTagsIndexPosition[     21989,        433]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Bayesian Statistics, Assignment for Tuesday, Sept. 17",
+ FontSize->30,
+ FontWeight->"Regular"]], "Chapter",
+ CellChangeTimes->{{3.902324780006513*^9, 3.9023247897146997`*^9}, {
+   3.902343612958332*^9, 3.902343668105324*^9}, {3.902344437424121*^9, 
+   3.902344438674733*^9}, {3.902688198161932*^9, 3.902688210170267*^9}, {
+   3.902930581038875*^9, 3.90293058270744*^9}, {3.903185104743419*^9, 
+   3.903185107369246*^9}, {3.903796719511032*^9, 3.90379671975321*^9}, {
+   3.90441241155903*^9, 3.9044124119419613`*^9}, {3.905074564359813*^9, 
+   3.905074566688058*^9}, {3.9053588481058683`*^9, 3.905358854573118*^9}, {
+   3.905676991107874*^9, 3.905676994582753*^9}, {3.907427588657308*^9, 
+   3.907427591198588*^9}, {3.90781710301303*^9, 3.907817106015664*^9}, {
+   3.908062735953104*^9, 3.908062736143295*^9}, {3.908631788944605*^9, 
+   3.908631789044297*^9}, {3.90925185182058*^9, 3.909251852324251*^9}, {
+   3.9095793153253813`*^9, 3.909579315472174*^9}, {3.913809658906047*^9, 
+   3.913809671365537*^9}, {3.9140251504443808`*^9, 3.914025153253241*^9}, {
+   3.914439522262558*^9, 3.914439523745214*^9}, {3.914689324642642*^9, 
+   3.914689332864526*^9}, {3.915035580075839*^9, 3.915035581516185*^9}, {
+   3.9154028501448927`*^9, 3.91540285243288*^9}, {3.91601206993546*^9, 
+   3.916012071225858*^9}, {3.933671309701749*^9, 3.933671324499131*^9}, {
+   3.933671910263384*^9, 3.933671911642071*^9}, {3.934041558391636*^9, 
+   3.9340415670984497`*^9}, 3.93404325727943*^9, {3.934395981295436*^9, 
+   3.934395982736253*^9}, {3.93470872235091*^9, 3.93470872568207*^9}, {
+   3.935370129719059*^9, 
+   3.935370129953328*^9}},ExpressionUUID->"0a9f033e-46a1-4578-becc-\
+919930044f24"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From",
+ StyleBox[" Statistical Treatment of Experimental Data",
+  FontSlant->"Italic"]
+}], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902688223918044*^9, 
+   3.902688230735215*^9}, {3.902927388621001*^9, 3.902927388845333*^9}, {
+   3.903185111317635*^9, 3.9031851114748497`*^9}, {3.903185677918617*^9, 
+   3.903185681080297*^9}, {3.903796725116959*^9, 3.9037967397757053`*^9}, {
+   3.904412321628845*^9, 3.904412330728367*^9}, {3.904412390262915*^9, 
+   3.90441239044292*^9}, {3.905074491161355*^9, 3.905074491686904*^9}, {
+   3.9053588573516693`*^9, 3.905358857396717*^9}, {3.905676998035874*^9, 
+   3.905677018162091*^9}, {3.907427596733724*^9, 3.907427604529786*^9}, {
+   3.90806273936226*^9, 3.908062739665884*^9}, {3.908632769647766*^9, 
+   3.9086327697141438`*^9}, {3.909251854732857*^9, 3.909251855655531*^9}, {
+   3.9095791015115356`*^9, 3.909579101719631*^9}, {3.9138096774297543`*^9, 
+   3.913809681411528*^9}, {3.914025157191846*^9, 3.9140251598224773`*^9}, {
+   3.91402782937642*^9, 3.914027834258408*^9}, {3.914689778864653*^9, 
+   3.914689781259591*^9}, {3.914721675069018*^9, 3.914721675204649*^9}, 
+   3.9150355861516733`*^9, {3.915402855675628*^9, 3.915402855738867*^9}, {
+   3.916012075535839*^9, 3.916012084873894*^9}, {3.91601212294357*^9, 
+   3.916012123079932*^9}, {3.93367192024813*^9, 3.933671941332477*^9}, {
+   3.933672046534173*^9, 3.9336720467575293`*^9}, {3.934041430575594*^9, 
+   3.93404143094632*^9}},ExpressionUUID->"39b67822-fab3-4af4-9957-\
+995e6360c459"],
+
+Cell[TextData[{
+ "This assignment is meant to go along with Section 9 of Young, pp. 64-76. \
+You have learned enough about integrals that the results in Section 9 should \
+make sense, but the derivations \[LongDash] for example, how he gets from Eq. \
+9.10 to Eq. 9.12 \[LongDash] you don\[CloseCurlyQuote]t have near enough \
+training in integral calculus to follow. Again though, the result, Eq. 9.12, \
+should make sense. It just says that the mean value in a Gaussian \
+distribution ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["x", "_"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "88f5f3a4-7e00-4cfd-8148-672fdaa23834"],
+ " is the parameter ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "95ccd728-07c2-4346-994c-d4c5949177db"],
+ ". Ditto for Eq. 9.15 which says that the variance ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[Sigma]", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e9d57a48-350c-4f58-8031-6412d54f6ac0"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"1", "/", "2"}], 
+    SuperscriptBox["h", "2"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e92b868f-6976-4aad-9bca-cf40f5c3f770"],
+ ". Using the latter result, Young gets rid of ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["h", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a8427d3e-9925-4a28-9f63-2a256049d2e4"],
+ " in Eq. 9.16, which is his final form for the normalized Gaussian."
+}], "Text",
+ InitializationCell->True,
+ CellChangeTimes->{{3.907818270547716*^9, 3.907818285037993*^9}, {
+   3.9078183185843353`*^9, 3.907818320588147*^9}, {3.907819269179101*^9, 
+   3.9078192727347193`*^9}, {3.9078193031547413`*^9, 3.907819674557852*^9}, {
+   3.907819739493697*^9, 3.907819763475422*^9}, {3.907819829523068*^9, 
+   3.907819834225362*^9}, {3.907819887212215*^9, 3.907820045260414*^9}, {
+   3.907820265883039*^9, 3.907820356894231*^9}, {3.907820538128118*^9, 
+   3.907820559457645*^9}, {3.908063112218739*^9, 3.908063179268152*^9}, {
+   3.9086305134401293`*^9, 3.908630568402223*^9}, {3.909251867040497*^9, 
+   3.909251919588964*^9}, {3.909252393581923*^9, 3.909252410501721*^9}, {
+   3.909579109820566*^9, 3.909579250718093*^9}, {3.9095793298628902`*^9, 
+   3.909579335037114*^9}, {3.909580356042083*^9, 3.909580552966518*^9}, {
+   3.9095805886499*^9, 3.9095806376653023`*^9}, {3.909580733694311*^9, 
+   3.909580746137074*^9}, {3.913809691672401*^9, 3.913809826588303*^9}, {
+   3.914025166437336*^9, 3.914025254999522*^9}, {3.914027845826885*^9, 
+   3.914027926287426*^9}, {3.91406382662232*^9, 3.914063843830584*^9}, {
+   3.914439534352683*^9, 3.9144396100791273`*^9}, {3.9144429987369633`*^9, 
+   3.914443081628138*^9}, {3.9144458500659*^9, 3.914445858874158*^9}, {
+   3.914689793737136*^9, 3.914689919684967*^9}, {3.9147227099422626`*^9, 
+   3.914722718492647*^9}, {3.9147227735060673`*^9, 3.914722790465219*^9}, {
+   3.914722987396412*^9, 3.914722988348371*^9}, {3.914723036872388*^9, 
+   3.914723038539312*^9}, {3.914785057086564*^9, 3.914785073433161*^9}, {
+   3.915035842273612*^9, 3.915035944371584*^9}, {3.915402894351565*^9, 
+   3.91540301108654*^9}, {3.916012115273231*^9, 3.916012516489348*^9}, {
+   3.933671951920089*^9, 3.9336720650075827`*^9}, {3.933672253196612*^9, 
+   3.933672257662662*^9}, {3.934041427619871*^9, 3.934041448124634*^9}, {
+   3.93404148394706*^9, 3.9340415735774918`*^9}, {3.934043175961617*^9, 
+   3.934043183015877*^9}, {3.934043311499144*^9, 3.934043311891176*^9}, {
+   3.934395959902398*^9, 3.934395976682568*^9}, {3.934708785536867*^9, 
+   3.934708843148402*^9}, {3.93470888507927*^9, 3.934708914374228*^9}, {
+   3.9347089796039*^9, 3.9347090692007113`*^9}, {3.934709106565113*^9, 
+   3.934709153420685*^9}, {3.934709234413611*^9, 3.934709291113797*^9}, {
+   3.934711394946917*^9, 3.9347114415073843`*^9}, {3.935370134744577*^9, 
+   3.935370147718083*^9}, {3.935370247950242*^9, 3.935370271582609*^9}, {
+   3.935370302570236*^9, 3.935370381782598*^9}, {3.935370441845675*^9, 
+   3.9353705710855207`*^9}, {3.9353706495922747`*^9, 3.935370707039282*^9}, 
+   3.935370853828164*^9, {3.935370895534493*^9, 3.9353709282912073`*^9}, {
+   3.935371030955563*^9, 3.9353710359612713`*^9}, {3.935373037854753*^9, 
+   3.9353730382591743`*^9}, {3.935374312735339*^9, 
+   3.9353743129019938`*^9}},ExpressionUUID->"3b6a5969-ad38-4c54-8c4f-\
+74267108b137"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["For Problem Set 5", "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.9353710390540047`*^9}, {
+   3.935373031158331*^9, 
+   3.9353730312472258`*^9}},ExpressionUUID->"e0d51dc0-12b2-43d1-9537-\
+65a0b526a33d"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Gaussian Distributions",
+ FontSize->16,
+ FontWeight->"Regular"]], "Subsection",
+ CellChangeTimes->{{3.907161511820457*^9, 3.907161517693348*^9}, {
+   3.9071757851311502`*^9, 3.907175786965211*^9}, 3.907818209992303*^9, {
+   3.9078191362206*^9, 3.90781913785112*^9}, {3.907819172116008*^9, 
+   3.907819176110496*^9}, {3.907820387875669*^9, 3.907820402108921*^9}, {
+   3.907820981764664*^9, 3.907821007358383*^9}, {3.907821038037771*^9, 
+   3.907821042290193*^9}, {3.907821088606534*^9, 3.9078210900352592`*^9}, {
+   3.907821135428946*^9, 3.907821158579274*^9}, {3.907821196245142*^9, 
+   3.907821237363723*^9}, {3.907821349401204*^9, 3.907821396425806*^9}, {
+   3.907821450908679*^9, 3.907821516779191*^9}, {3.908397878489965*^9, 
+   3.908397951028851*^9}, {3.908398041423287*^9, 3.908398058613622*^9}, {
+   3.908398130040098*^9, 3.908398139118972*^9}, {3.908398169156537*^9, 
+   3.908398192128955*^9}, {3.908398252159361*^9, 3.908398411595109*^9}, {
+   3.908398456684402*^9, 3.908398536593797*^9}, {3.908398607154119*^9, 
+   3.908398652335915*^9}, {3.908630830378921*^9, 3.90863084576903*^9}, {
+   3.908975491833612*^9, 3.908975522492631*^9}, {3.908975666045314*^9, 
+   3.908975711042753*^9}, {3.908976051229232*^9, 3.908976178825238*^9}, {
+   3.913810107870986*^9, 3.913810533475247*^9}, {3.913810634111455*^9, 
+   3.913810644069963*^9}, {3.913810679147831*^9, 3.91381071872521*^9}, {
+   3.9138108312992373`*^9, 3.913810888253944*^9}, {3.913810965406918*^9, 
+   3.913811021243954*^9}, {3.913811051361785*^9, 3.91381106657822*^9}, {
+   3.9138110987262697`*^9, 3.913811100703505*^9}, {3.91402529255657*^9, 
+   3.914025351909107*^9}, {3.914025416733687*^9, 3.9140259055200663`*^9}, {
+   3.914025936874846*^9, 3.914025951556254*^9}, 3.914025996195584*^9, {
+   3.914027092732191*^9, 3.914027097367485*^9}, {3.914689729790235*^9, 
+   3.914689731758145*^9}, {3.914722046747615*^9, 3.9147220506395493`*^9}, {
+   3.914722493104393*^9, 3.914722498908587*^9}, {3.915036891845689*^9, 
+   3.9150368958269*^9}, {3.915037024343502*^9, 3.91503702475231*^9}, {
+   3.9150376744444027`*^9, 3.915037675054278*^9}, {3.91540499571329*^9, 
+   3.91540499994322*^9}, {3.916012997305713*^9, 3.916013003481572*^9}, {
+   3.933672298848562*^9, 3.933672311184074*^9}, {3.934042214613648*^9, 
+   3.934042221285286*^9}, {3.934042953542285*^9, 3.934042966873014*^9}, {
+   3.934396028761879*^9, 3.9343960322800007`*^9}, {3.934396307159203*^9, 
+   3.934396311533445*^9}, {3.9347094039446363`*^9, 3.934709409176426*^9}, {
+   3.935371042014523*^9, 
+   3.9353710443747377`*^9}},ExpressionUUID->"14d10e55-818a-4e9b-b649-\
+9dbf0ce9ade1"],
+
+Cell[TextData[{
+ "1. In Problem Set 3, you calculated the mean and standard deviation of the \
+cocker spaniel puppy litters. When I did it I got that the mean was about 8 \
+and the standard deviation was about 2.\n\n(a) Make a nice new graph of the \
+cocker spaniel puppy litters, but instead of it being a histogram with all \
+the histogram bars adding up to 200, normalize the distribution. In other \
+words, divide every bar by 200 so all the bars add up to 1.\n\n(b) On top of \
+the same graph that you made in (a) plot a Gaussian with mean 8 and standard \
+deviation 2.\n\n2. If so many events happen that it is no longer obvious that \
+they are discrete events, then a Poisson distribution starts to look like a \
+Gaussian distribution. Let\[CloseCurlyQuote]s imagine we break 16 mugs a week \
+on average.\n\n(a) Make a table of the distribution that shows the odds of \
+breaking 8 mugs, 9, mugs, 10 mugs, etc. all the way out to 24 mugs in a week. \
+The formula you are looking for is Eq. 8.5 with ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"a", "=", "16"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e1c1c5a3-b18c-4407-a866-d498e4ef90cf"],
+ ", and you are plugging in ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b1d62bca-5605-40e9-ac6c-5e85c024f71b"],
+ " from 8 to 24. (Yah, I know, you have to bust out your calculator and punch \
+in the formula 17 times, sorry). Note: Because this part has huge numbers \
+like ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["16", "24"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "da3ceae0-35ea-481a-a2f2-02453d0a6ce0"],
+ " and 24!, some calculators might barf, but hopefully yours can handle it.\n\
+\nTHE PROBLEMS ARE CONTINUED ON REVERSE\n\n(b) Graph the table you made in \
+(a).\n\n(c) According to Eqs. 8.6 and 8.9 what is the mean and standard \
+deviation of the distribution you graphed in (b)?\n\n(d) Write out Eq. 9.16 \
+for a Gaussian function with the mean and standard deviation you found in \
+(c). \n\n(e) If you fuzz your eyes out or hold the graph paper a ways away, \
+maybe the graph you made in (b) is already looking like a Gaussian. But now \
+graph the Gaussian function you found in (d) on top of the bar chart data you \
+graphed in (a).\n\nDISCUSSION: I hope this is enough to start sensing a deep \
+relation between the Poisson and Gaussian distributions. (Remember that we \
+derived Poisson from binomial, so actually all the distributions we have been \
+studying are deeply related.) It takes Young a whole appendix (Appendix C) of \
+nasty algebra to establish the relation.\n\nThe bottom line is if a random \
+event doesn\[CloseCurlyQuote]t occur discretely, but instead is the sum of of \
+a very large number of small random events, so many small events that it \
+might as well be infinity, then we can plausibly transition from discrete to \
+continuous distributions. All of p. 65 was devoted to general discussion of \
+when this is expected to be true, including some amusing commentary.\n\nIn \
+the problem you just did, you saw that even 20 small events (on average) per \
+week is a large enough number to start seeing a Gaussian distribution of mug \
+breakage emerge.\n\n3. Consider the function  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "m", ")"}], "=", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["M", "2"], 
+      SuperscriptBox["m", "2"]}], "+", 
+     RowBox[{"2", 
+      SubscriptBox["M", "1"], "m"}], "+", 
+     SubscriptBox["M", "0"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "28850dba-e780-4b59-8ecf-f77c5b7b6e38"],
+ ". This is a parabola in the variable ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "59e45887-af10-4e28-b8cb-d1c3a5803322"],
+ ". ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e1bc62fb-b0b3-42cb-9076-bc605dc5a06b"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "1"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bf0918cf-cc6f-4c34-be53-fb6d6daa2d09"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "0"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f713ce01-cde7-4022-9b41-0bb37b9b59cc"],
+ " are just unknown constants. If ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "128f4631-7aa1-43b1-899d-fdc47827f890"],
+ " is negative the parabola opens downward. We don\[CloseCurlyQuote]t have to \
+care whether it is negative or positive. If it is negative it has a maximum. \
+If it is positive it has a minimum.\n\n(a) Use the \
+\[OpenCurlyDoubleQuote]complete the square\[CloseCurlyDoubleQuote] trick to \
+find ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bc73dd76-af56-467e-9127-24168f9aa8f9"],
+ " value where the minimum or maximum occurs. I put the 2 in to make the \
+algebra tidier.\n\n(b) Now that you have found the ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "18a94fcb-fa1a-45ad-bd7a-702e1514a089"],
+ " value where the minimum or maximum occurs, stick it back in to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"f", "(", "m", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fa0704f3-3a55-40f8-a770-4dc4dc6f03ac"],
+ " to get the minimum or maximum value (or just read the formula off  from \
+the complete the square algebra you did in (a)).\n\n4. Graph and indicate the \
+location of the maximum and the value of the maximum for the function,\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"f", "(", "m", ")"}], "=", 
+    RowBox[{
+     RowBox[{"-", 
+      SuperscriptBox["m", "2"]}], "+", 
+     RowBox[{"2", "m"}], "-", "1"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e75c2830-30b5-4ca9-8398-3a6206d188db"],
+ "\n\nHINT/CROSS-CHECK: If you put in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["M", "2"], "=", 
+    RowBox[{"-", "1"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7df51517-fa9d-475a-8c27-30d5c3bb1f18"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["M", "1"], "=", " "}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f4ffe5a5-5f43-40f9-b60e-765eda279563"],
+ "1, and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["M", "0"], "=", "1"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b6a0e49d-f0f2-471a-b424-9e69832bb4cb"],
+ " into the formulas you got in Problem 3 they better agree with the location \
+and value of the maximum you indicated in this problem."
+}], "Text",
+ CellChangeTimes->{{3.914027554425773*^9, 3.914027601937613*^9}, {
+   3.914027664703047*^9, 3.914027666089014*^9}, {3.914064282574464*^9, 
+   3.914064294837758*^9}, 3.914441391782222*^9, {3.91468973440301*^9, 
+   3.914689742479237*^9}, {3.914722073149221*^9, 3.914722107869542*^9}, {
+   3.9147221455701*^9, 3.914722186846393*^9}, {3.914722338118928*^9, 
+   3.914722452062908*^9}, 3.914722601645062*^9, {3.9147229161327887`*^9, 
+   3.914722925055081*^9}, {3.915036721207067*^9, 3.9150367440671883`*^9}, {
+   3.9150368210921*^9, 3.915036876015964*^9}, {3.915037046933207*^9, 
+   3.91503754596103*^9}, {3.915037689586566*^9, 3.915037838546407*^9}, {
+   3.91503788478733*^9, 3.915037885436859*^9}, {3.915037935447002*^9, 
+   3.915037936832982*^9}, {3.915404676675138*^9, 3.915404708161542*^9}, {
+   3.915404744344537*^9, 3.9154047743587723`*^9}, {3.915404823481412*^9, 
+   3.915404982617275*^9}, {3.9160130114584513`*^9, 3.916013060588373*^9}, {
+   3.916013170606229*^9, 3.916013179719303*^9}, {3.933672325400221*^9, 
+   3.9336723486314898`*^9}, {3.933672399810468*^9, 3.933672415976553*^9}, {
+   3.933672477886462*^9, 3.933673241226433*^9}, {3.933673281254978*^9, 
+   3.933673361932145*^9}, {3.93404222369023*^9, 3.934042476663102*^9}, {
+   3.934042511585032*^9, 3.934042517559488*^9}, {3.934042710329318*^9, 
+   3.93404294494753*^9}, {3.934043014125999*^9, 3.934043089569434*^9}, {
+   3.934396037806435*^9, 3.934396220115711*^9}, {3.934396285581606*^9, 
+   3.934396507737483*^9}, {3.934709414720385*^9, 3.9347094304498663`*^9}, {
+   3.934709484079503*^9, 3.9347095403533487`*^9}, {3.9347098531200943`*^9, 
+   3.934710013363037*^9}, {3.934710055320199*^9, 3.934710095942599*^9}, {
+   3.9347105479617157`*^9, 3.934710629507648*^9}, {3.934710824390546*^9, 
+   3.934711372535101*^9}, {3.9347114997184877`*^9, 3.934711547437585*^9}, {
+   3.935371050506752*^9, 3.93537138182797*^9}, {3.935371420104381*^9, 
+   3.9353716937299643`*^9}, {3.9353717273939247`*^9, 
+   3.9353718490099077`*^9}, {3.9353718892199*^9, 3.935372096550953*^9}, {
+   3.935372167810308*^9, 3.935372282545129*^9}, {3.935372357727901*^9, 
+   3.935372774535817*^9}, {3.935372971755827*^9, 3.9353730181885757`*^9}, {
+   3.935373057779811*^9, 3.935374270296533*^9}, {3.935374341044942*^9, 
+   3.93537434171458*^9}, {3.9353744132598143`*^9, 
+   3.935374419311751*^9}},ExpressionUUID->"fb5fabc1-ba5b-48aa-964b-\
+716d3fe3caeb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 905},
+WindowMargins->{{Automatic, 528}, {Automatic, 25}},
+PrintingCopies->10,
+PrintingPageRange->{1, Automatic},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"94a17dbf-c624-4e0e-b97a-5ea811487e94"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1698, 25, 64, "Chapter",ExpressionUUID->"0a9f033e-46a1-4578-becc-919930044f24"],
+Cell[CellGroupData[{
+Cell[2303, 51, 1596, 25, 67, "Section",ExpressionUUID->"39b67822-fab3-4af4-9957-995e6360c459"],
+Cell[3902, 78, 4438, 80, 150, "Text",ExpressionUUID->"3b6a5969-ad38-4c54-8c4f-74267108b137",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8377, 163, 1315, 19, 67, "Section",ExpressionUUID->"e0d51dc0-12b2-43d1-9537-65a0b526a33d"],
+Cell[CellGroupData[{
+Cell[9717, 186, 2622, 38, 49, "Subsection",ExpressionUUID->"14d10e55-818a-4e9b-b649-9dbf0ce9ade1"],
+Cell[12342, 226, 9197, 187, 1411, "Text",ExpressionUUID->"fb5fabc1-ba5b-48aa-964b-716d3fe3caeb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

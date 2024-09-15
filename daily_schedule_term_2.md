@@ -21,7 +21,7 @@ Course [home page](./)
 
 ### Week 4 &mdash; Gaussian Distribution &mdash; Linear Regression &mdash; Goodness of Fit
 
-* Tuesday, Sept. 17 &mdash; You will be doing your last major topic in Young (the Gaussian distribution), pp. 64-75, which you already started on last week
+* Tuesday, Sept. 17 &mdash; You will be doing your last major topic in Young (the Gaussian distribution), pp. 64-75, which you already started on last week &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-17.nb.pdf)
 * Friday, Sept. 20 &mdash; Linear Regression
 
 ### Week 5 &mdash; Exam 1
