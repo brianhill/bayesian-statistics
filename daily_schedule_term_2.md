@@ -1,3 +1,13 @@
+# Bayesian Statistics
+
+Course [home page](./)
+
+## Daily Schedule Term 2
+
+### Week 1 &mdash; Uncertainty, Fractional Error, Propagation of Error, and Random Variables &mdash; Mean
+
+* Tuesday, Aug. 27 &mdash; [Syllabus](./BayesianStatisticsSyllabus.pdf) &mdash; Study pp. 4-15 of Young &mdash; Change in volume of a cylinder due to change in radius &mdash; The formula for the mean (aka average) &mdash; The bar notation for the mean &mdash; The formula for a &ldquo;weighted&rdquo; mean (in case you have more faith in some of the contributions to the average, you can weight those contributions more) &mdash; The &Sigma; summation notation &mdash; The formula for &sigma;&sup2; where &sigma; is the &ldquo;standard deviation of the mean&ldquo; &mdash; Contrasting standard deviation (which uses squares of differences) with the average of the absolute differences
+* Friday, Aug. 30 &mdash; Carefully read pp. 1-15 of Young &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-08-30.nb.pdf) &mdash; Come prepared with any remaining questions about pp. 1-15 &mdash; Let's give some classic examples of and define, what is a &ldquo;random variable?&ldquo; &mdash; A coin toss (repeated) &mdash; A toss of a handful of coins (repeated) &mdash; Let's define, what is a  &ldquo;statistic?&rdquo; &mdash; Galton's box (and its relation to coin tosses) &mdash; Combinatorics (which is essentially the study of how many ways there are of arriving at the same result) &mdash; Pascal's triangle &mdash; The choose notation &mdash; The factorial notation and its application to combinatoric formulae
 
 ### Week 2 &mdash; Combinatorics and Probability Distributions &mdash; Binomial Distribution &mdash; Variance
 
@@ -12,7 +22,7 @@
 ### Week 4 &mdash; Gaussian Distribution &mdash; Linear Regression &mdash; Goodness of Fit
 
 * Tuesday, Sept. 17 &mdash; You will be doing your last major topic in Young (the Gaussian distribution), pp. 64-75, which you already started on last week &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-17.nb.pdf) &mdash; Warmup for Linear Regression
-* Friday, Sept. 20 &mdash; Finish Chapter 3 of Young (to the end of Section 11, p. 86) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-20.nb.pdf)
+* Friday, Sept. 20 &mdash; Finish Chapter 3 of Young (to the end of Section 11, p. 86) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-20.nb.pdf) (WHICH LOOKS LONGER THAN IT IS)
 
 ### Week 5 &mdash; Exam 1
 
