@@ -1,0 +1,877 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     36214,        869]
+NotebookOptionsPosition[     35129,        838]
+NotebookOutlinePosition[     35612,        857]
+CellTagsIndexPosition[     35569,        854]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Bayesian Statistics, Assignment for Friday, Sept. 20",
+ 
+ FontSize->30,
+ FontWeight->"Regular"]], "Chapter",
+ CellChangeTimes->{{3.902324780006513*^9, 3.9023247897146997`*^9}, {
+   3.902343612958332*^9, 3.902343668105324*^9}, {3.902344437424121*^9, 
+   3.902344438674733*^9}, {3.902688198161932*^9, 3.902688210170267*^9}, {
+   3.902930581038875*^9, 3.90293058270744*^9}, {3.903185104743419*^9, 
+   3.903185107369246*^9}, {3.903796719511032*^9, 3.90379671975321*^9}, {
+   3.90441241155903*^9, 3.9044124119419613`*^9}, {3.905074564359813*^9, 
+   3.905074566688058*^9}, {3.9053588481058683`*^9, 3.905358854573118*^9}, {
+   3.905676991107874*^9, 3.905676994582753*^9}, {3.907427588657308*^9, 
+   3.907427591198588*^9}, {3.90781710301303*^9, 3.907817106015664*^9}, {
+   3.908062735953104*^9, 3.908062736143295*^9}, {3.908631788944605*^9, 
+   3.908631789044297*^9}, {3.90925185182058*^9, 3.909251852324251*^9}, {
+   3.9095793153253813`*^9, 3.909579315472174*^9}, {3.913809658906047*^9, 
+   3.913809671365537*^9}, {3.9140251504443808`*^9, 3.914025153253241*^9}, {
+   3.914439522262558*^9, 3.914439523745214*^9}, {3.914689324642642*^9, 
+   3.914689332864526*^9}, {3.915035580075839*^9, 3.915035581516185*^9}, {
+   3.9154028501448927`*^9, 3.91540285243288*^9}, {3.91601206993546*^9, 
+   3.916012071225858*^9}, {3.933671309701749*^9, 3.933671324499131*^9}, {
+   3.933671910263384*^9, 3.933671911642071*^9}, {3.934041558391636*^9, 
+   3.9340415670984497`*^9}, 3.93404325727943*^9, {3.934395981295436*^9, 
+   3.934395982736253*^9}, {3.93470872235091*^9, 3.93470872568207*^9}, {
+   3.935370129719059*^9, 3.935370129953328*^9}, {3.9356221057517767`*^9, 
+   3.935622110871728*^9}},ExpressionUUID->"0a9f033e-46a1-4578-becc-\
+919930044f24"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "From",
+ StyleBox[" Statistical Treatment of Experimental Data ",
+  FontSlant->"Italic"],
+ StyleBox["and Looking Ahead",
+  FontWeight->"Bold"]
+}], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902688223918044*^9, 
+   3.902688230735215*^9}, {3.902927388621001*^9, 3.902927388845333*^9}, {
+   3.903185111317635*^9, 3.9031851114748497`*^9}, {3.903185677918617*^9, 
+   3.903185681080297*^9}, {3.903796725116959*^9, 3.9037967397757053`*^9}, {
+   3.904412321628845*^9, 3.904412330728367*^9}, {3.904412390262915*^9, 
+   3.90441239044292*^9}, {3.905074491161355*^9, 3.905074491686904*^9}, {
+   3.9053588573516693`*^9, 3.905358857396717*^9}, {3.905676998035874*^9, 
+   3.905677018162091*^9}, {3.907427596733724*^9, 3.907427604529786*^9}, {
+   3.90806273936226*^9, 3.908062739665884*^9}, {3.908632769647766*^9, 
+   3.9086327697141438`*^9}, {3.909251854732857*^9, 3.909251855655531*^9}, {
+   3.9095791015115356`*^9, 3.909579101719631*^9}, {3.9138096774297543`*^9, 
+   3.913809681411528*^9}, {3.914025157191846*^9, 3.9140251598224773`*^9}, {
+   3.91402782937642*^9, 3.914027834258408*^9}, {3.914689778864653*^9, 
+   3.914689781259591*^9}, {3.914721675069018*^9, 3.914721675204649*^9}, 
+   3.9150355861516733`*^9, {3.915402855675628*^9, 3.915402855738867*^9}, {
+   3.916012075535839*^9, 3.916012084873894*^9}, {3.91601212294357*^9, 
+   3.916012123079932*^9}, {3.93367192024813*^9, 3.933671941332477*^9}, {
+   3.933672046534173*^9, 3.9336720467575293`*^9}, {3.934041430575594*^9, 
+   3.93404143094632*^9}, {3.9355829484691477`*^9, 
+   3.935582954510947*^9}},ExpressionUUID->"39b67822-fab3-4af4-9957-\
+995e6360c459"],
+
+Cell["\<\
+Finish Chapter 3 of Young (to the end of Section 11, p. 86).
+
+If you didn\[CloseCurlyQuote]t know any more statistics than what we covered \
+in Young  these four weeks, you would actually already be able to think \
+critically about most scientific results that are popularly presented, \
+especially in medicine and the social sciences.
+
+In these four weeks, we covered descriptive statistics and we covered the \
+single most important concept from frequentist statistics, which is linear \
+regression. Linear regression is used in countless studies. In medicine it is \
+part of the analysis for every claim of a dose-response relationship.
+
+After the exam, we will begin Bayesian statistics. Make sure you have our \
+Bayes textbook at hand.\
+\>", "Text",
+ InitializationCell->True,
+ CellChangeTimes->{{3.907818270547716*^9, 3.907818285037993*^9}, {
+   3.907818318584336*^9, 3.907818320588147*^9}, {3.907819269179101*^9, 
+   3.90781927273472*^9}, {3.907819303154741*^9, 3.907819674557852*^9}, {
+   3.907819739493697*^9, 3.907819763475422*^9}, {3.907819829523068*^9, 
+   3.907819834225362*^9}, {3.907819887212215*^9, 3.907820045260414*^9}, {
+   3.907820265883039*^9, 3.907820356894231*^9}, {3.907820538128118*^9, 
+   3.907820559457645*^9}, {3.908063112218739*^9, 3.908063179268152*^9}, {
+   3.9086305134401293`*^9, 3.908630568402223*^9}, {3.909251867040497*^9, 
+   3.909251919588964*^9}, {3.909252393581923*^9, 3.909252410501721*^9}, {
+   3.909579109820566*^9, 3.909579250718093*^9}, {3.90957932986289*^9, 
+   3.909579335037114*^9}, {3.909580356042083*^9, 3.909580552966518*^9}, {
+   3.9095805886499*^9, 3.909580637665303*^9}, {3.909580733694311*^9, 
+   3.909580746137074*^9}, {3.913809691672401*^9, 3.913809826588303*^9}, {
+   3.914025166437336*^9, 3.914025254999522*^9}, {3.914027845826885*^9, 
+   3.914027926287426*^9}, {3.91406382662232*^9, 3.914063843830584*^9}, {
+   3.914439534352683*^9, 3.914439610079127*^9}, {3.9144429987369633`*^9, 
+   3.914443081628138*^9}, {3.9144458500659*^9, 3.914445858874158*^9}, {
+   3.914689793737136*^9, 3.914689919684967*^9}, {3.9147227099422626`*^9, 
+   3.914722718492647*^9}, {3.9147227735060673`*^9, 3.914722790465219*^9}, {
+   3.914722987396412*^9, 3.914722988348371*^9}, {3.914723036872388*^9, 
+   3.914723038539312*^9}, {3.914785057086564*^9, 3.914785073433161*^9}, {
+   3.915035842273612*^9, 3.915035944371584*^9}, {3.915402894351565*^9, 
+   3.91540301108654*^9}, {3.916012115273231*^9, 3.916012516489348*^9}, {
+   3.933671951920089*^9, 3.933672065007583*^9}, {3.933672253196612*^9, 
+   3.933672257662662*^9}, {3.934041427619871*^9, 3.934041448124634*^9}, {
+   3.93404148394706*^9, 3.9340415735774918`*^9}, {3.934043175961617*^9, 
+   3.934043183015877*^9}, {3.934043311499144*^9, 3.934043311891176*^9}, {
+   3.934395959902398*^9, 3.934395976682568*^9}, {3.934708785536867*^9, 
+   3.934708843148402*^9}, {3.93470888507927*^9, 3.934708914374228*^9}, {
+   3.9347089796039*^9, 3.9347090692007113`*^9}, {3.934709106565113*^9, 
+   3.934709153420685*^9}, {3.934709234413611*^9, 3.934709291113797*^9}, {
+   3.934711394946917*^9, 3.934711441507385*^9}, {3.935370134744577*^9, 
+   3.935370147718083*^9}, {3.935370247950242*^9, 3.935370271582609*^9}, {
+   3.935370302570236*^9, 3.935370381782598*^9}, {3.935370441845675*^9, 
+   3.9353705710855207`*^9}, {3.9353706495922747`*^9, 3.935370707039282*^9}, 
+   3.935370853828164*^9, {3.935370895534493*^9, 3.9353709282912073`*^9}, {
+   3.935371030955563*^9, 3.9353710359612713`*^9}, {3.935373037854753*^9, 
+   3.9353730382591743`*^9}, {3.935374312735339*^9, 3.935374312901994*^9}, {
+   3.9355828624836807`*^9, 3.935583203764056*^9}, {3.935622130459957*^9, 
+   3.935622279650923*^9}},ExpressionUUID->"3b6a5969-ad38-4c54-8c4f-\
+74267108b137"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["For Problem Set 6", "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.935371039054004*^9}, {
+   3.935373031158331*^9, 3.9353730312472253`*^9}, {3.935582714186861*^9, 
+   3.935582714456925*^9}},ExpressionUUID->"e0d51dc0-12b2-43d1-9537-\
+65a0b526a33d"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ StyleBox["Best Fit, Linear Regression, and ",
+  FontSize->16,
+  FontWeight->"Regular"],
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    StyleBox["\[Chi]",
+     FontSize->16], "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "6a902e88-e716-4e9a-8681-45c0d4395dc6"]
+}], "Subsection",
+ CellChangeTimes->{{3.907161511820457*^9, 3.907161517693348*^9}, {
+   3.9071757851311502`*^9, 3.907175786965211*^9}, 3.907818209992303*^9, {
+   3.9078191362206*^9, 3.90781913785112*^9}, {3.907819172116008*^9, 
+   3.907819176110496*^9}, {3.907820387875669*^9, 3.907820402108921*^9}, {
+   3.907820981764664*^9, 3.907821007358383*^9}, {3.907821038037771*^9, 
+   3.907821042290193*^9}, {3.907821088606534*^9, 3.9078210900352592`*^9}, {
+   3.907821135428946*^9, 3.907821158579274*^9}, {3.907821196245142*^9, 
+   3.907821237363723*^9}, {3.907821349401204*^9, 3.907821396425806*^9}, {
+   3.907821450908679*^9, 3.907821516779191*^9}, {3.908397878489965*^9, 
+   3.908397951028851*^9}, {3.908398041423287*^9, 3.908398058613622*^9}, {
+   3.908398130040098*^9, 3.908398139118972*^9}, {3.908398169156537*^9, 
+   3.908398192128955*^9}, {3.908398252159361*^9, 3.908398411595109*^9}, {
+   3.908398456684402*^9, 3.908398536593797*^9}, {3.908398607154119*^9, 
+   3.908398652335915*^9}, {3.908630830378921*^9, 3.90863084576903*^9}, {
+   3.908975491833612*^9, 3.908975522492631*^9}, {3.908975666045314*^9, 
+   3.908975711042753*^9}, {3.908976051229232*^9, 3.908976178825238*^9}, {
+   3.913810107870986*^9, 3.913810533475247*^9}, {3.913810634111455*^9, 
+   3.913810644069963*^9}, {3.913810679147831*^9, 3.91381071872521*^9}, {
+   3.9138108312992373`*^9, 3.913810888253944*^9}, {3.913810965406918*^9, 
+   3.913811021243954*^9}, {3.913811051361785*^9, 3.91381106657822*^9}, {
+   3.9138110987262697`*^9, 3.913811100703505*^9}, {3.91402529255657*^9, 
+   3.914025351909107*^9}, {3.914025416733687*^9, 3.9140259055200663`*^9}, {
+   3.914025936874846*^9, 3.914025951556254*^9}, 3.914025996195584*^9, {
+   3.914027092732191*^9, 3.914027097367485*^9}, {3.914689729790235*^9, 
+   3.914689731758145*^9}, {3.914722046747615*^9, 3.9147220506395493`*^9}, {
+   3.914722493104393*^9, 3.914722498908587*^9}, {3.915036891845689*^9, 
+   3.9150368958269*^9}, {3.915037024343502*^9, 3.91503702475231*^9}, {
+   3.9150376744444027`*^9, 3.915037675054278*^9}, {3.91540499571329*^9, 
+   3.91540499994322*^9}, {3.916012997305713*^9, 3.916013003481572*^9}, {
+   3.933672298848562*^9, 3.933672311184074*^9}, {3.934042214613648*^9, 
+   3.934042221285286*^9}, {3.934042953542285*^9, 3.934042966873014*^9}, {
+   3.934396028761879*^9, 3.9343960322800007`*^9}, {3.934396307159203*^9, 
+   3.934396311533445*^9}, {3.9347094039446363`*^9, 3.934709409176426*^9}, {
+   3.935371042014523*^9, 3.935371044374738*^9}, {3.9355827179145823`*^9, 
+   3.935582769184786*^9}},ExpressionUUID->"14d10e55-818a-4e9b-b649-\
+9dbf0ce9ade1"],
+
+Cell[TextData[{
+ "The long recap is for the benefit of the people who were absent, and as a \
+possibly-helpful review for the people who were present.\n\n1. In Tuesday\
+\[CloseCurlyQuote]s class, we had a water pressure example. The assumption \
+was that the water pressure is rising linearly, perhaps because a tank is \
+being steadily filled. There were three measurements at three different times \
+of the water pressure. We assume that water pressure actually obeys:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "(", "t", ")"}], "=", 
+    RowBox[{
+     RowBox[{"a", "\[CenterDot]", "t"}], "+", "b"}]}], TraditionalForm]],
+  ExpressionUUID->"943db415-18cc-4e3a-b3af-08aac8f98fa5"],
+ "\n\nThe water pressure was measured at three different times ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "1"], TraditionalForm]],ExpressionUUID->
+  "4adc5401-72e8-46d6-b0fb-79924776f235"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "2"], TraditionalForm]],ExpressionUUID->
+  "778558b9-ba3c-4b0e-9463-c37d20881492"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["t", "3"], TraditionalForm]],ExpressionUUID->
+  "8106da83-6320-4093-b615-49858f9bc1bf"],
+ ". The measurements were ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "1"], TraditionalForm]],ExpressionUUID->
+  "3e649998-b6cf-4109-94f0-12564a51226b"],
+ " to within a range ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"9dba1ddb-08f6-4ff5-aa6e-c666950e291e"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "2"], TraditionalForm]],ExpressionUUID->
+  "a67a95b1-a751-467f-b4f1-fec9be36411c"],
+ " also to within a range ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"9d6720f8-80fe-43f2-b79d-b75e50444d03"],
+ ", and ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "3"], TraditionalForm]],ExpressionUUID->
+  "9ace5df1-9a36-4b43-9572-41c28b534c22"],
+ " to within a range ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"0b823704-1974-4434-aa98-e4539567abef"],
+ ".\n\nIf the errors in the measurements are Gaussian-distributed around the \
+true values, then the probability of getting ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "1"], TraditionalForm]],ExpressionUUID->
+  "6cc4bced-054d-4122-820a-bb6b732673e7"],
+ " to within ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"77094c98-effe-4296-b225-44e560d8b33d"],
+ " is\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[VeryThinSpace]", 
+    SuperscriptBox["e", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "1"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "1"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+       "/", "2"}], "\[VeryThinSpace]", 
+      SuperscriptBox["\[Sigma]", "2"]}]], "\[CapitalDelta]", 
+    "\[VeryThinSpace]", "p"}], TraditionalForm]],ExpressionUUID->
+  "30a17750-4a54-48a6-92b6-fddb4c31ade3"],
+ "\n\nthe probability of getting ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "2"], TraditionalForm]],ExpressionUUID->
+  "d0cb5db8-be2a-46ce-b317-6f2712b5d00c"],
+ " to within ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"6e132ddc-23c5-40e4-adc6-53e5ef79c518"],
+ " is\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[VeryThinSpace]", 
+    SuperscriptBox["e", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "2"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "2"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+       "/", "2"}], "\[VeryThinSpace]", 
+      SuperscriptBox["\[Sigma]", "2"]}]], "\[CapitalDelta]", 
+    "\[VeryThinSpace]", "p"}], TraditionalForm]],ExpressionUUID->
+  "1c883a79-c43d-4412-843c-6f56893caeab"],
+ "\n\nand the probability of getting ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "3"], TraditionalForm]],ExpressionUUID->
+  "a2d08908-aac3-4c69-980b-25a890e0ffc9"],
+ " to within ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], TraditionalForm]],
+  ExpressionUUID->"062a3b10-1801-4d0b-9233-1877f556ad9a"],
+ " is\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "\[VeryThinSpace]", 
+    SuperscriptBox["e", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "2"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "3"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+       "/", "2"}], "\[VeryThinSpace]", 
+      SuperscriptBox["\[Sigma]", "2"]}]], "\[CapitalDelta]", 
+    "\[VeryThinSpace]", "p"}], TraditionalForm]],ExpressionUUID->
+  "34e19fed-4554-4907-90c0-15d8072053f8"],
+ "\n\nAs usual, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"A", "=", 
+    FractionBox["1", 
+     RowBox[{
+      SqrtBox[
+       RowBox[{"2", "\[Pi]", " "}]], "\[Sigma]"}]]}], TraditionalForm]],
+  ExpressionUUID->"53763f9b-0b60-46e4-8ca0-2b2c51856c08"],
+ ", but that isn\[CloseCurlyQuote]t going to matter much in what follows.\n\n\
+The joint probability is the product of the three probabilities which is:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"A", "\[VeryThinSpace]"}], "3"], 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{"\[CapitalDelta]", "\[VeryThinSpace]", "p"}], ")"}], "3"], " ", 
+    
+    SuperscriptBox["e", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"-", 
+        RowBox[{"[", 
+         RowBox[{
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["p", "1"], "-", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", "\[VeryThinSpace]", 
+                SubscriptBox["t", "1"]}], "+", "b"}], ")"}]}], ")"}], "2"], 
+          "+", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["p", "2"], "-", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", "\[VeryThinSpace]", 
+                SubscriptBox["t", "2"]}], "+", "b"}], ")"}]}], ")"}], "2"], 
+          "+", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["p", "3"], "-", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"a", "\[VeryThinSpace]", 
+                SubscriptBox["t", "3"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+         "]"}]}], "/", "2"}], "\[VeryThinSpace]", 
+      SuperscriptBox["\[Sigma]", "2"]}]]}], TraditionalForm]],ExpressionUUID->
+  "7a170dd1-38c5-44bf-95c2-840b6a2549a0"],
+ "\n\nNow if you think of what is up in the exponent as a function of ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],ExpressionUUID->
+  "2fd4e0ce-2ec7-45e9-9c0a-ffa85bb969c2"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"[", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "1"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "1"]}], "+", "b"}], ")"}]}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "2"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "2"]}], "+", "b"}], ")"}]}], ")"}], "2"], "+", 
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{
+           SubscriptBox["p", "3"], "-", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"a", "\[VeryThinSpace]", 
+              SubscriptBox["t", "3"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+       "]"}]}], "/", "2"}], "\[VeryThinSpace]", 
+    SuperscriptBox["\[Sigma]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "6430faf3-4b92-45fb-9b2f-bc9ade399cc0"],
+ " is a downward opening parabola.\n\nYou could also think of this whole mess \
+as a function of ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "2b019e7d-fb9f-4ea9-b444-2acbeff5412f"],
+ ", in which case it is some other downward opening parabola.\n\nIf you \
+multiple through by ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"-", "2"}], 
+    SuperscriptBox["\[Sigma]", "2"]}], TraditionalForm]],ExpressionUUID->
+  "769e6442-59c5-45b8-aaf9-f8976fa17985"],
+ ", then either of these parabolas is now upward opening. We are very \
+interested in finding the minimum of both of these upward opening parabolas.\n\
+\n(a) Multiply out\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["p", "1"], "-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", "\[VeryThinSpace]", 
+          SubscriptBox["t", "1"]}], "+", "b"}], ")"}]}], ")"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["p", "2"], "-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", "\[VeryThinSpace]", 
+          SubscriptBox["t", "2"]}], "+", "b"}], ")"}]}], ")"}], "2"], "+", 
+    SuperscriptBox[
+     RowBox[{"(", 
+      RowBox[{
+       SubscriptBox["p", "3"], "-", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"a", "\[VeryThinSpace]", 
+          SubscriptBox["t", "3"]}], "+", "b"}], ")"}]}], ")"}], "2"]}], 
+   TraditionalForm]],ExpressionUUID->"e4c8862b-9dd7-48b3-8d2a-39d3a89f7d17"],
+ "\n\nand group the terms involving ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["a", "2"], ",", " ", 
+    RowBox[{"a", "\[CenterDot]", "b"}]}], TraditionalForm]],ExpressionUUID->
+  "8a1ff6fd-ddc1-4015-a54f-f96513f5c7c5"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["b", "2"], TraditionalForm]],ExpressionUUID->
+  "e453d639-8d59-4bc5-b53a-034128f808de"],
+ ", a, b, and neither ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "05c6d345-3087-4b5f-b318-3c0854a5b8e0"],
+ " nor ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],ExpressionUUID->
+  "e12c5205-7b8a-4dee-b2b2-11903f08f1e3"],
+ " separately. In other words, you will have six groupings. For example, the \
+grouping involving neither ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "94c30710-3038-42e1-b409-5f9cab44fc46"],
+ " nor ",
+ Cell[BoxData[
+  FormBox["b", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5c804301-9b5e-45dc-b476-d751fe740b92"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox[
+     SubscriptBox["p", "1"], "2"], "+", 
+    SuperscriptBox[
+     SubscriptBox["p", "2"], "2"], "+", 
+    SuperscriptBox[
+     SubscriptBox["p", "3"], "2"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4b6ab325-35d3-484a-aac7-77494ab1a8f0"],
+ ".\n\n(b) What you have written is of the form\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["M", "aa"], 
+     SuperscriptBox["a", "2"]}], "+", 
+    RowBox[{"2", 
+     SubscriptBox["M", "ab"], 
+     RowBox[{"a", "\[CenterDot]", "b"}]}], "+", 
+    RowBox[{
+     SubscriptBox["M", "bb"], 
+     SuperscriptBox["b", "2"]}], "-", 
+    RowBox[{"2", 
+     SubscriptBox["M", "a"], "a"}], "-", 
+    RowBox[{"2", 
+     SubscriptBox["M", "b"], "b"}], "+", "M"}], TraditionalForm]],
+  ExpressionUUID->"cb0de3e8-d5c9-4cc8-b05d-45001e2ddee6"],
+ "\n\nWhat are ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "aa"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f28994a8-a62d-448a-aeb0-1f56aeafacff"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "ab"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "55a16575-a39b-4b52-ba31-191c6c07979e"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "bb"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "38f6c172-1f50-45dc-ab4a-5cb0719ca4d8"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "a"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d64b9f1e-5db0-4adf-83cf-5a29bb8bf294"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "b"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b8b2d7f2-7765-437c-99c2-3fe1fdb6025e"],
+ ", and ",
+ Cell[BoxData[
+  FormBox["M", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "9e4ae875-5737-4fb9-b658-cd54048b12ce"],
+ "? Please note where I have put the 2\[CloseCurlyQuote]s and the minus \
+signs. I have put them in to make the algebra tidier. For example ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    RowBox[{
+     SuperscriptBox[
+      SubscriptBox["p", "1"], "2"], "+", 
+     SuperscriptBox[
+      SubscriptBox["p", "2"], "2"], "+", 
+     SuperscriptBox[
+      SubscriptBox["p", "3"], "2"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b08ae193-2b8e-49a6-9d9a-b84ebf94dfb7"],
+ ".\n\n(c) Using the \[CapitalSigma] summation notation, rewrite your answers \
+for all 6 of ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "aa"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d1fdceb2-25ae-4c0a-81c4-62d7f0520e34"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["M", "ab"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fbb33dae-09b3-48f4-a18c-ac27a6f35d46"],
+ ", etc. For example ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"M", "=", 
+    RowBox[{
+     SubsuperscriptBox["\[CapitalSigma]", 
+      RowBox[{"i", "=", "1"}], 
+      RowBox[{"  ", "3"}]], 
+     SuperscriptBox[
+      SubscriptBox["p", "i"], "2"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "95847d2c-7167-4ae1-9f8d-f904fcd3ff31"],
+ ". ",
+ StyleBox["We will be making great use of these six answers on Friday to \
+finish linear regression.",
+  FontSlant->"Italic"],
+ "\n\n2.  The notation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", "S", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7ee2a2ff-3a44-4bc9-acba-704311bf3818"],
+ " means  \[OpenCurlyDoubleQuote]the probability that ",
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e154f6f5-fc8e-42a6-98a4-2204bd2b950f"],
+ " is true.\[CloseCurlyDoubleQuote] The notation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", "F", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "921f04ce-e1a2-42df-88f4-812d671d67a5"],
+ " means \[OpenCurlyDoubleQuote]the probability that ",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "604c34ba-9b6a-4bc0-a8e3-7dfd9caa6aac"],
+ " is true.\[CloseCurlyDoubleQuote] The notation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    RowBox[{"S", "|", "F"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cf5700df-67f6-4db7-9cdc-735aa4092673"],
+ " means \[OpenCurlyDoubleQuote]knowing that ",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c43462c3-905d-4d36-8b12-c1f5baa7ee57"],
+ " is true, what is the probability that ",
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a004e35a-77e0-48d1-ab64-4cc076576869"],
+ " is true.\[CloseCurlyDoubleQuote] It is often read as \
+\[OpenCurlyDoubleQuote]the probability of ",
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "580dfa9b-c088-4ed6-af30-5b4e84562592"],
+ " ",
+ StyleBox["given",
+  FontSlant->"Italic"],
+ " ",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c6036f7a-2477-48e7-b241-65b0872c1da9"],
+ ".\[CloseCurlyDoubleQuote] Let ",
+ Cell[BoxData[
+  FormBox["F", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3a4b68a0-5ab7-45de-bfa2-5bf532abf278"],
+ " be \[OpenCurlyDoubleQuote]person caused a fatal accident on a certain day,\
+\[CloseCurlyDoubleQuote] and for sake of the discussion the day will be Sept. \
+20. Let ",
+ Cell[BoxData[
+  FormBox["S", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5cb0bd14-5bab-4786-a2be-c83617ccd522"],
+ " be \[OpenCurlyDoubleQuote]person was drunk or stoned on a certain day,\
+\[CloseCurlyDoubleQuote] also Sept. 20.\n\nUse these numbers:\n\nThere are \
+40,000,000 Californians.\n1,000,000 were drunk or stoned on Sept. 20.\n4 were \
+the cause of a fatal accident on Sept 20.\nOf the 4 that caused fatal \
+accidents on Sept. 20, 2 were also drunk or stoned.\n\nWhat is \n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", "S", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c7569f1b-78ea-407a-8f01-3bf8fe6f4070"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", "F", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "08b552f3-7dbb-413d-96e5-5977b3ca2118"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    RowBox[{"F", "|", "S"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b66eeb46-4c67-4ca1-9390-9e7bd70f55a4"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    RowBox[{"S", "|", "F"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "6b5c4f17-a632-43a0-99f8-adadcdf51006"],
+ "?\n\nI\[CloseCurlyQuote]ll get you started so you know what I am looking \
+for: ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"P", "(", "S", ")"}], "=", "1"}], ",", "000", ",", 
+    RowBox[{"000", "/", "40"}], ",", "000", ",", 
+    RowBox[{"000", "=", 
+     RowBox[{"1", "/", "4"}]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5c895ce3-d6b8-4367-a706-4b1e3f68f819"],
+ ". Finding ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", 
+    RowBox[{"F", "|", "S"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3a4feb58-b8ee-4967-82b6-37eae3a3f55d"],
+ " is the tricky one, but think about it, and you\[CloseCurlyQuote]ll get it.\
+\n\nThe entire point of this exercise is to make an example where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"F", "|", "S"}], ")"}], "!=", 
+    RowBox[{"P", "(", 
+     RowBox[{"S", "|", "F"}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "25db4f06-863d-49de-a26b-479f80ac8e17"],
+ ". Do you see that not only are they different, but they can be very \
+different? Anybody that writes ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"F", "|", "S"}], ")"}], "=", 
+    RowBox[{"P", "(", 
+     RowBox[{"S", "|", "F"}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "2d831666-b434-4365-af93-e044bb1935a2"],
+ ", hasn\[CloseCurlyQuote]t done many examples and hasn\[CloseCurlyQuote]t \
+met Thomas Bayes.\n\n3. Problem 27 on p. 91. You will need to have studied \
+pp. 78-79. The tables being referred to are in the back of the book, but you \
+don\[CloseCurlyQuote]t need to refer to them, because he has already told you \
+in the reading the values that you need to know for the data at hand.\n\n4. \
+Problem 28 on p. 91. You will need to have studied p. 82, and you are just \
+being asked to calculate Eq. 11.1. We can discuss what calculating 11.1 means \
+after you turn in an answer on Friday."
+}], "Text",
+ CellChangeTimes->{{3.914027554425773*^9, 3.914027601937613*^9}, {
+   3.914027664703047*^9, 3.914027666089014*^9}, {3.914064282574464*^9, 
+   3.914064294837758*^9}, 3.914441391782222*^9, {3.91468973440301*^9, 
+   3.914689742479237*^9}, {3.914722073149221*^9, 3.914722107869542*^9}, {
+   3.9147221455701*^9, 3.914722186846393*^9}, {3.914722338118928*^9, 
+   3.914722452062908*^9}, 3.914722601645062*^9, {3.9147229161327887`*^9, 
+   3.914722925055081*^9}, {3.915036721207067*^9, 3.9150367440671883`*^9}, {
+   3.9150368210921*^9, 3.915036876015964*^9}, {3.915037046933207*^9, 
+   3.91503754596103*^9}, {3.915037689586566*^9, 3.915037838546407*^9}, {
+   3.91503788478733*^9, 3.915037885436859*^9}, {3.915037935447002*^9, 
+   3.915037936832982*^9}, {3.915404676675138*^9, 3.915404708161542*^9}, {
+   3.915404744344537*^9, 3.9154047743587723`*^9}, {3.915404823481412*^9, 
+   3.915404982617275*^9}, {3.9160130114584513`*^9, 3.916013060588373*^9}, {
+   3.916013170606229*^9, 3.916013179719303*^9}, {3.933672325400221*^9, 
+   3.9336723486314898`*^9}, {3.933672399810468*^9, 3.933672415976553*^9}, {
+   3.933672477886462*^9, 3.933673241226433*^9}, {3.933673281254978*^9, 
+   3.933673361932145*^9}, {3.93404222369023*^9, 3.934042476663102*^9}, {
+   3.934042511585032*^9, 3.934042517559488*^9}, {3.934042710329318*^9, 
+   3.93404294494753*^9}, {3.934043014125999*^9, 3.934043089569434*^9}, {
+   3.934396037806435*^9, 3.934396220115711*^9}, {3.934396285581606*^9, 
+   3.934396507737483*^9}, {3.934709414720385*^9, 3.934709430449866*^9}, {
+   3.934709484079503*^9, 3.9347095403533487`*^9}, {3.9347098531200943`*^9, 
+   3.934710013363037*^9}, {3.934710055320199*^9, 3.934710095942599*^9}, {
+   3.934710547961716*^9, 3.934710629507648*^9}, {3.934710824390546*^9, 
+   3.934711372535101*^9}, {3.9347114997184877`*^9, 3.934711547437585*^9}, {
+   3.935371050506752*^9, 3.93537138182797*^9}, {3.935371420104381*^9, 
+   3.9353716937299643`*^9}, {3.935371727393925*^9, 3.935371849009908*^9}, {
+   3.9353718892199*^9, 3.935372096550953*^9}, {3.935372167810308*^9, 
+   3.935372282545129*^9}, {3.935372357727901*^9, 3.935372774535817*^9}, {
+   3.935372971755827*^9, 3.9353730181885757`*^9}, {3.935373057779811*^9, 
+   3.935374270296533*^9}, {3.935374341044942*^9, 3.93537434171458*^9}, {
+   3.935374413259814*^9, 3.935374419311751*^9}, {3.9355827871531754`*^9, 
+   3.935582820607479*^9}, {3.935583230780217*^9, 3.935584002189776*^9}, {
+   3.935584070172577*^9, 3.9355844824490433`*^9}, {3.935621426071003*^9, 
+   3.9356214307424726`*^9}, 3.935621484696699*^9, {3.93562151579926*^9, 
+   3.9356215503626432`*^9}, {3.935621609393215*^9, 3.935621699434414*^9}, {
+   3.93562174774347*^9, 3.935622096135386*^9}, {3.9356223142392406`*^9, 
+   3.935622339967699*^9}, {3.935622379897641*^9, 3.935623129836034*^9}, {
+   3.93562325175289*^9, 3.935623269708173*^9}, {3.9356233126309233`*^9, 
+   3.935623328110159*^9}, {3.93562339732732*^9, 3.935623458446319*^9}, {
+   3.9356239220973177`*^9, 3.935623981154447*^9}, {3.935624051868492*^9, 
+   3.935624087936844*^9}, {3.9356241477569027`*^9, 3.9356242994835863`*^9}, {
+   3.9356243422173986`*^9, 3.935624524645932*^9}, {3.935624666400305*^9, 
+   3.935624703659113*^9}, {3.935625313503076*^9, 
+   3.935625316038521*^9}},ExpressionUUID->"fb5fabc1-ba5b-48aa-964b-\
+716d3fe3caeb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 905},
+WindowMargins->{{Automatic, 588}, {Automatic, 48}},
+PrintingCopies->10,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"94a17dbf-c624-4e0e-b97a-5ea811487e94"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 1747, 26, 160, "Chapter",ExpressionUUID->"0a9f033e-46a1-4578-becc-919930044f24"],
+Cell[CellGroupData[{
+Cell[2352, 52, 1703, 28, 158, "Section",ExpressionUUID->"39b67822-fab3-4af4-9957-995e6360c459"],
+Cell[4058, 82, 3726, 57, 536, "Text",ExpressionUUID->"3b6a5969-ad38-4c54-8c4f-74267108b137",
+ InitializationCell->True]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7821, 144, 1359, 19, 101, "Section",ExpressionUUID->"e0d51dc0-12b2-43d1-9537-65a0b526a33d"],
+Cell[CellGroupData[{
+Cell[9205, 167, 2889, 47, 80, "Subsection",ExpressionUUID->"14d10e55-818a-4e9b-b649-9dbf0ce9ade1"],
+Cell[12097, 216, 22992, 617, 3669, "Text",ExpressionUUID->"fb5fabc1-ba5b-48aa-964b-716d3fe3caeb"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
