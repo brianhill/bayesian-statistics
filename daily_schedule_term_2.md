@@ -26,6 +26,6 @@ Course [home page](./)
 
 ### Week 5 &mdash; Exam 1
 
-* Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics and Linear Regression
+* Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics (covers Problem Sets 1-5 and Young Sections 1-9) &mdash; Problem Set 6, linear regression and the application of &chi;-squared will not be on this exam &mdash; Instead, Problem Set 6, linear regression and Sections 10-11 will be included in the 2nd exam, which is expected to be in Week 10
 
 <img src="./resources/LinearRegression.png" alt="Linear regression" width="65%">
