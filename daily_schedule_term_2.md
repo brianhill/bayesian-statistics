@@ -19,13 +19,24 @@ Course [home page](./)
 * Tuesday, Sept. 10 &mdash; Carefully read to p. 64 of Young (the Poisson distribution) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-10.nb.pdf) &mdash; Histograms and Integrals &mdash; Discussion of Histogram, Probability Distribution Functions (PDFs), and Cumulative Distribution Functions (CDFs), using deaths of males aged 0-109 as our example
 * Friday, Sept 13 &mdash; To give everyone a break (especially me), there is no assignment due for Friday &mdash; Please use this time *to get started* on pp. 64-75 of Young, *but stop in that reading* as soon as you hit something that you really don't yet have the tools to understand, and come prepared with questions about the reading at the point that you decided to stop &mdash; Figures like Figure 9.2 on p. 68 should be starting to make sense given Tuesday's discussion
 
-### Week 4 &mdash; Gaussian Distribution &mdash; Linear Regression &mdash; Goodness of Fit
+### Week 4 &mdash; Gaussian Distribution &mdash; Start Linear Regression
 
 * Tuesday, Sept. 17 &mdash; You will be doing your last major topic in Young (the Gaussian distribution), pp. 64-75, which you already started on last week &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-09-17.nb.pdf) &mdash; Warmup for Linear Regression
-* Friday, Sept. 20 &mdash; Finish Chapter 3 of Young (to the end of Section 11, p. 86) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-20.nb.pdf) (WHICH LOOKS LONGER THAN IT IS)
+* Friday, Sept. 20 &mdash; Finish Chapter 3 of Young (to the end of Section 11, p. 86) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-20.nb.pdf)
 
-### Week 5 &mdash; Exam 1
+### Week 5 &mdash; Exam 1 &mdash; Finish Linear Regression &mdash; Goodness of Fit
 
 * Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics (covers Problem Sets 1-5 and Young Sections 1-9) &mdash; Problem Set 6, linear regression and the application of &chi;-squared will not be on this exam &mdash; Instead, Problem Set 6, linear regression and Sections 10-11 will be included in the 2nd exam, which is expected to be in Week 10
+* Friday, Sept. 27 &mdash; Finish Reading Sections 10 and 11 of Young  &mdash; Finish Linear Regression &mdash; Goodness of Fit &mdash; Problem Set 7 for Friday is FORTHCOMING
+
+### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
+
+* Tuesday, Oct. 1 &mdash; Read Chapters 1 and 2 of *Bayesian Statistics for Beginners* &mdash; Chapter 1 should be easy given what you already know, so that is why I am also assigning Chapter 2
+* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
+
+### Week 7 &mdash; Bayesian Inference
+
+* Tuesday, Oct. 8 &mdash; Plan for Week 7 is FORTHCOMING
+* Term 2-3 Break begins Friday, Oct. 11
 
 <img src="./resources/LinearRegression.png" alt="Linear regression" width="65%">
