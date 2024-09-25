@@ -6,8 +6,6 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ## Daily Schedule Term 3
 
-The material for much of Term 3 will follow Therese Donovan and Ruth Mickey, [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299)
-
 ### Week 8 &mdash;
 
 *TENTATIVELY*
