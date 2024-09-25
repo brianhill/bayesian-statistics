@@ -2,6 +2,8 @@
 
 Course [home page](./)
 
+See also: [Daily Schedule Term 3](./daily_schedule_term_3.html)
+
 ## Daily Schedule Term 2
 
 ### Week 1 &mdash; Uncertainty, Fractional Error, Propagation of Error, and Random Variables &mdash; Mean
@@ -26,17 +28,21 @@ Course [home page](./)
 
 ### Week 5 &mdash; Exam 1 &mdash; Finish Linear Regression &mdash; Goodness of Fit
 
-* Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics (covers Problem Sets 1-5 and Young Sections 1-9) &mdash; Problem Set 6, linear regression and the application of &chi;-squared will not be on this exam &mdash; Instead, Problem Set 6, linear regression and Sections 10-11 will be included in the 2nd exam, which is expected to be in Week 10
-* Friday, Sept. 27 &mdash; Finish Reading Sections 10 and 11 of Young  &mdash; Finish Linear Regression &mdash; Goodness of Fit &mdash; Problem Set 7 for Friday is FORTHCOMING
+* Tuesday, Sept. 24 &mdash; Exam 1 on Descriptive Statistics (covers Problem Sets 1-5 and Young Sections 1-9) &mdash; Problem Set 6, linear regression and the application of &chi;-squared will be on Exam 2
+* Friday, Sept. 27 &mdash; Review Sections 10 and 11 of Young &mdash; Read Chapter 1 of *Bayesian Statistics for Beginners* &mdash; Problem Set 7 for Friday is FORTHCOMING &mdash; Finish Linear Regression and Goodness of Fit &mdash; Probabilistic Notation &mdash; Venn Diagrams
 
 ### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
 
-* Tuesday, Oct. 1 &mdash; Read Chapters 1 and 2 of *Bayesian Statistics for Beginners* &mdash; Chapter 1 should be easy given what you already know, so that is why I am also assigning Chapter 2
+* Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners*
 * Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
 
 ### Week 7 &mdash; Bayesian Inference
 
-* Tuesday, Oct. 8 &mdash; Plan for Week 7 is FORTHCOMING
-* Term 2-3 Break begins Friday, Oct. 11
+*TENTATIVE*
+
+* Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners*
+* Friday, Oct. 11 &mdash; Term 2-3 Break Begins
+
+Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
 <img src="./resources/LinearRegression.png" alt="Linear regression" width="65%">
