@@ -22,10 +22,11 @@ A [PDF of the Syllabus](./BayesianStatisticsSyllabus.pdf) containing essentially
 ## Daily Schedules (Kept Retrospectively)
 
 * [Daily Schedule Term 2](./daily_schedule_term_2.html)
+* [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
 ## Prerequisite / Joining the Class
 
-I will use mathematics that is commonly known as either Algebra 2 or Algebra 3-4. We will need to develop and use some calculus to do statistics, and I will go slowly and assume you have never seen any calculus. If you had calculus in high school, be patient. This class was pitched as the much more accessible complement to the other class I am teaching this semester.
+I will use mathematics that is commonly known as either Algebra 2 or Algebra 3-4 (depending on whether a school numbers its math classes by the year or the semester). We will need to develop and use some calculus to do statistics, and I will go slowly and assume you have never seen any calculus. If you had calculus in high school, be patient. This class was pitched as the much more accessible complement to the other class I am teaching this semester.
 
 ## Texts
 
