@@ -38,10 +38,10 @@ See also: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
 ### Week 7 &mdash; Bayesian Inference
 
-*TENTATIVE*
+*TENTATIVELY*
 
 * Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners*
-* Friday, Oct. 11 &mdash; Term 2-3 Break Begins
+* Friday, Oct. 11 &mdash; No class (first day of Term 2-3 break)
 
 Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
