@@ -29,15 +29,15 @@ See also: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 ### Week 5 &mdash; Exam 1 &mdash; Finish Linear Regression &mdash; Goodness of Fit
 
 * Tuesday, Sept. 24 &mdash; [Exam 1](./exams/Exam1.nb.pdf) on Descriptive Statistics (covers Problem Sets 1-5 and Young Sections 1-9) &mdash; Problem Set 6, linear regression and the application of &chi;-squared will be on Exam 2
-* Friday, Sept. 27 &mdash; Review Sections 10 and 11 of Young &mdash; Read Chapter 1 of [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-27.nb.pdf) (and use [this graph paper](./assignments/GraphPaperFor2024-09-27.nb.pdf) to graph the data and fit for Problem 1)  &mdash; Finish Linear Regression and Goodness of Fit &mdash; Probabilistic Notation &mdash; Venn Diagrams
+* Friday, Sept. 27 &mdash; Review Sections 10 and 11 of Young &mdash; Read Chapter 1 of [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299) &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-09-27.nb.pdf) (and use [this graph paper](./assignments/GraphPaperFor2024-09-27.nb.pdf) to graph the data and fit for Problem 1)  &mdash; Finish Discussion of Linear Regression and Goodness of Fit
 
 NOTE: Now that we have covered the essential parts of the compact classic introduction to descriptive statistics by Young,
 the material for much (but not all!) of the rest of the course will follow an introductory Bayesian statistics text: Therese Donovan and Ruth Mickey, [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299).
 
 ### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
 
-* Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners*
-* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
+* Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; Probabilistic Notation &mdash; Venn Diagrams &mdash; False Positives &mdash; False Negatives
+* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
 
 ### Week 7 &mdash; Bayesian Inference
 
