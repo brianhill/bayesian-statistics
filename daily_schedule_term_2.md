@@ -48,4 +48,4 @@ the material for much (but not all!) of the rest of the course will follow an in
 
 Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
-<img src="./resources/IAmThomasBayes.png" alt="I am Thomas Bayes" width="55%">
+<img src="./resources/PotatoHarvester.png" alt="Potato Harvester" width="100%">
