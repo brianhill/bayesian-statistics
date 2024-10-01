@@ -37,7 +37,7 @@ the material for much (but not all!) of the rest of the course will follow an in
 ### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
 
 * Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; Probabilistic Notation &mdash; Venn Diagrams &mdash; False Positives &mdash; False Negatives
-* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; To make the reading more lively and to give us all some comic relief, Tahm has volunteered to open Friday's class with a 5-minute presentation on Morton's toe &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
+* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-10-04.nb.pdf) &mdash; To make the reading more lively and to give us all some comic relief, Tahm has volunteered to open Friday's class with a 5-minute presentation on Morton's toe &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
 
 ### Week 7 &mdash; Bayesian Inference
 
