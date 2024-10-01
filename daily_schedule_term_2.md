@@ -37,15 +37,13 @@ the material for much (but not all!) of the rest of the course will follow an in
 ### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
 
 * Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; Probabilistic Notation &mdash; Venn Diagrams &mdash; False Positives &mdash; False Negatives
-* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
+* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; To make the reading more lively and to give us all some comic relief, Tahm has volunteered to open Friday's class with a 5-minute presentation on Morton's toe &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
 
 ### Week 7 &mdash; Bayesian Inference
-
-*TENTATIVELY*
 
 * Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners*
 * Friday, Oct. 11 &mdash; No class (first day of Term 2-3 break)
 
 Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
 
-<img src="./resources/PotatoHarvester.png" alt="Potato Harvester" width="100%">
+<img src="./resources/HamiltonAndMadison.png" alt="Alexander Hamilton (left) and James Madison (right)" width="100%">
