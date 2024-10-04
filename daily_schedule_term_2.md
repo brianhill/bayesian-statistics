@@ -36,12 +36,12 @@ the material for much (but not all!) of the rest of the course will follow an in
 
 ### Week 6 &mdash; Conditional, Marginal, and Joint Probabilities &mdash; Bayes Theorem
 
-* Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; Probabilistic Notation &mdash; Venn Diagrams &mdash; False Positives &mdash; False Negatives
-* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-10-04.nb.pdf) &mdash; To make the reading more lively and to give us all some comic relief, Tahm has volunteered to open Friday's class with a 5-minute presentation on Morton's toe &mdash; Bayes Theorem &mdash; Compare Equation 3.23 with the frequentist lie that we used to get the linear regression formulas
+* Tuesday, Oct. 1 &mdash; Read Chapter 2 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-01.nb.pdf) &mdash; Probabilistic Notation &mdash; Venn Diagrams &mdash; False Positives &mdash; False Negatives &mdash; Bayes Theorem
+* Friday, Oct. 4 &mdash; Read Chapter 3 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-10-04.nb.pdf) &mdash; To make the reading more lively and to give us all some comic relief, Tahm has volunteered to open Friday's class with a 5-minute presentation on Morton's toe &mdash; Useful rearrangements of Bayes Theorem
 
 ### Week 7 &mdash; Bayesian Inference
 
-* Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners*
+* Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners* &mdash; *NB: As preparation for class on Tuesday, Oct. 29, which is the first day of classes after the break, you will be reading Chapter 5 of* Bayesian Statistics for Beginners &mdash; Although there is no assignment to hand in for today (Tuesday, Oct. 8), you can get started on or even complete the [Assignment for Tuesday, Oct. 29](./assignments/AssignmentFor2024-10-29.nb.pdf)
 * Friday, Oct. 11 &mdash; No class (first day of Term 2-3 break)
 
 Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
