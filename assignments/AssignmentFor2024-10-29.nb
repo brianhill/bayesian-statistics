@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    212271,       3728]
-NotebookOptionsPosition[    210186,       3683]
-NotebookOutlinePosition[    210673,       3702]
-CellTagsIndexPosition[    210630,       3699]
+NotebookDataLength[    211687,       3702]
+NotebookOptionsPosition[    209602,       3657]
+NotebookOutlinePosition[    210089,       3676]
+CellTagsIndexPosition[    210046,       3673]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1641,19 +1641,15 @@ Cell[TextData[{
  "The next step in the logical development and application of Bayes\
 \[CloseCurlyQuote] Theorem is to recognize that ",
  Cell[BoxData[
-  FormBox["A", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["A", TraditionalForm]],ExpressionUUID->
   "2e44e244-73ab-499f-9988-c5b5768125ca"],
- " can be anything that it is true or false, and so it could be a hypothesis, \
-",
+ " can be anything that is true or false, and so it could be a hypothesis, ",
  Cell[BoxData[
-  FormBox["H", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["H", TraditionalForm]],ExpressionUUID->
   "ee24fd25-a031-4381-bfb2-555be7f0e69f"],
- ". Meanwhile ",
+ " (maybe that is a leap of faith?). Meanwhile ",
  Cell[BoxData[
-  FormBox["B", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["B", TraditionalForm]],ExpressionUUID->
   "2e173bda-9ef5-4fcf-8f38-910d755085bd"],
  " could be some data (denoted with a script \[ScriptCapitalO], for \
 \[OpenCurlyDoubleQuote]observations\[CloseCurlyDoubleQuote]).\n\nThen just \
@@ -1682,38 +1678,32 @@ changing the letters, we have another version of Equation 4.16:\n\n           \
         RowBox[{"Pr", "(", 
          RowBox[{"~", "H"}], ")"}]}]}]],
      FontSize->24]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->16,ExpressionUUID->"0a25cc86-0e78-4f3d-b30a-723e3a6903e5"],
  "\n                                      \nThe final development in Chapter \
 4 is to allow for many mutually-exclusive hypotheses, only one of which can \
 be true. For example instead of just ",
  Cell[BoxData[
-  FormBox["H", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["H", TraditionalForm]],ExpressionUUID->
   "cd85a1ca-d117-4333-ad1f-b0f517120bba"],
  " and ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"~", "H"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"~", "H"}], TraditionalForm]],ExpressionUUID->
   "17da53c1-6b06-4567-87b5-9e76b7dd844d"],
  ", we could have three mutually-exclusive hypotheses, ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["H", "1"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["H", "1"], TraditionalForm]],ExpressionUUID->
   "da618b94-4c31-45c5-ba26-7b661f2d6e2a"],
  ", ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["H", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["H", "2"], TraditionalForm]],ExpressionUUID->
   "dc2259c3-4c5a-4a98-a59e-bf59782333a9"],
  ", and ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["H", "3"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["H", "3"], TraditionalForm]],ExpressionUUID->
   "bb096da6-b6c8-483e-93d6-6e870f4563b2"],
  ". Then we have:\n\n                                 ",
  Cell[BoxData[
@@ -1750,7 +1740,6 @@ be true. For example instead of just ",
         RowBox[{"Pr", "(", 
          SubscriptBox["H", "3"], ")"}]}]}]],
      FontSize->24]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->16,ExpressionUUID->"55c5164d-19ed-4d4f-90cd-ecfa1c670de2"],
  "\n                                 \n                                 ",
  Cell[BoxData[
@@ -1787,7 +1776,6 @@ be true. For example instead of just ",
         RowBox[{"Pr", "(", 
          SubscriptBox["H", "3"], ")"}]}]}]],
      FontSize->24]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->16,ExpressionUUID->"e9f0f7ae-861e-4f14-9df9-a6ceebaa4de7"],
  "\n                                 \n                                 ",
  Cell[BoxData[
@@ -1824,13 +1812,11 @@ be true. For example instead of just ",
         RowBox[{"Pr", "(", 
          SubscriptBox["H", "3"], ")"}]}]}]],
      FontSize->24]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->16,ExpressionUUID->"dd835f9a-3f39-43b6-8b40-ab1bed820070"],
  "\n                                     \nThis is going to get clumsy if we \
 have 15 mutually-exclusive hypotheses, so we just say there are ",
  Cell[BoxData[
-  FormBox["n", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["n", TraditionalForm]],ExpressionUUID->
   "896156c8-9eec-4e64-bc9a-746f19a9e688"],
  " of them and use our \[CapitalSigma]-notation, and write:\n \n              \
                          ",
@@ -1843,9 +1829,12 @@ have 15 mutually-exclusive hypotheses, so we just say there are ",
        SubscriptBox["H", "i"], "|", "\[ScriptCapitalO]"}], ")"}], "=", 
      StyleBox[
       FractionBox[
-       RowBox[{"Pr", "(", 
-        RowBox[{"\[ScriptCapitalO]", "|", 
-         SubscriptBox["H", "i"]}], ")"}], 
+       RowBox[{
+        RowBox[{"Pr", "(", 
+         RowBox[{"\[ScriptCapitalO]", "|", 
+          SubscriptBox["H", "i"]}], ")"}], "*", 
+        RowBox[{"Pr", "(", 
+         SubscriptBox["H", "i"], ")"}]}], 
        RowBox[{
         UnderoverscriptBox["\[Sum]", 
          RowBox[{"j", "=", "1"}], "n"], 
@@ -1856,39 +1845,32 @@ have 15 mutually-exclusive hypotheses, so we just say there are ",
          RowBox[{"Pr", "(", 
           SubscriptBox["H", "j"], ")"}]}]}]],
       FontSize->24]}]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->16,ExpressionUUID->"ccb99f69-f1d1-4956-9046-fadb6361c712"],
  "\n\nThat is the final equation of Chapter 4 (Eq. 4.18 on p. 46). Note that ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "e390cf09-07b8-46ee-af55-e8ea744703e1"],
  " and ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "00eb3522-dafe-406b-b68a-ece183142f40"],
  " have quite different roles in this equation. The ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "2e4dc4bc-082b-4b54-be81-292afd76f8d3"],
  " index is a \[OpenCurlyDoubleQuote]free\[CloseCurlyDoubleQuote] index, and \
 it can be any value from 1 to ",
  Cell[BoxData[
-  FormBox["n", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["n", TraditionalForm]],ExpressionUUID->
   "b48b03e2-5e40-4247-94b2-e159cf58b7aa"],
  ". The ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "1a9ede6e-b26f-4a67-84a3-a17d66e407c5"],
  " index is an \[OpenCurlyDoubleQuote]index of summation,\
 \[CloseCurlyDoubleQuote] and it has to range over all ",
  Cell[BoxData[
-  FormBox["n", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["n", TraditionalForm]],ExpressionUUID->
   "16a2761e-8178-41bf-952a-f25abea6f420"],
  " values."
 }], "Text",
@@ -1936,20 +1918,21 @@ it can be any value from 1 to ",
    3.936288786599965*^9, 3.936288871288439*^9}, {3.936288922562601*^9, 
    3.936288923996512*^9}, {3.936451046479429*^9, 3.936451059792142*^9}, {
    3.936463451746026*^9, 3.93646345359157*^9}, {3.937062391735929*^9, 
-   3.937062396553337*^9}, {3.937062547039701*^9, 3.9370626615379133`*^9}, {
+   3.937062396553337*^9}, {3.937062547039701*^9, 3.937062661537914*^9}, {
    3.937062741898485*^9, 3.93706284864367*^9}, {3.9370629186679897`*^9, 
    3.937062925536736*^9}, {3.9370629593626747`*^9, 3.937063003842126*^9}, {
    3.937063080916615*^9, 3.9370631964818974`*^9}, {3.9370632273730793`*^9, 
    3.93706323758457*^9}, {3.9370632864877033`*^9, 3.937063450805718*^9}, {
    3.937063533146349*^9, 3.937063945689374*^9}, {3.93706410053955*^9, 
    3.937064171062899*^9}, {3.937064228228632*^9, 3.937064484951851*^9}, {
-   3.9370647129494123`*^9, 3.9370647380146503`*^9}, {3.937065345392819*^9, 
+   3.9370647129494133`*^9, 3.937064738014651*^9}, {3.937065345392819*^9, 
    3.937065373804091*^9}, {3.937066380213842*^9, 3.93706645800629*^9}, {
    3.937067244747267*^9, 3.9370673309428873`*^9}, {3.937067458672534*^9, 
    3.937067463723424*^9}, {3.937067536583269*^9, 3.937067536941102*^9}, {
    3.937067574100169*^9, 3.937067576166771*^9}, {3.937067615904443*^9, 
-   3.937067616426372*^9}, {3.937069810262768*^9, 
-   3.937069822004559*^9}},ExpressionUUID->"79a2d05f-9d55-44e7-9b74-\
+   3.937067616426372*^9}, {3.937069810262768*^9, 3.937069822004559*^9}, {
+   3.9371137013321342`*^9, 
+   3.937113744270863*^9}},ExpressionUUID->"79a2d05f-9d55-44e7-9b74-\
 2035d2ef3771"]
 }, Open  ]],
 
@@ -3498,9 +3481,7 @@ per thousand words is:\n\n",
    RowBox[{
     RowBox[{
      FractionBox["2", "2008"], "*", "1000"}], "=", "0.996"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "b40a7dbf-2ea2-41d3-a2cc-027b85da4946"],
+   TraditionalForm]],ExpressionUUID->"b40a7dbf-2ea2-41d3-a2cc-027b85da4946"],
  "\n\nwhich puts it in the [0, 1) observation bin.\n\nWhat I want you to do \
 for Problem Set 9 is to repeat the calculation on pp. 56-57. In other words, \
 derive a new version of Eq. 5.20, and Eq. 5.21, and make a new version of \
@@ -3513,9 +3494,7 @@ frequency per thousand words is:\n\n",
    RowBox[{
     RowBox[{
      FractionBox["2", "1992"], "*", "1000"}], "=", "1.004"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "d3f17fcd-d224-4390-978a-4d84ea0ff477"],
+   TraditionalForm]],ExpressionUUID->"d3f17fcd-d224-4390-978a-4d84ea0ff477"],
  "\n\nThis puts it in a different observation bin!! It is now in the (1, 2] \
 bin. You will see that you get a very different result when you rework the \
 calculation with Paper 54 in the (1, 2] bin.\n\nAllow me to summarize. I want \
@@ -3530,7 +3509,7 @@ you to start with:\n\n",
         RowBox[{
         "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", " ", 
          RowBox[{"(", 
-          RowBox[{"1", " ", "2"}]}]}]}]}], "]"}], " ", ")"}], "=", 
+          RowBox[{"1", ",", "2"}]}]}]}]}], "]"}], " ", ")"}], "=", 
     StyleBox[
      FractionBox[
       RowBox[{
@@ -3542,7 +3521,7 @@ you to start with:\n\n",
            "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", 
             " ", 
             RowBox[{"(", 
-             RowBox[{"1", " ", "2"}]}]}]}], "]"}], " ", "|", "H"}], ")"}], 
+             RowBox[{"1", ",", "2"}]}]}]}], "]"}], " ", "|", "H"}], ")"}], 
        "*", 
        RowBox[{"Pr", "(", "H", ")"}]}], 
       RowBox[{
@@ -3559,7 +3538,7 @@ you to start with:\n\n",
                 "observed", " ", "frequency", " ", "is", " ", "in", " ", 
                  "bin", " ", 
                  RowBox[{"(", 
-                  RowBox[{"1", " ", "2"}]}]}]}], "]"}], "|", "H"}], ")"}], 
+                  RowBox[{"1", ",", "2"}]}]}]}], "]"}], "|", "H"}], ")"}], 
             "*", 
             RowBox[{"Pr", "(", "H", ")"}]}], "+", 
            RowBox[{"Pr", "(", 
@@ -3567,12 +3546,11 @@ you to start with:\n\n",
             "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", 
              " ", 
              RowBox[{"(", 
-              RowBox[{"1", " ", "2"}]}]}]}]}], "]"}], "|", 
+              RowBox[{"1", ",", "2"}]}]}]}]}], "]"}], "|", 
          RowBox[{"~", "H"}]}], ")"}], "*", 
        RowBox[{"Pr", "(", 
         RowBox[{"~", "H"}], ")"}]}]],
      FontSize->16]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->14,ExpressionUUID->"446f0361-f6bd-4247-9198-0d4e354651c3"],
  "\n\n",
  Cell[BoxData[
@@ -3586,7 +3564,7 @@ you to start with:\n\n",
         RowBox[{
         "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", " ", 
          RowBox[{"(", 
-          RowBox[{"1", " ", "2"}]}]}]}]}], "]"}], " ", ")"}], "=", 
+          RowBox[{"1", ",", "2"}]}]}]}]}], "]"}], " ", ")"}], "=", 
     StyleBox[
      FractionBox[
       RowBox[{
@@ -3598,7 +3576,7 @@ you to start with:\n\n",
            "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", 
             " ", 
             RowBox[{"(", 
-             RowBox[{"1", " ", "2"}]}]}]}], "]"}], " ", "|", 
+             RowBox[{"1", ",", "2"}]}]}]}], "]"}], " ", "|", 
          RowBox[{"~", "H"}]}], ")"}], "*", 
        RowBox[{"Pr", "(", 
         RowBox[{"~", "H"}], ")"}]}], 
@@ -3616,7 +3594,7 @@ you to start with:\n\n",
                 "observed", " ", "frequency", " ", "is", " ", "in", " ", 
                  "bin", " ", 
                  RowBox[{"(", 
-                  RowBox[{"1", " ", "2"}]}]}]}], "]"}], "|", "H"}], ")"}], 
+                  RowBox[{"1", ",", "2"}]}]}]}], "]"}], "|", "H"}], ")"}], 
             "*", 
             RowBox[{"Pr", "(", "H", ")"}]}], "+", 
            RowBox[{"Pr", "(", 
@@ -3624,25 +3602,22 @@ you to start with:\n\n",
             "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", 
              " ", 
              RowBox[{"(", 
-              RowBox[{"1", " ", "2"}]}]}]}]}], "]"}], "|", 
+              RowBox[{"1", ",", "2"}]}]}]}]}], "]"}], "|", 
          RowBox[{"~", "H"}]}], ")"}], "*", 
        RowBox[{"Pr", "(", 
         RowBox[{"~", "H"}], ")"}]}]],
      FontSize->16]}], TraditionalForm]],
-  FormatType->TraditionalForm,
   FontSize->14,ExpressionUUID->"729b17b6-bf4d-49ce-87d6-fbd8c0621af4"],
  "\n\nI want you to use 48/98 as your prior ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"Pr", "(", "H", ")"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"Pr", "(", "H", ")"}], TraditionalForm]],ExpressionUUID->
   "5604d4e5-1629-4f32-bdd6-ae8bd5938a7c"],
  "  and 50/98 as your prior ",
  Cell[BoxData[
   FormBox[
    RowBox[{"Pr", "(", 
-    RowBox[{"~", "H"}], ")"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"~", "H"}], ")"}], TraditionalForm]],ExpressionUUID->
   "89d8cf53-1d4f-48b9-86f9-b48313d4e1c3"],
  ". I want you to get the other things you need, such as ",
  Cell[BoxData[
@@ -3655,9 +3630,7 @@ you to start with:\n\n",
        "observed", " ", "frequency", " ", "is", " ", "in", " ", "bin", " ", 
         RowBox[{"(", 
          RowBox[{"1", " ", "2"}]}]}]}], "]"}], "|", "H"}], ")"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "111d4461-4e63-4609-8fe3-979e1182dba1"],
+   TraditionalForm]],ExpressionUUID->"111d4461-4e63-4609-8fe3-979e1182dba1"],
  " by examining Table 5.2, and just to get you started, I will tell you that \
 I get 10/48 for that particular probability. Get final results good to two \
 decimal places and then make a Figure like Figure 5.5.\n\nIf having just 16 \
@@ -3666,7 +3639,7 @@ I can explain why in person (this problem set writeup is already long \
 enough). I hope you have, are having, or have had an awesome break. See you \
 on Oct. 29."
 }], "Text",
- CellChangeTimes->{{3.937065228059239*^9, 3.9370652299760036`*^9}, {
+ CellChangeTimes->{{3.937065228059239*^9, 3.937065229976003*^9}, {
   3.937065413465929*^9, 3.937065513714169*^9}, {3.937065591060307*^9, 
   3.937065714410431*^9}, {3.937065752227563*^9, 3.9370658316106567`*^9}, {
   3.937065868814662*^9, 3.937065955169725*^9}, {3.937066031209875*^9, 
@@ -3674,8 +3647,9 @@ on Oct. 29."
   3.937066592817193*^9, 3.937066778677258*^9}, {3.937067010903798*^9, 
   3.9370671112868757`*^9}, {3.937067847152178*^9, 3.93706784969794*^9}, {
   3.9370679175783663`*^9, 3.937068439331839*^9}, {3.937068469832399*^9, 
-  3.93706849083397*^9}, {3.937068524629434*^9, 
-  3.9370685356536617`*^9}},ExpressionUUID->"aae67b96-889c-4058-9433-\
+  3.93706849083397*^9}, {3.937068524629434*^9, 3.937068535653661*^9}, {
+  3.937113834757729*^9, 3.937113866259301*^9}, {3.937113928945566*^9, 
+  3.937113938298992*^9}},ExpressionUUID->"aae67b96-889c-4058-9433-\
 d54a8c0c4a2c"]
 }, Open  ]]
 }, Open  ]]
@@ -3713,20 +3687,20 @@ Cell[7534, 132, 1715, 24, 84, "Section",ExpressionUUID->"ef6b66bb-9d0a-4ff6-b662
 Cell[9252, 158, 5164, 87, 328, "Text",ExpressionUUID->"d0b611bc-d3ed-448b-93c4-4156ff478cb6",
  InitializationCell->True],
 Cell[14419, 247, 84508, 1390, 399, "Input",ExpressionUUID->"d425646c-2887-4418-b9ef-3270e2b30da4"],
-Cell[98930, 1639, 13128, 313, 815, "Text",ExpressionUUID->"79a2d05f-9d55-44e7-9b74-2035d2ef3771",
+Cell[98930, 1639, 12679, 296, 844, "Text",ExpressionUUID->"79a2d05f-9d55-44e7-9b74-2035d2ef3771",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[112095, 1957, 1555, 22, 84, "Section",ExpressionUUID->"e0d51dc0-12b2-43d1-9537-65a0b526a33d"],
+Cell[111646, 1940, 1555, 22, 84, "Section",ExpressionUUID->"e0d51dc0-12b2-43d1-9537-65a0b526a33d"],
 Cell[CellGroupData[{
-Cell[113675, 1983, 2949, 41, 67, "Subsection",ExpressionUUID->"d794878c-025d-43d6-b401-f5b837658b65"],
-Cell[116627, 2026, 4008, 94, 580, "Text",ExpressionUUID->"24631799-8dac-4a13-9e04-b5c79b2cf79a"],
-Cell[120638, 2122, 29754, 493, 320, "Input",ExpressionUUID->"8e7b291a-a917-43be-b03c-96f2454aafa8"],
-Cell[150395, 2617, 600, 9, 44, "Text",ExpressionUUID->"f32c96e5-4a69-4fe9-ad2c-c52f9fd4d963"],
-Cell[150998, 2628, 51708, 853, 288, "Input",ExpressionUUID->"b37831a1-c155-4bb8-93f1-ccf7795dd826"],
-Cell[202709, 3483, 99, 1, 4, "PageBreak",ExpressionUUID->"9653e97e-eae7-49c3-b5e0-d4a635b251a6",
+Cell[113226, 1966, 2949, 41, 67, "Subsection",ExpressionUUID->"d794878c-025d-43d6-b401-f5b837658b65"],
+Cell[116178, 2009, 4008, 94, 580, "Text",ExpressionUUID->"24631799-8dac-4a13-9e04-b5c79b2cf79a"],
+Cell[120189, 2105, 29754, 493, 320, "Input",ExpressionUUID->"8e7b291a-a917-43be-b03c-96f2454aafa8"],
+Cell[149946, 2600, 600, 9, 44, "Text",ExpressionUUID->"f32c96e5-4a69-4fe9-ad2c-c52f9fd4d963"],
+Cell[150549, 2611, 51708, 853, 288, "Input",ExpressionUUID->"b37831a1-c155-4bb8-93f1-ccf7795dd826"],
+Cell[202260, 3466, 99, 1, 4, "PageBreak",ExpressionUUID->"9653e97e-eae7-49c3-b5e0-d4a635b251a6",
  PageBreakBelow->True],
-Cell[202811, 3486, 7335, 192, 985, "Text",ExpressionUUID->"aae67b96-889c-4058-9433-d54a8c0c4a2c"]
+Cell[202362, 3469, 7200, 183, 985, "Text",ExpressionUUID->"aae67b96-889c-4058-9433-d54a8c0c4a2c"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
