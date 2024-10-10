@@ -41,9 +41,7 @@ the material for much (but not all!) of the rest of the course will follow an in
 
 ### Week 7 &mdash; Bayesian Inference
 
-* Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners* &mdash; *NB: As preparation for class on Tuesday, Oct. 29, which is the first day of classes after the break, you will be reading Chapter 5 of* Bayesian Statistics for Beginners &mdash; Although there is no assignment to hand in for today (Tuesday, Oct. 8), you can get started on or even complete the [Assignment for Tuesday, Oct. 29](./assignments/AssignmentFor2024-10-29.nb.pdf)
+* Tuesday, Oct. 8 &mdash; Read Chapter 4 of *Bayesian Statistics for Beginners* &mdash; *NB: As preparation for class on Tuesday, Oct. 29, which is the first day of classes after the break, you will be reading Chapter 5 of* Bayesian Statistics for Beginners &mdash; Although there is no assignment to hand in for today (Tuesday, Oct. 8), you can get started on or even complete the [Assignment for Tuesday, Oct. 29](./assignments/AssignmentFor2024-10-29.nb.pdf) &mdash; A Prelude to Continuum Versions of Bayes' Theorem
 * Friday, Oct. 11 &mdash; No class (first day of Term 2-3 break)
 
 Continued on: [Daily Schedule Term 3](./daily_schedule_term_3.html)
-
-<img src="./resources/HamiltonAndMadison.png" alt="Alexander Hamilton (left) and James Madison (right)" width="100%">
