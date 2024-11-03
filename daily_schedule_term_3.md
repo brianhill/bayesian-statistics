@@ -15,9 +15,9 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 9 &mdash; Bayesian Statistics with Probability Distributions
 
-*Another note: Now we are going to do something a little unexpected! We are going to skip Chapter 7 because it introduces too little that is new. And we are going to skip some of Chapter 8, because it is going over the ideas we learned during the first few weeks of the course from Young. Good thing you already had a few weeks on that, and you can skip some of Chapter 8! In Chapter 9 you will find that the mathematics notches up quite a bit, and that will indeed make the problems and building the intuition harder, but spending even a week on Chapters 7 and 8 will only delay us and not help with that. Let's dive in!*
+*Another note: Now we are going to do something a little unexpected! We are going to skip Chapter 7 because it introduces too little that is new. And we are going to skip some of Chapter 8, because it is going over the ideas we learned during the first few weeks of the course from Young. In Chapter 9 you will find that the mathematics notches up quite a bit, and that will indeed make building the intuition harder, but spending even a week on Chapters 7 and 8 will only delay us and not help with that.*
 
-* Tuesday, Nov. 5 &mdash; Jump in at the last half of Chapter 8, pp. 95-107 (if you also try to read pp. 88-94 of Chapter 8, I think you will find it to be a mind-numbing review of what we covered in Young) &mdash; Continue in Chapter 9, pp. 108-121 (this is yet more review of Young but in this case the review is useful)
+* Tuesday, Nov. 5 &mdash; Dive in at the last half of Chapter 8, pp. 95-107 (if you also try to read pp. 88-94 of Chapter 8, I think you will find it to be a mind-numbing review of what we covered in Young) &mdash; Continue in Chapter 9, pp. 108-122 (this is yet more review of Young but in this case the review is useful) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-04.nb.pdf)
 * Friday, Nov. 8 &mdash; Finish studying Chapter 9 of *Bayesian Statistics for Beginners*
 
 <img src="./resources/DeutscheMark.png" alt="Deutsche Mark" width="100%">
