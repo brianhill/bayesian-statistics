@@ -9,7 +9,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 ### Week 8 &mdash; Building Your Intuition with More Examples: Hamilton vs. Madison and a Mudslide with Pollen
 
 * Tuesday, Oct. 29 &mdash; Study Chapter 5 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-10-29.nb.pdf) &mdash; Preparatory discussion for Chapter 6
-* Friday, Nov. 1 &mdash; Study Chapter 6 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-11-01.nb.pdf) &mdash; Preparatory discussion for Chapter 9: [A Continuum of Hypothesis](./resources/AContinuumOfHypothesis.pdf)
+* Friday, Nov. 1 &mdash; Study Chapter 6 of *Bayesian Statistics for Beginners* &mdash; Do the [Assignment for Friday](./assignments/AssignmentFor2024-11-01.nb.pdf) &mdash; Preparatory discussion for Chapter 9: [A Continuum of Hypotheses](./resources/AContinuumOfHypotheses.pdf)
 
 *NB on language: I tend not to use the terms &ldquo;probability mass function (PMF)&rdquo; (an example of which is the Poisson distribution) as Donovan and Mickey do in Chapter 8, or &ldquo;probability density function (PDF)&rdquo; (an example of which is the Gaussian distribution) as Donovan and Mickey do in Chapter 9. Instead, I refer to both of these simply as &ldquo;probability distributions,&rdquo; and if I want to make a distinction between discrete and continuous distributions, I might just say &ldquo;discrete&rdquo; or &ldquo;continuous&rdquo; rather than PMF or PDF.*
 
