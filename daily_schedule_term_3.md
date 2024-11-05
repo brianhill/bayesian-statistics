@@ -18,6 +18,11 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 *Another note: Now we are going to do something a little unexpected! We are going to skip Chapter 7 because it introduces too little that is new. And we are going to skip some of Chapter 8, because it is going over the ideas we learned during the first few weeks of the course from Young. In Chapter 9 you will find that the mathematics notches up quite a bit, and that will indeed make building the intuition harder, but spending even a week on Chapters 7 and 8 will only delay us and not help with that.*
 
 * Tuesday, Nov. 5 &mdash; Dive in at the last half of Chapter 8, pp. 95-107 (if you also try to read pp. 88-94 of Chapter 8, I think you will find it to be a mind-numbing review of what we covered in Young) &mdash; Continue in Chapter 9, pp. 108-122 (this is yet more review of Young but in this case the review is useful) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-05.nb.pdf)
-* Friday, Nov. 8 &mdash; Finish studying Chapter 9 of *Bayesian Statistics for Beginners*
+* Friday, Nov. 8 &mdash; In class on Tuesday, we started the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf) &mdash; Let's not start anything new &mdash; Instead, is there some way to consolidate all that has happened between linear regression and where we are today? &mdash; One thing I would like to do is go back to the mug breakage problem and handle the exact same data a different way
+
+### Week 10 &mdash; Second Exam &mdash; Bayesian Conjugates
+
+* Tuesday, Nov. 12 &mdash; Let's get the second exam over with!
+* Friday, Nov. 15 &mdash; Let's dig in to Chapter 10
 
 <img src="./resources/DeutscheMark.png" alt="Deutsche Mark" width="100%">
