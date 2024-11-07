@@ -28,4 +28,28 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 		* Bayesian statistics with priors and probability density functions
 * Friday, Nov. 15 &mdash; Start Chapter 10 &mdash; Bayesian Conjugates
 
+### Week 11 &mdash;
+
+* Tuesday, Nov. 19 &mdash;
+* Friday, Nov. 22 &mdash;
+
+### Week 12 &mdash;
+
+* Tuesday, Nov. 26 &mdash;
+* Friday, Nov. 29 &mdash; No class - Shakespeare Festival
+
+### Week 13 &mdash;
+
+* Tuesday, Dec. 3 &mdash;
+* Friday, Dec. 6 &mdash;
+
+### Week 14 &mdash;
+
+* Tuesday, Dec. 10 &mdash;
+* Friday, Dec. 13 &mdash; Exam 3
+
+### Week 15 &mdash;
+
+* Tuesday, Dec. 17 &mdash;
+
 <img src="./resources/BalancingMasses.png" alt="Balancing Masses" width="70%">
