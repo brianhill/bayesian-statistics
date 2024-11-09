@@ -14,19 +14,20 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 ### Week 9 &mdash; Bayesian Statistics with Probability Distributions
 
 * Tuesday, Nov. 5 &mdash; Dive in at the last half of Chapter 8, pp. 95-107 (if you also try to read pp. 88-94 of Chapter 8, I think you will find it to be a mind-numbing review of what we covered in Young) &mdash; Continue in Chapter 9, pp. 108-122 (this is yet more review of Young but in this case the review is useful) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-05.nb.pdf) &mdash; We reviewed Bernoulli and Binomial Distributions, including the &ldquo;*n* choose *k*&rdquo; prefactor in the binomial distribution &mdash; We looked at the etymologty of the terms &ldquo;probability mass function (PMF)&rdquo; (an example of which is the Poisson distribution) as Donovan and Mickey use the term in Chapter 8, and &ldquo;probability density function (PDF)&rdquo; (an example of which is the Gaussian distribution) as Donovan and Mickey use the term in Chapter 9 &mdash; We started the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf)
-* Friday, Nov. 8 &mdash; Finish Chapter 9 and the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf) &mdash; We are not starting any new material &mdash; Instead, let's consolidate &mdash; One thing I would like to do is go back to the mug breakage problem and handle the exact same three weeks of data in a different way &mdash; People asked for additional practice problems, which I will provide
+* Friday, Nov. 8 &mdash; Finish Chapter 9 and the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf) &mdash; We are not starting any new material &mdash; Instead, let's consolidate &mdash; People asked for [additional practice problems](./exams/InterestingProblemsBeforeExam2.nb.pdf), which we started in class
 
 ### Week 10 &mdash; Exam 2 &mdash; Bayesian Conjugates
 
+* Sunday, Nov. 10, 6:30pm &mdash; Totally optional Q&amp;A session about the [additional practice problems](./exams/InterestingProblemsBeforeExam2.nb.pdf) and anything else about which you bring questions
 * Tuesday, Nov. 12 Exam 2 on Frequentist and Bayesian Statistics which covers:
-	* Problem Sets 6 to 12
+	* Problem Sets 6 to 12 &mdash; including two Problem Set 10s (OOPS) &mdash; See [A Quick Summary of Recent Problem Sets](./resources/AQuickSummaryOfRecentProblemSets.nb.pdf)
 	* Frequentist statistics:
 	    * Application of the linear regression formula and goodness of fit (also known as &chi;-squared)
 	* Donovan and Mickey Chapters 1 to 6, and Chapters 8 and 9 on Bayesian Statistics:
 		* Bayesian statistics with priors and a finite number of mutually-exclusive hypotheses
 		* Bayesian statistics with priors and probability mass functions
 		* Bayesian statistics with priors and probability density functions
-* Friday, Nov. 15 &mdash; Start Chapter 10 &mdash; Bayesian Conjugates
+* Friday, Nov. 15 &mdash; Start Chapter 10 &mdash; Bayesian Conjugates &mdash; One thing I would like to do is go back to the mug breakage problem and handle the exact same three weeks of data in a different way that uses Bayesian conjugates
 
 ### Week 11 &mdash;
 

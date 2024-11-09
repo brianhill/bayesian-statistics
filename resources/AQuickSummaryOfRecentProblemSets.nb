@@ -1,0 +1,129 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 13.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5105,        121]
+NotebookOptionsPosition[      4445,        100]
+NotebookOutlinePosition[      4932,        119]
+CellTagsIndexPosition[      4889,        116]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["A Quick Summary of Recent Problem Sets", "Chapter",
+ CellChangeTimes->{{3.940164124289751*^9, 3.940164130093651*^9}, {
+  3.940164214310503*^9, 3.940164215194977*^9}},
+ FontSize->24,ExpressionUUID->"549de6d8-0287-48f7-947c-243030f37d39"],
+
+Cell["\<\
+This could be quite handy for seeing the forest for the trees as we approach \
+Exam 2\
+\>", "Subtitle",
+ CellChangeTimes->{{3.940168651604953*^9, 3.9401686731743813`*^9}},
+ FontSize->18,ExpressionUUID->"9f95a6ca-e2f8-4c9d-9013-13ae8030c918"],
+
+Cell[TextData[{
+ StyleBox["I just discovered that I named two problem sets \
+\[OpenCurlyDoubleQuote]Problem Set 10.\[CloseCurlyDoubleQuote]",
+  FontSlant->"Italic"],
+ " Because of this screw-up, a summary is needed. Actually, it is pretty \
+helpful to have a summary even if I hadn\[CloseCurlyQuote]t screwed up the \
+problem set numbering.\n\n",
+ StyleBox["Problem Set 10, Oct. 29\n",
+  FontWeight->"Bold"],
+ "\nThis was a re-do of the Hamilton vs. Madison Author problem that \
+illustrated how sensitive to being near the edge of a histogram bin the \
+Donovan & Mickey approach was. We just changed the number of words in the \
+essay from 2008 words to 1992 words while still keeping the number of \
+\[OpenCurlyDoubleQuote]upon\[CloseCurlyDoubleQuote]s as 2, and this put the \
+essay in a different histogram bin.\n\n",
+ StyleBox["Problem Set 10, Nov. 1\n",
+  FontWeight->"Bold"],
+ "\nThis was the Mudslide problem \[LongDash] which I consider to be a more \
+realistic and therefore compelling alternative to the what-month-is-Mary\
+\[CloseCurlyQuote]s-birthday problem. The point of  this problem is to jump \
+us from 2 or 3 mutually exclusive hypotheses to 12 mutually exclusive \
+hypotheses. Why is that a big deal? Because we are on our way to an infinity \
+of mutually exclusive hypotheses.\n\n",
+ StyleBox["Problem Set 11, Nov. 5\n",
+  FontWeight->"Bold"],
+ "\nThis was the Mug Breakage problem which was your first encounter with a \
+continuum of mutually-exclusive hypotheses characterized by the mug breakage \
+rate, ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "d2d8f441-618c-452f-aeb6-1b9231c41f4e"],
+ ". There are an infinite number of possible values of ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "d2268c0a-4ad7-4f75-8c3f-ca2cd60f1725"],
+ " with a prior that forced ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],ExpressionUUID->
+  "e8bd72a3-3dc5-4a6f-89a4-5a027e0f4652"],
+ " to be between 2 and 6. Notice that the data still takes on discrete values \
+(1 mug was broken last week, or 4 mugs, but never 4.6 mugs).\n\n",
+ StyleBox["Problem Set 12, Nov. 9\n",
+  FontWeight->"Bold"],
+ "\nThis was the Bacterium Survival Time problem. In this problem there is \
+once again a continuum of mutually-exclusive hypotheses characterized by an \
+average bacterial survival time, ",
+ Cell[BoxData[
+  FormBox["m", TraditionalForm]],ExpressionUUID->
+  "fd5fbefd-e440-4ad2-b82e-51eedd22ab4e"],
+ ", which the prior forced to be between 4 and 6. The radically different \
+thing about this problem is that in addition to the model parameter being in \
+a continuum, the data is now in a continuum too!\n\n",
+ StyleBox["Looking ahead, Problem Set 14, Nov. 15\n",
+  FontWeight->"Bold"],
+ "\nSince there were two Problem Set 10\[CloseCurlyQuote]s the first problem \
+set after Exam 2, due on Nov. 15, will be Problem Set 14. It will relate to \
+Chapter 10 and will be your first encounter with Bayesian conjugates."
+}], "Text",
+ CellChangeTimes->{{3.940164146984845*^9, 3.940164668018655*^9}, {
+  3.940164893255956*^9, 3.940165045319282*^9}, {3.9401650808546247`*^9, 
+  3.940165224678111*^9}, {3.940165307590307*^9, 3.940165492168996*^9}, {
+  3.9401686928427687`*^9, 3.9401686937675467`*^9}, {3.9401687418641148`*^9, 
+  3.940168742509841*^9}},ExpressionUUID->"ed31ffd8-e2e0-4417-b7cd-\
+421417dfa3dd"]
+}, Open  ]]
+},
+WindowSize->{1186, 1255},
+WindowMargins->{{Automatic, 176}, {-24, Automatic}},
+PrintingCopies->10,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"fc6d2043-846e-4957-9425-5c660f702e76"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 242, 3, 71, "Chapter",ExpressionUUID->"549de6d8-0287-48f7-947c-243030f37d39"],
+Cell[825, 27, 251, 5, 58, "Subtitle",ExpressionUUID->"9f95a6ca-e2f8-4c9d-9013-13ae8030c918"],
+Cell[1079, 34, 3350, 63, 907, "Text",ExpressionUUID->"ed31ffd8-e2e0-4417-b7cd-421417dfa3dd"]
+}, Open  ]]
+}
+]
+*)
+
