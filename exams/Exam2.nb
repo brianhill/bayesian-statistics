@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    817829,      13611]
-NotebookOptionsPosition[    815609,      13565]
-NotebookOutlinePosition[    816092,      13584]
-CellTagsIndexPosition[    816049,      13581]
+NotebookDataLength[    828068,      13860]
+NotebookOptionsPosition[    824955,      13800]
+NotebookOutlinePosition[    825437,      13819]
+CellTagsIndexPosition[    825394,      13816]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -63,12 +63,13 @@ cf14d2bccbc2"],
 
 Cell["\<\
 In the mythical State of New Provence, an election is being held, and the \
-results from the last 5 polls for the State Senator seat, each poll involving \
-800 respondents, are:\
+results from the last 5 polls for the open State Senator seat\[LongDash]each \
+poll involving 800 respondents\[LongDash]are:\
 \>", "Text",
  CellChangeTimes->{{3.940346024040525*^9, 3.940346036837688*^9}, {
   3.940346093211005*^9, 3.9403461460698643`*^9}, {3.940346207558714*^9, 
-  3.940346247998165*^9}},ExpressionUUID->"ed61e775-6e25-463b-af9d-\
+  3.940346247998165*^9}, {3.94037489602094*^9, 
+  3.9403749225502777`*^9}},ExpressionUUID->"ed61e775-6e25-463b-af9d-\
 8b8e00a33bb9"],
 
 Cell[CellGroupData[{
@@ -157,26 +158,36 @@ Cell[TextData[{
   FontSlant->"Italic"],
  " of these five polls, and assuming that the results will be representative \
 of the actual election, what fraction of the vote total do you predict Girard \
-will get?\n\nHINT 1: The poll dates were included, but do not matter.\nHINT \
-2: ",
- StyleBox["The Reynaud support numbers were tabulated, but they don\
-\[CloseCurlyQuote]t matter at all in any part of this problem",
+will get?\n\nHINT 1: The poll dates were included, ",
+ StyleBox["but do not matter.",
   FontWeight->"Bold",
   FontSlant->"Italic"],
- ", and were only included for completeness like they would be in real tables \
+ " I am not looking for any trend analysis. Just a mean.\nHINT 2: ",
+ StyleBox["The Reynaud support numbers were tabulated, but they also don\
+\[CloseCurlyQuote]t matter at all in any part of this ",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox["problem,",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " and were only included for completeness like they would be in real tables \
 of polling data.\n\n\n\n\n\n(b) The paper you read these polls in keeps \
-saying that the election is too close to call, and this keeps people \
-anxiously purchasing papers. You start to suspect that the paper or the \
-pollsters are fabricating the numbers. Your suspicion centers on the fact \
-that the ",
+saying that the election is too close to call, and this certainly keeps both \
+the Girard and Reynaud supporters anxiously purchasing papers. You start to \
+suspect that the paper or the pollsters are fabricating the numbers. Your \
+suspicion centers on the fact that the ",
  StyleBox["variance",
   FontWeight->"Bold",
   FontSlant->"Italic"],
  " in a Poisson distribution whose mean you found in (a) should be \
 ______________, and given this variance, and the numbers in the five \
-supposedly independent polls look too closely clustered around the mean.\n\n\n\
-Fill in a number in the blank above starting with whatever formula is \
-relevant from the following page of Poisson statistics formulas in Young:\n",
+supposedly independent polls look too closely clustered around the mean.\n\n\
+",
+ StyleBox["Fill in a number in the blank above starting with whatever formula \
+is relevant from the following page of Poisson statistics formulas in Young:\n\
+",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
  Cell[BoxData[
   GraphicsBox[
    TagBox[RasterBox[CompressedData["
@@ -13234,12 +13245,13 @@ fq9e33of9TcBLmj/ALmyhTM=
   3.940346093211005*^9, 3.9403461460698643`*^9}, {3.940346207558714*^9, 
   3.940346247998165*^9}, {3.940346598200914*^9, 3.940346912551605*^9}, {
   3.940347017185272*^9, 3.94034703965749*^9}, {3.940347341468047*^9, 
-  3.94034744802526*^9}, {3.9403475837072287`*^9, 3.9403475845750923`*^9}, {
-  3.9403476998692093`*^9, 3.9403477134219913`*^9}, {3.94034795469033*^9, 
+  3.94034744802526*^9}, {3.9403475837072287`*^9, 3.940347584575093*^9}, {
+  3.940347699869209*^9, 3.940347713421992*^9}, {3.94034795469033*^9, 
   3.940347963854761*^9}, {3.940348370055393*^9, 3.940348470929091*^9}, {
   3.940348581599115*^9, 3.940348690787304*^9}, {3.940348910169519*^9, 
-  3.940349089717424*^9}, {3.940349939014484*^9, 
-  3.940349993045824*^9}},ExpressionUUID->"08240fde-d97e-438f-b66f-\
+  3.940349089717424*^9}, {3.940349939014484*^9, 3.940349993045824*^9}, {
+  3.9403749407284727`*^9, 3.9403749683708763`*^9}, {3.940375086791045*^9, 
+  3.940375133114048*^9}},ExpressionUUID->"08240fde-d97e-438f-b66f-\
 9b4b4f3906d9"]
 }, Open  ]],
 
@@ -13254,14 +13266,15 @@ Cell["1. (CONT\[CloseCurlyQuote]D)", "Section",
 91c6b8acbf1f"],
 
 Cell[TextData[{
- "Again you consult your trusty copy of Young, who discusses the motivation \
-for the definition of ",
+ "To continue, you again consult your trusty copy of ",
+ StyleBox["Statistical Treatment of Experimental Data",
+  FontSlant->"Italic"],
+ " by Hugh Young. He discusses the motivation for the definition of ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],ExpressionUUID->
   "b483e5de-3ca3-4c63-828c-d2ca7eb27503"],
- " on p. 82. The upshot of the discussion is:\n\n",
+ " on p. 82. The upshot of the discussion for our polling problem is:\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -13273,9 +13286,7 @@ for the definition of ",
       SuperscriptBox[
        RowBox[{"(", 
         SubscriptBox["residual", "i"], ")"}], "2"], "variance"]}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "5daf7c97-bada-4ebd-8408-b306ed2a2a3b"],
+   TraditionalForm]],ExpressionUUID->"5daf7c97-bada-4ebd-8408-b306ed2a2a3b"],
  "\n\nwhere\n\n",
  Cell[BoxData[
   FormBox[
@@ -13283,65 +13294,60 @@ for the definition of ",
     SubscriptBox["residual", "i"], "\[Congruent]", 
     RowBox[{
      SubscriptBox["poll", "i"], "-", "mean"}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "92da45a1-43e6-40da-a89d-75e2a72f5e1d"],
+  ExpressionUUID->"92da45a1-43e6-40da-a89d-75e2a72f5e1d"],
  "\n\n(c) In the space below, tabulate the 5 residuals, tabulate their \
 squares, sum the squares, and then divide by the variance.\n\n\n\n\n\n\n\n(d) \
 Young also says that if there are ",
  Cell[BoxData[
-  FormBox["n", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["n", TraditionalForm]],ExpressionUUID->
   "521f66ee-c758-4c1e-bafd-7af13f2fd83b"],
- " data points and 1 model parameter (in this case the model parameter is the \
-mean) that: (i) Getting a ",
+ " data points and 1 model parameter (in this case the 1 model parameter is \
+the mean) that: (i) Getting a ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],ExpressionUUID->
   "31d4f67c-f360-4814-8b97-95d847255b6c"],
  " of ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"n", "-", "1"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"n", "-", "1"}], TraditionalForm]],ExpressionUUID->
   "8dd2c024-be1d-4ab3-94b5-2f1cc9ca9d7f"],
- " is typical. (ii) If the ",
+ " is typical; (ii) if the ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],ExpressionUUID->
   "a86c52c0-cbdc-4799-929c-82ba2633f7a7"],
  " is much less than ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"n", "-", "1"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"n", "-", "1"}], TraditionalForm]],ExpressionUUID->
   "68da52c9-19f9-4200-a92f-2d903f61ab33"],
- ", then the data is being fudged somehow. (iii) If the ",
+ ", then the data is being fudged somehow, and (iii) if the ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["\[Chi]", "2"], TraditionalForm]],ExpressionUUID->
   "3d38d665-928e-4f9b-a72a-cbbda1ae43ab"],
  " is much greater than ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"n", "-", "1"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"n", "-", "1"}], TraditionalForm]],ExpressionUUID->
   "9b6c23e1-61de-4ad4-aef2-c124786374f4"],
- " then the model is not a good fit to the data. Using what Young says and \
-your result from (c) what do you conclude about the paper and the pollsters?"
+ " then the model is not a good fit to the data. Using \
+Young\[CloseCurlyQuote]s guidance and your result from (c) what do you \
+conclude about the paper and the pollsters?"
 }], "Text",
  CellChangeTimes->{{3.940341950972447*^9, 3.9403420304631968`*^9}, {
-   3.9403421097437983`*^9, 3.940342229295451*^9}, {3.9403422665153637`*^9, 
+   3.940342109743798*^9, 3.940342229295451*^9}, {3.940342266515364*^9, 
    3.940342373351012*^9}, {3.940342505480666*^9, 3.94034254158505*^9}, {
    3.940342676534369*^9, 3.940342688159814*^9}, {3.9403427506687*^9, 
-   3.940342837418787*^9}, 3.94034794309291*^9, {3.9403479876832123`*^9, 
+   3.940342837418787*^9}, 3.94034794309291*^9, {3.9403479876832128`*^9, 
    3.940348021442317*^9}, {3.940348146431888*^9, 3.940348343889408*^9}, {
-   3.940348486788227*^9, 3.9403485617937527`*^9}, {3.94034872751477*^9, 
+   3.940348486788227*^9, 3.940348561793753*^9}, {3.94034872751477*^9, 
    3.940348756052761*^9}, {3.940349111387087*^9, 3.94034927537428*^9}, {
    3.940349311782769*^9, 3.9403494110704823`*^9}, {3.940350002152749*^9, 
-   3.940350118031054*^9}},ExpressionUUID->"736bbde3-5dc7-4380-9e6a-\
+   3.940350118031054*^9}, {3.9403751495406113`*^9, 3.940375157205331*^9}, {
+   3.940377283461288*^9, 
+   3.940377425321862*^9}},ExpressionUUID->"736bbde3-5dc7-4380-9e6a-\
 01ea131e08fa"]
 }, Open  ]],
 
@@ -13356,23 +13362,27 @@ Cell["2. Dose-Response Relationship (3 pts)", "Section",
 0ac80de0f768"],
 
 Cell[TextData[{
- "This is a grizzly subject, but it is an important one. A July 1961 paper by \
+ "This is a grisly subject, but it is an important one. A July 1961 paper by \
 A.C. Upton in the journal ",
  StyleBox["Cancer Research",
   FontSlant->"Italic"],
  " summarized 23 cases of leukemia from 1950 to 1957 among people living near \
 the Hiroshima explosion. Table 1 in the paper grouped the survivors into \
 their distance from the explosion, tabulated the estimated radiation dose (in \
-rads) at those distances, and the leukemia incidence rate (in cases per \
-million survivors per year). Table 1 contains:"
+an old unit of exposure called the \[OpenCurlyDoubleQuote]rad\
+\[CloseCurlyDoubleQuote]) at those distances, and correlated this with the \
+leukemia incidence rate (in cases per million survivors per year). Table 1 \
+contains:"
 }], "Text",
  CellChangeTimes->{{3.940341950972447*^9, 3.9403420304631968`*^9}, {
-  3.9403421097437983`*^9, 3.940342229295451*^9}, {3.9403422665153637`*^9, 
+  3.940342109743798*^9, 3.940342229295451*^9}, {3.940342266515364*^9, 
   3.940342373351012*^9}, {3.940342505480666*^9, 3.94034254158505*^9}, {
   3.940342676534369*^9, 3.940342688159814*^9}, {3.9403427506687*^9, 
-  3.940342837418787*^9}, {3.940350144373749*^9, 3.9403501790540457`*^9}, {
-  3.940350358968141*^9, 
-  3.9403503733374643`*^9}},ExpressionUUID->"3a479991-3306-484e-842e-\
+  3.940342837418787*^9}, {3.940350144373749*^9, 3.940350179054045*^9}, {
+  3.940350358968141*^9, 3.9403503733374643`*^9}, {3.940377438553808*^9, 
+  3.9403774404885283`*^9}, {3.940377474811109*^9, 3.940377478093925*^9}, {
+  3.940377647167111*^9, 
+  3.9403776602793207`*^9}},ExpressionUUID->"3a479991-3306-484e-842e-\
 a40da23e8e79"],
 
 Cell[CellGroupData[{
@@ -13445,87 +13455,312 @@ Cell[BoxData[
  CellLabel->
   "Out[52]//TableForm=",ExpressionUUID->"c01168ef-fa2d-4368-90e0-\
 863f022a2374"]
+}, Open  ]]
 }, Open  ]],
 
-Cell[TextData[{
- "You could assume\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"r", "=", 
-    RowBox[{
-     RowBox[{"a", "\[VeryThinSpace]", "\[CenterDot]", "d"}], "+", "b"}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "83e3cc99-ad03-4f10-955d-1d326fb19452"],
- "\n\nwhere ",
- Cell[BoxData[
-  FormBox["a", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "cc5f83b5-aacc-4450-97ce-b1c3b2a08bc3"],
- " and ",
- Cell[BoxData[
-  FormBox["b", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "7714e8fb-a1a3-487c-9924-68dda8e39ff7"],
- " are constants, but the low-dose response rate is so low that there is no \
-need to include a constant offset term representing the background rate of \
-leukemia. So you just assume\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"r", "=", 
-    RowBox[{"a", "\[VeryThinSpace]", "\[CenterDot]", "d"}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "c600d376-bd3c-461f-8687-187d88b336cb"],
- "\n\nas your model. In that case the least-squares analysis gives you\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{"a", "=", 
-    FractionBox[
-     SubscriptBox["A", "1"], 
-     SubscriptBox["A", "2"]]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "7924a990-be85-4abc-92f9-947cb99443e4"],
- "\n\nwhere\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["A", "1"], "=", 
-    RowBox[{
-     UnderoverscriptBox["\[Sum]", 
-      RowBox[{"i", "=", "1"}], "n"], 
-     RowBox[{
-      SubscriptBox["d", "i"], "\[CenterDot]", 
-      SubscriptBox["r", "i"]}]}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "a73f63ec-ebd2-4f23-8453-894dca211dec"],
- "\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["A", "2"], "=", 
-    RowBox[{
-     UnderoverscriptBox["\[Sum]", 
-      RowBox[{"i", "=", "1"}], "n"], 
-     SubsuperscriptBox["d", "i", "2"]}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "cdd945e3-10b2-4ad8-a8dd-45de07e29db7"],
- "\n\nApply the formula to the data and discover the slope of the \
-dose-response relationship, ",
- Cell[BoxData[
-  FormBox["a", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "ce6f8250-9ae0-4d52-b226-1c3b2b93acfc"],
- "."
-}], "Text",
+Cell[CellGroupData[{
+
+Cell["3. Potato Harvesting \[LongDash] Compounded (4 pts)", "Section",
+ CellChangeTimes->{{3.936143651517674*^9, 3.93614365917845*^9}, {
+  3.936174677930442*^9, 3.936174681020389*^9}, {3.936174750952456*^9, 
+  3.9361747510391*^9}, {3.940341937965083*^9, 3.940341942810358*^9}, {
+  3.940350130945884*^9, 3.94035013103664*^9}, {3.940377703584539*^9, 
+  3.94037773293849*^9}, {3.940378008956699*^9, 3.940378023383347*^9}, {
+  3.940379339105483*^9, 3.9403793510742407`*^9}, {3.940379393995081*^9, 
+  3.940379394125807*^9}},ExpressionUUID->"ec6a7418-d2eb-4b76-8042-\
+6074addf7d75"],
+
+Cell["\<\
+Desperate to improve the reduce the number of rocks being sent to the \
+kitchen, the hungry village decides to send the nodules from the field \
+through the potato harvester twice. In other words, instead of sending what \
+the harvester would send straight to the kitchen, and dumping the discards, \
+... , what would have gone to the kitchen gets put through the harvester a \
+second time.
+
+Let us reconstruct what the first pass through the harvester. The story was:
+
+1000 nodules were harvested from the field. The field contains 9x as many \
+rocks as potatoes. Of the potatoes, 95% get sorted correctly. Of the rocks, \
+unfortunately, 20% of those get sorted incorrectly.
+
+(a) Using the data in the story above, make a conjoint table whose margins \
+add up to 20000. Here is a table with lots of blanks left to fill in.\
+\>", "Text",
  CellChangeTimes->{{3.940341950972447*^9, 3.9403420304631968`*^9}, {
-  3.9403421097437983`*^9, 3.940342229295451*^9}, {3.9403422665153637`*^9, 
+  3.940342109743798*^9, 3.940342229295451*^9}, {3.940342266515364*^9, 
   3.940342373351012*^9}, {3.940342505480666*^9, 3.94034254158505*^9}, {
   3.940342676534369*^9, 3.940342688159814*^9}, {3.9403427506687*^9, 
-  3.940342837418787*^9}, {3.940350144373749*^9, 3.9403501790540457`*^9}, {
-  3.940350402079422*^9, 
-  3.940350713311543*^9}},ExpressionUUID->"b7fa0feb-3bf6-46ed-919a-\
+  3.940342837418787*^9}, {3.940350144373749*^9, 3.940350179054045*^9}, {
+  3.940350402079422*^9, 3.940350713311543*^9}, {3.940377490110689*^9, 
+  3.940377616445407*^9}, {3.940377738720242*^9, 3.940377908433504*^9}, {
+  3.940378035056102*^9, 3.940378121085363*^9}, {3.940378550966116*^9, 
+  3.9403785678252897`*^9}, {3.9403789139579697`*^9, 3.9403789186808977`*^9}, {
+  3.940379151477414*^9, 
+  3.94037915155061*^9}},ExpressionUUID->"b7fa0feb-3bf6-46ed-919a-\
 d2789b1138ae"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"firstPassValues", " ", "=", " ", 
+    RowBox[{"{", "}"}]}], ";"}],
+  FontSize->10], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   StyleBox["data",
+    FontFamily->"Source Code Pro",
+    FontSize->9,
+    FontWeight->"SemiBold"], 
+   StyleBox["=",
+    FontFamily->"Source Code Pro",
+    FontSize->9,
+    FontWeight->"SemiBold"], 
+   RowBox[{
+    RowBox[{
+     StyleBox[
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"i", "==", "3"}], ",", " ", 
+          RowBox[{"firstPassValues", "[", 
+           RowBox[{"[", "j", "]"}], "]"}], ",", " ", 
+          "\"\<              \>\""}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "3"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"j", ",", "3"}], "}"}]}], "]"}],
+      FontFamily->"Source Code Pro",
+      FontSize->9,
+      FontWeight->"SemiBold"], 
+     StyleBox[
+      StyleBox[
+       RowBox[{";", ";"}]],
+      FontFamily->"Source Code Pro",
+      FontSize->9,
+      FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+     StyleBox["table1",
+      FontFamily->"Source Code Pro",
+      FontSize->9,
+      FontWeight->"SemiBold"]}], 
+    StyleBox[" ",
+     FontFamily->"Source Code Pro",
+     FontSize->9,
+     FontWeight->"SemiBold"], 
+    StyleBox["=",
+     FontFamily->"Source Code Pro",
+     FontSize->9,
+     FontWeight->"SemiBold"], 
+    StyleBox[" ",
+     FontFamily->"Source Code Pro",
+     FontSize->9,
+     FontWeight->"SemiBold"], 
+    StyleBox[
+     RowBox[{"Prepend", "[", 
+      RowBox[{"data", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Is a Rock\>\"", ",", " ", "\"\<Is a Potato\>\"", ",", " ", 
+         "\"\<Is a Nodule\>\""}], "}"}]}], "]"}],
+     FontFamily->"Source Code Pro",
+     FontSize->9,
+     FontWeight->"SemiBold"]}]}], 
+  StyleBox[";",
+   FontFamily->"Source Code Pro",
+   FontSize->9,
+   FontWeight->"SemiBold"]}], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"table2", " ", "=", " ", 
+    RowBox[{"MapThread", "[", 
+     RowBox[{"Prepend", ",", 
+      RowBox[{"{", 
+       RowBox[{"table1", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<\>\"", ",", "\"\<Discarded in First Pass\>\"", ",", " ", 
+          "\"\<Would be Sent to Kitchen\>\"", ",", " ", "\"\<Sum\>\""}], 
+         "}"}]}], "}"}]}], "]"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Grid", "[", 
+   RowBox[{"table2", ",", " ", 
+    RowBox[{"Frame", "->", "All"}]}], "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"]}], "Input",
+ CellChangeTimes->{{3.936462650915066*^9, 3.936462794272726*^9}, {
+   3.93646283669662*^9, 3.936462958889766*^9}, {3.9364630300128794`*^9, 
+   3.936463080275763*^9}, {3.94037823101383*^9, 3.940378233608576*^9}, 
+   3.9403787008354797`*^9, {3.940378965314664*^9, 3.940378968341867*^9}, {
+   3.940379158321803*^9, 
+   3.9403792537983017`*^9}},ExpressionUUID->"04cbb79b-73b4-4b6a-b3d0-\
+c21dc8eca416"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\<\"\"\>", "\<\"Is a Rock\"\>", "\<\"Is a Potato\"\>", "\<\"Is a Nodule\
+\"\>"},
+    {"\<\"Discarded\"\>", "\<\"              \"\>", "\<\"              \"\>", \
+"\<\"              \"\>"},
+    {"\<\"Would be Sent to Kitchen\"\>", "\<\"              \"\>", "\<\"      \
+        \"\>", "\<\"              \"\>"},
+    {"\<\"Sum\"\>", "\<\"              \"\>", "\<\"              \"\>", 
+     "10000"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Output",
+ CellChangeTimes->{{3.9403786885965548`*^9, 3.940378701660829*^9}},
+ CellLabel->"Out[20]=",ExpressionUUID->"7469c909-9cc9-4353-98be-c6e5d1bdc3a0"]
+}, Open  ]],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\"\<\>\"", "\"\<Is a Rock\>\"", "\"\<Is a Potato\>\"", 
+     "\"\<Is a Nodule\>\""},
+    {"\"\<Discarded\>\"", "\"\<         7200     \>\"", 
+     "\"\<        50      \>\"", "\"\<        7250      \>\""},
+    {"\"\<Would be Sent to Kitchen\>\"", "\"\<         1800     \>\"", 
+     "\"\<       950       \>\"", "\"\<         2750     \>\""},
+    {"\"\<Sum\>\"", "\"\<         9000    \>\"", "\"\<       1000       \>\"",
+      "10000"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Input",
+ CellChangeTimes->{{3.940378191274617*^9, 3.9403782062602177`*^9}, {
+  3.940378276524849*^9, 3.940378294389769*^9}, {3.940378360905765*^9, 
+  3.940378389075617*^9}, {3.940378571907587*^9, 
+  3.940378585423004*^9}},ExpressionUUID->"080d5260-3fe4-4424-9dfe-\
+ed9ae56d4f81"],
+
+Cell["\<\
+(b) Focusing on the row titled \[OpenCurlyDoubleQuote]Would be sent to \
+kitchen,\[CloseCurlyDoubleQuote] we are going to stick those 2750 nodules \
+back into the potato harvester. That is going to become the prior for the \
+second pass through the potato harvester.
+
+Finish filling in the table below
+
+\
+\>", "Text",
+ CellChangeTimes->{{3.940378154762513*^9, 3.940378169913001*^9}, {
+   3.9403784147566*^9, 3.940378480581505*^9}, 3.940378594483334*^9, {
+   3.940378890513215*^9, 
+   3.94037890126616*^9}},ExpressionUUID->"e5c00c3b-5a31-46ae-b60a-\
+b7a82588b283"],
+
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+   RowBox[{"values", " ", "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"1800", ",", " ", "950", ",", " ", "2750"}], "}"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"data", "=", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"i", "==", "3"}], ",", " ", 
+        RowBox[{"values", "[", 
+         RowBox[{"[", "j", "]"}], "]"}], ",", " ", "\"\<              \>\""}],
+        "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"i", ",", "3"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"j", ",", "3"}], "}"}]}], "]"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"table1", " ", "=", " ", 
+    RowBox[{"Prepend", "[", 
+     RowBox[{"data", ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<Is a Rock\>\"", ",", " ", "\"\<Is a Potato\>\"", ",", " ", 
+        "\"\<Is a Nodule\>\""}], "}"}]}], "]"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"table2", " ", "=", " ", 
+    RowBox[{"MapThread", "[", 
+     RowBox[{"Prepend", ",", 
+      RowBox[{"{", 
+       RowBox[{"table1", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<\>\"", ",", "\"\<Discarded in Second Pass\>\"", ",", " ", 
+          "\"\<Sent to Kitchen\>\"", ",", " ", "\"\<Sum\>\""}], "}"}]}], 
+       "}"}]}], "]"}]}], ";"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"], "\[IndentingNewLine]", 
+ StyleBox[
+  RowBox[{"Grid", "[", 
+   RowBox[{"table2", ",", " ", 
+    RowBox[{"Frame", "->", "All"}]}], "]"}],
+  FontFamily->"Source Code Pro",
+  FontSize->9,
+  FontWeight->"SemiBold"]}], "Input",
+ CellChangeTimes->{{3.936462650915066*^9, 3.936462794272726*^9}, {
+   3.93646283669662*^9, 3.936462958889766*^9}, {3.9364630300128794`*^9, 
+   3.936463080275763*^9}, {3.94037823101383*^9, 3.940378233608576*^9}, 
+   3.9403787008354797`*^9, {3.940378741213398*^9, 3.94037874763017*^9}, {
+   3.940378778263979*^9, 3.940378808494137*^9}, {3.9403788411772947`*^9, 
+   3.940378876712111*^9}, {3.940378945733962*^9, 3.940378979799968*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"297e2284-b9e6-4ab5-b1e6-53873e631d6f"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"\"\<\>\"", "\"\<Is a Rock\>\"", "\"\<Is a Potato\>\"", 
+     "\"\<Is a Nodule\>\""},
+    {"\"\<Discarded in Second Pass\>\"", "\"\<         1620     \>\"", 
+     "\"\<              \>\"", "\"\<              \>\""},
+    {"\"\<Sent to Kitchen\>\"", "\"\<         180     \>\"", 
+     "\"\<              \>\"", "\"\<              \>\""},
+    {"\"\<Sum\>\"", "1800", "950", "2750"}
+   },
+   AutoDelete->False,
+   GridBoxFrame->{"Columns" -> {{True}}, "Rows" -> {{True}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Grid"]], "Input",
+ CellChangeTimes->{{3.9403790258618917`*^9, 3.940379026039895*^9}, {
+  3.9403790589768763`*^9, 
+  3.9403790654484243`*^9}},ExpressionUUID->"55156914-36e9-430e-a1ae-\
+f0f6ced62b75"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+4. The Mug Breakage Problem \[LongDash] Compounded, and Compounded Again (5 \
+pts)\
+\>", "Section",
+ CellChangeTimes->{{3.936143651517674*^9, 3.93614365917845*^9}, {
+  3.936174677930442*^9, 3.936174681020389*^9}, {3.936174750952456*^9, 
+  3.9361747510391*^9}, {3.940341937965083*^9, 3.940341942810358*^9}, {
+  3.940350130945884*^9, 3.94035013103664*^9}, {3.940377703584539*^9, 
+  3.94037773293849*^9}, {3.940378008956699*^9, 3.940378023383347*^9}, {
+  3.9403793151643248`*^9, 3.940379331259646*^9}, {3.940379364052906*^9, 
+  3.9403794045669823`*^9}},ExpressionUUID->"6f41a655-f72d-4a7f-92d3-\
+c75e9702bb8d"],
 
 Cell["", "PageBreak",
  PageBreakBelow->True,ExpressionUUID->"b1e4ad57-1a4b-4da0-bbad-fbc27f298e8d"],
@@ -13563,8 +13798,8 @@ have a continuum of values (e.g., the third bacterium survived 5.8 hours)"
 }, Open  ]]
 }, Open  ]]
 },
-WindowSize->{808, 911},
-WindowMargins->{{426, Automatic}, {202, Automatic}},
+WindowSize->{1371, 1250},
+WindowMargins->{{82, Automatic}, {1, Automatic}},
 PrintingCopies->1,
 PrintingPageRange->{1, Automatic},
 Magnification:>1.5 Inherited,
@@ -13585,32 +13820,46 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 266, 4, 103, "Chapter",ExpressionUUID->"bc135800-0174-424d-8d74-603c06ce67d9"],
-Cell[849, 28, 266, 5, 127, "Subtitle",ExpressionUUID->"cf9e9b37-592d-4cb4-9e81-ce3b6af0b74d"],
+Cell[849, 28, 266, 5, 79, "Subtitle",ExpressionUUID->"cf9e9b37-592d-4cb4-9e81-ce3b6af0b74d"],
 Cell[1118, 35, 471, 8, 88, "Text",ExpressionUUID->"deb942d4-90fc-4532-9e29-2bddabeabb01"],
 Cell[CellGroupData[{
 Cell[1614, 47, 534, 14, 102, "Section",ExpressionUUID->"dcb07462-ba72-4e98-9bcd-cf14d2bccbc2"],
-Cell[2151, 63, 424, 8, 122, "Text",ExpressionUUID->"ed61e775-6e25-463b-af9d-8b8e00a33bb9"],
+Cell[2151, 63, 497, 9, 88, "Text",ExpressionUUID->"ed61e775-6e25-463b-af9d-8b8e00a33bb9"],
 Cell[CellGroupData[{
-Cell[2600, 75, 1402, 35, 233, "Input",ExpressionUUID->"4f8730b4-015a-412f-8e56-40d2466d46d9"],
-Cell[4005, 112, 1240, 37, 206, "Output",ExpressionUUID->"1069b6d0-00c0-450c-981b-a8672835b227"]
+Cell[2673, 76, 1402, 35, 109, "Input",ExpressionUUID->"4f8730b4-015a-412f-8e56-40d2466d46d9"],
+Cell[4078, 113, 1240, 37, 206, "Output",ExpressionUUID->"1069b6d0-00c0-450c-981b-a8672835b227"]
 }, Open  ]],
-Cell[5260, 152, 797925, 13090, 2263, "Text",ExpressionUUID->"08240fde-d97e-438f-b66f-9b4b4f3906d9"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[803222, 13247, 408, 6, 101, "Section",ExpressionUUID->"404aa396-d2a9-4451-b40c-91c6b8acbf1f"],
-Cell[803633, 13255, 3526, 89, 925, "Text",ExpressionUUID->"736bbde3-5dc7-4380-9e6a-01ea131e08fa"]
+Cell[5333, 153, 798302, 13101, 1987, "Text",ExpressionUUID->"08240fde-d97e-438f-b66f-9b4b4f3906d9"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[807196, 13349, 373, 6, 101, "Section",ExpressionUUID->"e38e94ea-f08c-42d0-a9ed-0ac80de0f768"],
-Cell[807572, 13357, 1016, 18, 260, "Text",ExpressionUUID->"3a479991-3306-484e-842e-a40da23e8e79"],
-Cell[CellGroupData[{
-Cell[808613, 13379, 1223, 31, 171, "Input",ExpressionUUID->"2c1605de-0f14-4da5-97d0-05681f30b7de"],
-Cell[809839, 13412, 1080, 34, 252, "Output",ExpressionUUID->"c01168ef-fa2d-4368-90e0-863f022a2374"]
+Cell[803672, 13259, 408, 6, 101, "Section",ExpressionUUID->"404aa396-d2a9-4451-b40c-91c6b8acbf1f"],
+Cell[804083, 13267, 3463, 83, 751, "Text",ExpressionUUID->"736bbde3-5dc7-4380-9e6a-01ea131e08fa"]
 }, Open  ]],
-Cell[810934, 13449, 2742, 78, 768, "Text",ExpressionUUID->"b7fa0feb-3bf6-46ed-919a-d2789b1138ae"],
-Cell[813679, 13529, 99, 1, 6, "PageBreak",ExpressionUUID->"b1e4ad57-1a4b-4da0-bbad-fbc27f298e8d",
+Cell[CellGroupData[{
+Cell[807583, 13355, 373, 6, 101, "Section",ExpressionUUID->"e38e94ea-f08c-42d0-a9ed-0ac80de0f768"],
+Cell[807959, 13363, 1263, 22, 191, "Text",ExpressionUUID->"3a479991-3306-484e-842e-a40da23e8e79"],
+Cell[CellGroupData[{
+Cell[809247, 13389, 1223, 31, 109, "Input",ExpressionUUID->"2c1605de-0f14-4da5-97d0-05681f30b7de"],
+Cell[810473, 13422, 1080, 34, 252, "Output",ExpressionUUID->"c01168ef-fa2d-4368-90e0-863f022a2374"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[811602, 13462, 576, 8, 101, "Section",ExpressionUUID->"ec6a7418-d2eb-4b76-8042-6074addf7d75"],
+Cell[812181, 13472, 1602, 28, 398, "Text",ExpressionUUID->"b7fa0feb-3bf6-46ed-919a-d2789b1138ae"],
+Cell[CellGroupData[{
+Cell[813808, 13504, 3074, 98, 171, "Input",ExpressionUUID->"04cbb79b-73b4-4b6a-b3d0-c21dc8eca416"],
+Cell[816885, 13604, 769, 16, 147, "Output",ExpressionUUID->"7469c909-9cc9-4353-98be-c6e5d1bdc3a0"]
+}, Open  ]],
+Cell[817669, 13623, 933, 19, 161, "Input",ExpressionUUID->"080d5260-3fe4-4424-9dfe-ed9ae56d4f81"],
+Cell[818605, 13644, 573, 14, 226, "Text",ExpressionUUID->"e5c00c3b-5a31-46ae-b60a-b7a82588b283"],
+Cell[819181, 13660, 2401, 67, 171, "Input",ExpressionUUID->"297e2284-b9e6-4ab5-b1e6-53873e631d6f"],
+Cell[821585, 13729, 783, 17, 139, "Input",ExpressionUUID->"55156914-36e9-430e-a1ae-f0f6ced62b75"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[822405, 13751, 617, 11, 158, "Section",ExpressionUUID->"6f41a655-f72d-4a7f-92d3-c75e9702bb8d"],
+Cell[823025, 13764, 99, 1, 6, "PageBreak",ExpressionUUID->"b1e4ad57-1a4b-4da0-bbad-fbc27f298e8d",
  PageBreakBelow->True],
-Cell[813781, 13532, 1800, 29, 951, "Text",ExpressionUUID->"e1528030-24cb-4607-a7cc-3c31cd7be491"]
+Cell[823127, 13767, 1800, 29, 641, "Text",ExpressionUUID->"e1528030-24cb-4607-a7cc-3c31cd7be491"]
 }, Open  ]]
 }, Open  ]]
 }
