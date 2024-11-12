@@ -18,7 +18,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 10 &mdash; Exam 2 &mdash; Bayesian Conjugates
 
-* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam1.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared
+* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared
 * Friday, Nov. 15 &mdash; Start Chapter 10 &mdash; Bayesian Conjugates &mdash; One thing I would like to do is go back to the mug breakage problem and handle the exact same three weeks of data in a different way that uses Bayesian conjugates
 
 ### Week 11 &mdash;
