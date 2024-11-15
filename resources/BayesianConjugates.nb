@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     33066,        772]
-NotebookOptionsPosition[     30144,        711]
-NotebookOutlinePosition[     30627,        730]
-CellTagsIndexPosition[     30584,        727]
+NotebookDataLength[     33163,        769]
+NotebookOptionsPosition[     30241,        708]
+NotebookOutlinePosition[     30724,        727]
+CellTagsIndexPosition[     30681,        724]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -435,8 +435,8 @@ the formula. The likelihood of having ",
 545e362a040a"]
 }, Open  ]],
 
-Cell[TextData[StyleBox["Chapter 12 \[LongDash] Gaussian Functions are \
-Conjugate to Gaussian Distributions", "Chapter"]], "Section",
+Cell[TextData[StyleBox["Chapter 12 \[LongDash] Gaussian Function Priors are \
+Conjugate to Gaussian Likelihoods", "Chapter"]], "Section",
  CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
    3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
    3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
@@ -460,8 +460,9 @@ Conjugate to Gaussian Distributions", "Chapter"]], "Section",
    3.939283769646092*^9, 3.9392837759149637`*^9}, {3.9395765550498867`*^9, 
    3.939576561153652*^9}, {3.939775020120942*^9, 3.939775037013215*^9}, {
    3.940549996706098*^9, 3.9405500023037653`*^9}, {3.9406220731528873`*^9, 
-   3.940622086636793*^9}, {3.9406386184005747`*^9, 
-   3.9406386834864397`*^9}},ExpressionUUID->"40411dcf-d3ed-4133-83e3-\
+   3.940622086636793*^9}, {3.940638618400575*^9, 3.9406386834864397`*^9}, {
+   3.9406440215793953`*^9, 
+   3.9406440298225946`*^9}},ExpressionUUID->"40411dcf-d3ed-4133-83e3-\
 8ed020cf4230"]
 }, Open  ]],
 
@@ -650,9 +651,7 @@ the fun of computing the posteriors:\n\n",
        RowBox[{"P", "(", 
         RowBox[{"n", "|", "p"}], ")"}], 
        RowBox[{"P", "(", "p", ")"}], "d", "\[VeryThinSpace]", "p"}]}]]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "e4409de4-bd6a-45f5-8bcf-97b3899c1038"],
+   TraditionalForm]],ExpressionUUID->"e4409de4-bd6a-45f5-8bcf-97b3899c1038"],
  "\n\n",
  Cell[BoxData[
   FormBox[
@@ -670,9 +669,7 @@ the fun of computing the posteriors:\n\n",
        RowBox[{"P", "(", 
         RowBox[{"n", "|", "a"}], ")"}], 
        RowBox[{"P", "(", "a", ")"}], "d", "\[VeryThinSpace]", "a"}]}]]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "fa5cbb32-b730-4886-a007-51845b967061"],
+   TraditionalForm]],ExpressionUUID->"fa5cbb32-b730-4886-a007-51845b967061"],
  "\n\n",
  Cell[BoxData[
   FormBox[
@@ -691,19 +688,19 @@ the fun of computing the posteriors:\n\n",
        RowBox[{"P", "(", 
         RowBox[{"x", "|", "m"}], ")"}], 
        RowBox[{"P", "(", "m", ")"}], "d", "\[VeryThinSpace]", "m"}]}]]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "8eef842d-557f-465c-8174-1cb8166d64c2"],
+   TraditionalForm]],ExpressionUUID->"8eef842d-557f-465c-8174-1cb8166d64c2"],
  "\n\nWe\[CloseCurlyQuote]ll do that algebra together in class. All we really \
 need to focus on to understand why Bayesian conjugates are so great is the \
-numerators. The denominators we will stuff into Mathematica."
+numerators. What happens in the integrals in the denominators is much less \
+interesting (why!?), and we will usually just stuff those into Mathematica."
 }], "Text",
  CellChangeTimes->{{3.940640262998945*^9, 3.940640351864567*^9}, {
   3.940641486777542*^9, 3.9406416077854958`*^9}, {3.940642319228859*^9, 
   3.940642335851384*^9}, {3.940642412190462*^9, 3.940642544379352*^9}, {
-  3.940642574815899*^9, 3.940642587145513*^9}, {3.9406426331832027`*^9, 
-  3.940642666094071*^9}, {3.940642699364509*^9, 
-  3.940643098834696*^9}},ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-\
+  3.940642574815899*^9, 3.940642587145513*^9}, {3.940642633183202*^9, 
+  3.940642666094071*^9}, {3.940642699364509*^9, 3.940643098834696*^9}, {
+  3.9406440750489798`*^9, 
+  3.9406441081843147`*^9}},ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-\
 f3206b1fdbbe"]
 }, Open  ]]
 }, Open  ]]
@@ -756,21 +753,21 @@ Cell[CellGroupData[{
 Cell[17391, 401, 312, 5, 101, "Section",ExpressionUUID->"efdb9b7c-17ce-40cf-bc68-9b2282eef2f8"],
 Cell[17706, 408, 907, 26, 96, "Text",ExpressionUUID->"2e734a02-1093-458c-b09a-545e362a040a"]
 }, Open  ]],
-Cell[18628, 437, 1953, 27, 183, "Section",ExpressionUUID->"40411dcf-d3ed-4133-83e3-8ed020cf4230"]
+Cell[18628, 437, 2009, 28, 183, "Section",ExpressionUUID->"40411dcf-d3ed-4133-83e3-8ed020cf4230"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20618, 469, 327, 4, 68, "Subtitle",ExpressionUUID->"7743f647-8506-4ab5-abd6-8b3605747ca8"],
+Cell[20674, 470, 327, 4, 68, "Subtitle",ExpressionUUID->"7743f647-8506-4ab5-abd6-8b3605747ca8"],
 Cell[CellGroupData[{
-Cell[20970, 477, 218, 4, 101, "Section",ExpressionUUID->"ad7ed4f2-ad28-4fd1-a6ab-4636970614eb"],
-Cell[21191, 483, 2109, 54, 342, "Text",ExpressionUUID->"b7f82135-a67e-43d7-b2ae-67b75e55ea50"]
+Cell[21026, 478, 218, 4, 101, "Section",ExpressionUUID->"ad7ed4f2-ad28-4fd1-a6ab-4636970614eb"],
+Cell[21247, 484, 2109, 54, 342, "Text",ExpressionUUID->"b7f82135-a67e-43d7-b2ae-67b75e55ea50"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23337, 542, 262, 4, 101, "Section",ExpressionUUID->"6fe989aa-0121-434e-abc8-031afa5e4dbd"],
-Cell[23602, 548, 1905, 51, 244, "Text",ExpressionUUID->"2bb80e19-8de6-4d73-8339-bb3130fd30cb"]
+Cell[23393, 543, 262, 4, 101, "Section",ExpressionUUID->"6fe989aa-0121-434e-abc8-031afa5e4dbd"],
+Cell[23658, 549, 1905, 51, 244, "Text",ExpressionUUID->"2bb80e19-8de6-4d73-8339-bb3130fd30cb"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25544, 604, 1982, 27, 112, "Section",ExpressionUUID->"18190467-5b56-44f6-80b8-bdba0ce88a9a"],
-Cell[27529, 633, 2575, 73, 426, "Text",ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-f3206b1fdbbe"]
+Cell[25600, 605, 1982, 27, 112, "Section",ExpressionUUID->"18190467-5b56-44f6-80b8-bdba0ce88a9a"],
+Cell[27585, 634, 2616, 69, 460, "Text",ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-f3206b1fdbbe"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
