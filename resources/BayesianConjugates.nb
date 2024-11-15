@@ -1,0 +1,780 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     33066,        772]
+NotebookOptionsPosition[     30144,        711]
+NotebookOutlinePosition[     30627,        730]
+CellTagsIndexPosition[     30584,        727]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Bayesian Conjugates", "Title",
+ CellChangeTimes->{{3.9406385230292177`*^9, 
+  3.940638535324626*^9}},ExpressionUUID->"0dda884b-dc74-4c3d-bf83-\
+2296257cce9d"],
+
+Cell[TextData[{
+ StyleBox["This document is a lightning summary of Donovan and Mickey \
+Chapters 10, 11, and 12",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ StyleBox[", which offer an introduction to three types of Bayesian \
+conjugates. Perhaps we can see the forest for the trees more clearly working \
+through these three chapters in one fell swoop.",
+  FontSlant->"Italic"]
+}], "Subtitle",
+ CellChangeTimes->{{3.940638552035612*^9, 3.940638602590827*^9}, {
+  3.9406388768438673`*^9, 3.940638890600231*^9}, {3.940638995712234*^9, 
+  3.940639028695221*^9}, {3.940639426488764*^9, 3.9406395730853233`*^9}, {
+  3.940643680664493*^9, 3.940643719226996*^9}},
+ FontSize->18,ExpressionUUID->"1289ae68-863e-4bde-ae76-8fa532d14b8c"],
+
+Cell["\<\
+As you may have started to realize, parametrizing priors, likelihoods, and \
+posteriors, and computing products of functions and their integrals is the \
+bane of getting quickly to conclusions with Bayesian statistics.
+
+Furthermore, once you have a posterior, you may get some more data, and the \
+posterior after the first round of data collection becomes the prior going \
+into the second round of data collection, and so you have yet more products \
+of functions and integrals to compute. This seems never ending!
+
+Wouldn\[CloseCurlyQuote]t life be great if the posterior and the prior had \
+the same functional form? If that were so, the posterior after a round of \
+data collection which becomes the prior for the next round \[LongDash] if it \
+is of the same form \[LongDash] wouldn\[CloseCurlyQuote]t introduce a slew of \
+new products and integrals to compute. Well, life is great. There are \
+pairings of priors and likelihoods for which this is true, and these pairings \
+are called \[OpenCurlyDoubleQuote]Bayesian conjugates.\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{{3.939778416152309*^9, 3.939778499691038*^9}, {
+  3.940550006414547*^9, 3.940550092997733*^9}, {3.94055033026123*^9, 
+  3.9405508237925997`*^9}, {3.940550977472239*^9, 3.940551072475147*^9}, {
+  3.940551102744204*^9, 3.940551321569534*^9}, {3.940622091486928*^9, 
+  3.940622121152896*^9}, {3.940622158955963*^9, 3.940622170885401*^9}, {
+  3.9406390857007637`*^9, 3.9406393801171513`*^9}, {3.940639585432246*^9, 
+  3.9406396063871613`*^9}, {3.940639643021488*^9, 3.940639684859652*^9}, {
+  3.940639718118289*^9, 
+  3.940639836334393*^9}},ExpressionUUID->"099e5f32-a452-475c-840c-\
+c72c9d4ae3ed"],
+
+Cell[TextData[StyleBox["Chapter 10 \[LongDash] Beta Function Priors are \
+Conjugate to Binomial Likelihoods", "Chapter"]], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.935371039054004*^9}, {
+   3.935373031158331*^9, 3.935373031247225*^9}, {3.935582714186861*^9, 
+   3.935582714456925*^9}, {3.936278689885508*^9, 3.936278690154628*^9}, {
+   3.936451070171553*^9, 3.936451070622582*^9}, {3.937062388557239*^9, 
+   3.937062388811603*^9}, {3.937103261441654*^9, 3.93710326172407*^9}, {
+   3.939283769646092*^9, 3.9392837759149637`*^9}, {3.9395765550498867`*^9, 
+   3.939576561153652*^9}, {3.939775020120942*^9, 3.939775037013215*^9}, {
+   3.940549996706098*^9, 3.9405500023037653`*^9}, {3.9406220731528873`*^9, 
+   3.940622086636793*^9}, {3.9406386184005747`*^9, 3.940638638246108*^9}, {
+   3.9406386883300056`*^9, 
+   3.940638734295896*^9}},ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-\
+712b6b49920e"],
+
+Cell[CellGroupData[{
+
+Cell["Our canonical example will be field goal attempts.", "Subtitle",
+ CellChangeTimes->{{3.940638787530292*^9, 3.940638804977646*^9}, 
+   3.940639072979244*^9},
+ FontSize->18,
+ FontSlant->"Italic",ExpressionUUID->"5e396b50-5879-4d6c-9e87-b65d24706ae2"],
+
+Cell[CellGroupData[{
+
+Cell["Beta Function Priors", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 
+  3.940640025192411*^9}},ExpressionUUID->"db58adf7-0845-48d7-b31d-\
+7bee154a55ca"],
+
+Cell[TextData[{
+ "In my introduction to Chapter 10, I wrote down the beta function prior in \
+the following form:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", "p", ")"}], "=", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{"B", "(", 
+       RowBox[{"\[Alpha]", ",", "\[Beta]"}], ")"}]], 
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["p", 
+        RowBox[{"\[Alpha]", "-", "1"}]], "(", 
+       RowBox[{"1", "-", "p"}], ")"}], 
+      RowBox[{"\[Beta]", "-", "1"}]]}]}], TraditionalForm]],
+  InitializationCell->True,ExpressionUUID->
+  "a53c9b25-c645-4216-b4f1-a772623b8e93"],
+ "\n\nThe parameter ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ddd26e75-b03f-4b72-9db9-013fcc3b36d9"],
+ " is the probability of a successful field goal attempt (and it might be \
+something small like 0.1 for field goals being attempted from 80 yards). ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"1", "/", 
+    RowBox[{"B", "(", 
+     RowBox[{"\[Alpha]", ",", " ", "\[Beta]"}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d1c293e4-1144-405c-b38c-fe12ef5b4d0e"],
+ " is a normalization factor that you would have something like Mathematica \
+compute for you. We think of it as a constant because in this context we are \
+thinking of ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4733037b-a52d-49ca-9b93-287a40675af8"],
+ " as the variable, and ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d65cd046-4ff7-4549-b7a4-2f5c0cfe09b6"],
+ " doesn\[CloseCurlyQuote]t show up in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"B", "(", 
+    RowBox[{"\[Alpha]", ",", " ", "\[Beta]"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "285ea47c-351c-44fa-999d-575bb8785c15"],
+ ". It is there so that the area under the curve of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"P", "(", "p", ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cd4e8d8d-bb8f-4635-ad73-6067a5a842bd"],
+ " is 1. In Donovan and Mickey\[CloseCurlyQuote]s jargon, ",
+ Cell[BoxData[
+  FormBox["\[Alpha]", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5b9c7665-38dd-4d58-a077-98ad6bb52faf"],
+ " and ",
+ Cell[BoxData[
+  FormBox["\[Beta]", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "eb5451ff-8f50-498c-aa19-28e587c76419"],
+ " are called \[OpenCurlyDoubleQuote]hyperparameters.\[CloseCurlyDoubleQuote] \
+This is so you won\[CloseCurlyQuote]t get confused between them and the \
+parameter ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5f28443f-a28c-4034-952a-c4fbd3e0577f"],
+ " which shows up in the binomial distribution. All three of these are \
+parameters, and I will not often be saying \
+\[OpenCurlyDoubleQuote]hyperparameters\[CloseCurlyDoubleQuote] because \
+parameters appear in many contexts and we don\[CloseCurlyQuote]t need to have \
+a different name for each context. \n\nTwo facts about the beta function \
+prior: (1) It has mean ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Mu]", "=", 
+    FractionBox["\[Alpha]", 
+     RowBox[{"\[Alpha]", "+", "\[Beta]"}]]}], TraditionalForm]],
+  ExpressionUUID->"81ea171d-ff29-48db-b815-d89810c773ec"],
+ ", and (2) it has variance ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Sigma]", "2"], "=", 
+    FractionBox["\[Alpha]\[Beta]", 
+     RowBox[{
+      SuperscriptBox[
+       RowBox[{"(", 
+        RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "2"], 
+      RowBox[{"(", 
+       RowBox[{"\[Alpha]", "+", "\[Beta]", "+", "1"}], ")"}]}]]}], 
+   TraditionalForm]],ExpressionUUID->"b23c9f8f-6743-4dd6-bae1-82ec585211f9"],
+ ". These facts can be important when you are picking a prior."
+}], "Text",
+ CellChangeTimes->{{3.939778416152309*^9, 3.939778499691038*^9}, {
+  3.940550006414547*^9, 3.940550092997733*^9}, {3.94055033026123*^9, 
+  3.9405508237925997`*^9}, {3.940550977472239*^9, 3.940551072475147*^9}, {
+  3.940551102744204*^9, 3.940551321569534*^9}, {3.940622091486928*^9, 
+  3.940622121152896*^9}, {3.940622158955963*^9, 3.940622170885401*^9}, {
+  3.940639861373526*^9, 3.940639959315342*^9}, {3.940640066059616*^9, 
+  3.940640238699704*^9}, {3.940640706380788*^9, 3.94064076500469*^9}, {
+  3.9406408000740967`*^9, 3.9406408168882847`*^9}, {3.940640985075028*^9, 
+  3.9406410624789257`*^9}, {3.9406410951825123`*^9, 
+  3.940641170441498*^9}},ExpressionUUID->"959fd208-b1a9-4e61-9488-\
+13335e995a86"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Binomial Likelihoods", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 3.940640025192411*^9}, {3.940640248855976*^9, 
+  3.940640252273781*^9}},ExpressionUUID->"4fe1f0a1-ef6f-4a1e-98e3-\
+f38470b6b057"],
+
+Cell[TextData[{
+ "Binomial likelihoods are old hat for you now, but it is handy to reproduce \
+the formula. The likelihood of having ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a9e63b31-b0f7-48c2-a713-dc2184e21cdd"],
+ " successes (field goals made) in ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "25387159-4938-4bfe-b21f-85a20ad79b6c"],
+ " trials (field goals attempted) is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"n", "|", "p"}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"(", GridBox[{
+        {"N"},
+        {"n"}
+       }], ")"}], 
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["p", 
+        RowBox[{"N", "-", "n"}]], "(", 
+       RowBox[{"1", "-", "p"}], ")"}], "n"]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "8f5d0865-5bbb-45a9-a30f-95b766d5562a"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.940640262998945*^9, 3.940640351864567*^9}, {
+  3.940641486777542*^9, 3.9406415278999662`*^9}, {3.940642377932454*^9, 
+  3.94064238867802*^9}},ExpressionUUID->"c39b24b3-2eb8-4675-98ca-\
+5634968173fa"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Chapter 11 \[LongDash] Gamma Function Priors are \
+Conjugate to Poisson Likelihoods", "Chapter"]], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.935371039054004*^9}, {
+   3.935373031158331*^9, 3.935373031247225*^9}, {3.935582714186861*^9, 
+   3.935582714456925*^9}, {3.936278689885508*^9, 3.936278690154628*^9}, {
+   3.936451070171553*^9, 3.936451070622582*^9}, {3.937062388557239*^9, 
+   3.937062388811603*^9}, {3.937103261441654*^9, 3.93710326172407*^9}, {
+   3.939283769646092*^9, 3.9392837759149637`*^9}, {3.9395765550498867`*^9, 
+   3.939576561153652*^9}, {3.939775020120942*^9, 3.939775037013215*^9}, {
+   3.940549996706098*^9, 3.9405500023037653`*^9}, {3.9406220731528873`*^9, 
+   3.940622086636793*^9}, {3.9406386184005747`*^9, 3.940638662814645*^9}, {
+   3.9406387229218683`*^9, 
+   3.9406387496681757`*^9}},ExpressionUUID->"f05c7f8b-159d-4570-ab3a-\
+d7850035e091"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Our canonical example will be mug breakage rates.", "Subtitle",
+ CellChangeTimes->{{3.940638787530292*^9, 3.9406388520303164`*^9}, {
+   3.940638918798983*^9, 3.940638922295154*^9}, 3.940639065281035*^9},
+ FontSize->18,
+ FontSlant->"Italic",ExpressionUUID->"46367585-0a83-4ba7-ba5f-05e915383f1f"],
+
+Cell[CellGroupData[{
+
+Cell["Gamma Function Priors", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 3.940640025192411*^9}, {3.940640367897397*^9, 
+  3.9406403685134897`*^9}},ExpressionUUID->"663474ad-5842-42f8-bcfa-\
+0676eb83378c"],
+
+Cell[TextData[{
+ "In Chapter 11,  Donovan and Mickey wrote down the beta function prior in \
+the following form:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", "a", ")"}], "=", 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["\[Beta]", "\[Alpha]"], 
+      RowBox[{"\[CapitalGamma]", "(", "\[Alpha]", ")"}]], 
+     SuperscriptBox["a", 
+      RowBox[{"\[Alpha]", "-", "1"}]], 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{"-", "\[Beta]"}], "\[VeryThinSpace]", "a"}]]}]}], 
+   TraditionalForm]],
+  InitializationCell->True,ExpressionUUID->
+  "2b0c8db9-cad5-4629-8601-bd19fff1bcaf"],
+ "\n\nThe parameter ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f510c80b-a93e-40be-a901-2f46ac0fbcb5"],
+ " is the mug breakage rate. ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Beta]", "\[Alpha]"], "/", 
+    RowBox[{"\[CapitalGamma]", "(", "\[Alpha]", ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "aa029896-a2f9-4af1-a925-5d4a08eb2326"],
+ " is also a normalization factor that you would have something like \
+Mathematica compute for you. We think of this factor as a constant because it \
+doesn\[CloseCurlyQuote]t depend on ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1f9f2a1b-56e5-4415-b4ca-e4efbce01733"],
+ ". The hyperparameters in the gamma function have absolutely nothing to do \
+with the hyperparameters in the beta function. \n\nTwo useful facts about the \
+gamma function prior: (1) It has mean ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Mu]", "=", 
+    FractionBox["\[Alpha]", "\[Beta]"]}], TraditionalForm]],ExpressionUUID->
+  "1db99b22-a3e6-4245-8760-50956f33989b"],
+ ", and (2) it has variance ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Sigma]", "2"], "=", 
+    FractionBox["\[Alpha]", 
+     SuperscriptBox["\[Beta]", "2"]]}], TraditionalForm]],ExpressionUUID->
+  "d1f63164-8c7b-453e-8d98-051ebc20eba6"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.939778416152309*^9, 3.939778499691038*^9}, {
+  3.940550006414547*^9, 3.940550092997733*^9}, {3.94055033026123*^9, 
+  3.9405508237925997`*^9}, {3.940550977472239*^9, 3.940551072475147*^9}, {
+  3.940551102744204*^9, 3.940551321569534*^9}, {3.940622091486928*^9, 
+  3.940622121152896*^9}, {3.940622158955963*^9, 3.940622170885401*^9}, {
+  3.940639861373526*^9, 3.940639959315342*^9}, {3.940640066059616*^9, 
+  3.940640238699704*^9}, {3.940640373271501*^9, 3.940640377649173*^9}, {
+  3.940640538191444*^9, 3.940640571565021*^9}, {3.9406406055024347`*^9, 
+  3.940640669858571*^9}, {3.940640772490509*^9, 3.940640790951743*^9}, {
+  3.940640821463427*^9, 3.9406408245518513`*^9}, {3.940640855784665*^9, 
+  3.940640955934046*^9}, {3.940641207776634*^9, 3.940641331772979*^9}, {
+  3.940641381695335*^9, 
+  3.9406414069272346`*^9}},ExpressionUUID->"0cf04c2a-ccec-4e02-98da-\
+9b7c355e0af1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Poisson Likelihoods", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 3.940640025192411*^9}, {3.940640248855976*^9, 
+  3.940640252273781*^9}, {3.9406415494939213`*^9, 
+  3.9406415504678383`*^9}},ExpressionUUID->"efdb9b7c-17ce-40cf-bc68-\
+9b2282eef2f8"],
+
+Cell[TextData[{
+ "Poisson likelihoods are old hat for you now, but it is handy to reproduce \
+the formula. The likelihood of having ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "39a1d39e-c2d0-4c09-ad21-5d41b15ca540"],
+ " events (mug breakages) is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"n", "|", "a"}], ")"}], "=", 
+    RowBox[{
+     FractionBox[
+      SuperscriptBox["a", "n"], 
+      RowBox[{"n", "!"}]], 
+     SuperscriptBox["e", 
+      RowBox[{"-", "a"}]]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f0d7b011-aa7f-4dd1-9419-f1aa484f22d3"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.940640262998945*^9, 3.940640351864567*^9}, {
+  3.940641486777542*^9, 3.9406416077854958`*^9}, {3.940642354512151*^9, 
+  3.940642361273838*^9}},ExpressionUUID->"2e734a02-1093-458c-b09a-\
+545e362a040a"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Chapter 12 \[LongDash] Gaussian Functions are \
+Conjugate to Gaussian Distributions", "Chapter"]], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.935371039054004*^9}, {
+   3.935373031158331*^9, 3.935373031247225*^9}, {3.935582714186861*^9, 
+   3.935582714456925*^9}, {3.936278689885508*^9, 3.936278690154628*^9}, {
+   3.936451070171553*^9, 3.936451070622582*^9}, {3.937062388557239*^9, 
+   3.937062388811603*^9}, {3.937103261441654*^9, 3.93710326172407*^9}, {
+   3.939283769646092*^9, 3.9392837759149637`*^9}, {3.9395765550498867`*^9, 
+   3.939576561153652*^9}, {3.939775020120942*^9, 3.939775037013215*^9}, {
+   3.940549996706098*^9, 3.9405500023037653`*^9}, {3.9406220731528873`*^9, 
+   3.940622086636793*^9}, {3.9406386184005747`*^9, 
+   3.9406386834864397`*^9}},ExpressionUUID->"40411dcf-d3ed-4133-83e3-\
+8ed020cf4230"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Our canonical example will be bacteria survival time.",
+ FontSlant->"Italic"]], "Subtitle",
+ CellChangeTimes->{{3.940638787530292*^9, 3.9406388597898006`*^9}, {
+   3.940638925371379*^9, 3.9406389354350758`*^9}, 3.940639067185356*^9},
+ FontSize->18,ExpressionUUID->"7743f647-8506-4ab5-abd6-8b3605747ca8"],
+
+Cell[CellGroupData[{
+
+Cell["Gaussian Function Priors", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 
+  3.940640047290819*^9}},ExpressionUUID->"ad7ed4f2-ad28-4fd1-a6ab-\
+4636970614eb"],
+
+Cell[TextData[{
+ "In Chapter 12,  Donovan and Mickey wrote down the gaussian function prior, \
+but I am going to write it down with something more like Young\
+\[CloseCurlyQuote]s variable names:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", "m", ")"}], "=", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"2", "\[Pi]", " "}]], 
+       SubscriptBox["\[Sigma]", "m"]}]], 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"m", "-", "\[Mu]"}], ")"}], "2"]}], "/", "2"}], 
+       SuperscriptBox[
+        SubscriptBox["\[Sigma]", "m"], "2"]}]]}]}], TraditionalForm]],
+  InitializationCell->True,ExpressionUUID->
+  "99b850ba-ca38-415a-8bd6-704e84d7bf3b"],
+ "\n\nSomething I don\[CloseCurlyQuote]t want to deal with and that we really \
+should deal with if we want to be completely honest is that ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["\[Sigma]", "m"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "eb119fcd-6b75-4af8-990f-5ef66749dd3b"],
+ " is probably not going to be given. However, I am going to treat it as a \
+given for the foreseeable future.\n\nOf course, this Gaussian function prior \
+(1) has mean ",
+ Cell[BoxData[
+  FormBox["\[Mu]", TraditionalForm]],ExpressionUUID->
+  "d7542821-95ef-421e-95ba-210775d8b78a"],
+ ", and (2) variance ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "m"], "2"], TraditionalForm]],ExpressionUUID->
+  "3ebeee0b-f17b-4c05-befb-beb78313d45b"],
+ "."
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQvf0+y7v2qLeOf2TKfoDoH85n1zHEvHXMezt/J4j+
+H+1xHUT/ivkpwgikp8roa4DodBN+ExDdeuG6OYieb2kUDKJfTcl/qAyk256o
+PAXRDtPvvQTRJqExr0H028+r+3SAtIf4q1kgOuGF4woQ/Sv52l4QrbxhxTkQ
+zXbM5DyI9ldwewyil4sUPQfRn4Q3vAbRWZW7P4Noh039DLpAel3JPSYQnXpl
+HRuIPrJCkB1E/5L+yQWitzyuFQfRBrd+mIFouz0VbiBa32GbD4h+sfquP4g2
+FHPPA9E2+2zLQfS0ZUr1IPqM2sRGEC0ncbYVRE9qq+0C0atm350INudg9iQQ
+3Rz3ZymIFqoU2Q8272LsExB969sFMA0AKhexTA==
+  "],ExpressionUUID->"b7f82135-a67e-43d7-b2ae-67b75e55ea50"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gaussian Likelihoods", "Section",
+ CellChangeTimes->{{3.940639978706362*^9, 3.940639979126959*^9}, {
+  3.940640020196128*^9, 3.940640047290819*^9}, {3.9406423095375137`*^9, 
+  3.940642311729396*^9}},ExpressionUUID->"6fe989aa-0121-434e-abc8-\
+031afa5e4dbd"],
+
+Cell[TextData[{
+ "Gaussian likelihoods are old hat. The likelihood of getting the data point ",
+ Cell[BoxData[
+  FormBox["x", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0f114fb4-824c-45c3-b014-bb269a0900fe"],
+ " (a bacterium survival time) is \n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"x", "|", "m"}], ")"}], "=", 
+    RowBox[{
+     FractionBox["1", 
+      RowBox[{
+       SqrtBox[
+        RowBox[{"2", "\[Pi]", " "}]], 
+       SubscriptBox["\[Sigma]", "x"]}]], 
+     SuperscriptBox["e", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"-", 
+         SuperscriptBox[
+          RowBox[{"(", 
+           RowBox[{"x", "-", "m"}], ")"}], "2"]}], "/", "2"}], 
+       SuperscriptBox[
+        SubscriptBox["\[Sigma]", "x"], "2"]}]]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "776c1c64-0b7a-4532-a762-58b98848017a"],
+ ".\n\nNotice that I have allowed for the possibility that the variance, ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "x"], "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "62109ad4-d5b1-4702-b2e9-0cf938daf8ed"],
+ ", in bacterium survival times has some different value than the variance, \
+",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    SubscriptBox["\[Sigma]", "m"], "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "efdb39c8-f599-4262-bbe3-cdd427271448"],
+ ", in the prior. There is no reason for these variances to be the same."
+}], "Text",
+ CellChangeTimes->{{3.940640262998945*^9, 3.940640351864567*^9}, {
+  3.940641486777542*^9, 3.9406416077854958`*^9}, {3.940642319228859*^9, 
+  3.940642335851384*^9}, {3.940642412190462*^9, 3.940642544379352*^9}, {
+  3.940642574815899*^9, 3.940642587145513*^9}, {3.9406431493457127`*^9, 
+  3.940643167013646*^9}},ExpressionUUID->"2bb80e19-8de6-4d73-8339-\
+bb3130fd30cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["The Posteriors", "Chapter"]], "Section",
+ CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
+   3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
+   3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
+   3.902927393209742*^9, 3.9029273996228228`*^9}, {3.9031854584896*^9, 
+   3.9031854607388773`*^9}, {3.905358887040047*^9, 3.905358891225012*^9}, {
+   3.907161370767453*^9, 3.907161371892496*^9}, {3.907817203385817*^9, 
+   3.907817203622153*^9}, {3.908397850368978*^9, 3.908397850605451*^9}, {
+   3.908975480013135*^9, 3.908975480438824*^9}, 3.913809991562726*^9, {
+   3.914025287063518*^9, 3.914025287355214*^9}, {3.914439626346298*^9, 
+   3.914439630982443*^9}, {3.914689365971838*^9, 3.9146893660493383`*^9}, {
+   3.91503638438058*^9, 3.9150363844229403`*^9}, {3.915404626934729*^9, 
+   3.915404627137566*^9}, {3.9160129529132*^9, 3.916012953068987*^9}, {
+   3.933672274356457*^9, 3.933672274446686*^9}, {3.93404157768497*^9, 
+   3.934041577727776*^9}, {3.934395984861156*^9, 3.934395984938064*^9}, {
+   3.934396294356015*^9, 3.934396303342817*^9}, {3.934709304582351*^9, 
+   3.934709304646512*^9}, {3.935371038987274*^9, 3.935371039054004*^9}, {
+   3.935373031158331*^9, 3.935373031247225*^9}, {3.935582714186861*^9, 
+   3.935582714456925*^9}, {3.936278689885508*^9, 3.936278690154628*^9}, {
+   3.936451070171553*^9, 3.936451070622582*^9}, {3.937062388557239*^9, 
+   3.937062388811603*^9}, {3.937103261441654*^9, 3.93710326172407*^9}, {
+   3.939283769646092*^9, 3.9392837759149637`*^9}, {3.9395765550498867`*^9, 
+   3.939576561153652*^9}, {3.939775020120942*^9, 3.939775037013215*^9}, {
+   3.940549996706098*^9, 3.9405500023037653`*^9}, {3.9406220731528873`*^9, 
+   3.940622086636793*^9}, {3.9406386184005747`*^9, 3.940638638246108*^9}, {
+   3.9406386883300056`*^9, 3.940638734295896*^9}, {3.9406426210612583`*^9, 
+   3.940642622980788*^9}},ExpressionUUID->"18190467-5b56-44f6-80b8-\
+bdba0ce88a9a"],
+
+Cell[TextData[{
+ "Having summarized all these formula in one handy-dandy place, we now have \
+the fun of computing the posteriors:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"p", "|", "n"}], ")"}], "=", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"P", "(", 
+       RowBox[{"n", "|", "p"}], ")"}], 
+      RowBox[{"P", "(", "p", ")"}]}], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "1"], 
+      RowBox[{
+       RowBox[{"P", "(", 
+        RowBox[{"n", "|", "p"}], ")"}], 
+       RowBox[{"P", "(", "p", ")"}], "d", "\[VeryThinSpace]", "p"}]}]]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e4409de4-bd6a-45f5-8bcf-97b3899c1038"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"a", "|", "n"}], ")"}], "=", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"P", "(", 
+       RowBox[{"n", "|", "a"}], ")"}], 
+      RowBox[{"P", "(", "a", ")"}]}], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", "0", "\[Infinity]"], 
+      RowBox[{
+       RowBox[{"P", "(", 
+        RowBox[{"n", "|", "a"}], ")"}], 
+       RowBox[{"P", "(", "a", ")"}], "d", "\[VeryThinSpace]", "a"}]}]]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "fa5cbb32-b730-4886-a007-51845b967061"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"P", "(", 
+     RowBox[{"m", "|", "x"}], ")"}], "=", 
+    FractionBox[
+     RowBox[{
+      RowBox[{"P", "(", 
+       RowBox[{"x", "|", "m"}], ")"}], 
+      RowBox[{"P", "(", "m", ")"}]}], 
+     RowBox[{
+      SubsuperscriptBox["\[Integral]", 
+       RowBox[{"-", "\[Infinity]"}], "\[Infinity]"], 
+      RowBox[{
+       RowBox[{"P", "(", 
+        RowBox[{"x", "|", "m"}], ")"}], 
+       RowBox[{"P", "(", "m", ")"}], "d", "\[VeryThinSpace]", "m"}]}]]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "8eef842d-557f-465c-8174-1cb8166d64c2"],
+ "\n\nWe\[CloseCurlyQuote]ll do that algebra together in class. All we really \
+need to focus on to understand why Bayesian conjugates are so great is the \
+numerators. The denominators we will stuff into Mathematica."
+}], "Text",
+ CellChangeTimes->{{3.940640262998945*^9, 3.940640351864567*^9}, {
+  3.940641486777542*^9, 3.9406416077854958`*^9}, {3.940642319228859*^9, 
+  3.940642335851384*^9}, {3.940642412190462*^9, 3.940642544379352*^9}, {
+  3.940642574815899*^9, 3.940642587145513*^9}, {3.9406426331832027`*^9, 
+  3.940642666094071*^9}, {3.940642699364509*^9, 
+  3.940643098834696*^9}},ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-\
+f3206b1fdbbe"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1286, 1308},
+WindowMargins->{{Automatic, 362}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"ab6f7328-906c-4d40-8dea-b82fc864e9bf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 164, 3, 146, "Title",ExpressionUUID->"0dda884b-dc74-4c3d-bf83-2296257cce9d"],
+Cell[747, 27, 730, 14, 141, "Subtitle",ExpressionUUID->"1289ae68-863e-4bde-ae76-8fa532d14b8c"],
+Cell[1480, 43, 1698, 27, 398, "Text",ExpressionUUID->"099e5f32-a452-475c-840c-c72c9d4ae3ed"],
+Cell[3181, 72, 2003, 28, 183, "Section",ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-712b6b49920e"],
+Cell[CellGroupData[{
+Cell[5209, 104, 254, 4, 68, "Subtitle",ExpressionUUID->"5e396b50-5879-4d6c-9e87-b65d24706ae2"],
+Cell[CellGroupData[{
+Cell[5488, 112, 214, 4, 101, "Section",ExpressionUUID->"db58adf7-0845-48d7-b31d-7bee154a55ca"],
+Cell[5705, 118, 4577, 112, 556, "Text",ExpressionUUID->"959fd208-b1a9-4e61-9488-13335e995a86"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10319, 235, 260, 4, 101, "Section",ExpressionUUID->"4fe1f0a1-ef6f-4a1e-98e3-f38470b6b057"],
+Cell[10582, 241, 1185, 35, 112, "Text",ExpressionUUID->"c39b24b3-2eb8-4675-98ca-5634968173fa"]
+}, Open  ]],
+Cell[11782, 279, 2005, 28, 183, "Section",ExpressionUUID->"f05c7f8b-159d-4570-ab3a-d7850035e091"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13824, 312, 301, 4, 68, "Subtitle",ExpressionUUID->"46367585-0a83-4ba7-ba5f-05e915383f1f"],
+Cell[CellGroupData[{
+Cell[14150, 320, 263, 4, 101, "Section",ExpressionUUID->"663474ad-5842-42f8-bcfa-0676eb83378c"],
+Cell[14416, 326, 2938, 70, 349, "Text",ExpressionUUID->"0cf04c2a-ccec-4e02-98da-9b7c355e0af1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17391, 401, 312, 5, 101, "Section",ExpressionUUID->"efdb9b7c-17ce-40cf-bc68-9b2282eef2f8"],
+Cell[17706, 408, 907, 26, 96, "Text",ExpressionUUID->"2e734a02-1093-458c-b09a-545e362a040a"]
+}, Open  ]],
+Cell[18628, 437, 1953, 27, 183, "Section",ExpressionUUID->"40411dcf-d3ed-4133-83e3-8ed020cf4230"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20618, 469, 327, 4, 68, "Subtitle",ExpressionUUID->"7743f647-8506-4ab5-abd6-8b3605747ca8"],
+Cell[CellGroupData[{
+Cell[20970, 477, 218, 4, 101, "Section",ExpressionUUID->"ad7ed4f2-ad28-4fd1-a6ab-4636970614eb"],
+Cell[21191, 483, 2109, 54, 342, "Text",ExpressionUUID->"b7f82135-a67e-43d7-b2ae-67b75e55ea50"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[23337, 542, 262, 4, 101, "Section",ExpressionUUID->"6fe989aa-0121-434e-abc8-031afa5e4dbd"],
+Cell[23602, 548, 1905, 51, 244, "Text",ExpressionUUID->"2bb80e19-8de6-4d73-8339-bb3130fd30cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25544, 604, 1982, 27, 112, "Section",ExpressionUUID->"18190467-5b56-44f6-80b8-bdba0ce88a9a"],
+Cell[27529, 633, 2575, 73, 426, "Text",ExpressionUUID->"43ae4d8d-a3fd-4b77-a0ef-f3206b1fdbbe"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

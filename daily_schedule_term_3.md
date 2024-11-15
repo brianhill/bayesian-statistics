@@ -16,17 +16,17 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 * Tuesday, Nov. 5 &mdash; Dive in at the last half of Chapter 8, pp. 95-107 (if you also try to read pp. 88-94 of Chapter 8, I think you will find it to be a mind-numbing review of what we covered in Young) &mdash; Continue in Chapter 9, pp. 108-122 (this is yet more review of Young but in this case the review is useful) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-05.nb.pdf) &mdash; We reviewed Bernoulli and Binomial Distributions, including the &ldquo;*n* choose *k*&rdquo; prefactor in the binomial distribution &mdash; We looked at the etymologty of the terms &ldquo;probability mass function (PMF)&rdquo; (an example of which is the Poisson distribution) as Donovan and Mickey use the term in Chapter 8, and &ldquo;probability density function (PDF)&rdquo; (an example of which is the Gaussian distribution) as Donovan and Mickey use the term in Chapter 9 &mdash; We started the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf)
 * Friday, Nov. 8 &mdash; Finish Chapter 9 and the [Assignment for Friday](./assignments/AssignmentFor2024-11-08.nb.pdf) &mdash; We are not starting any new material &mdash; Instead, let's consolidate &mdash; People asked for [additional practice problems](./exams/InterestingProblemsBeforeExam2.nb.pdf), which we started in class
 
-### Week 10 &mdash; Exam 2 &mdash; Introducing Bayesian Conjugates
+### Week 10 &mdash; Exam 2 &mdash; Start Bayesian Conjugates
 
 * Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared
-* Friday, Nov. 15 &mdash; Study Chapter 10 &mdash; Introducing Bayesian Conjugates &mdash; Please examine the [Assignment for Friday](./assignments/AssignmentFor2024-11-15.nb.pdf) which is not to be turned in &mdash; Instead it just contains ideas for how you could approach Chapter 10
+* Friday, Nov. 15 &mdash; Study Chapter 10 &mdash; Introduce Bayesian Conjugates &mdash; Please examine the [Assignment for Friday](./assignments/AssignmentFor2024-11-15.nb.pdf) which is not to be turned in &mdash; Instead it just contains ideas for how you could approach Chapter 10
 
-### Week 11 &mdash;
+### Week 11 &mdash; Finish Bayesian Conjugates
 
-* Tuesday, Nov. 19 &mdash;
+* Tuesday, Nov. 19 &mdash; Please come with questions about the summary of Chapters 10, 11, and 12: [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Do the [Assignment for Tuesday - FORTHCOMING](./assignments/AssignmentFor2024-11-19.nb.pdf)
 * Friday, Nov. 22 &mdash;
 
-### Week 12 &mdash;
+### Week 12 &mdash; Start Markov Chain Monte Carlo
 
 * Tuesday, Nov. 26 &mdash;
 * Friday, Nov. 29 &mdash; No class - Shakespeare Festival
