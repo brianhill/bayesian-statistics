@@ -23,8 +23,8 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 11 &mdash; Finish Bayesian Conjugates
 
-* Tuesday, Nov. 19 &mdash; Please come with questions about the summary of Chapters 10, 11, and 12: [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Do the [Assignment for Tuesday - FORTHCOMING](./assignments/AssignmentFor2024-11-19.nb.pdf)
-* Friday, Nov. 22 &mdash;
+* Tuesday, Nov. 19 &mdash; You can study Chapter 11, which introduces gamma functions which are conjugate to Poisson distributions, or alternatively, you can just study my handout on [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Please come with questions about Chapters 11 or my summary in the handout of Chapter 11: [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-19.nb.pdf)
+* Friday, Nov. 22 &mdash; We will proceed to Chapter 12 &mdash; There is one new idea that is more advanced in Chapter 12, but most of it is like Chapters 10 and 11, and we have to decide whether we want to get into the more advanced idea
 
 ### Week 12 &mdash; Start Markov Chain Monte Carlo
 
