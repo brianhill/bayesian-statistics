@@ -1,0 +1,210 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11111,        202]
+NotebookOptionsPosition[     10757,        188]
+NotebookOutlinePosition[     11156,        204]
+CellTagsIndexPosition[     11113,        201]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "I don\[CloseCurlyQuote]t particularly want to get into politics. Some \
+classes should be apolitical simply as a respite for all the politicized \
+classes so you can go back into those classes refreshed. But in the case of \
+Monte Carlo methods, the best example by far that I can think of is \
+political. I will at least remove it from the present context somewhat by \
+making it a political example from 2016. Here we go....\n\nSuppose you have \
+poll data from each of 50 states. Each poll has some uncertainty. For example \
+polls in the State of Arizona might show Clinton beating Trump with a 52% to \
+48% margin. There is some uncertainty in this poll though, so ",
+ StyleBox["a poll with a 4% margin for Clinton doesn\[CloseCurlyQuote]t mean \
+that 100% of the time Clinton will get Arizona\[CloseCurlyQuote]s 11 \
+electoral college votes.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " With a 4% margin, and some polling uncertainty, we might assume that \
+Clinton will beat Trump in Arizona 80% of the time and get those 11 electoral \
+college votes. However, it might go the other way 20% of the time and in that \
+case Trump gets those 11 electoral college votes. I just made those numbers \
+up. Obviously the actual ratio depends on your assessment of the uncertainty \
+in the polling data.\n\nNow repeat this imaginary analysis for each of the \
+other 49 states. Each of those states will have its own poll results, and \
+from the margin in that state\[CloseCurlyQuote]s poll results, and your \
+estimate of the uncertainty of the polling in that state, you will get some \
+percentage chance that Clinton gets that state\[CloseCurlyQuote]s electoral \
+college votes.\n\nNow here is the problem. There are ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "50"], TraditionalForm]],ExpressionUUID->
+  "f08e3f3f-3d9f-4db9-bdc6-04453f45c1f5"],
+ " possible outcomes, right?! Every stinking state could go one way or the \
+other. If there were only three states in the US, you would have ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["2", "3"], "=", "8"}], TraditionalForm]],ExpressionUUID->
+  "dd6a3259-2373-4686-aa23-98e2aad42a54"],
+ " possible outcomes, and each of those outcomes would have a probability, \
+and each of those outcomes has an electoral college tally. It\
+\[CloseCurlyQuote]s trivial to make a model and have the computer do all 8 \
+possibilities and then compute what fraction of the time Clinton gets a \
+majority of the electoral college.\n\nBut there are 50 states, and each \
+specific outcome has a ridiculously small probability, and every one of these \
+outcomes results in a different electoral college tally. ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "50"], TraditionalForm]],ExpressionUUID->
+  "0279bead-a0f5-45d2-be58-e15ccaf25f05"],
+ " is about ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "15"], TraditionalForm]],ExpressionUUID->
+  "155529f2-ce46-4312-9bd6-b3ab76cc8109"],
+ ". Even if your computer can do 1,000,000 tallies a second, it would take \
+about ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "9"], TraditionalForm]],ExpressionUUID->
+  "1d299631-c514-40b8-85fc-412dbb1f445e"],
+ " seconds which is about 30 years to come up with an answer to the question, \
+\[OpenCurlyDoubleQuote]what is the chance that Clinton will get a majority of \
+the electoral college votes?\[CloseCurlyDoubleQuote] The intractability of \
+this problem is one reason why there is so much focus on swing states. One \
+way to make the problem tractable, is to assume that 40 or so of the 50 \
+states are not in play. Then you run the computer model on the remaining ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "10"], TraditionalForm]],ExpressionUUID->
+  "93689175-7417-47b5-a015-653de3f92102"],
+ " possibilities, and ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "10"], TraditionalForm]],ExpressionUUID->
+  "37a9a96a-831a-4f09-87d5-e9562d77a134"],
+ " is 1024, and a computer can easily do all 1024 possibilities, and tabulate \
+the fraction of times that Clinton gets an electoral college majority from \
+within those 1024 possibilities.\n\nRemember that an integral can always be \
+done \[LongDash] in principle \[LongDash] by chopping up the interval into a \
+large number of parts and computing the height of each part, taking the \
+product of the width and height of each part to get an area, and then summing \
+up the large number of little areas. But from the above example, you get a \
+hint that doing summations numerically \[LongDash] while always possible in \
+principle \[LongDash] might somehow fail in practice due to the sheer amount \
+of time required to exhaustively do the summations. I could explain a bit \
+more, how integrals are related to sums, but I am hopeful that you already \
+see the problem.\n\nIf you aren\[CloseCurlyQuote]t happy with the political \
+example, or you think it might be bizarrely non-representative of most \
+real-world problems, as a second example, consider ray tracing. Each pixel on \
+a digital frame of an animated movie has to be given an intensity and a color \
+and that has to be done for every one of the roughly 4,000,000 pixels per \
+frame of every one of the 150,000 or so frames in a 1 1/2 to 2 hour movie. So \
+far this doesn\[CloseCurlyQuote]t seem so bad, but every pixel is actually a \
+recursive ray tracing problem. Let me describe ray tracing.\n\nA pixel might \
+be a pixel showing an animated character\[CloseCurlyQuote]s iris, and the \
+animation artist has built a model of the scene in which the iris some \
+intrinsic color and some reflectivity. The animation artist has also placed \
+lighting into the scene and each light source has its own color intensity.\n\n\
+The ray tracing program can\[CloseCurlyQuote]t just assign a color and \
+intensity to the pixel based on the intrinsic color and reflectivity of the \
+iris, because what the iris looks like depends on what light sources are \
+illuminating it! This is not too bad a calculation yet if there are a finite \
+number of nearby light sources. ",
+ StyleBox["However",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ ", if you want to make the scene look more realistic, you have to account \
+for the fact that there may be nearby objects to the character\
+\[CloseCurlyQuote]s face, like a brightly lit and gauzy curtain that the \
+figure is standing near, that also contribute to how much their iris is lit \
+up. The curtain is not one of the primary light sources, but it is lit up by \
+the primary light sources, and even worse, if it is a gauzy curtain some of \
+the light that comes from its direction comes from the scene behind it. ",
+ StyleBox["So now the problem has become a recursive problem: to figure out \
+how the iris is lit up, we have to figure out how much each portion of the \
+nearby curtain is lit up,",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " and we might even have to have a model of the scene behind the curtain.\n\n\
+This is a computational quagmire. To figure out the color and intensity of a \
+pixel representing a portion of a character\[CloseCurlyQuote]s iris is we now \
+have to figure out what light is coming from all the enormous number of bits \
+of cloth that together make the gauzy curtain that is illuminating the \
+person. We could call those rays secondary because they illuminate the thing \
+that is going to make the primary ray going that goes to the vantage point \
+that the computer is modeling.\n\nAn approach to dealing with the \
+computational cost is to randomly sample a small number of those bits of \
+cloth, and figure out how much each of those is illuminated. We would need \
+that random sample to be representative of the whole curtain in order to \
+achieve realism.\n\nAnyway,  getting any degree of realism has become \
+computationally horrendous. It is in principle doable by computer, but in \
+practice even the huge render farm of thousands of computers at a company \
+like Pixar cannot do the calculation by brute force. Cutting down the problem \
+is going to somehow involve cutting down the secondary and tertiary rays to \
+some randomly selected subset of all the possible rays, and those rays need \
+to be representative. So now we have two examples showing that the problem of \
+doing sums or integrals by computer seems to only work for simple situations.\
+\n\n",
+ StyleBox["This problem of recursion was encountered during the design of the \
+atomic bomb.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " Each fission reaction is caused by other fission reactions. A fission \
+reaction releases releases a lot of energy, but equally important it \
+typically releases 2 to 3 neutrons, each of which can travel through the \
+fissile material and trigger another fission reaction which in turn releases \
+2 to 3 neutrons that then can each trigger another reaction. This is called a \
+\[OpenCurlyDoubleQuote]chain reaction.\[CloseCurlyDoubleQuote] Now the issue \
+is that whether or not each neutron causes another reaction depends in a \
+detailed way on (a) the neutron\[CloseCurlyQuote]s speed (it turns out that \
+slow neutrons work better, somewhat surprisingly), and (b) how close to the \
+edge of the fissile material the neutron is, because it might just escape the \
+core of the bomb into the surrounding non-fissile material. You can see that \
+this is another recursive problem that cannot be exhaustively evaluated.\n\n\
+So, I have been telling you guys that Mathematica can do almost any integral \
+and that it is your friend for calculating areas under curves if you either \
+(a) haven\[CloseCurlyQuote]t taken Calculus BC, or (b) you run into an \
+integral of a function that they didn\[CloseCurlyQuote]t cover in Calculus \
+BC, but now we see that there are lots of integrals and sums that cannot be \
+done in practice."
+}], "Text",
+ CellChangeTimes->{
+  3.941138676333688*^9, {3.941138800035018*^9, 3.941139325616274*^9}, {
+   3.941139378505486*^9, 3.941139506881406*^9}, {3.941139564665369*^9, 
+   3.941139595156262*^9}, {3.941139650633801*^9, 3.941139668365881*^9}, {
+   3.941139709464786*^9, 
+   3.941139750161305*^9}},ExpressionUUID->"6076569e-4c96-40b8-a137-\
+b8b8a038d5cc"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{Automatic, 455}, {Automatic, 191}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3a5c1f54-2420-4647-98c9-9380bf979a4d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 10195, 166, 2105, "Text",ExpressionUUID->"6076569e-4c96-40b8-a137-b8b8a038d5cc"]
+}
+]
+*)
+
