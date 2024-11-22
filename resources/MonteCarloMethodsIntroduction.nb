@@ -10,24 +10,33 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     11111,        202]
-NotebookOptionsPosition[     10757,        188]
-NotebookOutlinePosition[     11156,        204]
-CellTagsIndexPosition[     11113,        201]
+NotebookDataLength[     12798,        241]
+NotebookOptionsPosition[     12264,        222]
+NotebookOutlinePosition[     12717,        240]
+CellTagsIndexPosition[     12674,        237]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
+Cell["Monte Carlo Introduction", "Chapter",
+ CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
+  3.94127156864186*^9, 
+  3.941271597406028*^9}},ExpressionUUID->"e0134db4-8c35-4cc8-b996-\
+8fb64fcd4f50"],
+
 Cell[TextData[{
  "I don\[CloseCurlyQuote]t particularly want to get into politics. Some \
 classes should be apolitical simply as a respite for all the politicized \
-classes so you can go back into those classes refreshed. But in the case of \
-Monte Carlo methods, the best example by far that I can think of is \
-political. I will at least remove it from the present context somewhat by \
-making it a political example from 2016. Here we go....\n\nSuppose you have \
-poll data from each of 50 states. Each poll has some uncertainty. For example \
-polls in the State of Arizona might show Clinton beating Trump with a 52% to \
-48% margin. There is some uncertainty in this poll though, so ",
+classes (so that you can go back into those classes refreshed and ready to \
+argue again). But in the case of Monte Carlo methods, the best example by far \
+that I can think of is political. I will at least remove it from the present \
+context somewhat by making it a political example from 2016. Here we go....\n\
+\nSuppose you have poll data from each of 50 states. Each poll has some \
+uncertainty. For example polls in the State of Arizona might show Clinton \
+beating Trump with a 52% to 48% margin. There is some uncertainty in this \
+poll though, so ",
  StyleBox["a poll with a 4% margin for Clinton doesn\[CloseCurlyQuote]t mean \
 that 100% of the time Clinton will get Arizona\[CloseCurlyQuote]s 11 \
 electoral college votes.",
@@ -37,13 +46,14 @@ electoral college votes.",
 Clinton will beat Trump in Arizona 80% of the time and get those 11 electoral \
 college votes. However, it might go the other way 20% of the time and in that \
 case Trump gets those 11 electoral college votes. I just made those numbers \
-up. Obviously the actual ratio depends on your assessment of the uncertainty \
-in the polling data.\n\nNow repeat this imaginary analysis for each of the \
-other 49 states. Each of those states will have its own poll results, and \
-from the margin in that state\[CloseCurlyQuote]s poll results, and your \
-estimate of the uncertainty of the polling in that state, you will get some \
-percentage chance that Clinton gets that state\[CloseCurlyQuote]s electoral \
-college votes.\n\nNow here is the problem. There are ",
+up. Obviously the actual probabilities depend on the margin and your \
+assessment of the uncertainty in the polling data.\n\nNow repeat this \
+imaginary analysis for each of the other 49 states. Each of those states will \
+have its own poll results, and from the margin in that \
+state\[CloseCurlyQuote]s poll results, and your estimate of the uncertainty \
+of the polling in that state, you will get some percentage chance that \
+Clinton gets that state\[CloseCurlyQuote]s electoral college votes.\n\nNow \
+here is the problem. There are ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox["2", "50"], TraditionalForm]],ExpressionUUID->
@@ -57,11 +67,11 @@ other. If there were only three states in the US, you would have ",
   "dd6a3259-2373-4686-aa23-98e2aad42a54"],
  " possible outcomes, and each of those outcomes would have a probability, \
 and each of those outcomes has an electoral college tally. It\
-\[CloseCurlyQuote]s trivial to make a model and have the computer do all 8 \
-possibilities and then compute what fraction of the time Clinton gets a \
-majority of the electoral college.\n\nBut there are 50 states, and each \
-specific outcome has a ridiculously small probability, and every one of these \
-outcomes results in a different electoral college tally. ",
+\[CloseCurlyQuote]s trivial to assign the probabilities and have the computer \
+do all 8 possibilities and then compute what fraction of the time Clinton \
+gets a majority of the electoral college.\n\nBut there are 50 states, and \
+each specific outcome has a ridiculously small probability, and every one of \
+these outcomes results in a different electoral college tally. ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox["2", "50"], TraditionalForm]],ExpressionUUID->
@@ -77,12 +87,16 @@ about ",
   FormBox[
    SuperscriptBox["10", "9"], TraditionalForm]],ExpressionUUID->
   "1d299631-c514-40b8-85fc-412dbb1f445e"],
- " seconds which is about 30 years to come up with an answer to the question, \
-\[OpenCurlyDoubleQuote]what is the chance that Clinton will get a majority of \
-the electoral college votes?\[CloseCurlyDoubleQuote] The intractability of \
-this problem is one reason why there is so much focus on swing states. One \
-way to make the problem tractable, is to assume that 40 or so of the 50 \
-states are not in play. Then you run the computer model on the remaining ",
+ " seconds ",
+ StyleBox["which is about 30 years",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " to come up with an answer to the question, \[OpenCurlyDoubleQuote]what is \
+the chance that Clinton will get a majority of the electoral college votes?\
+\[CloseCurlyDoubleQuote] The intractability of this problem is one reason why \
+there is so much focus on swing states. One way to make the problem \
+tractable, is to assume that 40 or so of the 50 states are not in play. Then \
+you run the computer model on the remaining ",
  Cell[BoxData[
   FormBox[
    SuperscriptBox["2", "10"], TraditionalForm]],ExpressionUUID->
@@ -92,39 +106,49 @@ states are not in play. Then you run the computer model on the remaining ",
   FormBox[
    SuperscriptBox["2", "10"], TraditionalForm]],ExpressionUUID->
   "37a9a96a-831a-4f09-87d5-e9562d77a134"],
- " is 1024, and a computer can easily do all 1024 possibilities, and tabulate \
-the fraction of times that Clinton gets an electoral college majority from \
-within those 1024 possibilities.\n\nRemember that an integral can always be \
-done \[LongDash] in principle \[LongDash] by chopping up the interval into a \
-large number of parts and computing the height of each part, taking the \
-product of the width and height of each part to get an area, and then summing \
-up the large number of little areas. But from the above example, you get a \
-hint that doing summations numerically \[LongDash] while always possible in \
+ " is 1024, and a computer can easily do 1024 possibilities just as easily as \
+it can do 8, and then tabulate the fraction of times that Clinton gets an \
+electoral college majority from within those 1024 possibilities.\n\nRemember \
+that ",
+ StyleBox["an integral can always be done \[LongDash] in principle \
+\[LongDash] by chopping up the interval into a large number of parts",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " and computing the height of each part, taking the product of the width and \
+height of each part to get an area, and then summing up the large number of \
+little areas. But from the above example, you get a hint that ",
+ StyleBox["doing summations numerically \[LongDash] while always possible in \
 principle \[LongDash] might somehow fail in practice due to the sheer amount \
-of time required to exhaustively do the summations. I could explain a bit \
-more, how integrals are related to sums, but I am hopeful that you already \
-see the problem.\n\nIf you aren\[CloseCurlyQuote]t happy with the political \
-example, or you think it might be bizarrely non-representative of most \
-real-world problems, as a second example, consider ray tracing. Each pixel on \
-a digital frame of an animated movie has to be given an intensity and a color \
-and that has to be done for every one of the roughly 4,000,000 pixels per \
-frame of every one of the 150,000 or so frames in a 1 1/2 to 2 hour movie. So \
-far this doesn\[CloseCurlyQuote]t seem so bad, but every pixel is actually a \
-recursive ray tracing problem. Let me describe ray tracing.\n\nA pixel might \
-be a pixel showing an animated character\[CloseCurlyQuote]s iris, and the \
-animation artist has built a model of the scene in which the iris some \
-intrinsic color and some reflectivity. The animation artist has also placed \
-lighting into the scene and each light source has its own color intensity.\n\n\
-The ray tracing program can\[CloseCurlyQuote]t just assign a color and \
-intensity to the pixel based on the intrinsic color and reflectivity of the \
-iris, because what the iris looks like depends on what light sources are \
-illuminating it! This is not too bad a calculation yet if there are a finite \
-number of nearby light sources. ",
+of time required to exhaustively do the summations.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " I could explain a bit more, by going back into how integrals are related \
+to sums, but I am hopeful that you already see the problem.\n\nIf you aren\
+\[CloseCurlyQuote]t happy with the political example, or you think it might \
+be bizarrely non-representative of most real-world problems, as a second \
+example, consider ray tracing. Each pixel on a digital frame of an animated \
+movie has to be given an intensity and a color and that has to be done for \
+every one of the roughly 4,000,000 pixels per frame of every one of the \
+150,000 or so frames in a 1 1/2 to 2 hour movie, which is 600,000,000,000. It\
+\[CloseCurlyQuote]s bad, but it if a few thousand computers in a render farm \
+can do 100,000,000 pixels a minute, they can render the whole movie in 100 \
+hours.\n\nBut this isn\[CloseCurlyQuote]t the whole problem. You get very \
+unrealistic-looking animation if you don\[CloseCurlyQuote]t get much more \
+realistic. Every pixel is actually a recursive ray tracing problem. Let me \
+describe ray tracing. A pixel might be a pixel showing an animated character\
+\[CloseCurlyQuote]s iris, and the animation artist has built a model of the \
+scene in which the iris has some intrinsic color and some reflectivity. The \
+animation artist has also placed lighting into the scene and each light \
+source has its own color and intensity.\n\nThe ray tracing program can\
+\[CloseCurlyQuote]t just assign a color and intensity to the pixel based on \
+the intrinsic color and reflectivity of the iris, because what the iris looks \
+like depends on what light sources are illuminating it! This is not too bad a \
+calculation yet if there are a finite number of nearby light sources. ",
  StyleBox["However",
   FontWeight->"Bold",
   FontSlant->"Italic"],
- ", if you want to make the scene look more realistic, you have to account \
-for the fact that there may be nearby objects to the character\
+ ", if you want to make the scene look even more realistic, you have to \
+account for the fact that there may be nearby objects to the character\
 \[CloseCurlyQuote]s face, like a brightly lit and gauzy curtain that the \
 figure is standing near, that also contribute to how much their iris is lit \
 up. The curtain is not one of the primary light sources, but it is lit up by \
@@ -144,17 +168,20 @@ person. We could call those rays secondary because they illuminate the thing \
 that is going to make the primary ray going that goes to the vantage point \
 that the computer is modeling.\n\nAn approach to dealing with the \
 computational cost is to randomly sample a small number of those bits of \
-cloth, and figure out how much each of those is illuminated. We would need \
-that random sample to be representative of the whole curtain in order to \
-achieve realism.\n\nAnyway,  getting any degree of realism has become \
-computationally horrendous. It is in principle doable by computer, but in \
-practice even the huge render farm of thousands of computers at a company \
-like Pixar cannot do the calculation by brute force. Cutting down the problem \
-is going to somehow involve cutting down the secondary and tertiary rays to \
-some randomly selected subset of all the possible rays, and those rays need \
-to be representative. So now we have two examples showing that the problem of \
-doing sums or integrals by computer seems to only work for simple situations.\
-\n\n",
+cloth, and figure out how much each of those is illuminated. ",
+ StyleBox["We would need that random sample to be representative of the whole \
+curtain in order to achieve realism.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "\n\nAnyway,  getting any degree of realism is obviously computationally \
+horrendous. It is in principle doable by computer, but in practice even the \
+huge render farm of thousands of computers at a company like Pixar cannot do \
+the calculation by brute force. Cutting down the problem is going to somehow \
+involve cutting down the secondary and tertiary rays to some randomly \
+selected subset of all the possible rays, and those rays need to be \
+representative. So now we have two examples showing that the problem of doing \
+sums or integrals by computer seems to only work for simple situations, and \
+for more complex situations we need representative samples.\n\n",
  StyleBox["This problem of recursion was encountered during the design of the \
 atomic bomb.",
   FontWeight->"Bold",
@@ -170,24 +197,33 @@ detailed way on (a) the neutron\[CloseCurlyQuote]s speed (it turns out that \
 slow neutrons work better, somewhat surprisingly), and (b) how close to the \
 edge of the fissile material the neutron is, because it might just escape the \
 core of the bomb into the surrounding non-fissile material. You can see that \
-this is another recursive problem that cannot be exhaustively evaluated.\n\n\
-So, I have been telling you guys that Mathematica can do almost any integral \
-and that it is your friend for calculating areas under curves if you either \
-(a) haven\[CloseCurlyQuote]t taken Calculus BC, or (b) you run into an \
-integral of a function that they didn\[CloseCurlyQuote]t cover in Calculus \
-BC, but now we see that there are lots of integrals and sums that cannot be \
-done in practice."
+a chain reaction is another recursive problem that you have no hope of \
+exhaustively evaluating.\n\nSo, I have been telling you guys that Mathematica \
+can do almost any integral and that it is your friend for calculating areas \
+under curves if you either (a) haven\[CloseCurlyQuote]t taken Calculus BC, or \
+(b) you run into an integral of a function that they didn\[CloseCurlyQuote]t \
+cover in Calculus BC, but now we see that there are lots of integrals and \
+sums that cannot be done in practice.\n\nIn my next handout, we are going to \
+learn the Monte Carlo method by playing with it."
 }], "Text",
  CellChangeTimes->{
   3.941138676333688*^9, {3.941138800035018*^9, 3.941139325616274*^9}, {
    3.941139378505486*^9, 3.941139506881406*^9}, {3.941139564665369*^9, 
    3.941139595156262*^9}, {3.941139650633801*^9, 3.941139668365881*^9}, {
-   3.941139709464786*^9, 
-   3.941139750161305*^9}},ExpressionUUID->"6076569e-4c96-40b8-a137-\
+   3.941139709464786*^9, 3.941139750161305*^9}, {3.9412715840832644`*^9, 
+   3.941271625336268*^9}, {3.941271665664826*^9, 3.941271721249625*^9}, {
+   3.941271768385708*^9, 3.941271791738359*^9}, {3.941271868888872*^9, 
+   3.94127188305966*^9}, {3.941271916789606*^9, 3.9412719255585537`*^9}, {
+   3.9412720079579887`*^9, 3.941272222923422*^9}, {3.941272286079871*^9, 
+   3.9412723244173193`*^9}, {3.941272356282975*^9, 
+   3.941272402422473*^9}},ExpressionUUID->"6076569e-4c96-40b8-a137-\
 b8b8a038d5cc"]
+}, Open  ]]
 },
 WindowSize->{808, 911},
-WindowMargins->{{Automatic, 455}, {Automatic, 191}},
+WindowMargins->{{648, Automatic}, {Automatic, 198}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
 FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"3a5c1f54-2420-4647-98c9-9380bf979a4d"
@@ -203,7 +239,10 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[558, 20, 10195, 166, 2105, "Text",ExpressionUUID->"6076569e-4c96-40b8-a137-b8b8a038d5cc"]
+Cell[CellGroupData[{
+Cell[580, 22, 219, 4, 69, "Chapter",ExpressionUUID->"e0134db4-8c35-4cc8-b996-8fb64fcd4f50"],
+Cell[802, 28, 11446, 191, 2289, "Text",ExpressionUUID->"6076569e-4c96-40b8-a137-b8b8a038d5cc"]
+}, Open  ]]
 }
 ]
 *)
