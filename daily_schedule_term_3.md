@@ -45,4 +45,4 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 * Tuesday, Dec. 17 &mdash;
 
-<img src="./resources/StanislausUlamWithTheMonteCarloTrolley.png" alt="Stanislaus Ulam with the Monte Carlo Trolley" width="70%">
+<img src="./resources/TheENIAC.jpg" alt="The ENIAC" width="80%">
