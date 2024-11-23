@@ -10,25 +10,24 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    145275,       2744]
-NotebookOptionsPosition[    142567,       2688]
-NotebookOutlinePosition[    143051,       2707]
-CellTagsIndexPosition[    143008,       2704]
+NotebookDataLength[    145465,       2745]
+NotebookOptionsPosition[    142757,       2689]
+NotebookOutlinePosition[    143241,       2708]
+CellTagsIndexPosition[    143198,       2705]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[TextData[StyleBox["Bayesian Statistics, Assignment for Tuesday, Nov. 19",
- 
+Cell[TextData[StyleBox["Bayesian Statistics, Assignment for Friday, Nov. 22",
  FontSize->30,
  FontWeight->"Regular"]], "Chapter",
  CellChangeTimes->{{3.939254509538763*^9, 3.939254519256564*^9}, {
   3.9395762971751833`*^9, 3.939576299419979*^9}, {3.93977449418426*^9, 
   3.939774495574006*^9}, {3.940547382122447*^9, 3.940547382247548*^9}, {
-  3.940705483680574*^9, 
-  3.940705485413928*^9}},ExpressionUUID->"e94a4995-1c39-47a5-8650-\
+  3.940705483680574*^9, 3.940705485413928*^9}, {3.9413163964638863`*^9, 
+  3.941316398542783*^9}},ExpressionUUID->"e94a4995-1c39-47a5-8650-\
 b97cc4e1119f"],
 
 Cell[CellGroupData[{
@@ -95,12 +94,13 @@ first author on the paper that revealed the Monte Carlo method to the world: \
 \[OpenCurlyDoubleQuote]Equation of State Calculations by Fast Computing \
 Machines,\[CloseCurlyDoubleQuote] Nicholas Metropolis, Arianna W. Rosenbluth, \
 Marshall N. Rosenbluth, Augusta H. Teller, and Edward Teller, published in \
-the Journal of Chemical Physics, June, 1953. The article, by Nicholas \
-Metropolis called \[OpenCurlyDoubleQuote]The Beginning of the Monte Carlo \
-Method\[CloseCurlyDoubleQuote]  is here, \
-https://sgp.fas.org/othergov/doe/lanl/pubs/00326866.pdf, and in your file \
-folders.\n\nMeanwhile I have a problem set for you that I hope will help \
-solidify your understanding of Chapter 11."
+the Journal of Chemical Physics, June, 1953. Here is the article by Nicholas \
+Metropolis, \
+https://brianhill.github.io/bayesian-statistics/resources/\
+TheBeginningOfTheMonteCarloMethod.pdf, and it is in your file folders. It is \
+called \[OpenCurlyDoubleQuote]The Beginning of the Monte Carlo Method.\
+\[CloseCurlyDoubleQuote]\n\nMeanwhile I have a problem set for you that I \
+hope will help solidify your understanding of Chapter 11."
 }], "Text",
  InitializationCell->True,
  CellChangeTimes->{{3.907818270547716*^9, 3.907818285037993*^9}, {
@@ -162,11 +162,12 @@ solidify your understanding of Chapter 11."
    3.940705976782283*^9, 3.940706040923314*^9}, {3.9411481166706133`*^9, 
    3.941148587257606*^9}, {3.941149791076038*^9, 3.9411498033749943`*^9}, {
    3.941149841433918*^9, 3.941150009906022*^9}, {3.941150040103943*^9, 
-   3.9411501062110558`*^9}, {3.941150169706644*^9, 3.9411502467228603`*^9}, {
+   3.9411501062110558`*^9}, {3.941150169706644*^9, 3.941150246722861*^9}, {
    3.941150369207003*^9, 3.941150385198865*^9}, {3.941150428549962*^9, 
-   3.941150476008027*^9}, {3.941155479427857*^9, 3.9411554859358053`*^9}, {
-   3.941155543395233*^9, 
-   3.941155549072365*^9}},ExpressionUUID->"ebea56f5-7a89-42fd-8d03-\
+   3.941150476008027*^9}, {3.941155479427857*^9, 3.941155485935805*^9}, {
+   3.941155543395233*^9, 3.941155549072365*^9}, {3.941316525661604*^9, 
+   3.941316530055035*^9}, {3.941316592064948*^9, 
+   3.941316670007009*^9}},ExpressionUUID->"ebea56f5-7a89-42fd-8d03-\
 8cbade59c5f0"]
 }, Open  ]],
 
@@ -2707,43 +2708,43 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 452, 9, 80, "Chapter",ExpressionUUID->"e94a4995-1c39-47a5-8650-b97cc4e1119f"],
+Cell[580, 22, 497, 8, 80, "Chapter",ExpressionUUID->"e94a4995-1c39-47a5-8650-b97cc4e1119f"],
 Cell[CellGroupData[{
-Cell[1057, 35, 1655, 23, 84, "Section",ExpressionUUID->"d04b42f7-241f-495a-9ee6-a572828ad1e8"],
-Cell[2715, 60, 7411, 109, 792, "Text",ExpressionUUID->"ebea56f5-7a89-42fd-8d03-8cbade59c5f0",
+Cell[1102, 34, 1655, 23, 84, "Section",ExpressionUUID->"d04b42f7-241f-495a-9ee6-a572828ad1e8"],
+Cell[2760, 59, 7556, 111, 821, "Text",ExpressionUUID->"ebea56f5-7a89-42fd-8d03-8cbade59c5f0",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[10163, 174, 1888, 28, 132, "Section",ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-712b6b49920e"],
-Cell[12054, 204, 2969, 86, 456, "Text",ExpressionUUID->"b022dbfb-5dc3-4ecb-98c3-58b8270b7a1b"]
+Cell[10353, 175, 1888, 28, 132, "Section",ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-712b6b49920e"],
+Cell[12244, 205, 2969, 86, 456, "Text",ExpressionUUID->"b022dbfb-5dc3-4ecb-98c3-58b8270b7a1b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[15060, 295, 838, 13, 71, "Section",ExpressionUUID->"ca8d66fb-fc6a-4131-9279-ac3abd5f575a"],
-Cell[15901, 310, 3261, 57, 313, "Text",ExpressionUUID->"17d5117f-fc9b-45ff-b2cc-f28de7495f1b"],
+Cell[15250, 296, 838, 13, 71, "Section",ExpressionUUID->"ca8d66fb-fc6a-4131-9279-ac3abd5f575a"],
+Cell[16091, 311, 3261, 57, 313, "Text",ExpressionUUID->"17d5117f-fc9b-45ff-b2cc-f28de7495f1b"],
 Cell[CellGroupData[{
-Cell[19187, 371, 1244, 34, 51, "Input",ExpressionUUID->"bfcc5aeb-704d-4195-9054-8eb27c3ea71c"],
-Cell[20434, 407, 30551, 547, 306, "Output",ExpressionUUID->"cf582ce8-6652-4c53-b9b6-cb05e2272c10"]
+Cell[19377, 372, 1244, 34, 51, "Input",ExpressionUUID->"bfcc5aeb-704d-4195-9054-8eb27c3ea71c"],
+Cell[20624, 408, 30551, 547, 306, "Output",ExpressionUUID->"cf582ce8-6652-4c53-b9b6-cb05e2272c10"]
 }, Open  ]],
-Cell[51000, 957, 2948, 80, 754, "Text",ExpressionUUID->"0db22c1c-9b5d-4969-88f5-01dbc7f87483"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[53985, 1042, 889, 13, 71, "Section",ExpressionUUID->"56a0bd2b-c25f-4e77-b488-f93174bb57c7"],
-Cell[54877, 1057, 3461, 72, 278, "Text",ExpressionUUID->"bab7bb94-3079-46b9-a2a2-3da2d290a5d9"],
-Cell[58341, 1131, 147, 3, 64, "Input",ExpressionUUID->"a96e822b-9216-4131-a113-95660a381775"],
-Cell[58491, 1136, 2115, 29, 44, "Text",ExpressionUUID->"05a47c55-a562-467b-8fea-72e8d23c23f9"],
-Cell[CellGroupData[{
-Cell[60631, 1169, 852, 23, 90, "Input",ExpressionUUID->"92f216db-ab0f-405e-9903-5167ad418a1e"],
-Cell[61486, 1194, 31435, 562, 298, "Output",ExpressionUUID->"2ad0131f-f8c6-4df9-8a15-cd379798a866"]
-}, Open  ]],
-Cell[92936, 1759, 5817, 128, 821, "Text",ExpressionUUID->"da0b8473-4051-4eaa-bf1b-6f5670f24895"]
+Cell[51190, 958, 2948, 80, 754, "Text",ExpressionUUID->"0db22c1c-9b5d-4969-88f5-01dbc7f87483"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[98790, 1892, 920, 13, 71, "Section",ExpressionUUID->"cc41f44a-78c9-4373-b7ae-b311d2f1e411"],
-Cell[99713, 1907, 32731, 546, 483, "Text",ExpressionUUID->"32c30520-bf25-46c3-aa8b-6e6acf72ba3f"]
+Cell[54175, 1043, 889, 13, 71, "Section",ExpressionUUID->"56a0bd2b-c25f-4e77-b488-f93174bb57c7"],
+Cell[55067, 1058, 3461, 72, 278, "Text",ExpressionUUID->"bab7bb94-3079-46b9-a2a2-3da2d290a5d9"],
+Cell[58531, 1132, 147, 3, 64, "Input",ExpressionUUID->"a96e822b-9216-4131-a113-95660a381775"],
+Cell[58681, 1137, 2115, 29, 44, "Text",ExpressionUUID->"05a47c55-a562-467b-8fea-72e8d23c23f9"],
+Cell[CellGroupData[{
+Cell[60821, 1170, 852, 23, 90, "Input",ExpressionUUID->"92f216db-ab0f-405e-9903-5167ad418a1e"],
+Cell[61676, 1195, 31435, 562, 298, "Output",ExpressionUUID->"2ad0131f-f8c6-4df9-8a15-cd379798a866"]
+}, Open  ]],
+Cell[93126, 1760, 5817, 128, 821, "Text",ExpressionUUID->"da0b8473-4051-4eaa-bf1b-6f5670f24895"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[132481, 2458, 966, 14, 71, "Section",ExpressionUUID->"f16c794d-bd64-412a-9956-49317ad140bc"],
-Cell[133450, 2474, 9089, 210, 1455, "Text",ExpressionUUID->"2a84ecd4-32ee-4df4-817a-bef9ec7773b3"]
+Cell[98980, 1893, 920, 13, 71, "Section",ExpressionUUID->"cc41f44a-78c9-4373-b7ae-b311d2f1e411"],
+Cell[99903, 1908, 32731, 546, 483, "Text",ExpressionUUID->"32c30520-bf25-46c3-aa8b-6e6acf72ba3f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[132671, 2459, 966, 14, 71, "Section",ExpressionUUID->"f16c794d-bd64-412a-9956-49317ad140bc"],
+Cell[133640, 2475, 9089, 210, 1484, "Text",ExpressionUUID->"2a84ecd4-32ee-4df4-817a-bef9ec7773b3"]
 }, Open  ]]
 }, Open  ]]
 }
