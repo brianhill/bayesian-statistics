@@ -21,28 +21,28 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 * Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared
 * Friday, Nov. 15 &mdash; Study Chapter 10 &mdash; Introduce Bayesian Conjugates &mdash; Please examine the [Assignment for Friday](./assignments/AssignmentFor2024-11-15.nb.pdf) which is not to be turned in &mdash; Instead it just contains ideas for how you could approach Chapter 10
 
-### Week 11 &mdash; Finish Bayesian Conjugates &mdash;  Start Markov Chain Monte Carlo
+### Week 11 &mdash; Finish Bayesian Conjugates &mdash; Start Monte Carlo, Simple Applications
 
 * Tuesday, Nov. 19 &mdash; You can study Chapter 11, which introduces gamma functions which are conjugate to Poisson distributions, or alternatively, you can just study my handout on [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Please come with questions about Chapters 11 or my summary in the handout of Chapter 11: [Bayesian Conjugates](./resources/BayesianConjugates.nb.pdf) &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-19.nb.pdf) &mdash; An Advanced Idea from Chapter 12: [A Multi-Dimensional Continuum of Hypotheses](./resources/AMultiDimensionalContinuumOfHypotheses.pdf) &mdash; For completeness, here are [Michael I. Jordan's Stat260 notes](./resources/MichaelJordanStat260Notes.pdf)
 * Friday, Nov. 22 &mdash; While you are doing the [Assignment for Friday](./assignments/AssignmentFor2024-11-22.nb.pdf) on Chapter 11, I have been working on a [Monte Carlo Introduction](./resources/MonteCarloMethodsIntroduction.nb.pdf) and on a [Monte Carlo Playground and Program](./resources/MonteCarloPlayground.nb.pdf) that we will use in class &mdash; Rather than you diving in to Chapter 13 already, wait until that for the next class, and instead start by reading [The Beginning of the Monte Carlo Method](./resources/TheBeginningOfTheMonteCarloMethod.pdf)
 
-### Week 12 &mdash; Continue Markov Chain Monte Carlo
+### Week 12 &mdash; Continue Monte Carlo, Simple Applications &mdash; Describe our Monte Carlo Roadmap
 
-* Tuesday, Nov. 26 &mdash; Study Chapter 13 &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-26.nb.pdf)
+* Tuesday, Nov. 26 &mdash; Study Chapter 13 &mdash; Do the [Assignment for Tuesday](./assignments/AssignmentFor2024-11-26.nb.pdf) &mdash; Look ahead to the remainder of the course &mdash; Describe the various Monte Carlo methods and the Hepatitis B vaccination study
 * Friday, Nov. 29 &mdash; No class - Shakespeare Festival
 
-### Week 13 &mdash;
+### Week 13 &mdash; Finish Monte Carlo Theory
 
-* Tuesday, Dec. 3 &mdash;
-* Friday, Dec. 6 &mdash;
+* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metrolopolis-Hastings &mdash; You can also study my handout, [Monte Carlo Methods - Why Do They Work?](./resources/MonteCarloMethodsWhyDoTheyWork.nb.pdf), which is in your file folders &mdash; There is no Problem Set for Tuesday
+* Friday, Dec. 6 &mdash; Gibbs Sampling
 
-### Week 14 &mdash;
+### Week 14 &mdash; A Realistic Application of Monte Carlo
 
-* Tuesday, Dec. 10 &mdash;
-* Friday, Dec. 13 &mdash; Exam 3
+* Tuesday, Dec. 10 &mdash; The Hepatitis B vaccination study
+* Friday, Dec. 13 &mdash; Exam 3 (could be Tuesday, Dec. 17 if we can't finish Monte Carlo before Dec. 13)
 
 ### Week 15 &mdash;
 
 * Tuesday, Dec. 17 &mdash;
 
-<img src="./resources/TheEniac.jpg" alt="The ENIAC" width="80%">
+<img src="./resources/CompressedAirTank.png" alt="Compressed air tank in corner of room" width="60%">
