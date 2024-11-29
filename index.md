@@ -1,4 +1,4 @@
-# The Foundation of Rigorous Inference: Bayesian Statistics
+# Bayesian Statistics: The Foundation of Scientific Inference 
 
 *Unofficial/Short Course Title: Bayesian Statistics*
 
@@ -13,7 +13,7 @@ to experimental data to make claims because it is somewhat easier to learn. We w
 both frequentist and Bayesian statistics. The basics common to both are known as &ldquo;descriptive
 statistics.&rdquo; After covering descriptive statistics, we can spend some time on frequentist inference,
 including the derivation of the linear regression formulae. Then we will graduate to Bayesian
-statistics.
+statistics. We will conclude with Monte Carlo methods.
 
 ## Syllabus
 
@@ -26,15 +26,15 @@ A [PDF of the Syllabus](./BayesianStatisticsSyllabus.pdf) containing essentially
 
 ## Prerequisite / Joining the Class
 
-I will use mathematics that is commonly known as either Algebra 2 or Algebra 3-4 (depending on whether a school numbers its math classes by the year or the semester). We will need to develop and use some calculus to do statistics, and I will go slowly and assume you have never seen any calculus. If you had calculus in high school, be patient. This class was pitched as the much more accessible complement to the other class I am teaching this semester.
+I will use mathematics that is commonly known as either Algebra 2 or Algebra 3-4 (depending on whether a school numbers its math classes by the year or the semester). We will need to develop and use some calculus to do statistics, and I will go slowly and assume you have never seen any calculus.
 
 ## Texts
 
-We are going to use three texts. How much of the third one we get to will depend on our pace in the second one. In order, the three texts we will use are:
+We are going to use three texts. We are going to use three texts. In order, the three texts we will use are:
 
 * Hugh Young, [Statistical Treatment of Experimental Data](https://archive.org/details/H_D_Young__Statistical_Treatment_of_Experimental_Data/mode/1up) (this is a compact classic that will be of use no matter what additional statistics you do or don't ever use)
 * Therese Donovan and Ruth Mickey, [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299) (this is the book we will use the most &mdash; it is at a good level for our purposes)
-* E.T. Jaynes and G. Larry Bretthorst, [Probability Theory: The Logic of Science](https://www.amazon.com/Probability-Theory-Science-T-Jaynes/dp/0521592712) (this is pretty advanced, but working hard with the second text will make it accessible)
+* W.R. Gilks, S. Richardson, David Spiegelhalter, eds., [Markov Chain Monte Carlo in Practice](https://www.routledge.com/Markov-Chain-Monte-Carlo-in-Practice/Gilks-Richardson-Spiegelhalter/p/book/9780412055515) (the first two chapters of this collection will conclude our course and serve as a bridge from the illlustrative but simple Monte Carlo applications in Chapters 13-16 of Donovan and Mickey to realistic and modern epidemiological applications)
 
 ## Grading
 
