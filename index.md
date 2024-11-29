@@ -34,7 +34,7 @@ We are going to use three texts. We are going to use three texts. In order, the 
 
 * Hugh Young, [Statistical Treatment of Experimental Data](https://archive.org/details/H_D_Young__Statistical_Treatment_of_Experimental_Data/mode/1up) (this is a compact classic that will be of use no matter what additional statistics you do or don't ever use)
 * Therese Donovan and Ruth Mickey, [Bayesian Statistics for Beginners](https://www.amazon.com/Bayesian-Statistics-Beginners-step-step/dp/0198841299) (this is the book we will use the most &mdash; it is at a good level for our purposes)
-* W.R. Gilks, S. Richardson, David Spiegelhalter, eds., [Markov Chain Monte Carlo in Practice](https://www.routledge.com/Markov-Chain-Monte-Carlo-in-Practice/Gilks-Richardson-Spiegelhalter/p/book/9780412055515) (the first two chapters of this collection will conclude our course and serve as a bridge from the illlustrative but simple Monte Carlo applications in Chapters 13-16 of Donovan and Mickey to realistic and modern epidemiological applications)
+* W.R. Gilks, S. Richardson, David Spiegelhalter, eds., [Markov Chain Monte Carlo in Practice](https://www.routledge.com/Markov-Chain-Monte-Carlo-in-Practice/Gilks-Richardson-Spiegelhalter/p/book/9780412055515) (the first two chapters of this collection will conclude our course and serve as a bridge from the illustrative but simple Monte Carlo applications in Chapters 13-16 of Donovan and Mickey to realistic and modern epidemiological applications)
 
 ## Grading
 
