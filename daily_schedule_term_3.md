@@ -33,8 +33,8 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 13 &mdash; Finish Monte Carlo Theory
 
-* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metrolopolis-Hastings &mdash; You can also study my handout, [Monte Carlo Methods - Why Do They Work?](./resources/MonteCarloMethodsWhyDoTheyWork.nb.pdf), which is in your file folders &mdash; There is no Problem Set for Tuesday
-* Friday, Dec. 6 &mdash; Gibbs Sampling
+* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metropolis-Hastings &mdash; You can also study my handout, [Monte Carlo Methods - Why Do They Work?](./resources/MonteCarloMethodsWhyDoTheyWork.nb.pdf), which is in your file folders &mdash; There is no Problem Set for Tuesday
+* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf)
 
 ### Week 14 &mdash; A Realistic Application of Monte Carlo
 
