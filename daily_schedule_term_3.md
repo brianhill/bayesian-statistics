@@ -4,12 +4,6 @@ Course [home page](./)
 
 See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
-See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
-
-See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
-
-
-
 ## Daily Schedule Term 3
 
 ### Week 8 &mdash; Building Your Intuition with More Examples with Mutually-Exclusive Hypotheses: Hamilton vs. Madison and a Mudslide with Pollen
@@ -51,10 +45,6 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 * Tuesday, Dec. 17 &mdash; The Hepatitis B vaccination study
 
-&nbsp;
-
-*Wikipedia entries on technical topics are often not very clear. This one on the Metropolis-Hastings is a jewel:*
-
-&nbsp;
+*Wikipedia entries on technical topics are often not very clear. This one on Metropolis-Hastings is a jewel:*
 
 <img src="./resources/MetropolisHastings-Wikipedia.png" alt="MetropolisHastings-Wikipedia" width="90%">
