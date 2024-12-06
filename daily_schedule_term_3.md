@@ -34,12 +34,12 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 ### Week 13 &mdash; The Metropolis-Hastings Algorithm
 
 * Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metropolis-Hastings &mdash; 
-* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; See also [Monte Carlo Methods - Why Do They Work? - Part II](./resources/MonteCarloMethodsWhyDoTheyWork-II.nb.pdf) &mdash; Once we are satisfied that we understand Metropolis-Hastings, I will start Gibbs sampling
+* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; See also [Monte Carlo Methods - Why Do They Work? - Part II](./resources/MonteCarloMethodsWhyDoTheyWork-II.nb.pdf) &mdash; Once we are satisfied that we understand Metropolis-Hastings, if there is time, we will start Gibbs sampling
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Finish Gibbs Sampling
-* Friday, Dec. 13 &mdash; Exam 3 (could be Tuesday, Dec. 17 if we can't finish Monte Carlo before Dec. 13)
+* Tuesday, Dec. 10 &mdash; Gibbs Sampling (the GS in BUGS)
+* Friday, Dec. 13 &mdash; Exam 3 (could be Tuesday, Dec. 17 if we can't finish Gibbs Sampling before Dec. 13)
 
 ### Week 15 &mdash; A Realistic Application of Monte Carlo
 
