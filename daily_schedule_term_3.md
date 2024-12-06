@@ -33,8 +33,8 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 13 &mdash; The Metropolis-Hastings Algorithm
 
-* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metropolis-Hastings &mdash; You can also study my handout, [Monte Carlo Methods - Why Do They Work?](./resources/MonteCarloMethodsWhyDoTheyWork.nb.pdf), which is in your file folders &mdash; There is no Problem Set for Tuesday
-* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; Once we are satisfied that we understand Metropolis-Hastings, I will start Gibbs sampling
+* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metropolis-Hastings &mdash; 
+* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; See also [Monte Carlo Methods - Why Do They Work? - Part II](./resources/MonteCarloMethodsWhyDoTheyWork-II.nb.pdf) &mdash; Once we are satisfied that we understand Metropolis-Hastings, I will start Gibbs sampling
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
@@ -45,6 +45,6 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 * Tuesday, Dec. 17 &mdash; The Hepatitis B vaccination study
 
-*Wikipedia entries on technical topics are often not very clear. This one on Metropolis-Hastings is a jewel:*
+&nbsp;
 
-<img src="./resources/MetropolisHastings-Wikipedia.png" alt="MetropolisHastings-Wikipedia" width="90%">
+<img src="./resources/MarkovChain.png" alt="Markov Chain" width="80%">

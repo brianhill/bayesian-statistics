@@ -1,0 +1,1117 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     47295,       1109]
+NotebookOptionsPosition[     45589,       1069]
+NotebookOutlinePosition[     46074,       1088]
+CellTagsIndexPosition[     46031,       1085]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Monte Carlo Methods \[LongDash] Why Do They Work? \
+\[LongDash] Part II",
+ FontSize->30,
+ FontWeight->"Regular"]], "Chapter",
+ CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
+   3.94127156864186*^9, 3.941271569377199*^9}, {3.941271983313205*^9, 
+   3.941271983490583*^9}, {3.941275961254328*^9, 3.94127596314456*^9}, {
+   3.941800449839259*^9, 3.941800458275719*^9}, {3.941892754320045*^9, 
+   3.941892763333161*^9}, {3.942473606498764*^9, 3.942473609302772*^9}, 
+   3.942474154873723*^9},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
+1a27648aea9a"],
+
+Cell["\<\
+In Chapters 13, 15 and 16 Donovan and Mickey give us three specific Monte \
+Carlo methods to consider:
+\t* Chapter 13: The Metropolis algorithm, published 1953, but developed \
+during the Manhattan project
+\t* Chapter 15: The Metropolis-Hastings algorithm, published 1970, where \
+Hastings made a critical improvement to the algorithm
+\t* Chapter 16: The \[OpenCurlyDoubleQuote]Gibbs Sampling\
+\[CloseCurlyDoubleQuote] (GS) algorithm, published 1984 by Geman and Geman, \
+who were smoothing images
+
+In the previous \[OpenCurlyDoubleQuote]Why Do They Work?\
+\[CloseCurlyDoubleQuote] write-up, I showed why the Metropolis algorithm \
+worked. In this write-up, I am going to show that Metropolis-Hastings works. \
+I was surprised that the proof was a little more difficult than I had \
+imagined, and getting the proof right told me I have to revise Problem Set 17 \
+a little.\
+\>", "Text",
+ CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
+   3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
+   3.941264028191356*^9}, {3.9412640619114537`*^9, 3.9412645265818787`*^9}, {
+   3.941264650249452*^9, 3.9412646993328133`*^9}, {3.941264822564703*^9, 
+   3.941264857764879*^9}, {3.941268016756933*^9, 3.941268017021914*^9}, {
+   3.941269437806624*^9, 3.94126953124967*^9}, {3.941269582454015*^9, 
+   3.941269648184888*^9}, {3.941269679386688*^9, 3.94126971454852*^9}, {
+   3.941800467102806*^9, 3.941800755685058*^9}, {3.941800798778616*^9, 
+   3.941800976414879*^9}, {3.941801292900963*^9, 3.941801338978965*^9}, {
+   3.9418016917053423`*^9, 3.941801742901403*^9}, {3.941801807691245*^9, 
+   3.9418019025813417`*^9}, {3.941821027373583*^9, 3.941821090303585*^9}, {
+   3.9418211248934917`*^9, 3.941821131940667*^9}, {3.9418220018535957`*^9, 
+   3.9418220931909122`*^9}, {3.9418880968863907`*^9, 3.941888209172179*^9}, {
+   3.941889319683701*^9, 3.941889535199594*^9}, {3.941891916244793*^9, 
+   3.9418919238506603`*^9}, {3.941892767126836*^9, 3.941892772392208*^9}, {
+   3.942474173884481*^9, 3.9424743852768097`*^9}, {3.942479766174138*^9, 
+   3.9424797902169724`*^9}, {3.94248126278925*^9, 3.942481334429647*^9}, {
+   3.9424814048278503`*^9, 3.942481423653117*^9}, 
+   3.942482372555183*^9},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+225ac6193fce"],
+
+Cell[CellGroupData[{
+
+Cell["The Metropolis-Hastings Algorithm", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.941801927167573*^9, 3.941801936933111*^9}, {
+  3.94247441005904*^9, 
+  3.9424744135077*^9}},ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+
+Cell[TextData[{
+ "Let us summarize the Metropolis-Hastings algorithm. The situation we want \
+to apply it to is still the same:\n\t* We have ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "0c344551-0728-4ce7-87b7-1f965fe74e3b"],
+ " bins and a set of desired probabilities ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "i"], TraditionalForm]],ExpressionUUID->
+  "4457c411-87d2-48e2-8a6c-220df78b0eb7"],
+ ", where ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "4399c8d4-353f-4a7b-983a-94b0a92bc4a9"],
+ " runs from 1 to ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "6e4975a1-f658-4660-8609-f509b43b2485"],
+ ".\n\t* In our quarterly iPhone sales example, ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],ExpressionUUID->
+  "a5387a38-1ee5-475c-859c-7d3bee17c44a"],
+ " was 4 and the four ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "i"], TraditionalForm]],ExpressionUUID->
+  "44c80dc8-5f5a-48c7-8153-e24c5ae2f240"],
+ "\[CloseCurlyQuote]s were 0.1, 0.2, 0.4, and 0.3.\n\nThen the core of the \
+algorithm (repeated ",
+ StyleBox["ad nauseam)",
+  FontSlant->"Italic"],
+ " was:\n\n\t",
+ StyleBox["Step 1:",
+  FontWeight->"Bold"],
+ " You are in bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "c1175de3-4ae3-4f6b-b806-4d6b34a4d844"],
+ ". You choose a random move from ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "i"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "57cc73ab-87fc-4282-8637-e00560eb158e"],
+ " to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e64fe8f2-696c-4993-8e59-0bb9c0bd1a76"],
+ ". In Metropolis, the random move was to the nearest neighbor, and you had \
+0.5 chance of going to either of the two nearest neighbors. In \
+Metropolis-Hastings, the probability of the random move is just denoted ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", 
+    RowBox[{"j", "|", "i"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4a3353d7-e7da-4919-a09c-5e968d007a86"],
+ ", which can be non-zero for non-nearest neighbors, and furthermore the \
+probabilities ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", 
+    RowBox[{"j", "|", "i"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cef3d85e-e1b1-4fe2-abf7-fccaa72767be"],
+ " don\[CloseCurlyQuote]t even have to be symmetric. E.g., it does ",
+ StyleBox["not",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " have to be the case that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"i", "|", "j"}], ")"}], "=", 
+    RowBox[{"g", "(", 
+     RowBox[{"j", "|", "1"}], ")"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ac5f98ca-9417-42e8-b0d5-df76eb5fce6d"],
+ ".\n\t",
+ StyleBox["Step 2:",
+  FontWeight->"Bold"],
+ " Compute the appropriate ratio. The appropriate ratio for going from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", "->", "j"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "8c01d9ce-3b0d-452c-9840-ec1bb34e521f"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "j"], 
+      SubscriptBox["p", "i"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "5cff6b62-2528-43f1-8aea-1ec221ceb0b6"],
+ ". Now as you can see, unlike my proof for Metropolis, in \
+Metropolis-Hastings, the ratio can be greater than 1. So that ratio has no \
+chance of being conceptualized as a probability. In fact, if the appropriate \
+ratio for going from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", "->", "j"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "80200f22-3f3b-4fdd-8a19-58efc338b756"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "j"], 
+      SubscriptBox["p", "i"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "7a7ffae1-e8c6-4320-9b57-6f23eece7cd3"],
+ " and is less than 1, then the appropriate ratio for going from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"j", "->", "i"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "38f330db-62cd-45d6-bded-57575fa0a79f"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "i"], 
+      SubscriptBox["p", "i"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "a9ed0c7c-e4e9-4a31-8b81-84182e40cbb2"],
+ " which is exactly the inverse, will be greater than 1. So we ",
+ StyleBox["clamp",
+  FontWeight->"Bold"],
+ " the ratio as follows: the ",
+ StyleBox["clamped",
+  FontWeight->"Bold"],
+ " appropriate ratio for going from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", "->", "j"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "aad381f4-3c5c-44dc-9b99-b6effccf3b4e"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"min", "(", 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       FractionBox[
+        SubscriptBox["p", "j"], 
+        SubscriptBox["p", "i"]], 
+       FractionBox[
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}], 
+        RowBox[{"g", "(", 
+         RowBox[{"j", "|", "i"}], ")"}]]}],
+      FontSize->18], 
+     StyleBox[",",
+      FontSize->18], 
+     StyleBox["1",
+      FontSize->16]}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "46489d9f-d1f0-4b0b-a7cc-12ba8fb2d0bc"],
+ ". \n\t",
+ StyleBox["Step 3:",
+  FontWeight->"Bold"],
+ " Generate a random number between 0 and 1. If the number is less than \
+clamped appropriate ratio, move to the proposed bin, and make a tally there. \
+Otherwise stay in the current bin and make another tally in the current bin."
+}], "Text",
+ CellChangeTimes->{{3.941801035176573*^9, 3.941801286524672*^9}, {
+   3.941801557809082*^9, 3.941801676731529*^9}, {3.941801752911573*^9, 
+   3.9418017942052717`*^9}, {3.9418019234811974`*^9, 3.941802101009714*^9}, {
+   3.941802136502256*^9, 3.941802144649*^9}, {3.941821099380465*^9, 
+   3.9418212943102207`*^9}, {3.941822116610261*^9, 3.941822183780629*^9}, 
+   3.941889519359266*^9, {3.941889578544245*^9, 3.941889621903448*^9}, {
+   3.941891747219066*^9, 3.941891760252715*^9}, {3.9424744293203897`*^9, 
+   3.942474604376223*^9}, {3.942474639359167*^9, 3.9424747873388577`*^9}, {
+   3.942474830632082*^9, 3.942474836402396*^9}, {3.9424752939559307`*^9, 
+   3.942475300104619*^9}, {3.942475343209462*^9, 3.942475352693145*^9}, {
+   3.942479309294941*^9, 3.9424793101213417`*^9}, {3.942479340692894*^9, 
+   3.9424796045628157`*^9}, {3.942479973666615*^9, 3.942479985890028*^9}, {
+   3.942480935962144*^9, 3.942481001947049*^9}, {3.9424814302425537`*^9, 
+   3.942481481913521*^9}, {3.942481551309309*^9, 3.942481610770878*^9}, 
+   3.942482375346265*^9},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+cb0896e68c3b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Thinking Probabilistically Instead of Algorithmically", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.9418021582052097`*^9, 3.9418021619288483`*^9}, {
+  3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+  3.9418883357770863`*^9}},ExpressionUUID->"039041bb-74ce-499d-a3c5-\
+1a70737b2ac2"],
+
+Cell[TextData[{
+ "Suppose after running the algorithm for a while, ",
+ StyleBox["the chance",
+  FontWeight->"Bold"],
+ " that the algorithm is currently in bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "759443dd-88eb-4fcd-b73d-3f75bc68a5db"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "i"], TraditionalForm]],ExpressionUUID->
+  "1cd10256-2260-4e9e-bfa7-87d3fd9a2b3e"],
+ " where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"i", "=", "1"}], ",", "...", " ", ",", "n"}], TraditionalForm]],
+  ExpressionUUID->"fb808773-33a1-4378-b70b-8b16eeafada0"],
+ ". Note that the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "i"], TraditionalForm]],ExpressionUUID->
+  "7812b315-1b22-4610-b388-562740d8b503"],
+ " do not have to be related to the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "i"], TraditionalForm]],ExpressionUUID->
+  "e59f807b-f382-4cd6-a96b-0a3d7978259f"],
+ ". That relationship is what we are trying to prove! In fact, at the \
+beginning, we start the algorithm off somewhere, and of course the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "i"], TraditionalForm]],ExpressionUUID->
+  "2034c2d0-9301-4cd1-ba0a-9a2c1b22bf1c"],
+ " are initially concentrated wherever we chose to start. We want to derive \
+something about the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "i"], TraditionalForm]],ExpressionUUID->
+  "8da1ab1c-b4d1-42fd-8ca3-a2256421b138"],
+ " once they settle down into an equilibrium.\n\nLet\[CloseCurlyQuote]s think \
+about the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"j", "->", "i"}], TraditionalForm]],ExpressionUUID->
+  "506e9f9e-6b93-4e07-83ff-6a256dae6c9c"],
+ " transition and the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", "->", "j"}], TraditionalForm]],ExpressionUUID->
+  "dcedffb9-372f-45ae-a416-59e41f6a06d2"],
+ " transition. Again, these do not have to be neighbors. The chance of being \
+in bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1cc542d2-9d0e-48de-8f7f-448e26b600d7"],
+ " and going to bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ea78341c-924a-406c-a4c7-db7e8c819850"],
+ " is:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["q", "j"], "*", 
+     RowBox[{"g", "(", 
+      RowBox[{"i", "|", "j"}], ")"}], "*", "the", " ", "clamped", " ", 
+     "appropriate", " ", "ratio", " ", "for", " ", "j"}], "->", "i"}], 
+   TraditionalForm]],ExpressionUUID->"deee08dc-8804-40ac-bd9c-a05d33989dca"],
+ "\n\nWhile the chance of being in bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "b11ccd13-85d7-4c0f-8e5f-9d898a9210bf"],
+ " and going to bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "140d75da-b8ed-4625-b9cf-d05d79fd1e36"],
+ " is:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["q", "i"], "*", 
+     RowBox[{"g", "(", 
+      RowBox[{"j", "|", "i"}], ")"}], "*", "the", " ", "clamped", " ", 
+     "appropriate", " ", "ratio", " ", "for", " ", "i"}], "->", "j"}], 
+   TraditionalForm]],ExpressionUUID->"46687cdc-09fe-47fc-8c10-6af815285406"]
+}], "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.9418025304090233`*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.9418234483969197`*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888431143348*^9}, {3.941889650270494*^9, 3.941889697601927*^9}, 
+   3.941889739030484*^9, {3.942474926352392*^9, 3.9424749916038113`*^9}, {
+   3.942475035843767*^9, 3.9424752335910273`*^9}, {3.942475273478503*^9, 
+   3.9424752869493303`*^9}, {3.942475381966028*^9, 3.942475434286632*^9}, {
+   3.94247549960116*^9, 3.9424755047755117`*^9}, {3.942475587772626*^9, 
+   3.942475602684966*^9}, {3.942475734421803*^9, 3.942475802298635*^9}, {
+   3.9424772852713137`*^9, 3.942477285271558*^9}, {3.942477322936449*^9, 
+   3.942477328530592*^9}, {3.942477567443123*^9, 3.9424775782566442`*^9}, {
+   3.9424800123070593`*^9, 
+   3.942480018457856*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+3a80e979eef4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["The Principle of Detailed Balance", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.9418021582052097`*^9, 3.9418021619288483`*^9}, {
+  3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+  3.9418883357770863`*^9}, {3.9418884391913013`*^9, 
+  3.941888445147588*^9}},ExpressionUUID->"a9801d87-07e6-4c6d-9ed8-\
+d435241361d7"],
+
+Cell[TextData[{
+ "When the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ba482984-2d6e-4cc7-88f7-eb69077cbdd7"],
+ " settle down, all the flows out of any bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5faa3e3a-dbe2-4da0-8d2a-366adec6a018"],
+ " must equal all the flows into that same bin. So we could write down: \n\n\
+",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{
+     UnderscriptBox["\[Sum]", "j"], 
+     RowBox[{
+      SubscriptBox["q", "i"], "*", 
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}], "*", "the", " ", "appropriate", " ", 
+      "ratio", " ", "for", " ", "i"}]}], "->", "j"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"        ", 
+    RowBox[{"=", "        ", 
+     RowBox[{
+      RowBox[{
+       UnderscriptBox["\[Sum]", "j"], 
+       RowBox[{
+        SubscriptBox["q", "j"], "*", 
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}], "*", "the", " ", "appropriate", " ", 
+        "ratio", " ", "for", " ", "j"}]}], "->", "i"}]}]}], TraditionalForm]}],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "80419014-6a20-4c80-b814-96ce5f6901fb"],
+ "\n\nThat would be called \[OpenCurlyDoubleQuote]The Principle of Balance.\
+\[CloseCurlyDoubleQuote] But we are going to demand something stronger, which \
+is \[OpenCurlyDoubleQuote]The Principle of Detailed Balance.\
+\[CloseCurlyDoubleQuote] We are going to demand that the flow from bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a9591d10-8dbf-422c-a1d5-d6f6367b6249"],
+ " to bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "37f70241-04e5-4cad-909d-3d8d9a9adedf"],
+ " is equal to the flow from bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1c4a4166-85ce-4654-8b77-69117bfd69da"],
+ " to bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "35dc043d-a7a6-4caf-8b1b-ef8d8ac49aff"],
+ ". Certainly if we demand that, then the Principle of Balance is also true. \
+So, we demand it, and see where it leads. In other words, we see if we can \
+satisfy:\n\n ",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["q", "i"], "*", 
+     RowBox[{"g", "(", 
+      RowBox[{"j", "|", "i"}], ")"}], "*", "the", " ", "appropriate", " ", 
+     "ratio", " ", "for", " ", "i"}], "->", "j"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"        ", 
+    RowBox[{"=", "        ", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["q", "j"], "*", 
+       RowBox[{"g", "(", 
+        RowBox[{"i", "|", "j"}], ")"}], "*", "the", " ", "appropriate", " ", 
+       "ratio", " ", "for", " ", "j"}], "->", "i"}]}]}], TraditionalForm]}],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "af6489f0-55e7-4a9d-919c-649e41932500"],
+ "\n\nNow let\[CloseCurlyQuote]s stick in the clamped appropriate ratios, and \
+the detailed balance condition becomes:\n\n",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    SubscriptBox["q", "i"], "*", 
+    RowBox[{"g", "(", 
+     RowBox[{"j", "|", "i"}], ")"}], "*", 
+    RowBox[{"min", "(", 
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        FractionBox[
+         SubscriptBox["p", "j"], 
+         SubscriptBox["p", "i"]], 
+        FractionBox[
+         RowBox[{"g", "(", 
+          RowBox[{"i", "|", "j"}], ")"}], 
+         RowBox[{"g", "(", 
+          RowBox[{"j", "|", "i"}], ")"}]]}],
+       FontSize->18], 
+      StyleBox[",",
+       FontSize->18], 
+      StyleBox["1",
+       FontSize->16]}], ")"}]}], TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"        ", 
+    RowBox[{"=", "       ", 
+     RowBox[{
+      SubscriptBox["q", "j"], "*", 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], "*", 
+      RowBox[{"min", "(", 
+       RowBox[{
+        StyleBox[
+         RowBox[{
+          FractionBox[
+           SubscriptBox["p", "i"], 
+           SubscriptBox["p", "j"]], 
+          FractionBox[
+           RowBox[{"g", "(", 
+            RowBox[{"j", "|", "i"}], ")"}], 
+           RowBox[{"g", "(", 
+            RowBox[{"i", "|", "j"}], ")"}]]}],
+         FontSize->18], 
+        StyleBox[",",
+         FontSize->18], 
+        StyleBox["1",
+         FontSize->16]}], ")"}]}]}]}], TraditionalForm]}],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b424afdd-6ed8-47cf-bb00-88900d996fd5"],
+ "\n\nRemember that at least one of ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "j"], 
+      SubscriptBox["p", "i"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "5fa28c46-a0d2-4c2c-a037-52ab8182cc44"],
+ " or ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "i"], 
+      SubscriptBox["p", "j"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "eead6bb0-904c-40f8-8f4f-c8b9b33ebc76"],
+ " was greater than or equal to 1 (because they are inverses of each other!). \
+Just suppose it is ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "j"], 
+      SubscriptBox["p", "i"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "29484966-1d03-4534-b959-5fcc68670f8d"],
+ " that is greater than or equal to 1. Well, in that case, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"min", "(", 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       FractionBox[
+        SubscriptBox["p", "j"], 
+        SubscriptBox["p", "i"]], 
+       FractionBox[
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}], 
+        RowBox[{"g", "(", 
+         RowBox[{"j", "|", "i"}], ")"}]]}],
+      FontSize->18], 
+     StyleBox[",",
+      FontSize->18], 
+     StyleBox["1",
+      FontSize->16]}], ")"}], TraditionalForm]],ExpressionUUID->
+  "bea26ed7-25af-4191-867f-9bf8aa6f40e0"],
+ "  is just 1 and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"min", "(", 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       FractionBox[
+        SubscriptBox["p", "i"], 
+        SubscriptBox["p", "j"]], 
+       FractionBox[
+        RowBox[{"g", "(", 
+         RowBox[{"j", "|", "i"}], ")"}], 
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}]]}],
+      FontSize->18], 
+     StyleBox[",",
+      FontSize->18], 
+     StyleBox["1",
+      FontSize->16]}], ")"}], TraditionalForm]],ExpressionUUID->
+  "7b131704-8c5d-47d2-9c6d-c6570704d3e7"],
+ " simplifies to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "i"], 
+      SubscriptBox["p", "j"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "a08bec72-6c06-4b0a-9203-190b0c32e72b"],
+ ".\n\nSo in that case, the Principle of Detailed Balance becomes:\n\n",
+ Cell[BoxData[{
+  FormBox[
+   RowBox[{
+    SubscriptBox["q", "i"], "*", 
+    RowBox[{"g", "(", 
+     RowBox[{"j", "|", "i"}], ")"}], "*", "1"}], 
+   TraditionalForm], "\[IndentingNewLine]", 
+  FormBox[
+   RowBox[{"        ", 
+    RowBox[{"=", "       ", 
+     RowBox[{
+      SubscriptBox["q", "j"], "*", 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}], "*", 
+      StyleBox[
+       FractionBox[
+        SubscriptBox["p", "i"], 
+        SubscriptBox["p", "j"]],
+       FontSize->18], 
+      StyleBox[
+       FractionBox[
+        RowBox[{"g", "(", 
+         RowBox[{"j", "|", "i"}], ")"}], 
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}]],
+       FontSize->18]}]}]}], TraditionalForm]}],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "171e4e05-9674-4791-b5b2-c82be4156aaa"],
+ "\n\nLook at the lovely cancellation of all the ",
+ Cell[BoxData[
+  FormBox["g", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cb042084-6aad-45dd-8aa8-1c4cc7154d20"],
+ " factors! And this same cancellation would have happened if it was ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{
+     FractionBox[
+      SubscriptBox["p", "i"], 
+      SubscriptBox["p", "j"]], 
+     FractionBox[
+      RowBox[{"g", "(", 
+       RowBox[{"j", "|", "i"}], ")"}], 
+      RowBox[{"g", "(", 
+       RowBox[{"i", "|", "j"}], ")"}]]}],
+    FontSize->18], TraditionalForm]],ExpressionUUID->
+  "20236574-98f5-468f-b49c-fabaf0c47467"],
+ " that was greater than 1. Either way, we have:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["q", "i"], "=", " ", 
+    RowBox[{
+     SubscriptBox["q", "j"], 
+     StyleBox[
+      FractionBox[
+       SubscriptBox["p", "i"], 
+       SubscriptBox["p", "j"]],
+      FontSize->18]}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "25f22559-fe1d-4441-8b14-3158c92cffcd"],
+ "            or          ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     SubscriptBox["q", "i"], 
+     SubscriptBox["p", "i"]], "=", " ", 
+    FractionBox[
+     SubscriptBox["q", "j"], 
+     SubscriptBox["p", "j"]]}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->18,ExpressionUUID->"7ba0c115-75e5-47f4-81cf-164f1d0227f2"]
+}], "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.9418025304090233`*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.9418234483969197`*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888419433538*^9}, {3.9418884533862963`*^9, 3.941889045321903*^9}, {
+   3.941889267560174*^9, 3.941889282826161*^9}, {3.9418897041557837`*^9, 
+   3.941889711584606*^9}, {3.94188975322155*^9, 3.941889758711586*^9}, {
+   3.9418897910968637`*^9, 3.941889809233366*^9}, {3.94188984157718*^9, 
+   3.941890035639523*^9}, {3.941891555200908*^9, 3.941891573796963*^9}, {
+   3.941891806040723*^9, 3.941891860396353*^9}, {3.942475622964575*^9, 
+   3.942475668783039*^9}, {3.942475817705885*^9, 3.9424758453947697`*^9}, {
+   3.942475898996426*^9, 3.942476092402392*^9}, {3.942476123928803*^9, 
+   3.94247614068771*^9}, {3.942476271371243*^9, 3.94247634361408*^9}, {
+   3.942476385691403*^9, 3.942476442274753*^9}, {3.942476541489332*^9, 
+   3.942476560134082*^9}, {3.942476673201096*^9, 3.9424767076246243`*^9}, {
+   3.9424768369908943`*^9, 3.942476847637154*^9}, {3.9424769143903027`*^9, 
+   3.942476914390836*^9}, {3.9424769705309362`*^9, 3.942477007491514*^9}, {
+   3.942477370923211*^9, 3.9424773759178247`*^9}, {3.9424776055874968`*^9, 
+   3.942477618744775*^9}, {3.9424780123135967`*^9, 3.9424780591434507`*^9}, {
+   3.942478553329647*^9, 3.942478575464839*^9}, {3.942478649647663*^9, 
+   3.942478747212841*^9}, {3.942479104260645*^9, 3.9424791119217653`*^9}, {
+   3.942479153891573*^9, 3.942479216201194*^9}, {3.9424792805133343`*^9, 
+   3.9424792866347027`*^9}, {3.9424796424039*^9, 3.942479715414427*^9}, {
+   3.9424800449376173`*^9, 3.94248004604246*^9}, {3.942480087332142*^9, 
+   3.942480126819442*^9}, {3.942480182537655*^9, 3.942480375785005*^9}, {
+   3.9424804538515577`*^9, 3.942480504790477*^9}, {3.942480630460064*^9, 
+   3.942480668374962*^9}, {3.942480704348962*^9, 3.942480813150172*^9}, {
+   3.9424808897573338`*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
+   3.942481175455418*^9}, 3.942481211141766*^9, {3.942481687981761*^9, 
+   3.942481740871519*^9}, {3.9424824719493732`*^9, 
+   3.942482478859049*^9}},ExpressionUUID->"e5775bc2-53c7-4255-82e6-\
+f7841ea324fa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Concluding the Argument", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.9418021582052093`*^9, 3.941802161928848*^9}, {
+  3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+  3.9418883357770863`*^9}, {3.941888439191301*^9, 3.941888445147588*^9}, {
+  3.942481221582123*^9, 
+  3.942481226367158*^9}},ExpressionUUID->"82bda6ad-6598-48aa-88c7-\
+b90526a78cd5"],
+
+Cell[TextData[{
+ "Now once things have settled ",
+ "down, if the Principle of Detailed Balance is satisfied,",
+ StyleBox[" it is true for every pair",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ ". So that means this ratio is the same ratio for any ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "29a90185-1038-4274-b86f-3ba39082d15d"],
+ " and ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],ExpressionUUID->
+  "6b4e6e23-e604-45eb-a7e5-d37447a8c3c4"],
+ ". Let\[CloseCurlyQuote]s call the constant ratio \[Rho]. We have shown that\
+\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    FractionBox[
+     SubscriptBox["q", "j"], 
+     SubscriptBox["p", "j"]], "=", "\[Rho]"}], TraditionalForm]],
+  ExpressionUUID->"3158f851-9ff5-495e-8d22-1f5e9c28cc81"],
+ "\n\nor \n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["q", "j"], "=", 
+    RowBox[{"\[Rho]", "\[VeryThinSpace]", 
+     SubscriptBox["p", "j"]}]}], TraditionalForm]],ExpressionUUID->
+  "a9582b81-6b96-4ab2-b464-aee0f9171f42"],
+ "\n\nThe very last thing to observe is that the sum of all the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
+  "bee25009-2a35-4ca0-b9a1-6e86e693531c"],
+ " is 1, because the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
+  "4514722b-4811-4495-9a23-95ca881443d0"],
+ " are a probability distribution. And the sum of all the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],ExpressionUUID->
+  "ab69fdae-fd74-4e00-be8c-d0ce09031517"],
+ " is 1, because the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],ExpressionUUID->
+  "a90d2813-e021-4d25-a642-c31f5d260376"],
+ " are also a probability distribution. The only way the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
+  "20b809e7-d27b-4a75-b534-89619a636d38"],
+ " and the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],ExpressionUUID->
+  "0d6bb40a-7d57-4d47-ad95-3a06134fd426"],
+ " can both be normalized is if \[Rho] is 1.\n\nWe have shown that the \
+Metropolis-Hastings version of Monte Carlo works! Every ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],ExpressionUUID->
+  "08733fe6-c5dd-415d-bd07-ba369d308af2"],
+ " settles down to the corresponding ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
+  "18288efd-17f0-4475-857a-bf01bc7256a2"],
+ ".\n\nThis whole proof was surprisingly complicated. It told me I have to \
+modify Problem Set 17 to use the clamped appropriate ratio. So I will be \
+handing out an adjusted version of Problem Set 17 this morning."
+}], "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.9418025304090233`*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.9418234483969197`*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888419433538*^9}, {3.9418884533862963`*^9, 3.941889045321903*^9}, {
+   3.941889267560174*^9, 3.941889282826161*^9}, {3.9418897041557837`*^9, 
+   3.941889711584606*^9}, {3.94188975322155*^9, 3.941889758711586*^9}, {
+   3.9418897910968637`*^9, 3.941889809233366*^9}, {3.94188984157718*^9, 
+   3.941890035639523*^9}, {3.941891555200908*^9, 3.941891573796963*^9}, {
+   3.941891806040723*^9, 3.941891860396353*^9}, {3.942475622964575*^9, 
+   3.942475668783039*^9}, {3.942475817705885*^9, 3.9424758453947697`*^9}, {
+   3.942475898996426*^9, 3.942476092402392*^9}, {3.942476123928803*^9, 
+   3.94247614068771*^9}, {3.942476271371243*^9, 3.94247634361408*^9}, {
+   3.942476385691403*^9, 3.942476442274753*^9}, {3.942476541489332*^9, 
+   3.942476560134082*^9}, {3.942476673201096*^9, 3.9424767076246243`*^9}, {
+   3.9424768369908943`*^9, 3.942476847637154*^9}, {3.9424769143903027`*^9, 
+   3.942476914390836*^9}, {3.9424769705309362`*^9, 3.942477007491514*^9}, {
+   3.942477370923211*^9, 3.9424773759178247`*^9}, {3.9424776055874968`*^9, 
+   3.942477618744775*^9}, {3.9424780123135967`*^9, 3.9424780591434507`*^9}, {
+   3.942478553329647*^9, 3.942478575464839*^9}, {3.942478649647663*^9, 
+   3.942478747212841*^9}, {3.942479104260645*^9, 3.9424791119217653`*^9}, {
+   3.942479153891573*^9, 3.942479216201194*^9}, {3.9424792805133343`*^9, 
+   3.9424792866347027`*^9}, {3.9424796424039*^9, 3.942479715414427*^9}, {
+   3.9424800449376173`*^9, 3.94248004604246*^9}, {3.942480087332142*^9, 
+   3.942480126819442*^9}, {3.942480182537655*^9, 3.942480375785005*^9}, {
+   3.9424804538515577`*^9, 3.942480504790477*^9}, {3.942480630460064*^9, 
+   3.942480668374962*^9}, {3.942480704348962*^9, 3.942480813150172*^9}, {
+   3.9424808897573338`*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
+   3.942481175455418*^9}, {3.94248123226527*^9, 3.942481239823838*^9}, {
+   3.9424818141189117`*^9, 3.942481977218061*^9}, {3.942482008433618*^9, 
+   3.942482133975491*^9}},ExpressionUUID->"1c677684-fa8b-4c32-85da-\
+f2f9daef0825"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Footnote", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.9418021582052093`*^9, 3.941802161928848*^9}, {
+  3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+  3.9418883357770863`*^9}, {3.941888439191301*^9, 3.941888445147588*^9}, {
+  3.942481221582123*^9, 3.942481226367158*^9}, {3.942482122902441*^9, 
+  3.9424821239816313`*^9}},ExpressionUUID->"19b4de52-a0f3-4d5d-9f2e-\
+d6c5d15b2a51"],
+
+Cell[TextData[{
+ "I don\[CloseCurlyQuote]t see that the Principle of Detailed Balance has to \
+be satisfied. Certainly the Principle of Balance has to be satisfied. I am \
+unclear whether this distinction is a red flag telling me about a potential \
+issue, or whether I just need to think about it harder to see that it is not \
+in fact an issue. I think the argument that it is not an issue would go \
+something like:\n\nThe Principle of Detailed Balance did not have to be \
+satisfied. We assumed that it was and saw where it took us. Since it yielded \
+a solution for the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "24e17d99-a1f8-4865-81bd-b5b581274192"],
+ " and whatever the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["q", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "23714605-6919-460c-9f37-3b3d093f85aa"],
+ " settle down to has to be unique, then we have found the unique solution. \
+The unique solution happens to satisfy the Principle of Detailed Balance, but \
+since it does, it of course also satisfies the Principle of Balance. If we \
+had found that The Principle of Detailed Balance was not satisfiable, then we \
+would have had to try the weaker Principle of Balance and see what we could \
+prove from that."
+}], "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.9418025304090233`*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.9418234483969197`*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888419433538*^9}, {3.9418884533862963`*^9, 3.941889045321903*^9}, {
+   3.941889267560174*^9, 3.941889282826161*^9}, {3.9418897041557837`*^9, 
+   3.941889711584606*^9}, {3.94188975322155*^9, 3.941889758711586*^9}, {
+   3.9418897910968637`*^9, 3.941889809233366*^9}, {3.94188984157718*^9, 
+   3.941890035639523*^9}, {3.941891555200908*^9, 3.941891573796963*^9}, {
+   3.941891806040723*^9, 3.941891860396353*^9}, {3.942475622964575*^9, 
+   3.942475668783039*^9}, {3.942475817705885*^9, 3.9424758453947697`*^9}, {
+   3.942475898996426*^9, 3.942476092402392*^9}, {3.942476123928803*^9, 
+   3.94247614068771*^9}, {3.942476271371243*^9, 3.94247634361408*^9}, {
+   3.942476385691403*^9, 3.942476442274753*^9}, {3.942476541489332*^9, 
+   3.942476560134082*^9}, {3.942476673201096*^9, 3.9424767076246243`*^9}, {
+   3.9424768369908943`*^9, 3.942476847637154*^9}, {3.9424769143903027`*^9, 
+   3.942476914390836*^9}, {3.9424769705309362`*^9, 3.942477007491514*^9}, {
+   3.942477370923211*^9, 3.9424773759178247`*^9}, {3.9424776055874968`*^9, 
+   3.942477618744775*^9}, {3.9424780123135967`*^9, 3.9424780591434507`*^9}, {
+   3.942478553329647*^9, 3.942478575464839*^9}, {3.942478649647663*^9, 
+   3.942478747212841*^9}, {3.942479104260645*^9, 3.9424791119217653`*^9}, {
+   3.942479153891573*^9, 3.942479216201194*^9}, {3.9424792805133343`*^9, 
+   3.9424792866347027`*^9}, {3.9424796424039*^9, 3.942479715414427*^9}, {
+   3.9424800449376173`*^9, 3.94248004604246*^9}, {3.942480087332142*^9, 
+   3.942480126819442*^9}, {3.942480182537655*^9, 3.942480375785005*^9}, {
+   3.9424804538515577`*^9, 3.942480504790477*^9}, {3.942480630460064*^9, 
+   3.942480668374962*^9}, {3.942480704348962*^9, 3.942480813150172*^9}, {
+   3.9424808897573338`*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
+   3.942481175455418*^9}, {3.94248123226527*^9, 3.942481239823838*^9}, {
+   3.9424818141189117`*^9, 3.942481977218061*^9}, {3.942482008433618*^9, 
+   3.942482342988165*^9}, {3.942482411107541*^9, 
+   3.942482447167006*^9}},ExpressionUUID->"f88c8578-ffd3-41fd-8182-\
+c6c04c88ac36"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1337, 1294},
+WindowMargins->{{Automatic, 556}, {-7, Automatic}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"40de3cf9-4dab-40af-bde4-3d2e4426fa11"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 590, 10, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
+Cell[1173, 34, 2286, 37, 246, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[CellGroupData[{
+Cell[3484, 75, 369, 5, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[3856, 82, 7299, 207, 521, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11192, 294, 446, 6, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[11641, 302, 6040, 132, 326, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17718, 439, 477, 7, 67, "Subsection",ExpressionUUID->"a9801d87-07e6-4c6d-9ed8-d435241361d7"],
+Cell[18198, 448, 13809, 370, 968, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32044, 823, 512, 8, 67, "Subsection",ExpressionUUID->"82bda6ad-6598-48aa-88c7-b90526a78cd5"],
+Cell[32559, 833, 6884, 133, 492, "Text",ExpressionUUID->"1c677684-fa8b-4c32-85da-f2f9daef0825"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39480, 971, 545, 8, 67, "Subsection",ExpressionUUID->"19b4de52-a0f3-4d5d-9f2e-d6c5d15b2a51"],
+Cell[40028, 981, 5533, 84, 252, "Text",ExpressionUUID->"f88c8578-ffd3-41fd-8182-c6c04c88ac36"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
