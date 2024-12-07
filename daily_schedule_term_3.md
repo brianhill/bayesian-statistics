@@ -45,6 +45,4 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 * Tuesday, Dec. 17 &mdash; The Hepatitis B vaccination study
 
-&nbsp;
-
-<img src="./resources/MarkovChain.png" alt="Markov Chain" width="80%">
+<img src="./resources/MarkovChain.png" alt="Markov Chain" width="60%">

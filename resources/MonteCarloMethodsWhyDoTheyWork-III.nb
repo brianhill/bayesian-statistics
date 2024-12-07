@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     26411,        589]
-NotebookOptionsPosition[     25163,        557]
-NotebookOutlinePosition[     25648,        576]
-CellTagsIndexPosition[     25605,        573]
+NotebookDataLength[     29755,        659]
+NotebookOptionsPosition[     28506,        627]
+NotebookOutlinePosition[     28991,        646]
+CellTagsIndexPosition[     28948,        643]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -33,17 +33,23 @@ Cell[TextData[StyleBox["Monte Carlo Methods \[LongDash] Why Do They Work? \
    3.9425724490892677`*^9}},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
 1a27648aea9a"],
 
-Cell["\<\
-In the previous two \[OpenCurlyDoubleQuote]Why Do They Work?\
-\[CloseCurlyDoubleQuote] write-ups, I showed why the Metropolis algorithm \
-worked and why the Metropolis-Hastings algorithm works. Both proofs required \
-the Principle of Detailed Balance.
-
-Now we are going to see why the Gibbs Sampling (GS) algorithm works.\
-\>", "Text",
+Cell[TextData[{
+ "In the previous two \[OpenCurlyDoubleQuote]Why Do They Work?\
+\[CloseCurlyDoubleQuote] write-ups, I proved that the Metropolis algorithm \
+worked and that the Metropolis-Hastings algorithm worked:\n\n* ",
+ StyleBox["https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsWhyDoTheyWork-II.nb.pdf\n* \
+https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsWhyDoTheyWork-III.nb.pdf",
+  FontSize->14],
+ "\n\nBoth proofs required the Principle of Detailed Balance. Now we are \
+going to prove that the Gibbs Sampling (GS) algorithm works, but all the hard \
+work was actually in the previous write-up, because Gibbs sampling is a \
+special case of Metropolis-Hastings. Let\[CloseCurlyQuote]s see that first."
+}], "Text",
  CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
    3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
-   3.941264028191356*^9}, {3.9412640619114547`*^9, 3.9412645265818787`*^9}, {
+   3.941264028191356*^9}, {3.9412640619114556`*^9, 3.9412645265818787`*^9}, {
    3.941264650249452*^9, 3.9412646993328133`*^9}, {3.941264822564703*^9, 
    3.941264857764879*^9}, {3.941268016756933*^9, 3.941268017021914*^9}, {
    3.941269437806624*^9, 3.94126953124967*^9}, {3.941269582454015*^9, 
@@ -59,8 +65,9 @@ Now we are going to see why the Gibbs Sampling (GS) algorithm works.\
    3.942474173884481*^9, 3.942474385276809*^9}, {3.942479766174138*^9, 
    3.942479790216973*^9}, {3.94248126278925*^9, 3.942481334429647*^9}, {
    3.9424814048278503`*^9, 3.942481423653117*^9}, 3.942482372555183*^9, {
-   3.942569089551676*^9, 
-   3.942569164241397*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+   3.942569089551676*^9, 3.942569164241397*^9}, {3.9425728815077543`*^9, 
+   3.942572950949976*^9}, {3.942573043779091*^9, 
+   3.942573194513968*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
 225ac6193fce"],
 
 Cell[CellGroupData[{
@@ -86,13 +93,11 @@ Cell[TextData[{
   "c1175de3-4ae3-4f6b-b806-4d6b34a4d844"],
  ". You propose a random move from bin ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "d313fe80-6c03-45e8-bce7-b2b739539bb6"],
  " to some other bin ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "e76fb1f3-7973-4044-8279-24bfc1a03bbd"],
  ". The probability of proposing the random move is denoted ",
  Cell[BoxData[
@@ -102,18 +107,15 @@ Cell[TextData[{
   "4a3353d7-e7da-4919-a09c-5e968d007a86"],
  ", which is read \[OpenCurlyDoubleQuote]",
  Cell[BoxData[
-  FormBox["g", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["g", TraditionalForm]],ExpressionUUID->
   "88661dac-56be-4ec2-aba3-5ff357736154"],
  " of ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "f0049041-223e-4d27-a051-f6f0c4c8b3af"],
  " given ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "957dc97c-0cfe-411b-8d62-6a47562aea82"],
  ".\[CloseCurlyDoubleQuote] (Note: If you want to recover Metropolis as a \
 special case of Metropolis-Hastings, you put in that ",
@@ -123,9 +125,7 @@ special case of Metropolis-Hastings, you put in that ",
     RowBox[{"g", "(", 
      RowBox[{
       RowBox[{"i", "+", "1"}], "|", "i"}], ")"}], "=", "0.5"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "8c3e5e6c-0fa4-40e1-9fcf-7c44b7e2a865"],
+   TraditionalForm]],ExpressionUUID->"8c3e5e6c-0fa4-40e1-9fcf-7c44b7e2a865"],
  " and ",
  Cell[BoxData[
   FormBox[
@@ -133,9 +133,7 @@ special case of Metropolis-Hastings, you put in that ",
     RowBox[{"g", "(", 
      RowBox[{
       RowBox[{"i", "-", "1"}], "|", "i"}], ")"}], "=", "0.5"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "13102106-158d-4e49-ae98-91cebb939357"],
+   TraditionalForm]],ExpressionUUID->"13102106-158d-4e49-ae98-91cebb939357"],
  ". In other words, you have 50% chance of moving to either of the nearest \
 neighbors, and in Metropolis there is no chance of moving to anything but a \
 nearest neighbor.)\n\t",
@@ -179,17 +177,17 @@ nearest neighbor.)\n\t",
   FontWeight->"Bold"],
  " Generate a random number between 0 and 1. If the number is less than \
 clamped appropriate ratio, move to the proposed bin, and make a tally there. \
-Otherwise stay in the current bin and make another tally in the current bin.\n\
-\t\n\[OpenCurlyDoubleQuote]Hold on to your papers, fellow scholars [apologies \
-to Dr. Karoly Zsolnai-Feher],\[CloseCurlyDoubleQuote] here is what Gibbs \
-sampling is:\n\nYou just choose ",
+Otherwise stay in the current bin and make another tally in the current bin. \
+Whatever bin you made the tally in is now the current bin, and you go back to \
+step 1.\n\t\n\[OpenCurlyDoubleQuote]Hold on to your papers, fellow scholars \
+[apologies to Dr. Karoly Zsolnai-Feher],\[CloseCurlyDoubleQuote] here is what \
+Gibbs sampling is:\n\nYou just choose ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"g", "(", 
      RowBox[{"i", "|", "j"}], ")"}], "=", 
-    SubscriptBox["p", "i"]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    SubscriptBox["p", "i"]}], TraditionalForm]],ExpressionUUID->
   "bb6fa828-c32c-4eb6-8192-1dc6fca1f41d"],
  ".\n\nReally, you have got to be kidding me. That is laughable and \
 ridiculous. I\[CloseCurlyQuote]ll get to why if you don\[CloseCurlyQuote]t \
@@ -254,7 +252,7 @@ clamped appropriate ratio:\n\nWe put ",
         FontSize->16], ")"}], "=", "1"}]}]}], TraditionalForm]],
   ExpressionUUID->"47c69255-7ffc-495b-b931-3f9353d818a2"],
  "\n\nThe clamped appropriate ratio is always 1! So you always move. So let \
-us summarize the Gibbs sampling (to be repeated ",
+us summarize the Gibbs sampling algorithm (to be repeated ",
  StyleBox["ad nauseam):\n\n",
   FontSlant->"Italic"],
  "\t",
@@ -266,45 +264,38 @@ us summarize the Gibbs sampling (to be repeated ",
   "e20e5503-fbb6-4fce-898a-149c171c84a7"],
  ". You propose a random move from bin ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "75445335-61bc-42fc-b87d-eb1d7be979d8"],
  " to some other bin, bin ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "699266c5-b365-4f5a-b43c-9c951aaca15b"],
  ". The probability of the proposed random move to bin ",
  Cell[BoxData[
-  FormBox["j", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["j", TraditionalForm]],ExpressionUUID->
   "4c19e90b-4f36-4904-93a3-186601c29ff6"],
- " is just",
- " ",
+ " is just ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", "j"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
   "5f1415e2-0e2c-443a-8939-ec156ebf98a8"],
  ", where ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", "j"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["p", "j"], TraditionalForm]],ExpressionUUID->
   "7837bbb4-f7c4-464e-9289-011ab4e8e439"],
  " is the probability distribution you are trying to sample.\n\t",
  StyleBox["Step 2:",
   FontWeight->"Bold"],
  " You accept the proposed move and make a tally in the proposed bin. The \
-proposed bin is now the current bin, and you go back to step 1 .",
- "\n\nNow I\[CloseCurlyQuote]ll say why it laughable and ridiculous:\n\nThe \
-whole point of any Monte Carlo method is to generate a representative set of \
-samples ",
- StyleBox["from a probability distribution that is hard to sample.",
+proposed bin is now the current bin, and you go back to step 1.\n\nNow I\
+\[CloseCurlyQuote]ll say why it laughable and ridiculous:\n\nThe whole point \
+of any Monte Carlo method is to generate a representative set of samples ",
+ StyleBox["for a probability distribution that is hard to sample.",
   FontWeight->"Bold",
   FontSlant->"Italic"],
  " The Gibbs sampling algorithm says to ",
- StyleBox["make the proposed move using that very same probability \
+ StyleBox["make the proposed move by drawing from that very same probability \
 distribution",
   FontWeight->"Bold",
   FontSlant->"Italic"],
@@ -322,7 +313,7 @@ requiring you to know the solution to the problem. ",
    3.941802136502256*^9, 3.941802144649*^9}, {3.941821099380465*^9, 
    3.9418212943102207`*^9}, {3.941822116610261*^9, 3.941822183780629*^9}, 
    3.941889519359266*^9, {3.941889578544245*^9, 3.941889621903448*^9}, {
-   3.941891747219066*^9, 3.941891760252715*^9}, {3.9424744293203893`*^9, 
+   3.941891747219066*^9, 3.941891760252715*^9}, {3.942474429320389*^9, 
    3.942474604376223*^9}, {3.942474639359167*^9, 3.942474787338858*^9}, {
    3.942474830632082*^9, 3.942474836402396*^9}, {3.9424752939559307`*^9, 
    3.942475300104619*^9}, {3.942475343209462*^9, 3.942475352693145*^9}, {
@@ -337,8 +328,9 @@ requiring you to know the solution to the problem. ",
    3.942570245668092*^9}, {3.942570333273471*^9, 3.942570600283627*^9}, {
    3.94257069740199*^9, 3.942570925091745*^9}, {3.9425714748078547`*^9, 
    3.942571514733362*^9}, {3.9425723378445473`*^9, 3.942572346798588*^9}, {
-   3.942572502675579*^9, 
-   3.9425725044868393`*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+   3.942572502675579*^9, 3.9425725044868393`*^9}, {3.9425732574272413`*^9, 
+   3.942573282888261*^9}, {3.9425733344293203`*^9, 
+   3.942573368818153*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
 cb0896e68c3b"]
 }, Open  ]],
 
@@ -356,64 +348,64 @@ Cell["High-Dimensional Probability Distributions", "Subsection",
 Cell[TextData[{
  "Back on Nov. 22, I launched the entire section on Monte Carlo Methods with \
 my \[OpenCurlyDoubleQuote]Monte Carlo Methods Introduction\
-\[CloseCurlyDoubleQuote] \
+\[CloseCurlyDoubleQuote] write-up:\n\n*",
+ StyleBox[" \
 https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsIntroduction.nb.pdf. My example was a probability \
-distribution that has 50 dimensions! It was the electoral college outcome. \
-Now each state can only go one of two ways, so each axis was as simple as an \
-axis can get. But still the total number of outcomes is ",
+MonteCarloMethodsIntroduction.nb.pdf",
+  FontSize->14],
+ "\n\nMy example was a probability distribution that has 50 dimensions! It \
+was the electoral college outcome. Now each state can only go one of two \
+ways, so each axis was as simple as an axis can get. But still the total \
+number of outcomes was ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["2", "50"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["2", "50"], TraditionalForm]],ExpressionUUID->
   "1296c1ef-d8db-4ae9-adf4-185272e8c738"],
- ". There is absolutely no way to exhaustively sample that space.\n\nAs a \
-second example, I looked ahead to what will be our final example, which is \
-106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
+ ". We did the math and saw that there is absolutely no way to exhaustively \
+sample that space with any reasonable amount of computer time.\n\nAs a second \
+example, I looked ahead to what will be our final example, which was a study \
+of 106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
 blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titre\
 \[CloseCurlyDoubleQuote] is measured in each blood sample, and there is going \
 to be a slope and an an intercept for each baby. So that is 212 parameters. \
-There is no way that that is of interest to report, so there are four more \
-parameters that capture the distribution of those 212 parameters, so in total \
-there are 216 parameters. You have a space with 216 parameters (instead of an \
-electoral college with 50 states), and these are now continuous parameters, \
-not yes or no outcomes.\n\nThe bottom line was that high-dimensional \
-probability distributions are (a) easy to come up with interesting, \
-real-world examples, and (b) impossible to exhaustively sample.\n\nSo we need \
-some notation for a high dimensional probability distribution. How about \
-this. Instead of bins labeled by an index ",
+There is no way you conclude a paper by reporting 212 numbers, so there are \
+four more parameters that capture the distribution of those 212 parameters, \
+and in total there are therefore 216 parameters. So in this second example, \
+you have a space with 216 parameters (instead of an electoral college with 50 \
+states), and these are now continuous parameters, not yes or no outcomes. \
+This is going to be a far worse probability distribution to sample than the \
+electoral college problem, and that one was already practically impossible to \
+exhaustively simple.\n\nThe bottom line was that high-dimensional probability \
+distributions (a) show up in interesting, real-world examples, and (b) are \
+impossible to exhaustively sample.\n\nSo we need to study high-dimensional \
+probability distributions, and for that we need some notation. How about \
+this: instead of bins labeled by an index ",
  Cell[BoxData[
-  FormBox["i", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["i", TraditionalForm]],ExpressionUUID->
   "cd215fbc-a0fa-4ff5-ad9d-4b37e7b18371"],
  ", the bins will now be labeled by ",
  Cell[BoxData[
-  FormBox["d", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["d", TraditionalForm]],ExpressionUUID->
   "9243dae8-c539-43a8-a58f-1af58088a328"],
  " indices, ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["i", "1"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["i", "1"], TraditionalForm]],ExpressionUUID->
   "17a65e68-53ba-4367-aba9-2dd554e6fe20"],
  ", ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["i", "2"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["i", "2"], TraditionalForm]],ExpressionUUID->
   "7000a444-85f5-4b3b-8ddc-d7d752231d30"],
  ", ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["i", "3"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["i", "3"], TraditionalForm]],ExpressionUUID->
   "4ec83935-e65a-42be-9f57-472d5d862c64"],
  ", ..., ",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["i", "d"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SubscriptBox["i", "d"], TraditionalForm]],ExpressionUUID->
   "e9736c25-2ec6-4acc-83f1-eba05efd8f5e"],
  ". So the probability distribution we are trying to sample is now denoted:\n\
 \n",
@@ -426,12 +418,86 @@ this. Instead of bins labeled by an index ",
        SubscriptBox["i", "1"], 
        SubscriptBox["i", "2"], 
        SubscriptBox["i", "3"]}], "..."}], 
-     SubscriptBox["i", "d"]}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+     SubscriptBox["i", "d"]}]], TraditionalForm]],ExpressionUUID->
   "0b3577cd-25b6-4568-85f9-d7b1bd0e57a1"],
- "\n\nIt is for high-dimensional probability distributions that Gibbs \
-sampling has one more twist, and why it is not just a circular solution with \
-no benefit."
+ "\n\nThe simplest case that is more than one-dimensional would have ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"d", "=", "2"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "35718ef8-ad4f-4a6a-9890-8e6f334be7c5"],
+ ", and the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "'"}], "s"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bb7ed738-6781-4792-a6f0-c3eaad203f77"],
+ " would look like: \n\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{
+     SubscriptBox["i", "1"], 
+     SubscriptBox["i", "2"]}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c204be74-99a3-4cf7-87d7-39b5b57a3ecc"],
+ "\n\nNeed a simple example to have in mind? How about the first axis \
+represents whether something is a rock or a potato, and the second axis is \
+whether it is small, medium, or large. Then the six ",
+ Cell[BoxData[
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c542c8e4-a3c3-4465-9ca7-504f5b7f8fac"],
+ "\[CloseCurlyQuote]s would be:\n\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"rock", " ", "small"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a07ad6ee-aaec-4bb0-9ed5-7f0bd1f041fb"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"rock", " ", "medium"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "17cc308e-0174-4afe-ab9d-035459c62c44"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"rock", " ", "large"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d4384d36-50e2-4bec-92c8-17d2bdb9fdfa"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"potato", " ", "small"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "55a0bbc3-c323-45c1-9e0b-cfbf85c078b0"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"potato", " ", "medium"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7c7b9448-5c14-42f9-92c8-ee2c4b700240"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"potato", " ", "large"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b93f1f1b-0f76-4494-baac-98e2661575ac"],
+ "\n\nOf course, the total of all 6 p\[CloseCurlyQuote]s has to add up to 1 \
+(assuming there aren\[CloseCurlyQuote]t other things in the field, like \
+rotten turnips). That is a pleasantly simple example.\n\nAnyway, examples \
+aside, it is for multi-dimensional probability distributions that Gibbs \
+sampling has one more twist, why it is not just a circular solution with no \
+benefit, and why it is of tremendous use in sampling high-dimensional \
+probability distributions."
 }], "Text",
  CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
    3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
@@ -473,8 +539,12 @@ no benefit."
    3.94248001230706*^9, 3.942480018457856*^9}, 3.9425709619352217`*^9, {
    3.9425710091505136`*^9, 3.942571139271188*^9}, {3.942571579478653*^9, 
    3.942571587938615*^9}, {3.942571732289343*^9, 3.942572323246257*^9}, {
-   3.942572354045886*^9, 
-   3.942572370500272*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.942572354045886*^9, 3.942572370500272*^9}, {3.9425733999021273`*^9, 
+   3.942573798043561*^9}, {3.9425738294382763`*^9, 3.942573916637788*^9}, {
+   3.942573948142828*^9, 3.9425740251795883`*^9}, {3.94257406186003*^9, 
+   3.942574290903914*^9}, {3.9425743346586723`*^9, 3.942574344305378*^9}, {
+   3.942574374381675*^9, 
+   3.942574395938685*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -484,7 +554,7 @@ Cell["Gibbs Sampling of High-Dimensional Probability Distributions", \
 "Subsection",
  CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
    3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
-   3.941268266940299*^9}, {3.9418021582052093`*^9, 3.941802161928848*^9}, {
+   3.941268266940299*^9}, {3.941802158205209*^9, 3.941802161928848*^9}, {
    3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
    3.9418883357770863`*^9}, {3.942570931088656*^9, 3.9425709707046013`*^9}, 
    3.94257206418736*^9, {3.942572383158955*^9, 
@@ -549,7 +619,7 @@ I HAVE MORE TO WRITE, BUT YOU CAN ALREADY SEE WHERE THIS IS GOING.\
    3.942480889757334*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
    3.942481175455418*^9}, 3.942481211141766*^9, {3.942481687981761*^9, 
    3.942481740871519*^9}, {3.942482471949373*^9, 3.942482478859049*^9}, {
-   3.942572403159965*^9, 3.942572426797297*^9}, {3.9425724601742496`*^9, 
+   3.942572403159965*^9, 3.942572426797297*^9}, {3.9425724601742487`*^9, 
    3.942572469038849*^9}},ExpressionUUID->"e5775bc2-53c7-4255-82e6-\
 f7841ea324fa"]
 }, Open  ]]
@@ -577,18 +647,18 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 696, 11, 239, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
-Cell[1279, 35, 1772, 28, 131, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[1279, 35, 2303, 35, 215, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
-Cell[3076, 67, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[3518, 75, 9727, 266, 1054, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[3607, 74, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[4049, 82, 9512, 251, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13282, 346, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[13795, 355, 6438, 122, 589, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[13598, 338, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14111, 347, 9467, 200, 1172, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[20270, 482, 580, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[20853, 493, 4282, 60, 44, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[23615, 552, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[24196, 563, 4282, 60, 44, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]]
 }, Open  ]]
 }
