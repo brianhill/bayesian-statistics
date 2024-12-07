@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    127126,       2394]
-NotebookOptionsPosition[    124946,       2346]
-NotebookOutlinePosition[    125430,       2365]
-CellTagsIndexPosition[    125387,       2362]
+NotebookDataLength[    127093,       2392]
+NotebookOptionsPosition[    124913,       2344]
+NotebookOutlinePosition[    125397,       2363]
+CellTagsIndexPosition[    125354,       2360]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -889,9 +889,7 @@ the author of BUGS. The other authors are also leaders in Markov Chain Monte \
 Carlo analyses. On this web page, they have made a \
 \[OpenCurlyDoubleQuote]Preview PDF\[CloseCurlyDoubleQuote] of most of the \
 first two chapters of their book readily available:\n",
- StyleBox["\n* ",
-  FontSize->14],
- StyleBox["https://www.taylorfrancis.com/books/mono/10.1201/b14835",
+ StyleBox["\n* https://www.taylorfrancis.com/books/mono/10.1201/b14835",
   FontSize->14],
  "\n\nHere is their Figure 1.2 showing this axis-by-axis movement for the \
 two-dimensional case:\n\n",
@@ -2244,10 +2242,10 @@ fq9e33of9TcBLmj/ALmyhTM=
    PlotRange->{{0, 818.}, {0, 598.}}]], "Input",ExpressionUUID->
   "9bcdb902-8ef1-4408-b415-181090293c3d"],
  "\n\nThe diagonal ellipses represent the region where the joint probability \
-distribution is high. The meandering path  consisting of straight-line \
-movements i in one axis and then the other represents movements along one \
-axis and then the other in such a way that the Gibbs sampling algorithm \
-discovers and representatively samples that region."
+distribution is high. The meandering path consisting of straight-line \
+movements in one axis and then the other represents movements such that the \
+Gibbs sampling algorithm discovers and representatively samples the high \
+probability region."
 }], "Text",
  CellChangeTimes->{{3.942584152763467*^9, 3.942584625619397*^9}, {
    3.942584669900707*^9, 3.942584782839556*^9}, {3.942584834410006*^9, 
@@ -2256,8 +2254,9 @@ discovers and representatively samples that region."
    3.942585415322365*^9, 3.9425854582411222`*^9}, {3.942585538736162*^9, 
    3.942585752971263*^9}, {3.942586086941455*^9, 3.942586157289413*^9}, {
    3.942586195139073*^9, 3.942586200775744*^9}, {3.942586532342699*^9, 
-   3.9425865580598087`*^9}, {3.942586632797956*^9, 
-   3.9425866868685303`*^9}},ExpressionUUID->"78179e72-31af-4148-a54f-\
+   3.9425865580598087`*^9}, {3.942586632797956*^9, 3.9425866868685303`*^9}, {
+   3.942587220437706*^9, 
+   3.942587247878599*^9}},ExpressionUUID->"78179e72-31af-4148-a54f-\
 b0aa25f2c089"]
 }, Open  ]],
 
@@ -2315,17 +2314,15 @@ Cell[TextData[{
  "\n\nby making an assumption.\n\nWe are going to assume (at least along most \
 axes), that the ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "3e4e9ef2-daec-4a83-9de7-6ab1b865a214"],
  "\[CloseCurlyQuote]s factor. If there are a just a few recalcitrant axes out \
 of dozens or hundreds of axes along which the ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "018b6946-5666-4747-bfc0-3cc66f7f8ef1"],
- "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor, we will nonetheless have \
-vastly simplified the computational cost of computing the ",
+ "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor, we will have vastly \
+simplified the computational cost of computing the ",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
@@ -2337,8 +2334,9 @@ vastly simplified the computational cost of computing the ",
  "."
 }], "Text",
  CellChangeTimes->{
-  3.942585919609399*^9, {3.942586330290874*^9, 
-   3.942586488441875*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
+   3.942587269568102*^9, 
+   3.9425872707239733`*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
 592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
@@ -2388,11 +2386,11 @@ Cell[36824, 844, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[38372, 875, 282, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
-Cell[38657, 881, 83765, 1379, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
+Cell[38657, 881, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[122459, 2265, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[122815, 2277, 2091, 64, 264, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
+Cell[122448, 2264, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
+Cell[122804, 2276, 2069, 63, 264, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
