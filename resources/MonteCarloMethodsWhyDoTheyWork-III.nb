@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     29755,        659]
-NotebookOptionsPosition[     28506,        627]
-NotebookOutlinePosition[     28991,        646]
-CellTagsIndexPosition[     28948,        643]
+NotebookDataLength[     31385,        689]
+NotebookOptionsPosition[     30136,        657]
+NotebookOutlinePosition[     30621,        676]
+CellTagsIndexPosition[     30578,        673]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -21,7 +21,7 @@ Notebook[{
 
 Cell[CellGroupData[{
 Cell[TextData[StyleBox["Monte Carlo Methods \[LongDash] Why Do They Work? \
-\[LongDash] Part III\n\nTHIS DOCUMENT IS NOT DONE\n",
+\[LongDash] Part III",
  FontSize->30,
  FontWeight->"Regular"]], "Chapter",
  CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
@@ -30,7 +30,8 @@ Cell[TextData[StyleBox["Monte Carlo Methods \[LongDash] Why Do They Work? \
    3.941800449839259*^9, 3.941800458275719*^9}, {3.941892754320045*^9, 
    3.941892763333161*^9}, {3.942473606498764*^9, 3.942473609302772*^9}, 
    3.942474154873723*^9, 3.942569072393546*^9, {3.942572439774941*^9, 
-   3.9425724490892677`*^9}},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
+   3.9425724490892673`*^9}, {3.9425753311678343`*^9, 
+   3.942575334813602*^9}},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
 1a27648aea9a"],
 
 Cell[TextData[{
@@ -44,8 +45,11 @@ MonteCarloMethodsWhyDoTheyWork-III.nb.pdf",
   FontSize->14],
  "\n\nBoth proofs required the Principle of Detailed Balance. Now we are \
 going to prove that the Gibbs Sampling (GS) algorithm works, but all the hard \
-work was actually in the previous write-up, because Gibbs sampling is a \
-special case of Metropolis-Hastings. Let\[CloseCurlyQuote]s see that first."
+work was actually in the second write-up, because Gibbs sampling is a special \
+case of Metropolis-Hastings (and Metropolis is a special case of \
+Metropolis-Hastings too).\n\nTo get going, and to leverage our previous \
+write-up, we need to understand the relationship between Metropolis-Hastings \
+and Gibbs sampling."
 }], "Text",
  CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
    3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
@@ -66,8 +70,9 @@ special case of Metropolis-Hastings. Let\[CloseCurlyQuote]s see that first."
    3.942479790216973*^9}, {3.94248126278925*^9, 3.942481334429647*^9}, {
    3.9424814048278503`*^9, 3.942481423653117*^9}, 3.942482372555183*^9, {
    3.942569089551676*^9, 3.942569164241397*^9}, {3.9425728815077543`*^9, 
-   3.942572950949976*^9}, {3.942573043779091*^9, 
-   3.942573194513968*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+   3.942572950949976*^9}, {3.942573043779091*^9, 3.942573194513968*^9}, {
+   3.942575270462347*^9, 3.9425753290358963`*^9}, {3.942575925191044*^9, 
+   3.942575989193748*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
 225ac6193fce"],
 
 Cell[CellGroupData[{
@@ -81,7 +86,7 @@ Cell["The Metropolis-Hastings and Gibbs Sampling Algorithms", "Subsection",
 88a601466e61"],
 
 Cell[TextData[{
- "The the core of the Metropolis-Hastings algorithm (repeated ",
+ "The core of the Metropolis-Hastings algorithm (repeated ",
  StyleBox["ad nauseam)",
   FontSlant->"Italic"],
  " was:\n\n\t",
@@ -328,9 +333,10 @@ requiring you to know the solution to the problem. ",
    3.942570245668092*^9}, {3.942570333273471*^9, 3.942570600283627*^9}, {
    3.94257069740199*^9, 3.942570925091745*^9}, {3.9425714748078547`*^9, 
    3.942571514733362*^9}, {3.9425723378445473`*^9, 3.942572346798588*^9}, {
-   3.942572502675579*^9, 3.9425725044868393`*^9}, {3.9425732574272413`*^9, 
-   3.942573282888261*^9}, {3.9425733344293203`*^9, 
-   3.942573368818153*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+   3.942572502675579*^9, 3.9425725044868393`*^9}, {3.942573257427242*^9, 
+   3.942573282888261*^9}, {3.9425733344293203`*^9, 3.942573368818153*^9}, {
+   3.9425762303238163`*^9, 
+   3.94257623078305*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
 cb0896e68c3b"]
 }, Open  ]],
 
@@ -366,20 +372,24 @@ sample that space with any reasonable amount of computer time.\n\nAs a second \
 example, I looked ahead to what will be our final example, which was a study \
 of 106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
 blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titre\
-\[CloseCurlyDoubleQuote] is measured in each blood sample, and there is going \
-to be a slope and an an intercept for each baby. So that is 212 parameters. \
-There is no way you conclude a paper by reporting 212 numbers, so there are \
-four more parameters that capture the distribution of those 212 parameters, \
-and in total there are therefore 216 parameters. So in this second example, \
-you have a space with 216 parameters (instead of an electoral college with 50 \
-states), and these are now continuous parameters, not yes or no outcomes. \
-This is going to be a far worse probability distribution to sample than the \
+\[CloseCurlyDoubleQuote] is measured in each blood sample. The blood sample \
+data is going to be fitted by a slope and an intercept for each baby (in the \
+study, they actually take the logarithm of the titre before doing the linear \
+fit). So that is 212 parameters. There is no way you conclude an \
+epidemiological paper by reporting 212 different numbers and error bars on \
+each of them, so the authors introduced four more parameters that capture the \
+distribution of those 212 parameters. So in total there are 216 parameters. \
+The bottom line is that in this second example, you have a space with 216 \
+parameters (instead of an electoral college with 50 states), and these are \
+now continuous parameters (not just binary wins and losses). You can see that \
+this is going to be a far worse probability distribution to sample than the \
 electoral college problem, and that one was already practically impossible to \
-exhaustively simple.\n\nThe bottom line was that high-dimensional probability \
-distributions (a) show up in interesting, real-world examples, and (b) are \
-impossible to exhaustively sample.\n\nSo we need to study high-dimensional \
-probability distributions, and for that we need some notation. How about \
-this: instead of bins labeled by an index ",
+exhaustively simple.\n\nTo summarize, we are motivated to study \
+high-dimensional probability distributions  with Monte Carlo methods because \
+(a) they show up in interesting, real-world examples, and (b) they are \
+impossible to exhaustively sample.\n\nTo study high-dimensional probability \
+distributions, we need some new notation. Instead of bins labeled by an index \
+",
  Cell[BoxData[
   FormBox["i", TraditionalForm]],ExpressionUUID->
   "cd215fbc-a0fa-4ff5-ad9d-4b37e7b18371"],
@@ -420,18 +430,16 @@ this: instead of bins labeled by an index ",
        SubscriptBox["i", "3"]}], "..."}], 
      SubscriptBox["i", "d"]}]], TraditionalForm]],ExpressionUUID->
   "0b3577cd-25b6-4568-85f9-d7b1bd0e57a1"],
- "\n\nThe simplest case that is more than one-dimensional would have ",
+ "\n\nThe simplest case that has more than one-dimension would have ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"d", "=", "2"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"d", "=", "2"}], TraditionalForm]],ExpressionUUID->
   "35718ef8-ad4f-4a6a-9890-8e6f334be7c5"],
  ", and the ",
  Cell[BoxData[
   FormBox[
    RowBox[{
-    RowBox[{"p", "'"}], "s"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"p", "'"}], "s"}], TraditionalForm]],ExpressionUUID->
   "bb7ed738-6781-4792-a6f0-c3eaad203f77"],
  " would look like: \n\n",
  Cell[BoxData[
@@ -439,65 +447,58 @@ this: instead of bins labeled by an index ",
    SubscriptBox["p", 
     RowBox[{
      SubscriptBox["i", "1"], 
-     SubscriptBox["i", "2"]}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+     SubscriptBox["i", "2"]}]], TraditionalForm]],ExpressionUUID->
   "c204be74-99a3-4cf7-87d7-39b5b57a3ecc"],
- "\n\nNeed a simple example to have in mind? How about the first axis \
-represents whether something is a rock or a potato, and the second axis is \
-whether it is small, medium, or large. Then the six ",
+ "\n\nTo make that even more concrete, we could have a really simple example \
+in mind. How about the first axis represents whether a nodule that comes out \
+of the potato harvester and is destined for the kitchen is a rock or a \
+potato, and the second axis represents whether it is small, medium, or large. \
+Then the six ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "c542c8e4-a3c3-4465-9ca7-504f5b7f8fac"],
  "\[CloseCurlyQuote]s would be:\n\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"rock", " ", "small"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"rock", " ", "small"}]], TraditionalForm]],ExpressionUUID->
   "a07ad6ee-aaec-4bb0-9ed5-7f0bd1f041fb"],
  "\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"rock", " ", "medium"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"rock", " ", "medium"}]], TraditionalForm]],ExpressionUUID->
   "17cc308e-0174-4afe-ab9d-035459c62c44"],
  "\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"rock", " ", "large"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"rock", " ", "large"}]], TraditionalForm]],ExpressionUUID->
   "d4384d36-50e2-4bec-92c8-17d2bdb9fdfa"],
  "\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"potato", " ", "small"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"potato", " ", "small"}]], TraditionalForm]],ExpressionUUID->
   "55a0bbc3-c323-45c1-9e0b-cfbf85c078b0"],
  "\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"potato", " ", "medium"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"potato", " ", "medium"}]], TraditionalForm]],ExpressionUUID->
   "7c7b9448-5c14-42f9-92c8-ee2c4b700240"],
  "\n",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
-    RowBox[{"potato", " ", "large"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+    RowBox[{"potato", " ", "large"}]], TraditionalForm]],ExpressionUUID->
   "b93f1f1b-0f76-4494-baac-98e2661575ac"],
  "\n\nOf course, the total of all 6 p\[CloseCurlyQuote]s has to add up to 1 \
-(assuming there aren\[CloseCurlyQuote]t other things in the field, like \
-rotten turnips). That is a pleasantly simple example.\n\nAnyway, examples \
-aside, it is for multi-dimensional probability distributions that Gibbs \
-sampling has one more twist, why it is not just a circular solution with no \
-benefit, and why it is of tremendous use in sampling high-dimensional \
-probability distributions."
+(assuming there aren\[CloseCurlyQuote]t other things in the sack that goes to \
+the kitchen, like rotten turnips).\n\nAnyway, examples aside, it is for \
+multi-dimensional probability distributions that Gibbs sampling has one more \
+twist, why it is not just a circular solution with no benefit, and why it is \
+now in widespread use for sampling high-dimensional probability distributions."
 }], "Text",
  CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
    3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
@@ -543,8 +544,14 @@ probability distributions."
    3.942573798043561*^9}, {3.9425738294382763`*^9, 3.942573916637788*^9}, {
    3.942573948142828*^9, 3.9425740251795883`*^9}, {3.94257406186003*^9, 
    3.942574290903914*^9}, {3.9425743346586723`*^9, 3.942574344305378*^9}, {
-   3.942574374381675*^9, 
-   3.942574395938685*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.942574374381675*^9, 3.942574395938685*^9}, {3.942574739709557*^9, 
+   3.942574740513289*^9}, {3.942574790675598*^9, 3.9425751966563663`*^9}, {
+   3.942575230575048*^9, 3.942575230877151*^9}, {3.942575382444799*^9, 
+   3.9425753830121317`*^9}, {3.94257542628836*^9, 3.942575481698979*^9}, {
+   3.942575531236043*^9, 3.942575534797697*^9}, {3.94257560593353*^9, 
+   3.942575606531206*^9}, {3.94257573066485*^9, 3.942575730905126*^9}, {
+   3.942576042013386*^9, 
+   3.9425760423428173`*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -561,9 +568,31 @@ Cell["Gibbs Sampling of High-Dimensional Probability Distributions", \
    3.942572391560685*^9}},ExpressionUUID->"5922671d-7bde-4a33-925b-\
 a22ef8f86419"],
 
-Cell["\<\
-I HAVE MORE TO WRITE, BUT YOU CAN ALREADY SEE WHERE THIS IS GOING.\
-\>", "Text",
+Cell[TextData[{
+ "I HAVE LOTS MORE TO WRITE, BUT YOU CAN ALREADY SEE WHERE THIS IS GOING:\n\n\
+We are going to (a) move along only one axis at a time in the Gibbs sampling, \
+and (b) assume that a substantial burden of calculating ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "1"], 
+       SubscriptBox["i", "2"], 
+       SubscriptBox["i", "3"]}], "..."}], 
+     SubscriptBox["i", "d"]}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a046b3c7-66a3-4e3b-b2f8-53835b082b17"],
+ " is simplified by the fact that along at least some of the axes, the ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "'"}], "s"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1727a0d2-e218-4979-a5bb-2346cd28d256"],
+ " factor."
+}], "Text",
  CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
    3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
    3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
@@ -619,8 +648,9 @@ I HAVE MORE TO WRITE, BUT YOU CAN ALREADY SEE WHERE THIS IS GOING.\
    3.942480889757334*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
    3.942481175455418*^9}, 3.942481211141766*^9, {3.942481687981761*^9, 
    3.942481740871519*^9}, {3.942482471949373*^9, 3.942482478859049*^9}, {
-   3.942572403159965*^9, 3.942572426797297*^9}, {3.9425724601742487`*^9, 
-   3.942572469038849*^9}},ExpressionUUID->"e5775bc2-53c7-4255-82e6-\
+   3.942572403159965*^9, 3.942572426797297*^9}, {3.942572460174248*^9, 
+   3.942572469038849*^9}, {3.942575745872761*^9, 
+   3.942575882002535*^9}},ExpressionUUID->"e5775bc2-53c7-4255-82e6-\
 f7841ea324fa"]
 }, Open  ]]
 }, Open  ]]
@@ -646,19 +676,19 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 696, 11, 239, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
-Cell[1279, 35, 2303, 35, 215, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[580, 22, 717, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
+Cell[1300, 36, 2571, 39, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
-Cell[3607, 74, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[4049, 82, 9512, 251, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[3896, 79, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[4338, 87, 9557, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13598, 338, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[14111, 347, 9467, 200, 1172, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[13932, 344, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14445, 353, 9958, 201, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[23615, 552, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[24196, 563, 4282, 60, 44, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[24440, 559, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[25021, 570, 5087, 83, 134, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]]
 }, Open  ]]
 }
