@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     31385,        689]
-NotebookOptionsPosition[     30136,        657]
-NotebookOutlinePosition[     30621,        676]
-CellTagsIndexPosition[     30578,        673]
+NotebookDataLength[     31472,        689]
+NotebookOptionsPosition[     30225,        657]
+NotebookOutlinePosition[     30708,        676]
+CellTagsIndexPosition[     30665,        673]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -300,8 +300,8 @@ of any Monte Carlo method is to generate a representative set of samples ",
   FontWeight->"Bold",
   FontSlant->"Italic"],
  " The Gibbs sampling algorithm says to ",
- StyleBox["make the proposed move by drawing from that very same probability \
-distribution",
+ StyleBox["make the proposed move by drawing a representative sample from \
+that very same probability distribution",
   FontWeight->"Bold",
   FontSlant->"Italic"],
  " that you already had resigned yourself as being hard to sample. So it has \
@@ -335,8 +335,8 @@ requiring you to know the solution to the problem. ",
    3.942571514733362*^9}, {3.9425723378445473`*^9, 3.942572346798588*^9}, {
    3.942572502675579*^9, 3.9425725044868393`*^9}, {3.942573257427242*^9, 
    3.942573282888261*^9}, {3.9425733344293203`*^9, 3.942573368818153*^9}, {
-   3.9425762303238163`*^9, 
-   3.94257623078305*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+   3.9425762303238163`*^9, 3.94257623078305*^9}, {3.942577151109181*^9, 
+   3.942577155337344*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
 cb0896e68c3b"]
 }, Open  ]],
 
@@ -385,7 +385,7 @@ now continuous parameters (not just binary wins and losses). You can see that \
 this is going to be a far worse probability distribution to sample than the \
 electoral college problem, and that one was already practically impossible to \
 exhaustively simple.\n\nTo summarize, we are motivated to study \
-high-dimensional probability distributions  with Monte Carlo methods because \
+high-dimensional probability distributions with Monte Carlo methods because \
 (a) they show up in interesting, real-world examples, and (b) they are \
 impossible to exhaustively sample.\n\nTo study high-dimensional probability \
 distributions, we need some new notation. Instead of bins labeled by an index \
@@ -550,8 +550,8 @@ now in widespread use for sampling high-dimensional probability distributions."
    3.9425753830121317`*^9}, {3.94257542628836*^9, 3.942575481698979*^9}, {
    3.942575531236043*^9, 3.942575534797697*^9}, {3.94257560593353*^9, 
    3.942575606531206*^9}, {3.94257573066485*^9, 3.942575730905126*^9}, {
-   3.942576042013386*^9, 
-   3.9425760423428173`*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.942576042013386*^9, 3.942576042342818*^9}, 
+   3.942577050448579*^9},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -656,7 +656,7 @@ f7841ea324fa"]
 }, Open  ]]
 },
 WindowSize->{1337, 1294},
-WindowMargins->{{Automatic, 477}, {Automatic, 15}},
+WindowMargins->{{67, Automatic}, {1, Automatic}},
 PrintingCopies->1,
 PrintingPageRange->{1, Automatic},
 Magnification:>1.25 Inherited,
@@ -680,15 +680,15 @@ Cell[580, 22, 717, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a
 Cell[1300, 36, 2571, 39, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
 Cell[3896, 79, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[4338, 87, 9557, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[4338, 87, 9627, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13932, 344, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[14445, 353, 9958, 201, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[14002, 344, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14515, 353, 9977, 201, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24440, 559, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[25021, 570, 5087, 83, 134, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[24529, 559, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[25110, 570, 5087, 83, 134, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]]
 }, Open  ]]
 }
