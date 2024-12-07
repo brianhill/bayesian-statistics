@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    127093,       2392]
-NotebookOptionsPosition[    124913,       2344]
-NotebookOutlinePosition[    125397,       2363]
-CellTagsIndexPosition[    125354,       2360]
+NotebookDataLength[    133298,       2583]
+NotebookOptionsPosition[    131116,       2535]
+NotebookOutlinePosition[    131600,       2554]
+CellTagsIndexPosition[    131557,       2551]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2275,7 +2275,7 @@ Cell[TextData[{
 28933aa593ee"],
 
 Cell[TextData[{
- "We now are going to remove a very substantial burden in calculating\n\n ",
+ "We now are going to remove a very substantial burden in sampling\n\n ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -2292,7 +2292,8 @@ Cell[TextData[{
          RowBox[{
           RowBox[{
            SubscriptBox["i", "1"], 
-           SubscriptBox["i", "2"]}], "..."}], 
+           SubscriptBox["i", "2"], 
+           SubscriptBox["i", "3"]}], "..."}], 
          RowBox[{
           SubscriptBox["i", "d"], "'"}]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
@@ -2307,7 +2308,8 @@ Cell[TextData[{
           RowBox[{
            RowBox[{
             SubscriptBox["i", "1"], 
-            SubscriptBox["i", "2"]}], "..."}], 
+            SubscriptBox["i", "2"], 
+            SubscriptBox["i", "3"]}], "..."}], 
           SubscriptBox["i", "d"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
   "5b81446b-55bd-45c7-85ee-e852606415d2"],
@@ -2316,13 +2318,14 @@ axes), that the ",
  Cell[BoxData[
   FormBox["p", TraditionalForm]],ExpressionUUID->
   "3e4e9ef2-daec-4a83-9de7-6ab1b865a214"],
- "\[CloseCurlyQuote]s factor. If there are a just a few recalcitrant axes out \
-of dozens or hundreds of axes along which the ",
+ "\[CloseCurlyQuote]s factor. If there are just a few recalcitrant axes along \
+which the ",
  Cell[BoxData[
   FormBox["p", TraditionalForm]],ExpressionUUID->
-  "018b6946-5666-4747-bfc0-3cc66f7f8ef1"],
- "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor, we will have vastly \
-simplified the computational cost of computing the ",
+  "48358602-2e87-4caf-88cd-b009d379ce1d"],
+ "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor out of dozens or hundreds \
+of axes along which they do factor, we will have vastly simplified the \
+computational cost of sampling the ",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
@@ -2331,12 +2334,200 @@ simplified the computational cost of computing the ",
       SubscriptBox["i", "d"], "'"}], "|", 
      RowBox[{"i", "-"}]}]], TraditionalForm]],ExpressionUUID->
   "ccd826d0-c5fd-4183-9499-7608e11035e4"],
- "."
+ ".\n\nI could make some attempt to write this in all generality, but I think \
+it is better if I just assume that the first four axes are the recalcitrant \
+ones and the rest enjoy some factorization. That is, none of\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "1"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], "'"}], 
+         SubscriptBox["i", "2"], 
+         SubscriptBox["i", "3"], 
+         SubscriptBox["i", "4"]}], "..."}], 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "1"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "72671adf-0719-44ae-af6b-5eba688dacae"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "2"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["i", "1"], 
+         RowBox[{
+          SubscriptBox["i", "2"], "'"}], 
+         SubscriptBox["i", "3"], 
+         SubscriptBox["i", "4"]}], "..."}], 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "2"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "2b77fa0c-64ad-4ae5-9b1f-4fd4c7e66966"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "3"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["i", "1"], 
+         SubscriptBox["i", "2"], 
+         RowBox[{
+          SubscriptBox["i", "3"], "'"}], 
+         SubscriptBox["i", "4"]}], "..."}], 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "3"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "cbff8fae-ebdf-42a9-b678-d7ba3cbbe2db"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "4"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["i", "1"], 
+         SubscriptBox["i", "2"], 
+         SubscriptBox["i", "3"], 
+         RowBox[{
+          SubscriptBox["i", "4"], "'"}]}], "..."}], 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "4"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "5764b46b-f222-4b9f-8a9e-6ef9a2e15a28"],
+ "\n\nhave any particularly simple expression. However, for all the rest:\n \n\
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "5"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["i", "1"], 
+         SubscriptBox["i", "2"], 
+         SubscriptBox["i", "3"], 
+         SubscriptBox["i", "4"], 
+         SubscriptBox["i", "5"]}], "..."}], ".", 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "5"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "c3b3945e-69f1-42ef-8761-48c297d9e84a"],
+ "\n  \nwe are going to make a tremendously simplifying assumption.\n\nBefore \
+I even state the simplifying assumption, recall the immunized babies. The \
+fifth and sixth axes are going to be the slope and intercept of the 1st baby\
+\[CloseCurlyQuote]s titre. The seventh and eighth axes are going to be the \
+slope and intercept of the 2nd baby\[CloseCurlyQuote]s titre. And so on and \
+so on all the way out to the 215th and 216th axes, which are going to be the \
+slope and intercept of the 106th baby\[CloseCurlyQuote]s titre.\n\nMeanwhile, \
+the first four axes, the ones that are recalcitrant, are going to be \
+parameters in the distributions that characterize the distributions of all \
+the slopes and the intercepts."
 }], "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
-   3.942587269568102*^9, 
-   3.9425872707239733`*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+   3.942587269568102*^9, 3.9425872707239738`*^9}, {3.942587779199699*^9, 
+   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
+   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
+   3.942592955942009*^9}, {3.942593008089142*^9, 3.9425930100076647`*^9}, {
+   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
+   3.942593442023591*^9}, {3.942593510919286*^9, 
+   3.942593545086081*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
 592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
@@ -2390,7 +2581,7 @@ Cell[38657, 881, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a5
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[122448, 2264, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[122804, 2276, 2069, 63, 264, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
+Cell[122804, 2276, 8272, 254, 1010, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
