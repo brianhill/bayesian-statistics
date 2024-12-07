@@ -1,0 +1,597 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     26411,        589]
+NotebookOptionsPosition[     25163,        557]
+NotebookOutlinePosition[     25648,        576]
+CellTagsIndexPosition[     25605,        573]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Monte Carlo Methods \[LongDash] Why Do They Work? \
+\[LongDash] Part III\n\nTHIS DOCUMENT IS NOT DONE\n",
+ FontSize->30,
+ FontWeight->"Regular"]], "Chapter",
+ CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
+   3.94127156864186*^9, 3.941271569377199*^9}, {3.941271983313205*^9, 
+   3.941271983490583*^9}, {3.941275961254328*^9, 3.94127596314456*^9}, {
+   3.941800449839259*^9, 3.941800458275719*^9}, {3.941892754320045*^9, 
+   3.941892763333161*^9}, {3.942473606498764*^9, 3.942473609302772*^9}, 
+   3.942474154873723*^9, 3.942569072393546*^9, {3.942572439774941*^9, 
+   3.9425724490892677`*^9}},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
+1a27648aea9a"],
+
+Cell["\<\
+In the previous two \[OpenCurlyDoubleQuote]Why Do They Work?\
+\[CloseCurlyDoubleQuote] write-ups, I showed why the Metropolis algorithm \
+worked and why the Metropolis-Hastings algorithm works. Both proofs required \
+the Principle of Detailed Balance.
+
+Now we are going to see why the Gibbs Sampling (GS) algorithm works.\
+\>", "Text",
+ CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
+   3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
+   3.941264028191356*^9}, {3.9412640619114547`*^9, 3.9412645265818787`*^9}, {
+   3.941264650249452*^9, 3.9412646993328133`*^9}, {3.941264822564703*^9, 
+   3.941264857764879*^9}, {3.941268016756933*^9, 3.941268017021914*^9}, {
+   3.941269437806624*^9, 3.94126953124967*^9}, {3.941269582454015*^9, 
+   3.941269648184888*^9}, {3.941269679386688*^9, 3.94126971454852*^9}, {
+   3.941800467102806*^9, 3.941800755685058*^9}, {3.941800798778616*^9, 
+   3.941800976414879*^9}, {3.941801292900963*^9, 3.941801338978965*^9}, {
+   3.941801691705343*^9, 3.941801742901403*^9}, {3.941801807691245*^9, 
+   3.941801902581342*^9}, {3.941821027373583*^9, 3.941821090303585*^9}, {
+   3.9418211248934917`*^9, 3.941821131940667*^9}, {3.9418220018535957`*^9, 
+   3.9418220931909122`*^9}, {3.941888096886391*^9, 3.941888209172179*^9}, {
+   3.941889319683701*^9, 3.941889535199594*^9}, {3.941891916244793*^9, 
+   3.94189192385066*^9}, {3.941892767126836*^9, 3.941892772392208*^9}, {
+   3.942474173884481*^9, 3.942474385276809*^9}, {3.942479766174138*^9, 
+   3.942479790216973*^9}, {3.94248126278925*^9, 3.942481334429647*^9}, {
+   3.9424814048278503`*^9, 3.942481423653117*^9}, 3.942482372555183*^9, {
+   3.942569089551676*^9, 
+   3.942569164241397*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+225ac6193fce"],
+
+Cell[CellGroupData[{
+
+Cell["The Metropolis-Hastings and Gibbs Sampling Algorithms", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+  3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+  3.941268266940299*^9}, {3.941801927167573*^9, 3.941801936933111*^9}, {
+  3.94247441005904*^9, 3.9424744135077*^9}, {3.9425691703325663`*^9, 
+  3.942569176586446*^9}},ExpressionUUID->"eea115e5-e7df-4a2e-9813-\
+88a601466e61"],
+
+Cell[TextData[{
+ "The the core of the Metropolis-Hastings algorithm (repeated ",
+ StyleBox["ad nauseam)",
+  FontSlant->"Italic"],
+ " was:\n\n\t",
+ StyleBox["Step 1:",
+  FontWeight->"Bold"],
+ " You are in bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "c1175de3-4ae3-4f6b-b806-4d6b34a4d844"],
+ ". You propose a random move from bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d313fe80-6c03-45e8-bce7-b2b739539bb6"],
+ " to some other bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e76fb1f3-7973-4044-8279-24bfc1a03bbd"],
+ ". The probability of proposing the random move is denoted ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", 
+    RowBox[{"j", "|", "i"}], ")"}], TraditionalForm]],ExpressionUUID->
+  "4a3353d7-e7da-4919-a09c-5e968d007a86"],
+ ", which is read \[OpenCurlyDoubleQuote]",
+ Cell[BoxData[
+  FormBox["g", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "88661dac-56be-4ec2-aba3-5ff357736154"],
+ " of ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f0049041-223e-4d27-a051-f6f0c4c8b3af"],
+ " given ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "957dc97c-0cfe-411b-8d62-6a47562aea82"],
+ ".\[CloseCurlyDoubleQuote] (Note: If you want to recover Metropolis as a \
+special case of Metropolis-Hastings, you put in that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{
+      RowBox[{"i", "+", "1"}], "|", "i"}], ")"}], "=", "0.5"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "8c3e5e6c-0fa4-40e1-9fcf-7c44b7e2a865"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{
+      RowBox[{"i", "-", "1"}], "|", "i"}], ")"}], "=", "0.5"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "13102106-158d-4e49-ae98-91cebb939357"],
+ ". In other words, you have 50% chance of moving to either of the nearest \
+neighbors, and in Metropolis there is no chance of moving to anything but a \
+nearest neighbor.)\n\t",
+ StyleBox["Step 2:",
+  FontWeight->"Bold"],
+ " Compute the ",
+ StyleBox["clamped",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " appropriate ratio.  The ",
+ StyleBox["clamped",
+  FontWeight->"Bold"],
+ " appropriate ratio for going from ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", "->", "j"}], TraditionalForm]],ExpressionUUID->
+  "aad381f4-3c5c-44dc-9b99-b6effccf3b4e"],
+ " is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"min", "(", 
+    RowBox[{
+     StyleBox[
+      RowBox[{
+       FractionBox[
+        SubscriptBox["p", "j"], 
+        SubscriptBox["p", "i"]], 
+       FractionBox[
+        RowBox[{"g", "(", 
+         RowBox[{"i", "|", "j"}], ")"}], 
+        RowBox[{"g", "(", 
+         RowBox[{"j", "|", "i"}], ")"}]]}],
+      FontSize->18], 
+     StyleBox[",",
+      FontSize->18], 
+     StyleBox["1",
+      FontSize->16]}], ")"}], TraditionalForm]],ExpressionUUID->
+  "46489d9f-d1f0-4b0b-a7cc-12ba8fb2d0bc"],
+ ". \n\t",
+ StyleBox["Step 3:",
+  FontWeight->"Bold"],
+ " Generate a random number between 0 and 1. If the number is less than \
+clamped appropriate ratio, move to the proposed bin, and make a tally there. \
+Otherwise stay in the current bin and make another tally in the current bin.\n\
+\t\n\[OpenCurlyDoubleQuote]Hold on to your papers, fellow scholars [apologies \
+to Dr. Karoly Zsolnai-Feher],\[CloseCurlyDoubleQuote] here is what Gibbs \
+sampling is:\n\nYou just choose ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"i", "|", "j"}], ")"}], "=", 
+    SubscriptBox["p", "i"]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "bb6fa828-c32c-4eb6-8192-1dc6fca1f41d"],
+ ".\n\nReally, you have got to be kidding me. That is laughable and \
+ridiculous. I\[CloseCurlyQuote]ll get to why if you don\[CloseCurlyQuote]t \
+already see why. Anyway, let\[CloseCurlyQuote]s see what happens to the \
+clamped appropriate ratio:\n\nWe put ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"i", "|", "j"}], ")"}], "=", 
+    SubscriptBox["p", "i"]}], TraditionalForm]],ExpressionUUID->
+  "82e3ff96-4264-4d54-8093-8d1b001c2a8f"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"j", "|", "i"}], ")"}], "=", 
+    SubscriptBox["p", "j"]}], TraditionalForm]],ExpressionUUID->
+  "d26297e9-20ea-4109-abb5-a7c98b0d8871"],
+ " into the clamped appropriate ratio and you get:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"min", "(", 
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        FractionBox[
+         SubscriptBox["p", "j"], 
+         SubscriptBox["p", "i"]], 
+        FractionBox[
+         RowBox[{"g", "(", 
+          RowBox[{"i", "|", "j"}], ")"}], 
+         RowBox[{"g", "(", 
+          RowBox[{"j", "|", "i"}], ")"}]]}],
+       FontSize->18], 
+      StyleBox[",",
+       FontSize->18], 
+      StyleBox["1",
+       FontSize->16]}], ")"}], "=", 
+    RowBox[{
+     RowBox[{"min", "(", 
+      RowBox[{
+       StyleBox[
+        RowBox[{
+         FractionBox[
+          SubscriptBox["p", "j"], 
+          SubscriptBox["p", "i"]], 
+         FractionBox[
+          SubscriptBox["p", "i"], 
+          SubscriptBox["p", "j"]]}],
+        FontSize->18], 
+       StyleBox[",",
+        FontSize->18], 
+       StyleBox["1",
+        FontSize->16]}], ")"}], "=", 
+     RowBox[{
+      RowBox[{"min", "(", 
+       StyleBox[
+        RowBox[{"1", ",", "1"}],
+        FontSize->16], ")"}], "=", "1"}]}]}], TraditionalForm]],
+  ExpressionUUID->"47c69255-7ffc-495b-b931-3f9353d818a2"],
+ "\n\nThe clamped appropriate ratio is always 1! So you always move. So let \
+us summarize the Gibbs sampling (to be repeated ",
+ StyleBox["ad nauseam):\n\n",
+  FontSlant->"Italic"],
+ "\t",
+ StyleBox["Step 1:",
+  FontWeight->"Bold"],
+ " The current bin is bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],ExpressionUUID->
+  "e20e5503-fbb6-4fce-898a-149c171c84a7"],
+ ". You propose a random move from bin ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "75445335-61bc-42fc-b87d-eb1d7be979d8"],
+ " to some other bin, bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "699266c5-b365-4f5a-b43c-9c951aaca15b"],
+ ". The probability of the proposed random move to bin ",
+ Cell[BoxData[
+  FormBox["j", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4c19e90b-4f36-4904-93a3-186601c29ff6"],
+ " is just",
+ " ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5f1415e2-0e2c-443a-8939-ec156ebf98a8"],
+ ", where ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", "j"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7837bbb4-f7c4-464e-9289-011ab4e8e439"],
+ " is the probability distribution you are trying to sample.\n\t",
+ StyleBox["Step 2:",
+  FontWeight->"Bold"],
+ " You accept the proposed move and make a tally in the proposed bin. The \
+proposed bin is now the current bin, and you go back to step 1 .",
+ "\n\nNow I\[CloseCurlyQuote]ll say why it laughable and ridiculous:\n\nThe \
+whole point of any Monte Carlo method is to generate a representative set of \
+samples ",
+ StyleBox["from a probability distribution that is hard to sample.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " The Gibbs sampling algorithm says to ",
+ StyleBox["make the proposed move using that very same probability \
+distribution",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " that you already had resigned yourself as being hard to sample. So it has \
+\[OpenCurlyDoubleQuote]solved\[CloseCurlyDoubleQuote] the problem by \
+requiring you to know the solution to the problem. ",
+ StyleBox["This appears to be a circular solution with no benefit.",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ "\n\nThe actual genius of the Gibbs sampling algorithm comes next."
+}], "Text",
+ CellChangeTimes->{{3.941801035176573*^9, 3.941801286524672*^9}, {
+   3.941801557809082*^9, 3.941801676731529*^9}, {3.941801752911573*^9, 
+   3.9418017942052717`*^9}, {3.9418019234811974`*^9, 3.941802101009714*^9}, {
+   3.941802136502256*^9, 3.941802144649*^9}, {3.941821099380465*^9, 
+   3.9418212943102207`*^9}, {3.941822116610261*^9, 3.941822183780629*^9}, 
+   3.941889519359266*^9, {3.941889578544245*^9, 3.941889621903448*^9}, {
+   3.941891747219066*^9, 3.941891760252715*^9}, {3.9424744293203893`*^9, 
+   3.942474604376223*^9}, {3.942474639359167*^9, 3.942474787338858*^9}, {
+   3.942474830632082*^9, 3.942474836402396*^9}, {3.9424752939559307`*^9, 
+   3.942475300104619*^9}, {3.942475343209462*^9, 3.942475352693145*^9}, {
+   3.942479309294941*^9, 3.9424793101213417`*^9}, {3.942479340692894*^9, 
+   3.9424796045628157`*^9}, {3.942479973666615*^9, 3.942479985890028*^9}, {
+   3.942480935962144*^9, 3.942481001947049*^9}, {3.9424814302425537`*^9, 
+   3.942481481913521*^9}, {3.942481551309309*^9, 3.942481610770878*^9}, 
+   3.942482375346265*^9, {3.942569186070477*^9, 3.942569478246037*^9}, {
+   3.942569508264987*^9, 3.942569522675412*^9}, {3.942569580985352*^9, 
+   3.9425696027349253`*^9}, {3.942569641109827*^9, 3.942569675082542*^9}, {
+   3.942569706617342*^9, 3.9425697808512783`*^9}, {3.942569816317915*^9, 
+   3.942570245668092*^9}, {3.942570333273471*^9, 3.942570600283627*^9}, {
+   3.94257069740199*^9, 3.942570925091745*^9}, {3.9425714748078547`*^9, 
+   3.942571514733362*^9}, {3.9425723378445473`*^9, 3.942572346798588*^9}, {
+   3.942572502675579*^9, 
+   3.9425725044868393`*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+cb0896e68c3b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["High-Dimensional Probability Distributions", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+   3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+   3.941268266940299*^9}, {3.9418021582052093`*^9, 3.941802161928848*^9}, {
+   3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+   3.9418883357770863`*^9}, {3.942570931088656*^9, 3.9425709707046013`*^9}, 
+   3.94257206418736*^9},ExpressionUUID->"039041bb-74ce-499d-a3c5-\
+1a70737b2ac2"],
+
+Cell[TextData[{
+ "Back on Nov. 22, I launched the entire section on Monte Carlo Methods with \
+my \[OpenCurlyDoubleQuote]Monte Carlo Methods Introduction\
+\[CloseCurlyDoubleQuote] \
+https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsIntroduction.nb.pdf. My example was a probability \
+distribution that has 50 dimensions! It was the electoral college outcome. \
+Now each state can only go one of two ways, so each axis was as simple as an \
+axis can get. But still the total number of outcomes is ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["2", "50"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1296c1ef-d8db-4ae9-adf4-185272e8c738"],
+ ". There is absolutely no way to exhaustively sample that space.\n\nAs a \
+second example, I looked ahead to what will be our final example, which is \
+106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
+blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titre\
+\[CloseCurlyDoubleQuote] is measured in each blood sample, and there is going \
+to be a slope and an an intercept for each baby. So that is 212 parameters. \
+There is no way that that is of interest to report, so there are four more \
+parameters that capture the distribution of those 212 parameters, so in total \
+there are 216 parameters. You have a space with 216 parameters (instead of an \
+electoral college with 50 states), and these are now continuous parameters, \
+not yes or no outcomes.\n\nThe bottom line was that high-dimensional \
+probability distributions are (a) easy to come up with interesting, \
+real-world examples, and (b) impossible to exhaustively sample.\n\nSo we need \
+some notation for a high dimensional probability distribution. How about \
+this. Instead of bins labeled by an index ",
+ Cell[BoxData[
+  FormBox["i", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cd215fbc-a0fa-4ff5-ad9d-4b37e7b18371"],
+ ", the bins will now be labeled by ",
+ Cell[BoxData[
+  FormBox["d", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "9243dae8-c539-43a8-a58f-1af58088a328"],
+ " indices, ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["i", "1"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "17a65e68-53ba-4367-aba9-2dd554e6fe20"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["i", "2"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7000a444-85f5-4b3b-8ddc-d7d752231d30"],
+ ", ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["i", "3"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "4ec83935-e65a-42be-9f57-472d5d862c64"],
+ ", ..., ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["i", "d"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e9736c25-2ec6-4acc-83f1-eba05efd8f5e"],
+ ". So the probability distribution we are trying to sample is now denoted:\n\
+\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "1"], 
+       SubscriptBox["i", "2"], 
+       SubscriptBox["i", "3"]}], "..."}], 
+     SubscriptBox["i", "d"]}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0b3577cd-25b6-4568-85f9-d7b1bd0e57a1"],
+ "\n\nIt is for high-dimensional probability distributions that Gibbs \
+sampling has one more twist, and why it is not just a circular solution with \
+no benefit."
+}], "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.941802530409023*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.94182344839692*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888431143348*^9}, {3.941889650270494*^9, 3.941889697601927*^9}, 
+   3.941889739030484*^9, {3.942474926352392*^9, 3.942474991603811*^9}, {
+   3.942475035843767*^9, 3.942475233591027*^9}, {3.942475273478503*^9, 
+   3.9424752869493303`*^9}, {3.942475381966028*^9, 3.942475434286632*^9}, {
+   3.94247549960116*^9, 3.9424755047755117`*^9}, {3.942475587772626*^9, 
+   3.942475602684966*^9}, {3.942475734421803*^9, 3.942475802298635*^9}, {
+   3.942477285271314*^9, 3.942477285271558*^9}, {3.942477322936449*^9, 
+   3.942477328530592*^9}, {3.942477567443123*^9, 3.9424775782566442`*^9}, {
+   3.94248001230706*^9, 3.942480018457856*^9}, 3.9425709619352217`*^9, {
+   3.9425710091505136`*^9, 3.942571139271188*^9}, {3.942571579478653*^9, 
+   3.942571587938615*^9}, {3.942571732289343*^9, 3.942572323246257*^9}, {
+   3.942572354045886*^9, 
+   3.942572370500272*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+3a80e979eef4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Gibbs Sampling of High-Dimensional Probability Distributions", \
+"Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+   3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+   3.941268266940299*^9}, {3.9418021582052093`*^9, 3.941802161928848*^9}, {
+   3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+   3.9418883357770863`*^9}, {3.942570931088656*^9, 3.9425709707046013`*^9}, 
+   3.94257206418736*^9, {3.942572383158955*^9, 
+   3.942572391560685*^9}},ExpressionUUID->"5922671d-7bde-4a33-925b-\
+a22ef8f86419"],
+
+Cell["\<\
+I HAVE MORE TO WRITE, BUT YOU CAN ALREADY SEE WHERE THIS IS GOING.\
+\>", "Text",
+ CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
+   3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
+   3.941265717814273*^9}, 3.941267657774039*^9, {3.941267925323669*^9, 
+   3.941267985068588*^9}, {3.941268098668021*^9, 3.941268191592869*^9}, {
+   3.941268248789878*^9, 3.9412682590814657`*^9}, {3.941268436410612*^9, 
+   3.941268471502461*^9}, {3.941268504580245*^9, 3.941268506425292*^9}, {
+   3.941268550450314*^9, 3.9412685775544662`*^9}, {3.941268758407448*^9, 
+   3.9412687849810877`*^9}, {3.941802166622127*^9, 3.941802530409023*^9}, {
+   3.941802567170436*^9, 3.94180268006271*^9}, {3.941802714893596*^9, 
+   3.941802817683825*^9}, {3.941802861591114*^9, 3.9418032224243803`*^9}, {
+   3.941803474059556*^9, 3.941803507406516*^9}, {3.941803538336804*^9, 
+   3.941803634763003*^9}, {3.941803671217258*^9, 3.941803889486879*^9}, {
+   3.941804000485473*^9, 3.941804099189816*^9}, {3.941804518555279*^9, 
+   3.941804555617293*^9}, {3.941804648956476*^9, 3.941804782481895*^9}, {
+   3.941804818017451*^9, 3.941804818208921*^9}, {3.94181842306019*^9, 
+   3.94181846076782*^9}, {3.9418185033879027`*^9, 3.941818677615786*^9}, {
+   3.941818724301509*^9, 3.941818731256019*^9}, {3.941818769614221*^9, 
+   3.9418190160572453`*^9}, {3.941819928888749*^9, 3.941819930177136*^9}, {
+   3.941820187554834*^9, 3.941820252435142*^9}, {3.941820319955005*^9, 
+   3.9418203336959248`*^9}, {3.94182036549127*^9, 3.941820435862339*^9}, {
+   3.941820475116665*^9, 3.941820501862892*^9}, {3.941820682649282*^9, 
+   3.941820731174045*^9}, {3.941820829328763*^9, 3.941820901150756*^9}, {
+   3.941821311103278*^9, 3.941821429649203*^9}, {3.9418222415848513`*^9, 
+   3.941822335590743*^9}, {3.941822428344081*^9, 3.94182245467251*^9}, {
+   3.941822505224648*^9, 3.94182260952836*^9}, {3.94182271307276*^9, 
+   3.941822723870944*^9}, {3.941822893970578*^9, 3.941822918358803*^9}, {
+   3.941823140922357*^9, 3.941823397512465*^9}, {3.94182344839692*^9, 
+   3.9418237506652803`*^9}, {3.9418237911978893`*^9, 3.941823963974722*^9}, {
+   3.941824000593373*^9, 3.941824521853415*^9}, {3.94188826454211*^9, 
+   3.941888419433538*^9}, {3.9418884533862963`*^9, 3.941889045321903*^9}, {
+   3.941889267560174*^9, 3.941889282826161*^9}, {3.9418897041557837`*^9, 
+   3.941889711584606*^9}, {3.94188975322155*^9, 3.941889758711586*^9}, {
+   3.9418897910968637`*^9, 3.941889809233366*^9}, {3.94188984157718*^9, 
+   3.941890035639523*^9}, {3.941891555200908*^9, 3.941891573796963*^9}, {
+   3.941891806040723*^9, 3.941891860396353*^9}, {3.942475622964575*^9, 
+   3.942475668783039*^9}, {3.942475817705885*^9, 3.942475845394769*^9}, {
+   3.942475898996426*^9, 3.942476092402392*^9}, {3.942476123928803*^9, 
+   3.94247614068771*^9}, {3.942476271371243*^9, 3.94247634361408*^9}, {
+   3.942476385691403*^9, 3.942476442274753*^9}, {3.942476541489332*^9, 
+   3.942476560134082*^9}, {3.942476673201096*^9, 3.9424767076246243`*^9}, {
+   3.942476836990894*^9, 3.942476847637154*^9}, {3.9424769143903027`*^9, 
+   3.942476914390836*^9}, {3.9424769705309362`*^9, 3.942477007491514*^9}, {
+   3.942477370923211*^9, 3.9424773759178247`*^9}, {3.942477605587497*^9, 
+   3.942477618744775*^9}, {3.9424780123135967`*^9, 3.9424780591434507`*^9}, {
+   3.942478553329647*^9, 3.942478575464839*^9}, {3.942478649647663*^9, 
+   3.942478747212841*^9}, {3.942479104260645*^9, 3.942479111921765*^9}, {
+   3.942479153891573*^9, 3.942479216201194*^9}, {3.9424792805133343`*^9, 
+   3.9424792866347027`*^9}, {3.9424796424039*^9, 3.942479715414427*^9}, {
+   3.942480044937618*^9, 3.94248004604246*^9}, {3.942480087332142*^9, 
+   3.942480126819442*^9}, {3.942480182537655*^9, 3.942480375785005*^9}, {
+   3.9424804538515577`*^9, 3.942480504790477*^9}, {3.942480630460064*^9, 
+   3.942480668374962*^9}, {3.942480704348962*^9, 3.942480813150172*^9}, {
+   3.942480889757334*^9, 3.942480906231237*^9}, {3.942481070020463*^9, 
+   3.942481175455418*^9}, 3.942481211141766*^9, {3.942481687981761*^9, 
+   3.942481740871519*^9}, {3.942482471949373*^9, 3.942482478859049*^9}, {
+   3.942572403159965*^9, 3.942572426797297*^9}, {3.9425724601742496`*^9, 
+   3.942572469038849*^9}},ExpressionUUID->"e5775bc2-53c7-4255-82e6-\
+f7841ea324fa"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1337, 1294},
+WindowMargins->{{Automatic, 477}, {Automatic, 15}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"44bf047c-1db4-43e4-9368-c5831909856a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 696, 11, 239, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
+Cell[1279, 35, 1772, 28, 131, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[CellGroupData[{
+Cell[3076, 67, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[3518, 75, 9727, 266, 1054, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13282, 346, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[13795, 355, 6438, 122, 589, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20270, 482, 580, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[20853, 493, 4282, 60, 44, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

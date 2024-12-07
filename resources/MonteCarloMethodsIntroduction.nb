@@ -10,20 +10,21 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     12798,        241]
-NotebookOptionsPosition[     12264,        222]
-NotebookOutlinePosition[     12717,        240]
-CellTagsIndexPosition[     12674,        237]
+NotebookDataLength[     12903,        242]
+NotebookOptionsPosition[     12369,        223]
+NotebookOutlinePosition[     12822,        241]
+CellTagsIndexPosition[     12779,        238]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell["Monte Carlo Introduction", "Chapter",
+Cell["Monte Carlo Methods Introduction", "Chapter",
  CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
-  3.94127156864186*^9, 
-  3.941271597406028*^9}},ExpressionUUID->"e0134db4-8c35-4cc8-b996-\
+  3.94127156864186*^9, 3.941271597406028*^9}, {3.942571179126565*^9, 
+  3.9425711821867533`*^9}, {3.942571659898715*^9, 
+  3.942571660059629*^9}},ExpressionUUID->"e0134db4-8c35-4cc8-b996-\
 8fb64fcd4f50"],
 
 Cell[TextData[{
@@ -240,8 +241,8 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[580, 22, 219, 4, 69, "Chapter",ExpressionUUID->"e0134db4-8c35-4cc8-b996-8fb64fcd4f50"],
-Cell[802, 28, 11446, 191, 2289, "Text",ExpressionUUID->"6076569e-4c96-40b8-a137-b8b8a038d5cc"]
+Cell[580, 22, 324, 5, 69, "Chapter",ExpressionUUID->"e0134db4-8c35-4cc8-b996-8fb64fcd4f50"],
+Cell[907, 29, 11446, 191, 2289, "Text",ExpressionUUID->"6076569e-4c96-40b8-a137-b8b8a038d5cc"]
 }, Open  ]]
 }
 ]
