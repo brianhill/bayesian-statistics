@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    139122,       2606]
-NotebookOptionsPosition[    136063,       2544]
-NotebookOutlinePosition[    136547,       2563]
-CellTagsIndexPosition[    136504,       2560]
+NotebookDataLength[    134142,       2510]
+NotebookOptionsPosition[    131730,       2458]
+NotebookOutlinePosition[    132214,       2477]
+CellTagsIndexPosition[    132171,       2474]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2327,8 +2327,7 @@ axes), that the very complicated expressions for the ",
  "\[CloseCurlyQuote]s factor into a bunch of terms, each of which is much \
 simpler. Furthermore, once the ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "16d1fb71-afd8-4c85-adb6-9087263c9549"],
  "\[CloseCurlyQuote]s have been shown to factor, we will see something very \
 similar happen to what happened back in Chapters 10, 11, and 12 of Donovan \
@@ -2352,32 +2351,33 @@ simplifying assumptions in all generality.  It is easier for me to tell you \
 how it is going to work out in the case of the babies immunized for Hepatitis \
 B that that I introduced back on Nov. 22nd and re-introduced earlier in this \
 document in the section titled \[OpenCurlyDoubleQuote]High-Dimensional \
-Probability Distributions.\[CloseCurlyDoubleQuote]  Again, there were 106 \
-babies, and the study required ",
+Probability Distributions.\[CloseCurlyDoubleQuote]  Again, there were 217 \
+axes. Unlike the electoral college example, where every state was either a \
+win or a loss, each of these axes is a continuous parameter. So not only have \
+we gone from 50 axes to 217 axes, each axis now has an infinity of values. \
+Even if we binned the continuous values of each parameter arbitrarily into \
+something like 5 bins per parameter, we would still have ",
  Cell[BoxData[
   FormBox[
-   RowBox[{
-    RowBox[{"106", "\[CenterDot]", "2"}], "=", "212"}], TraditionalForm]],
-  ExpressionUUID->"c79efaca-5ffb-4514-b3cf-6dcb044ec5ed"],
- " parameters to do 106 linear fits of their respective titers. There were \
-also five more axes as follows:\n\n* Two parameters for the mean and standard \
-deviation of the slopes of the 106 linear fits\n* Two parameters for the mean \
-and standard deviation of the intercepts of the 106 linear fits\n* One \
-parameter for the standard deviation in the titer measurements\n\nSo in \
-total, we have 217 axes. Unlike the electoral college example, where every \
-state was either a win or a loss, each of these axes is a continuous \
-parameter. So not only have we gone from 50 axes to 217 axes, every axis now \
-has an infinity of values. Even if we binned the continuous values of each \
-parameter arbitrarily into something like 5 bins per parameter, we would \
-still have ",
- Cell[BoxData[
-  FormBox[
-   SuperscriptBox["5", "217"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["5", "217"], TraditionalForm]],ExpressionUUID->
   "a4c0e9f5-b429-410f-bef2-ee0c833ff3d6"],
  " outcomes, each with a different probability. So we have gone from \
 something that we estimated would take 30 years of computing time to \
-something that would take"
+something that would take 1.3 * ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "138"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a1d99d9c-753d-4b54-8c5a-ae179c116973"],
+ " years of computing time. If you don\[CloseCurlyQuote]t think that is an \
+impossible amount of computing time, remember that the universe is only 1.3 * \
+",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["10", "10"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "0ade761e-ae0b-47bb-909e-355db97f676c"],
+ " old."
 }], "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
@@ -2390,104 +2390,17 @@ something that would take"
    3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
    3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
    3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
-   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942614656687639*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
    3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.9426655848437963`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
    3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
    3.9426662358671913`*^9}, {3.942666285720819*^9, 3.942666299558963*^9}, 
    3.9426663494708767`*^9, {3.942666930392304*^9, 3.942666949258411*^9}, {
    3.94266700086276*^9, 3.9426670393361177`*^9}, {3.942667089453788*^9, 
-   3.9426671278068333`*^9}, {3.9426671823389883`*^9, 
-   3.942667182685094*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
-592cc9a030bf"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Round", "[", 
-  RowBox[{
-   RowBox[{"N", "[", 
-    RowBox[{"30", " ", "*", " ", 
-     RowBox[{
-      SuperscriptBox["5", "217"], "/", 
-      SuperscriptBox["2", "50"]}]}], "]"}], ",", 
-   SuperscriptBox["10", "137"]}], "]"}]], "Input",
- CellChangeTimes->{{3.9426662400361633`*^9, 3.942666265043642*^9}, {
-  3.9426671965738087`*^9, 3.942667237551402*^9}},
- CellLabel->"In[6]:=",ExpressionUUID->"b3dbf1ad-4668-4416-920f-4f27276a688b"],
-
-Cell[BoxData[\
-"13000000000000000000000000000000000000000000000000000000000000000000000000000\
-00000000000000000000000000000000000000000000000000000000000000"], "Output",
- CellChangeTimes->{{3.942666252535112*^9, 3.9426662655802*^9}, {
-  3.942667198920848*^9, 3.9426672384617968`*^9}},
- CellLabel->"Out[6]=",ExpressionUUID->"7e918873-8d1c-4c5f-b1ce-5023358f1dfb"]
-}, Open  ]],
-
-Cell["\<\
-years of computing time to exhaustively sample. Remember that the universe is \
-only\
-\>", "Text",
- CellChangeTimes->{
-  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
-   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
-   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
-   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
-   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
-   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
-   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
-   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
-   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
-   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
-   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
-   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
-   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
-   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
-   3.942666386139031*^9, 3.94266638678336*^9}, {3.942667253740116*^9, 
-   3.9426672707642403`*^9}},ExpressionUUID->"84177edd-35fe-4354-be02-\
-5494b9b0b572"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Round", "[", 
-  RowBox[{
-   RowBox[{"1.3", "*", 
-    SuperscriptBox["10", "10"]}], ",", 
-   SuperscriptBox["10", "9"]}], "]"}]], "Input",
- CellChangeTimes->{{3.9426662400361633`*^9, 3.942666265043642*^9}, {
-  3.9426671965738087`*^9, 3.942667237551402*^9}, {3.942667281160993*^9, 
-  3.942667318258122*^9}},
- CellLabel->"In[7]:=",ExpressionUUID->"20743a67-d487-456d-94ef-1a312d4e74c9"],
-
-Cell[BoxData["13000000000"], "Output",
- CellChangeTimes->{{3.942666252535112*^9, 3.9426662655802*^9}, {
-   3.942667198920848*^9, 3.9426672384617968`*^9}, 3.942667319046769*^9},
- CellLabel->"Out[7]=",ExpressionUUID->"ba175fcd-f4e0-4ea5-ab0f-eb84239e15b8"]
-}, Open  ]],
-
-Cell["years old.", "Text",
- CellChangeTimes->{
-  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
-   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
-   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
-   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
-   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
-   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
-   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
-   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
-   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
-   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
-   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
-   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
-   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
-   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
-   3.942666386139031*^9, 3.94266638678336*^9}, {3.942667253740116*^9, 
-   3.9426672707642403`*^9}, {3.942667332417194*^9, 
-   3.94266733318119*^9}},ExpressionUUID->"8f6ca15b-9d03-4c0d-ac6b-\
-c9a872555cbd"]
+   3.9426671278068333`*^9}, {3.942667182338988*^9, 3.942667182685094*^9}, {
+   3.942667758374187*^9, 3.942667770051393*^9}, {3.942667803726969*^9, 
+   3.94266786641437*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+592cc9a030bf"]
 }, Open  ]]
 }, Open  ]],
 
@@ -2515,9 +2428,8 @@ Tuesday Dec. 10th  you will be in a position to appreciate \
 which I am in the process of writing up:\n\n*",
  StyleBox[" \
 https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsCaseStudy.nb.pdf\n\nWe are going to write out all the \
-likelihoods and all the priors and see how Gibbs sampling can practically \
-produce a representative sampling of the posterior.",
+MonteCarloMethodsCaseStudy.nb.pdf\n\nWe are going to write out all 217 \
+likelihoods and priors and see how Gibbs sampling works on the posterior.",
   FontSize->14]
 }], "Text",
  CellChangeTimes->{
@@ -2531,13 +2443,15 @@ produce a representative sampling of the posterior.",
    3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
    3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
    3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
-   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942614656687639*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
    3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.9426655848437963`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
    3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
-   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
+   3.942666229852413*^9}, {3.942666303311258*^9, 3.942666323486396*^9}, {
    3.942666392287711*^9, 3.942666440153853*^9}, {3.942667346082728*^9, 
-   3.942667613127198*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
+   3.942667613127198*^9}, {3.9426679585329247`*^9, 3.9426679712946863`*^9}, {
+   3.9426680035388412`*^9, 
+   3.94266800524137*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
 735e6063559f"]
 }, Open  ]]
 }, Open  ]]
@@ -2590,22 +2504,12 @@ Cell[39130, 888, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a5
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[122921, 2271, 322, 9, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[123246, 2282, 5682, 119, 752, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"],
-Cell[CellGroupData[{
-Cell[128953, 2405, 456, 11, 40, "Input",ExpressionUUID->"b3dbf1ad-4668-4416-920f-4f27276a688b"],
-Cell[129412, 2418, 363, 5, 69, "Output",ExpressionUUID->"7e918873-8d1c-4c5f-b1ce-5023358f1dfb"]
-}, Open  ]],
-Cell[129790, 2426, 1387, 22, 44, "Text",ExpressionUUID->"84177edd-35fe-4354-be02-5494b9b0b572"],
-Cell[CellGroupData[{
-Cell[131202, 2452, 407, 9, 40, "Input",ExpressionUUID->"20743a67-d487-456d-94ef-1a312d4e74c9"],
-Cell[131612, 2463, 254, 3, 42, "Output",ExpressionUUID->"ba175fcd-f4e0-4ea5-ab0f-eb84239e15b8"]
-}, Open  ]],
-Cell[131881, 2469, 1354, 20, 44, "Text",ExpressionUUID->"8f6ca15b-9d03-4c0d-ac6b-c9a872555cbd"]
+Cell[123246, 2282, 5609, 120, 580, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[133284, 2495, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
-Cell[133865, 2506, 2170, 34, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
+Cell[128904, 2408, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
+Cell[129485, 2419, 2217, 35, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 }
