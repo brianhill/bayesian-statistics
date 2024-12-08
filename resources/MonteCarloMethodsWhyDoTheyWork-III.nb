@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    136236,       2657]
-NotebookOptionsPosition[    134053,       2609]
-NotebookOutlinePosition[    134537,       2628]
-CellTagsIndexPosition[    134494,       2625]
+NotebookDataLength[    139122,       2606]
+NotebookOptionsPosition[    136063,       2544]
+NotebookOutlinePosition[    136547,       2563]
+CellTagsIndexPosition[    136504,       2560]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -195,10 +195,10 @@ Gibbs sampling is:\n\nYou just choose ",
      RowBox[{"i", "|", "j"}], ")"}], "=", 
     SubscriptBox["p", "i"]}], TraditionalForm]],ExpressionUUID->
   "bb6fa828-c32c-4eb6-8192-1dc6fca1f41d"],
- ".\n\nReally, you have got to be kidding me. That is laughable and \
-ridiculous. I\[CloseCurlyQuote]ll get to why if you don\[CloseCurlyQuote]t \
-already see why. Anyway, let\[CloseCurlyQuote]s see what happens to the \
-clamped appropriate ratio:\n\nWe put ",
+ ".\n\nReally!? That is almost laughably simple and it is also ridiculous. I\
+\[CloseCurlyQuote]ll get to why it is ridiculous if you \
+don\[CloseCurlyQuote]t already see why. Anyway, let\[CloseCurlyQuote]s see \
+what happens to the clamped appropriate ratio.\n\nWe put ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -214,7 +214,7 @@ clamped appropriate ratio:\n\nWe put ",
      RowBox[{"j", "|", "i"}], ")"}], "=", 
     SubscriptBox["p", "j"]}], TraditionalForm]],ExpressionUUID->
   "d26297e9-20ea-4109-abb5-a7c98b0d8871"],
- " into the clamped appropriate ratio and you get:\n\n",
+ " into the clamped appropriate ratio and get:\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -295,8 +295,9 @@ us summarize the Gibbs sampling algorithm (to be repeated ",
   FontWeight->"Bold"],
  " You accept the proposed move and make a tally in the proposed bin. The \
 proposed bin is now the current bin, and you go back to step 1.\n\nNow I\
-\[CloseCurlyQuote]ll say why it laughable and ridiculous:\n\nThe whole point \
-of any Monte Carlo method is to generate a representative set of samples ",
+\[CloseCurlyQuote]ll say why this laughably simple algorithm is also \
+ridiculous. The whole point of any Monte Carlo method is to generate a \
+representative set of samples ",
  StyleBox["for a probability distribution that is hard to sample.",
   FontWeight->"Bold",
   FontSlant->"Italic"],
@@ -311,7 +312,8 @@ requiring you to know the solution to the problem. ",
  StyleBox["This appears to be a circular solution with no benefit.",
   FontWeight->"Bold",
   FontSlant->"Italic"],
- "\n\nThe actual genius of the Gibbs sampling algorithm comes next."
+ "\n\nOf course it isn\[CloseCurlyQuote]t ridiculous. The actual genius of \
+the Gibbs sampling algorithm comes next."
 }], "Text",
  CellChangeTimes->{{3.941801035176573*^9, 3.941801286524672*^9}, {
    3.941801557809082*^9, 3.941801676731529*^9}, {3.941801752911573*^9, 
@@ -337,7 +339,10 @@ requiring you to know the solution to the problem. ",
    3.942572502675579*^9, 3.9425725044868393`*^9}, {3.942573257427242*^9, 
    3.942573282888261*^9}, {3.9425733344293203`*^9, 3.942573368818153*^9}, {
    3.9425762303238163`*^9, 3.94257623078305*^9}, {3.942577151109181*^9, 
-   3.942577155337344*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
+   3.942577155337344*^9}, {3.9426665393241053`*^9, 3.942666558434289*^9}, {
+   3.942666609769581*^9, 3.9426666436823072`*^9}, {3.942666742599921*^9, 
+   3.942666763462694*^9}, {3.942666813674315*^9, 
+   3.942666860743093*^9}},ExpressionUUID->"28a71991-cb0d-40e9-a92f-\
 cb0896e68c3b"]
 }, Open  ]],
 
@@ -378,19 +383,19 @@ data is going to be fitted by a slope and an intercept for each baby (in the \
 study, they actually take the logarithm of the titer before doing the linear \
 fit). So that is 212 parameters. There is no way you conclude an \
 epidemiological paper by reporting 212 different numbers and error bars on \
-each of them, so the authors introduced four more parameters that capture the \
-distribution of those 212 parameters. So in total there are 216 parameters. \
-The bottom line is that in this second example, you have a space with 216 \
-parameters (instead of an electoral college with 50 states), and these are \
-now continuous parameters (not just binary wins and losses). You can see that \
-this is going to be a far worse probability distribution to sample than the \
-electoral college problem, and that one was already practically impossible to \
-exhaustively simple.\n\nTo summarize, we are motivated to study \
-high-dimensional probability distributions with Monte Carlo methods because \
-(a) they show up in interesting, real-world examples, and (b) they are \
-impossible to exhaustively sample.\n\nTo study high-dimensional probability \
-distributions, we need some new notation. Instead of bins labeled by an index \
-",
+each of them, so the authors introduced five more parameters that capture the \
+distributions of those 212 parameters and the uncertainty in the titer data. \
+So in total there are 217 parameters. The bottom line is that in this second \
+example, you have a space with 217 parameters (instead of an electoral \
+college with 50 states), and these are now continuous parameters (not just \
+binary wins and losses). You can see that this is going to be a far worse \
+probability distribution to sample than the electoral college problem, and \
+that one was already practically impossible to exhaustively sample.\n\nTo \
+summarize, we are motivated to study high-dimensional probability \
+distributions with Monte Carlo methods because (a) they show up in \
+interesting, real-world examples, and (b) they are impossible to exhaustively \
+sample.\n\nTo study high-dimensional probability distributions, we need some \
+new notation. Instead of bins labeled by an index ",
  Cell[BoxData[
   FormBox["i", TraditionalForm]],ExpressionUUID->
   "cd215fbc-a0fa-4ff5-ad9d-4b37e7b18371"],
@@ -502,8 +507,7 @@ Then the six ",
 \[CloseCurlyQuote]t other things in the sack going to the kitchen, like \
 rotten turnips).\n\nAnyway, examples aside, it is for multi-dimensional \
 probability distributions that Gibbs sampling has one more twist, why it is \
-not just a circular solution with no benefit, and why it is in widespread use \
-for sampling high-dimensional probability distributions."
+not just a circular solution with no benefit, and why it is in widespread use."
 }], "Text",
  CellChangeTimes->{{3.941264883594529*^9, 3.941265216312763*^9}, {
    3.941265261478037*^9, 3.94126556228813*^9}, {3.941265593760366*^9, 
@@ -558,8 +562,10 @@ for sampling high-dimensional probability distributions."
    3.942576042013386*^9, 3.942576042342818*^9}, 3.942577050448579*^9, {
    3.942582767067328*^9, 3.942582780111916*^9}, {3.942582838813133*^9, 
    3.94258284962632*^9}, {3.942582882163785*^9, 3.942582882704886*^9}, {
-   3.9426141927736273`*^9, 
-   3.942614192782383*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.9426141927736273`*^9, 3.942614192782383*^9}, {3.9426645831392603`*^9, 
+   3.942664583568267*^9}, {3.9426665168138847`*^9, 3.942666518110615*^9}, {
+   3.942666665572671*^9, 
+   3.94266669750524*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -876,8 +882,8 @@ Cell[CellGroupData[{
 
 Cell["1C. Visualizing Gibbs Sampling", "Subsubsection",
  CellChangeTimes->{{3.9425826033367968`*^9, 3.942582617117221*^9}, {
-  3.942584132356699*^9, 3.9425841424942713`*^9}, {3.942586051369769*^9, 
-  3.9425860782175503`*^9}},ExpressionUUID->"2f15c660-34e3-4865-9f1f-\
+  3.942584132356699*^9, 3.9425841424942718`*^9}, {3.942586051369769*^9, 
+  3.942586078217551*^9}},ExpressionUUID->"2f15c660-34e3-4865-9f1f-\
 0eacd37e9f82"],
 
 Cell[TextData[{
@@ -2266,8 +2272,7 @@ Cell[CellGroupData[{
 Cell[TextData[{
  "2. Factorization of the ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "0217a734-61a9-4c11-be7f-9115be2f59da"],
  "\[CloseCurlyQuote]s"
 }], "Subsubsection",
@@ -2314,19 +2319,25 @@ Cell[TextData[{
           SubscriptBox["i", "d"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
   "8d0ad167-1725-425f-b236-39dd91de1415"],
- "\n\nby making an assumption. We are going to assume (at least along most \
-axes), that the ",
+ "\n\nby making some assumptions. We are going to assume (at least along most \
+axes), that the very complicated expressions for the ",
  Cell[BoxData[
   FormBox["p", TraditionalForm]],ExpressionUUID->
   "a42313aa-6ef7-441b-8075-7c7ecf2baae9"],
- "\[CloseCurlyQuote]s factor. If there are just a few recalcitrant axes along \
-which the ",
+ "\[CloseCurlyQuote]s factor into a bunch of terms, each of which is much \
+simpler. Furthermore, once the ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],ExpressionUUID->
-  "3b831506-3b5b-4f86-a584-411e3480eea4"],
- "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor out of dozens or hundreds \
-of axes along which they do factor, we will have vastly simplified the \
-computational cost of sampling the ",
+  FormBox["p", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "16d1fb71-afd8-4c85-adb6-9087263c9549"],
+ "\[CloseCurlyQuote]s have been shown to factor, we will see something very \
+similar happen to what happened back in Chapters 10, 11, and 12 of Donovan \
+and Mickey. Specifically, we will see that despite all the complexity, if we \
+start off with Gaussian- and Gamma-distributed priors, and if we multiply by \
+Gaussian likelihoods, then we get Gaussian- and Gamma-distributed posteriors.\
+\n\nThe whole goal of all this Gibbs sampling technology is to sample the \
+posterior, and I am claiming that viewed along one axis at a time, every one \
+of the  of the ",
  Cell[BoxData[
   FormBox[
    SubscriptBox["p", 
@@ -2334,261 +2345,39 @@ computational cost of sampling the ",
      RowBox[{
       SubscriptBox["i", "d"], "'"}], "|", 
      RowBox[{"i", "-"}]}]], TraditionalForm]],ExpressionUUID->
-  "7cc2ba18-acfb-4883-9c16-913fafb27076"],
- ".\n\nI could make some attempt to write this in all generality, but I think \
-it is better if I just assume that the first five axes are the recalcitrant \
-ones and the rest enjoy some factorization. That is, none of\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "1"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], "'"}], 
-         SubscriptBox["i", "2"], 
-         SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"], 
-         SubscriptBox["i", "5"]}], "..."}], 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "1"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "c1852c5d-5828-4464-adde-7d5c107134c3"],
- "\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "2"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         SubscriptBox["i", "1"], 
-         RowBox[{
-          SubscriptBox["i", "2"], "'"}], 
-         SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"], 
-         SubscriptBox["i", "5"]}], "..."}], 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "2"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "87a54c25-e9e5-4984-878c-c2f246f27ff7"],
- "\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "3"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         SubscriptBox["i", "1"], 
-         SubscriptBox["i", "2"], 
-         RowBox[{
-          SubscriptBox["i", "3"], "'"}], 
-         SubscriptBox["i", "4"], 
-         SubscriptBox["i", "5"]}], "..."}], 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "3"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "e0af4b54-e5e9-409b-922e-082d1fb085fc"],
- "\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "4"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         SubscriptBox["i", "1"], 
-         SubscriptBox["i", "2"], 
-         SubscriptBox["i", "3"], 
-         RowBox[{
-          SubscriptBox["i", "4"], "'"}], 
-         SubscriptBox["i", "5"]}], "..."}], 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "4"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "38009106-61ae-4c7b-9a65-3a66fad3cf9e"],
- "\n\n",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "5"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         SubscriptBox["i", "1"], 
-         SubscriptBox["i", "2"], 
-         SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"], 
-         RowBox[{
-          SubscriptBox["i", "5"], "'"}]}], "..."}], 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "5"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "c0ca801d-224e-4734-875b-dbd4c3679ad3"],
- "\n\nhave any particularly simple expression. However, for all the rest:\n \n\
-",
- Cell[BoxData[
-  FormBox[
-   RowBox[{
-    SubscriptBox["p", 
-     RowBox[{
-      RowBox[{
-       SubscriptBox["i", "6"], "'"}], "|", 
-      RowBox[{"i", "-"}]}]], "=", 
-    FractionBox[
-     SubscriptBox["p", 
-      RowBox[{
-       RowBox[{
-        RowBox[{
-         SubscriptBox["i", "1"], 
-         SubscriptBox["i", "2"], 
-         SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"], 
-         SubscriptBox["i", "5"], 
-         RowBox[{
-          SubscriptBox["i", "6"], "'"}]}], "..."}], ".", 
-       SubscriptBox["i", "D"]}]], 
-     RowBox[{
-      UnderscriptBox["\[Sum]", 
-       RowBox[{" ", 
-        SubscriptBox["i", "6"], "    "}]], 
-      SubscriptBox["p", 
-       RowBox[{
-        RowBox[{
-         RowBox[{
-          SubscriptBox["i", "1"], 
-          SubscriptBox["i", "2"], 
-          SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"], 
-          SubscriptBox["i", "5"], 
-          SubscriptBox["i", "6"]}], "..."}], 
-        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "e7ae69b6-97cd-4311-9b30-a24e7b7c90e1"],
- "\n  \nwe are going to make a tremendously simplifying assumption.\n\nBefore \
-I even state the simplifying assumption, so that you have the real problem in \
-mind, recall the immunized babies study introduced back on Nov. 22nd. I \
-discussed it in class, but I didn\[CloseCurlyQuote]t write it up. If you \
-remember the 106 babies, you\[CloseCurlyQuote]ll remember that we need ",
+  "772fe00e-1b8a-4eca-bdf4-6449073ae0f6"],
+ " is a one-dimensional distribution of one of two kinds that we already know \
+how to sample.\n\nFrankly, I don\[CloseCurlyQuote]t think I can state the \
+simplifying assumptions in all generality.  It is easier for me to tell you \
+how it is going to work out in the case of the babies immunized for Hepatitis \
+B that that I introduced back on Nov. 22nd and re-introduced earlier in this \
+document in the section titled \[OpenCurlyDoubleQuote]High-Dimensional \
+Probability Distributions.\[CloseCurlyDoubleQuote]  Again, there were 106 \
+babies, and the study required ",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"106", "\[CenterDot]", "2"}], "=", "212"}], TraditionalForm]],
+  ExpressionUUID->"c79efaca-5ffb-4514-b3cf-6dcb044ec5ed"],
+ " parameters to do 106 linear fits of their respective titers. There were \
+also five more axes as follows:\n\n* Two parameters for the mean and standard \
+deviation of the slopes of the 106 linear fits\n* Two parameters for the mean \
+and standard deviation of the intercepts of the 106 linear fits\n* One \
+parameter for the standard deviation in the titer measurements\n\nSo in \
+total, we have 217 axes. Unlike the electoral college example, where every \
+state was either a win or a loss, each of these axes is a continuous \
+parameter. So not only have we gone from 50 axes to 217 axes, every axis now \
+has an infinity of values. Even if we binned the continuous values of each \
+parameter arbitrarily into something like 5 bins per parameter, we would \
+still have ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["5", "217"], TraditionalForm]],
   FormatType->TraditionalForm,ExpressionUUID->
-  "b10f0b43-5dfa-4a5d-be09-3eb1ac986267"],
- " parameters to do 106 linear fits to their respective titers. So the 6th \
-and 7th axes are going to be the slope and intercept of the 1st baby\
-\[CloseCurlyQuote]s titer. The 8th and 9th axes are going to be the slope and \
-intercept of the 2nd baby\[CloseCurlyQuote]s titer. And so on and so on all \
-the way out to the 216th and 217th axes, which are going to be the slope and \
-intercept of the 106th baby\[CloseCurlyQuote]s titer. Meanwhile, the first \
-five axes, the ones that are recalcitrant, are going to be parameters in the \
-distributions that characterize the distributions of all the slopes and the \
-intercepts plus one more parameter that characterizes the fundamental \
-uncertainty in the titers. We will get way further into that as our case \
-study, and frankly, if you are sick of theory, and just want to trust me on \
-the factorization, and skip to seeing how it plays out in practice, you could \
-go directly to the case study:\n\n*",
- StyleBox[" \
-https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsCaseStudy.nb.pdf",
-  FontSize->14],
- "\n\nTHE CASE STUDY IS THE MOTIVATION FOR SUFFERING THROUGH THE \
-FACTORIZATION THAT FOLLOWS, AND ACTUALLY, IT IS STILL FORTHCOMING. I AM NOT \
-SURE I HAVE THE FORTITUDE TO WRITE IT ALL OUT, ESPECIALLY SINCE MATHEMATICA \
-JUST CRASHED AFTER I HAD WRITTEN OUT A BUNCH OF EQUATIONS REQUIRING A LOT OF \
-TYPESETTING."
+  "a4c0e9f5-b429-410f-bef2-ee0c833ff3d6"],
+ " outcomes, each with a different probability. So we have gone from \
+something that we estimated would take 30 years of computing time to \
+something that would take"
 }], "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
@@ -2601,9 +2390,155 @@ TYPESETTING."
    3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
    3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
    3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
-   3.9426146566876383`*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
-592cc9a030bf"]
+   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
+   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
+   3.9426662358671913`*^9}, {3.942666285720819*^9, 3.942666299558963*^9}, 
+   3.9426663494708767`*^9, {3.942666930392304*^9, 3.942666949258411*^9}, {
+   3.94266700086276*^9, 3.9426670393361177`*^9}, {3.942667089453788*^9, 
+   3.9426671278068333`*^9}, {3.9426671823389883`*^9, 
+   3.942667182685094*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+592cc9a030bf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Round", "[", 
+  RowBox[{
+   RowBox[{"N", "[", 
+    RowBox[{"30", " ", "*", " ", 
+     RowBox[{
+      SuperscriptBox["5", "217"], "/", 
+      SuperscriptBox["2", "50"]}]}], "]"}], ",", 
+   SuperscriptBox["10", "137"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9426662400361633`*^9, 3.942666265043642*^9}, {
+  3.9426671965738087`*^9, 3.942667237551402*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"b3dbf1ad-4668-4416-920f-4f27276a688b"],
+
+Cell[BoxData[\
+"13000000000000000000000000000000000000000000000000000000000000000000000000000\
+00000000000000000000000000000000000000000000000000000000000000"], "Output",
+ CellChangeTimes->{{3.942666252535112*^9, 3.9426662655802*^9}, {
+  3.942667198920848*^9, 3.9426672384617968`*^9}},
+ CellLabel->"Out[6]=",ExpressionUUID->"7e918873-8d1c-4c5f-b1ce-5023358f1dfb"]
+}, Open  ]],
+
+Cell["\<\
+years of computing time to exhaustively sample. Remember that the universe is \
+only\
+\>", "Text",
+ CellChangeTimes->{
+  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
+   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
+   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
+   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
+   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
+   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
+   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
+   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
+   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
+   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
+   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
+   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
+   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
+   3.942666386139031*^9, 3.94266638678336*^9}, {3.942667253740116*^9, 
+   3.9426672707642403`*^9}},ExpressionUUID->"84177edd-35fe-4354-be02-\
+5494b9b0b572"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Round", "[", 
+  RowBox[{
+   RowBox[{"1.3", "*", 
+    SuperscriptBox["10", "10"]}], ",", 
+   SuperscriptBox["10", "9"]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9426662400361633`*^9, 3.942666265043642*^9}, {
+  3.9426671965738087`*^9, 3.942667237551402*^9}, {3.942667281160993*^9, 
+  3.942667318258122*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"20743a67-d487-456d-94ef-1a312d4e74c9"],
+
+Cell[BoxData["13000000000"], "Output",
+ CellChangeTimes->{{3.942666252535112*^9, 3.9426662655802*^9}, {
+   3.942667198920848*^9, 3.9426672384617968`*^9}, 3.942667319046769*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"ba175fcd-f4e0-4ea5-ab0f-eb84239e15b8"]
+}, Open  ]],
+
+Cell["years old.", "Text",
+ CellChangeTimes->{
+  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
+   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
+   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
+   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
+   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
+   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
+   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
+   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
+   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
+   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
+   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
+   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
+   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
+   3.942666386139031*^9, 3.94266638678336*^9}, {3.942667253740116*^9, 
+   3.9426672707642403`*^9}, {3.942667332417194*^9, 
+   3.94266733318119*^9}},ExpressionUUID->"8f6ca15b-9d03-4c0d-ac6b-\
+c9a872555cbd"]
 }, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Conclusions", "Subsection",
+ CellChangeTimes->{{3.941267683779645*^9, 3.941267686658529*^9}, {
+   3.941267907292193*^9, 3.941267910440547*^9}, {3.941268265396209*^9, 
+   3.941268266940299*^9}, {3.941802158205209*^9, 3.941802161928848*^9}, {
+   3.941822146758972*^9, 3.941822147761813*^9}, {3.941888328277803*^9, 
+   3.9418883357770863`*^9}, {3.942570931088656*^9, 3.9425709707046013`*^9}, 
+   3.94257206418736*^9, {3.942572383158955*^9, 3.942572391560685*^9}, {
+   3.94266636539281*^9, 
+   3.9426663672629004`*^9}},ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-\
+5edf717f7e00"],
+
+Cell[TextData[{
+ "The goals of this third and last of my \[OpenCurlyDoubleQuote]Why Do They \
+Work?\[CloseCurlyDoubleQuote] write-ups were to (a) explain Gibbs sampling, \
+(b) convince you that it works, (c) suggest that with some simplifying \
+assumptions, instead of being a ridiculous and circular method, it could be \
+really effective. I hope you are there and that you for our last class on \
+Tuesday Dec. 10th  you will be in a position to appreciate \
+\[OpenCurlyDoubleQuote]Monte Carlo Methods Case Study\[CloseCurlyDoubleQuote] \
+which I am in the process of writing up:\n\n*",
+ StyleBox[" \
+https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsCaseStudy.nb.pdf\n\nWe are going to write out all the \
+likelihoods and all the priors and see how Gibbs sampling can practically \
+produce a representative sampling of the posterior.",
+  FontSize->14]
+}], "Text",
+ CellChangeTimes->{
+  3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
+   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
+   3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
+   3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
+   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
+   3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
+   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
+   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
+   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
+   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
+   3.9426146566876388`*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
+   3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
+   3.9426655848437967`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
+   3.942666229852413*^9}, {3.9426663033112583`*^9, 3.942666323486396*^9}, {
+   3.942666392287711*^9, 3.942666440153853*^9}, {3.942667346082728*^9, 
+   3.942667613127198*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
+735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 },
@@ -2632,31 +2567,45 @@ Cell[580, 22, 717, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a
 Cell[1300, 36, 2617, 40, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
 Cell[3942, 80, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[4384, 88, 9627, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[4384, 88, 9907, 257, 1025, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14048, 345, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[14561, 354, 10278, 208, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[14328, 350, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14841, 359, 10408, 209, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24876, 567, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[25457, 578, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
+Cell[25286, 573, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[25867, 584, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
 Cell[CellGroupData[{
-Cell[26353, 607, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
-Cell[26605, 613, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[26763, 613, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
+Cell[27015, 619, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36600, 839, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
-Cell[36889, 845, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
+Cell[37010, 845, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
+Cell[37299, 851, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[38437, 876, 282, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
-Cell[38722, 882, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
+Cell[38847, 882, 280, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
+Cell[39130, 888, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[122513, 2265, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[122869, 2277, 11144, 327, 1251, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
+Cell[122921, 2271, 322, 9, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
+Cell[123246, 2282, 5682, 119, 752, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"],
+Cell[CellGroupData[{
+Cell[128953, 2405, 456, 11, 40, "Input",ExpressionUUID->"b3dbf1ad-4668-4416-920f-4f27276a688b"],
+Cell[129412, 2418, 363, 5, 69, "Output",ExpressionUUID->"7e918873-8d1c-4c5f-b1ce-5023358f1dfb"]
+}, Open  ]],
+Cell[129790, 2426, 1387, 22, 44, "Text",ExpressionUUID->"84177edd-35fe-4354-be02-5494b9b0b572"],
+Cell[CellGroupData[{
+Cell[131202, 2452, 407, 9, 40, "Input",ExpressionUUID->"20743a67-d487-456d-94ef-1a312d4e74c9"],
+Cell[131612, 2463, 254, 3, 42, "Output",ExpressionUUID->"ba175fcd-f4e0-4ea5-ab0f-eb84239e15b8"]
+}, Open  ]],
+Cell[131881, 2469, 1354, 20, 44, "Text",ExpressionUUID->"8f6ca15b-9d03-4c0d-ac6b-c9a872555cbd"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[133284, 2495, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
+Cell[133865, 2506, 2170, 34, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 }
