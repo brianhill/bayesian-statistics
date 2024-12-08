@@ -1,0 +1,107 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4308,         99]
+NotebookOptionsPosition[      3744,         79]
+NotebookOutlinePosition[      4228,         98]
+CellTagsIndexPosition[      4185,         95]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[StyleBox["Monte Carlo Methods Case Study",
+ FontSize->30,
+ FontWeight->"Regular"]], "Chapter",
+ CellChangeTimes->{{3.941263379313657*^9, 3.9412633878334513`*^9}, {
+   3.94127156864186*^9, 3.941271569377199*^9}, {3.941271983313205*^9, 
+   3.941271983490583*^9}, {3.941275961254328*^9, 3.94127596314456*^9}, {
+   3.941800449839259*^9, 3.941800458275719*^9}, {3.941892754320045*^9, 
+   3.941892763333161*^9}, {3.942473606498764*^9, 3.942473609302772*^9}, 
+   3.942474154873723*^9, 3.942569072393546*^9, {3.942572439774941*^9, 
+   3.942572449089267*^9}, {3.9425753311678343`*^9, 3.942575334813602*^9}, {
+   3.942613652627493*^9, 
+   3.942613654063428*^9}},ExpressionUUID->"7472a2df-9d0d-480b-8ed7-\
+1a27648aea9a"],
+
+Cell[TextData[{
+ "I built up the theory pretty far in the last of my \
+\[OpenCurlyDoubleQuote]Why Do They Work\[CloseCurlyDoubleQuote] write-ups:\n\n\
+",
+ StyleBox["* \
+https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsWhyDoTheyWork-III.nb.pdf",
+  FontSize->14],
+ "\n\nOur case study is going to be the Hepatitis B vaccination study \
+described in Chapter 2 of ",
+ StyleBox["Markov Chain Monte Carlo in Practice,",
+  FontSlant->"Italic"],
+ " by Gilks, Richardson, and Spiegelhalter.\n\nOn pp. 27 and 28 of Chapter 2, \
+they describe the likelihoods and the priors."
+}], "Text",
+ CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
+   3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
+   3.941264028191356*^9}, {3.9412640619114556`*^9, 3.9412645265818787`*^9}, {
+   3.941264650249452*^9, 3.9412646993328133`*^9}, {3.941264822564703*^9, 
+   3.941264857764879*^9}, {3.941268016756933*^9, 3.941268017021914*^9}, {
+   3.941269437806624*^9, 3.94126953124967*^9}, {3.941269582454015*^9, 
+   3.941269648184888*^9}, {3.941269679386688*^9, 3.94126971454852*^9}, {
+   3.941800467102806*^9, 3.941800755685058*^9}, {3.941800798778616*^9, 
+   3.941800976414879*^9}, {3.941801292900963*^9, 3.941801338978965*^9}, {
+   3.941801691705343*^9, 3.941801742901403*^9}, {3.941801807691245*^9, 
+   3.941801902581342*^9}, {3.941821027373583*^9, 3.941821090303585*^9}, {
+   3.9418211248934917`*^9, 3.941821131940667*^9}, {3.9418220018535957`*^9, 
+   3.9418220931909122`*^9}, {3.941888096886391*^9, 3.941888209172179*^9}, {
+   3.941889319683701*^9, 3.941889535199594*^9}, {3.941891916244793*^9, 
+   3.94189192385066*^9}, {3.941892767126836*^9, 3.941892772392208*^9}, {
+   3.942474173884481*^9, 3.942474385276809*^9}, {3.942479766174138*^9, 
+   3.942479790216973*^9}, {3.94248126278925*^9, 3.942481334429647*^9}, {
+   3.9424814048278503`*^9, 3.942481423653117*^9}, 3.942482372555183*^9, {
+   3.942569089551676*^9, 3.942569164241397*^9}, {3.9425728815077543`*^9, 
+   3.942572950949976*^9}, {3.942573043779091*^9, 3.942573194513968*^9}, {
+   3.942575270462347*^9, 3.942575329035896*^9}, {3.942575925191044*^9, 
+   3.942575989193748*^9}, {3.942613716688958*^9, 3.942613725975163*^9}, {
+   3.942613830961884*^9, 3.942613924275086*^9}, {3.942614695528831*^9, 
+   3.9426147122947273`*^9}, {3.942614744231955*^9, 
+   3.94261486973731*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+225ac6193fce"]
+}, Open  ]]
+},
+WindowSize->{1337, 1294},
+WindowMargins->{{Automatic, 468}, {Automatic, 9}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.25 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"44bf047c-1db4-43e4-9368-c5831909856a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 723, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
+Cell[1306, 36, 2422, 40, 244, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"]
+}, Open  ]]
+}
+]
+*)
+

@@ -38,11 +38,11 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Our subject is Gibbs Sampling (the GS in BUGS), and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) (CURRENTLY A WORK IN PROGRESS) &mdash; More directions for Tuesday will be in the [Assignment for Tuesday - FORTHCOMING](./assignments/AssignmentFor2024-12-10.nb.pdf) 
+* Tuesday, Dec. 10 &mdash; Our subject is Gibbs Sampling (the GS in BUGS), and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) (PRETTY FAR ALONG, BUT AS YET A WORK IN PROGRESS) &mdash; More preparation for Tuesday will be in the [Assignment for Tuesday - NOT EVEN STARTED](./assignments/AssignmentFor2024-12-10.nb.pdf) 
 * Friday, Dec. 13 &mdash; Exam 3
 
-### Week 15 &mdash; A Realistic Application of Gibbs Sampling
+### Week 15 &mdash; A Case Study of Gibbs Sampling
 
-* Tuesday, Dec. 17 &mdash; The Hepatitis B vaccination study
+* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study](./resources/MonteCarloMethodsCaseStudy.nb.pdf) (CURRENTLY A WORK IN PROGRESS)
 
 <img src="./resources/MarkovChain.png" alt="Markov Chain" width="60%">

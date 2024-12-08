@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    133298,       2583]
-NotebookOptionsPosition[    131116,       2535]
-NotebookOutlinePosition[    131600,       2554]
-CellTagsIndexPosition[    131557,       2551]
+NotebookDataLength[    136236,       2657]
+NotebookOptionsPosition[    134053,       2609]
+NotebookOutlinePosition[    134537,       2628]
+CellTagsIndexPosition[    134494,       2625]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -39,9 +39,9 @@ Cell[TextData[{
 \[CloseCurlyDoubleQuote] write-ups, I proved that the Metropolis algorithm \
 worked and that the Metropolis-Hastings algorithm worked:\n\n* ",
  StyleBox["https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsWhyDoTheyWork-II.nb.pdf\n* \
+MonteCarloMethodsWhyDoTheyWork-I.nb.pdf\n* \
 https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsWhyDoTheyWork-III.nb.pdf",
+MonteCarloMethodsWhyDoTheyWork-II.nb.pdf",
   FontSize->14],
  "\n\nBoth proofs required the Principle of Detailed Balance. Now we are \
 going to prove that the Gibbs Sampling (GS) algorithm works, but all the hard \
@@ -71,8 +71,9 @@ and Gibbs sampling."
    3.9424814048278503`*^9, 3.942481423653117*^9}, 3.942482372555183*^9, {
    3.942569089551676*^9, 3.942569164241397*^9}, {3.9425728815077543`*^9, 
    3.942572950949976*^9}, {3.942573043779091*^9, 3.942573194513968*^9}, {
-   3.942575270462347*^9, 3.9425753290358963`*^9}, {3.942575925191044*^9, 
-   3.942575989193748*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+   3.942575270462347*^9, 3.942575329035896*^9}, {3.942575925191044*^9, 
+   3.942575989193748*^9}, {3.942613764213317*^9, 
+   3.942613769956458*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
 225ac6193fce"],
 
 Cell[CellGroupData[{
@@ -371,10 +372,10 @@ number of outcomes was ",
 sample that space with any reasonable amount of computer time.\n\nAs a second \
 example, I looked ahead to what will be our final example, which was a study \
 of 106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
-blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titre\
+blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titer\
 \[CloseCurlyDoubleQuote] is measured in each blood sample. The blood sample \
 data is going to be fitted by a slope and an intercept for each baby (in the \
-study, they actually take the logarithm of the titre before doing the linear \
+study, they actually take the logarithm of the titer before doing the linear \
 fit). So that is 212 parameters. There is no way you conclude an \
 epidemiological paper by reporting 212 different numbers and error bars on \
 each of them, so the authors introduced four more parameters that capture the \
@@ -495,8 +496,7 @@ Then the six ",
   "b93f1f1b-0f76-4494-baac-98e2661575ac"],
  "\n\nOf course, the total of all 6 ",
  Cell[BoxData[
-  FormBox["p", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["p", TraditionalForm]],ExpressionUUID->
   "029aa232-9bfe-4ab3-8f80-36be62190677"],
  "\[CloseCurlyQuote]s has to add up to 1 (assuming there aren\
 \[CloseCurlyQuote]t other things in the sack going to the kitchen, like \
@@ -556,9 +556,10 @@ for sampling high-dimensional probability distributions."
    3.942575531236043*^9, 3.942575534797697*^9}, {3.94257560593353*^9, 
    3.942575606531206*^9}, {3.94257573066485*^9, 3.942575730905126*^9}, {
    3.942576042013386*^9, 3.942576042342818*^9}, 3.942577050448579*^9, {
-   3.942582767067328*^9, 3.942582780111916*^9}, {3.9425828388131323`*^9, 
-   3.94258284962632*^9}, {3.942582882163785*^9, 
-   3.942582882704886*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.942582767067328*^9, 3.942582780111916*^9}, {3.942582838813133*^9, 
+   3.94258284962632*^9}, {3.942582882163785*^9, 3.942582882704886*^9}, {
+   3.9426141927736273`*^9, 
+   3.942614192782383*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -2312,17 +2313,17 @@ Cell[TextData[{
             SubscriptBox["i", "3"]}], "..."}], 
           SubscriptBox["i", "d"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "5b81446b-55bd-45c7-85ee-e852606415d2"],
- "\n\nby making an assumption.\n\nWe are going to assume (at least along most \
+  "8d0ad167-1725-425f-b236-39dd91de1415"],
+ "\n\nby making an assumption. We are going to assume (at least along most \
 axes), that the ",
  Cell[BoxData[
   FormBox["p", TraditionalForm]],ExpressionUUID->
-  "3e4e9ef2-daec-4a83-9de7-6ab1b865a214"],
+  "a42313aa-6ef7-441b-8075-7c7ecf2baae9"],
  "\[CloseCurlyQuote]s factor. If there are just a few recalcitrant axes along \
 which the ",
  Cell[BoxData[
   FormBox["p", TraditionalForm]],ExpressionUUID->
-  "48358602-2e87-4caf-88cd-b009d379ce1d"],
+  "3b831506-3b5b-4f86-a584-411e3480eea4"],
  "\[CloseCurlyQuote]s don\[CloseCurlyQuote]t factor out of dozens or hundreds \
 of axes along which they do factor, we will have vastly simplified the \
 computational cost of sampling the ",
@@ -2333,9 +2334,9 @@ computational cost of sampling the ",
      RowBox[{
       SubscriptBox["i", "d"], "'"}], "|", 
      RowBox[{"i", "-"}]}]], TraditionalForm]],ExpressionUUID->
-  "ccd826d0-c5fd-4183-9499-7608e11035e4"],
+  "7cc2ba18-acfb-4883-9c16-913fafb27076"],
  ".\n\nI could make some attempt to write this in all generality, but I think \
-it is better if I just assume that the first four axes are the recalcitrant \
+it is better if I just assume that the first five axes are the recalcitrant \
 ones and the rest enjoy some factorization. That is, none of\n\n",
  Cell[BoxData[
   FormBox[
@@ -2354,7 +2355,8 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "1"], "'"}], 
          SubscriptBox["i", "2"], 
          SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"]}], "..."}], 
+         SubscriptBox["i", "4"], 
+         SubscriptBox["i", "5"]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
      RowBox[{
       UnderscriptBox["\[Sum]", 
@@ -2367,9 +2369,10 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "1"], 
           SubscriptBox["i", "2"], 
           SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"]}], "..."}], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "72671adf-0719-44ae-af6b-5eba688dacae"],
+  "c1852c5d-5828-4464-adde-7d5c107134c3"],
  "\n\n",
  Cell[BoxData[
   FormBox[
@@ -2388,7 +2391,8 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
          RowBox[{
           SubscriptBox["i", "2"], "'"}], 
          SubscriptBox["i", "3"], 
-         SubscriptBox["i", "4"]}], "..."}], 
+         SubscriptBox["i", "4"], 
+         SubscriptBox["i", "5"]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
      RowBox[{
       UnderscriptBox["\[Sum]", 
@@ -2401,9 +2405,10 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "1"], 
           SubscriptBox["i", "2"], 
           SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"]}], "..."}], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "2b77fa0c-64ad-4ae5-9b1f-4fd4c7e66966"],
+  "87a54c25-e9e5-4984-878c-c2f246f27ff7"],
  "\n\n",
  Cell[BoxData[
   FormBox[
@@ -2422,7 +2427,8 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
          SubscriptBox["i", "2"], 
          RowBox[{
           SubscriptBox["i", "3"], "'"}], 
-         SubscriptBox["i", "4"]}], "..."}], 
+         SubscriptBox["i", "4"], 
+         SubscriptBox["i", "5"]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
      RowBox[{
       UnderscriptBox["\[Sum]", 
@@ -2435,9 +2441,10 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "1"], 
           SubscriptBox["i", "2"], 
           SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"]}], "..."}], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "cbff8fae-ebdf-42a9-b678-d7ba3cbbe2db"],
+  "e0af4b54-e5e9-409b-922e-082d1fb085fc"],
  "\n\n",
  Cell[BoxData[
   FormBox[
@@ -2456,7 +2463,8 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
          SubscriptBox["i", "2"], 
          SubscriptBox["i", "3"], 
          RowBox[{
-          SubscriptBox["i", "4"], "'"}]}], "..."}], 
+          SubscriptBox["i", "4"], "'"}], 
+         SubscriptBox["i", "5"]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
      RowBox[{
       UnderscriptBox["\[Sum]", 
@@ -2469,11 +2477,11 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "1"], 
           SubscriptBox["i", "2"], 
           SubscriptBox["i", "3"], 
-          SubscriptBox["i", "4"]}], "..."}], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "5764b46b-f222-4b9f-8a9e-6ef9a2e15a28"],
- "\n\nhave any particularly simple expression. However, for all the rest:\n \n\
-",
+  "38009106-61ae-4c7b-9a65-3a66fad3cf9e"],
+ "\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -2491,7 +2499,8 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
          SubscriptBox["i", "2"], 
          SubscriptBox["i", "3"], 
          SubscriptBox["i", "4"], 
-         SubscriptBox["i", "5"]}], "..."}], ".", 
+         RowBox[{
+          SubscriptBox["i", "5"], "'"}]}], "..."}], 
        SubscriptBox["i", "D"]}]], 
      RowBox[{
       UnderscriptBox["\[Sum]", 
@@ -2507,27 +2516,92 @@ ones and the rest enjoy some factorization. That is, none of\n\n",
           SubscriptBox["i", "4"], 
           SubscriptBox["i", "5"]}], "..."}], 
         SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
-  "c3b3945e-69f1-42ef-8761-48c297d9e84a"],
+  "c0ca801d-224e-4734-875b-dbd4c3679ad3"],
+ "\n\nhave any particularly simple expression. However, for all the rest:\n \n\
+",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["i", "6"], "'"}], "|", 
+      RowBox[{"i", "-"}]}]], "=", 
+    FractionBox[
+     SubscriptBox["p", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         SubscriptBox["i", "1"], 
+         SubscriptBox["i", "2"], 
+         SubscriptBox["i", "3"], 
+         SubscriptBox["i", "4"], 
+         SubscriptBox["i", "5"], 
+         RowBox[{
+          SubscriptBox["i", "6"], "'"}]}], "..."}], ".", 
+       SubscriptBox["i", "D"]}]], 
+     RowBox[{
+      UnderscriptBox["\[Sum]", 
+       RowBox[{" ", 
+        SubscriptBox["i", "6"], "    "}]], 
+      SubscriptBox["p", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          SubscriptBox["i", "1"], 
+          SubscriptBox["i", "2"], 
+          SubscriptBox["i", "3"], 
+          SubscriptBox["i", "4"], 
+          SubscriptBox["i", "5"], 
+          SubscriptBox["i", "6"]}], "..."}], 
+        SubscriptBox["i", "D"]}]]}]]}], TraditionalForm]],ExpressionUUID->
+  "e7ae69b6-97cd-4311-9b30-a24e7b7c90e1"],
  "\n  \nwe are going to make a tremendously simplifying assumption.\n\nBefore \
-I even state the simplifying assumption, recall the immunized babies. The \
-fifth and sixth axes are going to be the slope and intercept of the 1st baby\
-\[CloseCurlyQuote]s titre. The seventh and eighth axes are going to be the \
-slope and intercept of the 2nd baby\[CloseCurlyQuote]s titre. And so on and \
-so on all the way out to the 215th and 216th axes, which are going to be the \
-slope and intercept of the 106th baby\[CloseCurlyQuote]s titre.\n\nMeanwhile, \
-the first four axes, the ones that are recalcitrant, are going to be \
-parameters in the distributions that characterize the distributions of all \
-the slopes and the intercepts."
+I even state the simplifying assumption, so that you have the real problem in \
+mind, recall the immunized babies study introduced back on Nov. 22nd. I \
+discussed it in class, but I didn\[CloseCurlyQuote]t write it up. If you \
+remember the 106 babies, you\[CloseCurlyQuote]ll remember that we need ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"106", "\[CenterDot]", "2"}], "=", "212"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b10f0b43-5dfa-4a5d-be09-3eb1ac986267"],
+ " parameters to do 106 linear fits to their respective titers. So the 6th \
+and 7th axes are going to be the slope and intercept of the 1st baby\
+\[CloseCurlyQuote]s titer. The 8th and 9th axes are going to be the slope and \
+intercept of the 2nd baby\[CloseCurlyQuote]s titer. And so on and so on all \
+the way out to the 216th and 217th axes, which are going to be the slope and \
+intercept of the 106th baby\[CloseCurlyQuote]s titer. Meanwhile, the first \
+five axes, the ones that are recalcitrant, are going to be parameters in the \
+distributions that characterize the distributions of all the slopes and the \
+intercepts plus one more parameter that characterizes the fundamental \
+uncertainty in the titers. We will get way further into that as our case \
+study, and frankly, if you are sick of theory, and just want to trust me on \
+the factorization, and skip to seeing how it plays out in practice, you could \
+go directly to the case study:\n\n*",
+ StyleBox[" \
+https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsCaseStudy.nb.pdf",
+  FontSize->14],
+ "\n\nTHE CASE STUDY IS THE MOTIVATION FOR SUFFERING THROUGH THE \
+FACTORIZATION THAT FOLLOWS, AND ACTUALLY, IT IS STILL FORTHCOMING. I AM NOT \
+SURE I HAVE THE FORTITUDE TO WRITE IT ALL OUT, ESPECIALLY SINCE MATHEMATICA \
+JUST CRASHED AFTER I HAD WRITTEN OUT A BUNCH OF EQUATIONS REQUIRING A LOT OF \
+TYPESETTING."
 }], "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
-   3.942587269568102*^9, 3.9425872707239738`*^9}, {3.942587779199699*^9, 
+   3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
    3.942588922146953*^9}, {3.942592818895528*^9, 3.942592835041312*^9}, {
    3.942592877914752*^9, 3.94259290855549*^9}, {3.942592954160295*^9, 
-   3.942592955942009*^9}, {3.942593008089142*^9, 3.9425930100076647`*^9}, {
+   3.942592955942009*^9}, {3.942593008089142*^9, 3.942593010007665*^9}, {
    3.9425931529667053`*^9, 3.942593154970766*^9}, {3.942593308930962*^9, 
-   3.942593442023591*^9}, {3.942593510919286*^9, 
-   3.942593545086081*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+   3.942593442023591*^9}, {3.942593510919286*^9, 3.942593545086081*^9}, {
+   3.942604648325253*^9, 3.9426047214287663`*^9}, {3.94261394961963*^9, 
+   3.942614157714476*^9}, {3.942614192791007*^9, 3.942614279491041*^9}, {
+   3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
+   3.9426146566876383`*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
 592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
@@ -2555,33 +2629,33 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 717, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
-Cell[1300, 36, 2571, 39, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[1300, 36, 2617, 40, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
-Cell[3896, 79, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[4338, 87, 9627, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[3942, 80, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[4384, 88, 9627, 252, 1083, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14002, 344, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[14515, 353, 10259, 208, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[14048, 345, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14561, 354, 10278, 208, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[24811, 566, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[25392, 577, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
+Cell[24876, 567, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[25457, 578, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
 Cell[CellGroupData[{
-Cell[26288, 606, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
-Cell[26540, 612, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[26353, 607, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
+Cell[26605, 613, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36535, 838, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
-Cell[36824, 844, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
+Cell[36600, 839, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
+Cell[36889, 845, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[38372, 875, 282, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
-Cell[38657, 881, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
+Cell[38437, 876, 282, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
+Cell[38722, 882, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[122448, 2264, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[122804, 2276, 8272, 254, 1010, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
+Cell[122513, 2265, 353, 10, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
+Cell[122869, 2277, 11144, 327, 1251, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
