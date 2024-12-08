@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    134142,       2510]
-NotebookOptionsPosition[    131730,       2458]
-NotebookOutlinePosition[    132214,       2477]
-CellTagsIndexPosition[    132171,       2474]
+NotebookDataLength[    134180,       2510]
+NotebookOptionsPosition[    131768,       2458]
+NotebookOutlinePosition[    132252,       2477]
+CellTagsIndexPosition[    132209,       2474]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2422,10 +2422,10 @@ Cell[TextData[{
 Work?\[CloseCurlyDoubleQuote] write-ups were to (a) explain Gibbs sampling, \
 (b) convince you that it works, (c) suggest that with some simplifying \
 assumptions, instead of being a ridiculous and circular method, it could be \
-really effective. I hope you are there and that you for our last class on \
-Tuesday Dec. 10th  you will be in a position to appreciate \
-\[OpenCurlyDoubleQuote]Monte Carlo Methods Case Study\[CloseCurlyDoubleQuote] \
-which I am in the process of writing up:\n\n*",
+really effective. I hope you are there and that for our last class on Tuesday \
+Dec. 10th  you are in a position to appreciate \[OpenCurlyDoubleQuote]Monte \
+Carlo Methods Case Study\[CloseCurlyDoubleQuote] which I am in the process of \
+writing up:\n\n*",
  StyleBox[" \
 https://brianhill.github.io/bayesian-statistics/resources/\
 MonteCarloMethodsCaseStudy.nb.pdf\n\nWe are going to write out all 217 \
@@ -2450,8 +2450,8 @@ likelihoods and priors and see how Gibbs sampling works on the posterior.",
    3.942666229852413*^9}, {3.942666303311258*^9, 3.942666323486396*^9}, {
    3.942666392287711*^9, 3.942666440153853*^9}, {3.942667346082728*^9, 
    3.942667613127198*^9}, {3.9426679585329247`*^9, 3.9426679712946863`*^9}, {
-   3.9426680035388412`*^9, 
-   3.94266800524137*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
+   3.9426680035388412`*^9, 3.94266800524137*^9}, {3.942668078253559*^9, 
+   3.942668089344819*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
 735e6063559f"]
 }, Open  ]]
 }, Open  ]]
@@ -2509,7 +2509,7 @@ Cell[123246, 2282, 5609, 120, 580, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-af
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[128904, 2408, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
-Cell[129485, 2419, 2217, 35, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
+Cell[129485, 2419, 2255, 35, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 }
