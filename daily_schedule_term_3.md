@@ -33,16 +33,16 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 13 &mdash; The Metropolis-Hastings Algorithm
 
-* Tuesday, Dec. 3 &mdash; Study Chapter 15 to p. 235 on Metropolis-Hastings &mdash; 
-* Friday, Dec. 6 &mdash; This is a good time to re-read Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; See also [Monte Carlo Methods - Why Do They Work? - Part II](./resources/MonteCarloMethodsWhyDoTheyWork-II.nb.pdf)
+* Tuesday, Dec. 3 &mdash; See [Monte Carlo Methods - Why Do They Work? - Part I](./resources/MonteCarloMethodsWhyDoTheyWork-I.nb.pdf) for my proof that the Metropolis algorithm works &mdash; Introducing Metropolis-Hastings
+* Friday, Dec. 6 &mdash; Study Chapter 15 to p. 229  &mdash; More directions for Friday are in the [Assignment for Friday](./assignments/AssignmentFor2024-12-06.nb.pdf) &mdash; See also [Monte Carlo Methods - Why Do They Work? - Part II](./resources/MonteCarloMethodsWhyDoTheyWork-II.nb.pdf) for my proof that the Metropolis-Hastings algorithm works
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs Sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - THIS IS VERY FAR ALONG BUT NOT QUITE FINAL](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; The [Assignment for Tuesday - THIS IS SO FAR BEHIND I AM GOING TO MAKE IT AN IN-CLASS EXERCISE](./assignments/AssignmentFor2024-12-10.nb.pdf)
+* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - THIS IS VERY FAR ALONG BUT NOT QUITE FINAL](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is what I was preparing as the [Assignment for Tuesday - BUT MY PREPARATION IS SO FAR BEHIND I AM GOING TO MORPH IT INTO AN IN-CLASS EXERCISE](./assignments/AssignmentFor2024-12-10.nb.pdf)
 * Friday, Dec. 13 &mdash; Exam 3
 
 ### Week 15 &mdash; A Case Study of Gibbs Sampling
 
-* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
+* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT - I WILL HAVE THE FINAL VERSION READY FOR THE LAST CLASS](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
 
 <img src="./resources/MarkovChain.png" alt="Markov Chain" width="60%">
