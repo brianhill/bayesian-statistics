@@ -38,11 +38,11 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs Sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - PRETTY FAR ALONG, BUT STILL A DRAFT](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Your preparation is the [Assignment for Tuesday - WHICH IS NOT VERY FAR ALONG](./assignments/AssignmentFor2024-12-10.nb.pdf)
+* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs Sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - THIS IS VERY FAR ALONG BUT NOT QUITE FINAL](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; The [Assignment for Tuesday - THIS IS SO FAR BEHIND I AM GOING TO MAKE IT AN IN-CLASS EXERCISE](./assignments/AssignmentFor2024-12-10.nb.pdf)
 * Friday, Dec. 13 &mdash; Exam 3
 
 ### Week 15 &mdash; A Case Study of Gibbs Sampling
 
-* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - PRETTY FAR ALONG, BUT STILL A DRAFT](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
+* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
 
 <img src="./resources/MarkovChain.png" alt="Markov Chain" width="60%">

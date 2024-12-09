@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     20850,        360]
-NotebookOptionsPosition[     19779,        330]
-NotebookOutlinePosition[     20262,        349]
-CellTagsIndexPosition[     20219,        346]
+NotebookDataLength[     23605,        436]
+NotebookOptionsPosition[     22532,        406]
+NotebookOutlinePosition[     23015,        425]
+CellTagsIndexPosition[     22972,        422]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -74,19 +74,18 @@ certainly not expecting you to. I have chosen to learn Gibbs sampling and how \
 it is applied from Chapters 1 and 2 of ",
  StyleBox["Markov Chain Monte Carlo in Practice,",
   FontSlant->"Italic"],
- " by Gilks, Richardson, and Spiegelhalter. I plan to have finished the third \
-and last in my series of \[OpenCurlyDoubleQuote]Why Do They Work?\
-\[CloseCurlyDoubleQuote] write-ups in time to present Gibbs sampling and hand \
-out copies of the write-up in Tuesday\[CloseCurlyQuote]s class. If you want \
-some reading, feel free to take an early look at the not-yet-completed \
-version of that:\n\n* \
-https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsWhyDoTheyWork-III.nb.pdf\n\nTo keep you motivated, I want to \
-remind you that we are trying to get ourselves to the point of understanding \
-Chapter 2 of ",
- StyleBox["Markov Chain Monte Carlo in Practice",
-  FontSlant->"Italic"],
- ", which is a case study of these methods applied to Hepatitis B vaccination."
+ " by Gilks, Richardson, and Spiegelhalter. I have been writing up my own \
+version of the Gibbs sampling theory and will hand it out on Tuesday:\n\n* ",
+ StyleBox["https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsWhyDoTheyWork-III.nb.pdf",
+  FontSize->14],
+ "\n\nTo keep all of our eyes on the final prize, I want to reiterate that we \
+are trying to get ourselves to the point of understanding the methods used in \
+the case study on Hepatitis B vaccination. I have  also be writing up and \
+presenting the case study, and that write-up is far along:\n\n* ",
+ StyleBox["https://brianhill.github.io/bayesian-statistics/resources/\
+MonteCarloMethodsCaseStudy.nb.pdf",
+  FontSize->14]
 }], "Text",
  InitializationCell->True,
  CellChangeTimes->{{3.907818270547716*^9, 3.907818285037993*^9}, {
@@ -161,16 +160,21 @@ Chapter 2 of ",
    3.942257156208771*^9}, {3.942275271136535*^9, 3.9422753984579153`*^9}, {
    3.942483126720397*^9, 3.942483127408456*^9}, {3.94266055772783*^9, 
    3.942660581065983*^9}, {3.942660627661942*^9, 3.94266065418386*^9}, {
-   3.942660714096101*^9, 3.9426610688854303`*^9}, {3.942661104992083*^9, 
-   3.942661167692357*^9}, {3.9426614469979763`*^9, 3.942661552060203*^9}, {
-   3.942662162824258*^9, 3.9426621846004457`*^9}, {3.9426633508603687`*^9, 
-   3.942663431531598*^9}},ExpressionUUID->"ebea56f5-7a89-42fd-8d03-\
+   3.942660714096101*^9, 3.942661068885431*^9}, {3.942661104992083*^9, 
+   3.942661167692357*^9}, {3.9426614469979773`*^9, 3.942661552060203*^9}, {
+   3.942662162824258*^9, 3.9426621846004453`*^9}, {3.9426633508603687`*^9, 
+   3.942663431531598*^9}, {3.9426938505856743`*^9, 3.942694007316846*^9}, {
+   3.942707587599617*^9, 
+   3.942707749952128*^9}},ExpressionUUID->"ebea56f5-7a89-42fd-8d03-\
 8cbade59c5f0"]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell["For Problem Set 18 \[LongDash] Illustrating Gibbs Sampling", "Section",
+Cell["\<\
+In-Class Exercise Serving as Problem Set 18 \[LongDash] Illustrating Gibbs \
+Sampling\
+\>", "Section",
  CellChangeTimes->{{3.902343723737052*^9, 3.902343730587866*^9}, {
    3.9023439641701307`*^9, 3.902343966937828*^9}, {3.902344048197321*^9, 
    3.902344075298213*^9}, {3.902688246879025*^9, 3.902688255429075*^9}, {
@@ -198,52 +202,112 @@ Cell["For Problem Set 18 \[LongDash] Illustrating Gibbs Sampling", "Section",
    3.941317651315303*^9, 3.941317678791119*^9}, {3.942236917931536*^9, 
    3.942236933770712*^9}, {3.942236986470402*^9, 3.942236991106176*^9}, {
    3.942257224327119*^9, 3.942257227397913*^9}, {3.942663445992888*^9, 
-   3.942663456864668*^9}},ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-\
+   3.942663456864668*^9}, {3.9427075568975277`*^9, 
+   3.942707563026681*^9}},ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-\
 712b6b49920e"],
 
 Cell[TextData[{
- "Gibbs sampling only gets interesting when you have multiple independent \
-axes in the prior and the posterior. So our iPhone sales example, which only \
-had one axis (the quarter) isn\[CloseCurlyQuote]t going to cut it. I am \
-therefore going to beef up the potato rock example to have two axes.\n\nHow \
-about the first axis represents whether a nodule that comes out of the potato \
-harvester and is destined for the kitchen is a rock or a potato, and the \
-second axis represents whether it is small or large. Then the six ",
- Cell[BoxData[
-  FormBox["p", TraditionalForm]],ExpressionUUID->
-  "3c9a612d-80de-4fcf-a37d-d71b93b31950"],
- "\[CloseCurlyQuote]s would be:\n\n",
+ "Gibbs sampling only gets interesting when you are trying to sample multiple \
+independent axes in the posterior. So our iPhone sales example, which only \
+had one axis isn\[CloseCurlyQuote]t going to cut it as a Gibbs sampling \
+example. I am therefore going to beef up the potato-rock example to have two \
+axes.\n\nWe are going to one axis (or attribute) of nodules be whether they \
+are a potato or a rock. We are going to have another axis (or attribute) be \
+whether they are small, medium, or large. The field contains some \
+concentration of each of these six possibilities. That is our prior:\n\n[I am \
+still messing with these numbers trying to make a tidy example]\n\n",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", 
-    RowBox[{"rock", " ", "small"}]], TraditionalForm]],ExpressionUUID->
-  "2bf3928e-3e08-4b96-8317-0f216e06700e"],
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "small"}]], "=", "15000"}], TraditionalForm]],
+  ExpressionUUID->"2bf3928e-3e08-4b96-8317-0f216e06700e"],
  "\n",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", 
-    RowBox[{"rock", " ", "large"}]], TraditionalForm]],ExpressionUUID->
-  "f79f4ccd-5ef9-4fa7-ac89-cf62bb66e4c4"],
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "medium"}]], "=", "10000"}], TraditionalForm]],
+  ExpressionUUID->"d209121d-1c6b-4eb7-96f3-6e3424f4ee70"],
  "\n",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", 
-    RowBox[{"potato", " ", "small"}]], TraditionalForm]],ExpressionUUID->
-  "ec11174c-0dda-4eb9-b765-7e6d1fc42379"],
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "large"}]], "=", "11000"}], TraditionalForm]],
+  ExpressionUUID->"890f9066-5e45-483a-82a3-968d0d27b33f"],
  "\n",
  Cell[BoxData[
   FormBox[
-   SubscriptBox["p", 
-    RowBox[{"potato", " ", "large"}]], TraditionalForm]],ExpressionUUID->
-  "c9f2ccfd-9a9c-453e-a173-0d84435d6dc9"],
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "small"}]], "=", "250"}], TraditionalForm]],
+  ExpressionUUID->"ec11174c-0dda-4eb9-b765-7e6d1fc42379"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "medium"}]], "=", "1500"}], TraditionalForm]],
+  ExpressionUUID->"57be0a11-d6ad-4caa-a5ec-b67a802d265b"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "large"}]], "=", "600"}], TraditionalForm]],
+  ExpressionUUID->"c9f2ccfd-9a9c-453e-a173-0d84435d6dc9"],
+ "\n\nNow the potato harvester does its thing. We are going to get worn out \
+doing manual calculations if we are not careful, so I am going to make this \
+potato harvester work as follows:\n\n.....\n\nSo what is sent to the kitchen \
+is:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "small"}]], "=", "2500"}], TraditionalForm]],
+  ExpressionUUID->"a2f21667-df3d-46aa-9173-c064a7cb36ad"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "medium"}]], "=", "1000"}], TraditionalForm]],
+  ExpressionUUID->"eb3740e6-8226-4ed3-8541-bc5a2079afc0"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"rock", " ", "large"}]], "=", "500"}], TraditionalForm]],
+  ExpressionUUID->"608d02b3-ab93-4978-891e-e1ddbfd68dc0"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "small"}]], "=", "200"}], TraditionalForm]],
+  ExpressionUUID->"86b576f9-0ac3-4e6d-bb1e-40c3a714573f"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "medium"}]], "=", "800"}], TraditionalForm]],
+  ExpressionUUID->"79dd4d17-bcb4-40ff-bc83-dc2f5a9fda8f"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["N", 
+     RowBox[{"potato", " ", "large"}]], "=", "0"}], TraditionalForm]],
+  ExpressionUUID->"3b5e1462-92c5-4ec5-990b-48ae828a3c0a"],
  "\n\nThese have prior probabilities (the amounts in which they occur in the \
-field), and posterior probabilities (the amounts in which they occur in what \
-the potato harvester sends to the kitchen).\n\nLet\[CloseCurlyQuote]s \
-introduce the idea of \[OpenCurlyDoubleQuote]presentable potatoes.\
-\[CloseCurlyDoubleQuote] The hungry village has suddenly gotten fussy about \
-esthetics and they will only serve and eat the presentable ones. A nodule is \
-only presentable if it is a potato and if it is large.\n\nTHIS IS A WORK IN \
-PROGRESS STILL"
+field), times the likelihoods (what the potato harvester does) and that is \
+what makes the posterior probabilities (what is sent to the kitchen).\n\nTHIS \
+EXERCISE IS FAR FROM DONE. I HAVE TO FINISH THE CONSTRUCTION OF THE \
+POSTERIOR, AND THEN I HAVE TO SHOW HOW GIBBS SAMPLING WOULD SAMPLE THE \
+POSTERIOR."
 }], "Text",
  InitializationCell->True,
  CellChangeTimes->{{3.907818270547716*^9, 3.907818285037993*^9}, {
@@ -322,14 +386,26 @@ PROGRESS STILL"
    3.942268224028491*^9}, {3.9422682598262987`*^9, 3.942268267552958*^9}, {
    3.942663471404079*^9, 3.9426636881824007`*^9}, {3.942663731909484*^9, 
    3.942663884136046*^9}, {3.942663934765225*^9, 3.94266396048774*^9}, {
-   3.9426639916780767`*^9, 3.942663991854685*^9}, {3.9426640267490883`*^9, 
-   3.9426640326917257`*^9}},ExpressionUUID->"9f324aa6-db0b-48f1-aaf0-\
+   3.9426639916780767`*^9, 3.942663991854685*^9}, {3.942664026749088*^9, 
+   3.9426640326917257`*^9}, {3.94269402139106*^9, 3.9426941114408407`*^9}, {
+   3.942699238881523*^9, 3.942699614405802*^9}, {3.9426996696561937`*^9, 
+   3.942700158476755*^9}, {3.9427002622235317`*^9, 3.942700285994842*^9}, {
+   3.942700317946911*^9, 3.942700318005938*^9}, {3.942700402770282*^9, 
+   3.942700411332912*^9}, {3.942700455422325*^9, 3.942700455868032*^9}, {
+   3.9427004905659637`*^9, 3.942700560447629*^9}, {3.9427006186410513`*^9, 
+   3.942700618714424*^9}, {3.942700652290701*^9, 3.94270065566475*^9}, {
+   3.9427006881527147`*^9, 3.942700689504258*^9}, {3.942700724125196*^9, 
+   3.94270073216436*^9}, {3.942700800881864*^9, 3.942700888559658*^9}, {
+   3.942700933831065*^9, 3.9427010184666357`*^9}, {3.9427010484984627`*^9, 
+   3.942701100384618*^9}, {3.942701153497374*^9, 3.942701167762072*^9}, {
+   3.9427077705039587`*^9, 
+   3.942707915827415*^9}},ExpressionUUID->"9f324aa6-db0b-48f1-aaf0-\
 4eb2eb37642a"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1022, 1308},
-WindowMargins->{{Automatic, 364}, {Automatic, 0}},
+WindowMargins->{{Automatic, 365}, {Automatic, 0}},
 PrintingCopies->1,
 PrintingPageRange->{1, Automatic},
 Magnification:>1.5 Inherited,
@@ -353,12 +429,12 @@ Cell[580, 22, 644, 11, 160, "Chapter",ExpressionUUID->"e94a4995-1c39-47a5-8650-b
 Cell[1227, 35, 291, 6, 64, "Subtitle",ExpressionUUID->"53122247-26b9-46f6-ad72-3e07daf842e0"],
 Cell[CellGroupData[{
 Cell[1543, 45, 1655, 23, 101, "Section",ExpressionUUID->"d04b42f7-241f-495a-9ee6-a572828ad1e8"],
-Cell[3201, 70, 6695, 97, 502, "Text",ExpressionUUID->"ebea56f5-7a89-42fd-8d03-8cbade59c5f0",
+Cell[3201, 70, 6716, 98, 533, "Text",ExpressionUUID->"ebea56f5-7a89-42fd-8d03-8cbade59c5f0",
  InitializationCell->True]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[9933, 172, 2133, 29, 101, "Section",ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-712b6b49920e"],
-Cell[12069, 203, 7682, 123, 767, "Text",ExpressionUUID->"9f324aa6-db0b-48f1-aaf0-4eb2eb37642a",
+Cell[9954, 173, 2220, 33, 158, "Section",ExpressionUUID->"5d54aea2-6ba7-4aae-8f2f-712b6b49920e"],
+Cell[12177, 208, 10327, 194, 1361, "Text",ExpressionUUID->"9f324aa6-db0b-48f1-aaf0-4eb2eb37642a",
  InitializationCell->True]
 }, Open  ]]
 }, Open  ]]
