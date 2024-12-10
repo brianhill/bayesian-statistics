@@ -38,7 +38,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - THIS IS VERY FAR ALONG BUT NOT QUITE FINAL](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is what I was preparing as the [Assignment for Tuesday - BUT MY PREPARATION IS SO FAR BEHIND I AM GOING TO MORPH IT INTO AN IN-CLASS EXERCISE](./assignments/AssignmentFor2024-12-10.nb.pdf)
+* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III - THIS IS VERY FAR ALONG BUT NOT QUITE FINAL](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is the [Assignment for Tuesday - An In-Class Exercise](./assignments/AssignmentFor2024-12-10.nb.pdf)
 * Friday, Dec. 13 &mdash; Exam 3
 
 ### Week 15 &mdash; A Case Study of Gibbs Sampling
