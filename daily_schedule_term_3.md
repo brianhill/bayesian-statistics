@@ -38,11 +38,11 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
-* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is the [Assignment for Tuesday - An In-Class Exercise](./assignments/AssignmentFor2024-12-10.nb.pdf)
-* Friday, Dec. 13 &mdash; Exam 3
+* Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is the [Assignment for Tuesday](./assignments/AssignmentFor2024-12-10.nb.pdf)
+* Friday, Dec. 13 &mdash; Exam 3 covering: Chapters 10 and 11 of Donovan and Mickey on Bayesian Conjuagates; Chapters 13, 15, and 16 on Markov Chain Monte Carlo; but for chapters 13, 15, and 16, I'd recommend you use my handouts, linked above, where I consistently illustrated the three Monte Carlo methods using binned distributions rather than continuous distributions
 
-### Week 15 &mdash; A Case Study of Gibbs Sampling
+### Week 15 &mdash; A Case Study Using Gibbs Sampling
 
 * Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT - I WILL HAVE THE FINAL VERSION READY FOR THE LAST CLASS](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
 
-<img src="./resources/MarkovChain.png" alt="Markov Chain" width="60%">
+<img src="./resources/MarkovChain.png" alt="Markov Chain" width="80%">
