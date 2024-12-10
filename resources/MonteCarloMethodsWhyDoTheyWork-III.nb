@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    134180,       2510]
-NotebookOptionsPosition[    131768,       2458]
-NotebookOutlinePosition[    132252,       2477]
-CellTagsIndexPosition[    132209,       2474]
+NotebookDataLength[    134717,       2523]
+NotebookOptionsPosition[    132306,       2471]
+NotebookOutlinePosition[    132789,       2490]
+CellTagsIndexPosition[    132746,       2487]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -44,12 +44,12 @@ https://brianhill.github.io/bayesian-statistics/resources/\
 MonteCarloMethodsWhyDoTheyWork-II.nb.pdf",
   FontSize->14],
  "\n\nBoth proofs required the Principle of Detailed Balance. Now we are \
-going to prove that the Gibbs Sampling (GS) algorithm works, but all the hard \
-work was actually in the second write-up, because Gibbs sampling is a special \
-case of Metropolis-Hastings (and Metropolis is a special case of \
-Metropolis-Hastings too).\n\nTo get going, and to leverage our previous \
-write-up, we need to understand the relationship between Metropolis-Hastings \
-and Gibbs sampling."
+going to prove that the Gibbs Sampling (GS) algorithm works, but most of the \
+hard work was actually in the second write-up, because Gibbs sampling can be \
+viewed a special case of Metropolis-Hastings (and Metropolis is a special \
+case of Metropolis-Hastings too).\n\nTo get going, and to leverage our \
+previous write-up, we need to understand the relationship between \
+Metropolis-Hastings and Gibbs sampling."
 }], "Text",
  CellChangeTimes->{{3.941263138992423*^9, 3.941263152762473*^9}, {
    3.941263392244568*^9, 3.941263395380739*^9}, {3.941263545804475*^9, 
@@ -72,8 +72,9 @@ and Gibbs sampling."
    3.942569089551676*^9, 3.942569164241397*^9}, {3.9425728815077543`*^9, 
    3.942572950949976*^9}, {3.942573043779091*^9, 3.942573194513968*^9}, {
    3.942575270462347*^9, 3.942575329035896*^9}, {3.942575925191044*^9, 
-   3.942575989193748*^9}, {3.942613764213317*^9, 
-   3.942613769956458*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
+   3.942575989193748*^9}, {3.942613764213317*^9, 3.942613769956458*^9}, {
+   3.942828127129006*^9, 
+   3.942828134513145*^9}},ExpressionUUID->"44f69c99-0479-48db-bb5c-\
 225ac6193fce"],
 
 Cell[CellGroupData[{
@@ -375,8 +376,8 @@ number of outcomes was ",
   "1296c1ef-d8db-4ae9-adf4-185272e8c738"],
  ". We did the math and saw that there is absolutely no way to exhaustively \
 sample that space with any reasonable amount of computer time.\n\nAs a second \
-example, I looked ahead to what will be our final example, which was a study \
-of 106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
+example, I looked ahead to what will be our case study, which was a study of \
+106 babies vaccinated for Hepatitis B. For each baby, there are multiple \
 blood samples, and the hepatitis \[OpenCurlyDoubleQuote]titer\
 \[CloseCurlyDoubleQuote] is measured in each blood sample. The blood sample \
 data is going to be fitted by a slope and an intercept for each baby (in the \
@@ -562,10 +563,10 @@ not just a circular solution with no benefit, and why it is in widespread use."
    3.942576042013386*^9, 3.942576042342818*^9}, 3.942577050448579*^9, {
    3.942582767067328*^9, 3.942582780111916*^9}, {3.942582838813133*^9, 
    3.94258284962632*^9}, {3.942582882163785*^9, 3.942582882704886*^9}, {
-   3.9426141927736273`*^9, 3.942614192782383*^9}, {3.9426645831392603`*^9, 
-   3.942664583568267*^9}, {3.9426665168138847`*^9, 3.942666518110615*^9}, {
-   3.942666665572671*^9, 
-   3.94266669750524*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
+   3.9426141927736273`*^9, 3.942614192782383*^9}, {3.94266458313926*^9, 
+   3.942664583568267*^9}, {3.9426665168138843`*^9, 3.942666518110615*^9}, {
+   3.942666665572671*^9, 3.94266669750524*^9}, {3.9428282094766293`*^9, 
+   3.9428282110170517`*^9}},ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-\
 3a80e979eef4"]
 }, Open  ]],
 
@@ -852,7 +853,7 @@ a812aa584b0b"],
 Cell["\<\
 This is a new rule for movement, and you might be worried that our proof that \
 it works still applies. Or to put it another way, this no longer seems like a \
-specialization of Metropolis-Hastings as we originally claimed. But you can \
+specialization of Metropolis-Hastings as was originally claimed. But you can \
 see that the proof definitely does still apply along the chosen axis. You \
 bounce around on that axis using this rule, and you will properly sample that \
 axis.
@@ -869,12 +870,12 @@ ratios? So it must be the case that all the tallies along all the axes must \
 settle down to the right ratios.\
 \>", "Text",
  CellChangeTimes->{{3.942584152763467*^9, 3.942584625619397*^9}, {
-   3.9425846699007072`*^9, 3.9425847828395557`*^9}, {3.942584834410006*^9, 
+   3.942584669900707*^9, 3.942584782839556*^9}, {3.942584834410006*^9, 
    3.942584839852435*^9}, {3.9425849325216208`*^9, 3.942584994113049*^9}, 
    3.942585204161834*^9, {3.942585273658484*^9, 3.9425853373171864`*^9}, {
    3.942585415322365*^9, 3.9425854582411222`*^9}, {3.942585538736162*^9, 
-   3.942585752971263*^9}, 
-   3.9425860643900023`*^9},ExpressionUUID->"b25f2c46-23eb-4b09-97ea-\
+   3.942585752971263*^9}, 3.9425860643900027`*^9, {3.942828325609885*^9, 
+   3.942828325844276*^9}},ExpressionUUID->"b25f2c46-23eb-4b09-97ea-\
 c58ed0afad90"]
 }, Open  ]],
 
@@ -892,7 +893,20 @@ behind, because I don\[CloseCurlyQuote]t think their presentation \
 particularly illuminates what I claim is a laughably simple method. For Gibbs \
 sampling, I am instead using as my reference the first two chapters of the \
 book edited by Gilks, Richardson, and Spiegelhalter. David Spiegelhalter is \
-the author of BUGS. The other authors are also leaders in Markov Chain Monte \
+the author of the program that launched this methodology into the mainstream \
+of epidemiology, ",
+ StyleBox["B",
+  FontWeight->"Bold"],
+ "ayesian Inference ",
+ StyleBox["U",
+  FontWeight->"Bold"],
+ "sing ",
+ StyleBox["G",
+  FontWeight->"Bold"],
+ "ibbs ",
+ StyleBox["S",
+  FontWeight->"Bold"],
+ "ampling (BUGS). The other authors are also leaders in Markov Chain Monte \
 Carlo analyses. On this web page, they have made a \
 \[OpenCurlyDoubleQuote]Preview PDF\[CloseCurlyDoubleQuote] of most of the \
 first two chapters of their book readily available:\n",
@@ -2262,8 +2276,8 @@ probability region."
    3.942585752971263*^9}, {3.942586086941455*^9, 3.942586157289413*^9}, {
    3.942586195139073*^9, 3.942586200775744*^9}, {3.942586532342699*^9, 
    3.9425865580598087`*^9}, {3.942586632797956*^9, 3.9425866868685303`*^9}, {
-   3.942587220437706*^9, 
-   3.942587247878599*^9}},ExpressionUUID->"78179e72-31af-4148-a54f-\
+   3.942587220437706*^9, 3.942587247878599*^9}, {3.942828364552987*^9, 
+   3.942828406731415*^9}},ExpressionUUID->"78179e72-31af-4148-a54f-\
 b0aa25f2c089"]
 }, Open  ]],
 
@@ -2330,8 +2344,8 @@ simpler. Furthermore, once the ",
   FormBox["p", TraditionalForm]],ExpressionUUID->
   "16d1fb71-afd8-4c85-adb6-9087263c9549"],
  "\[CloseCurlyQuote]s have been shown to factor, we will see something very \
-similar happen to what happened back in Chapters 10, 11, and 12 of Donovan \
-and Mickey. Specifically, we will see that despite all the complexity, if we \
+similar happen to what happened back in Chapters 11 and 12 of Donovan and \
+Mickey. Specifically, we will see that despite all the complexity, if we \
 start off with Gaussian- and Gamma-distributed priors, and if we multiply by \
 Gaussian likelihoods, then we get Gaussian- and Gamma-distributed posteriors.\
 \n\nThe whole goal of all this Gibbs sampling technology is to sample the \
@@ -2345,12 +2359,14 @@ of the  of the ",
       SubscriptBox["i", "d"], "'"}], "|", 
      RowBox[{"i", "-"}]}]], TraditionalForm]],ExpressionUUID->
   "772fe00e-1b8a-4eca-bdf4-6449073ae0f6"],
- " is a one-dimensional distribution of one of two kinds that we already know \
-how to sample.\n\nFrankly, I don\[CloseCurlyQuote]t think I can state the \
-simplifying assumptions in all generality.  It is easier for me to tell you \
-how it is going to work out in the case of the babies immunized for Hepatitis \
-B that that I introduced back on Nov. 22nd and re-introduced earlier in this \
-document in the section titled \[OpenCurlyDoubleQuote]High-Dimensional \
+ " will turn out to either a one-dimensional Gaussian, or a one-dimensional \
+Gamma-distribution, and those we already know how to sample. This only works \
+if you imagine that all the other axes are constant, and you only move along \
+one axis at a time.\n\nFrankly, I don\[CloseCurlyQuote]t think I can state \
+the simplifying assumptions in all generality.  It is easier for me to tell \
+you how it is going to work out in the case of the babies immunized for \
+Hepatitis B that I introduced back on Nov. 22nd and re-introduced earlier in \
+this document in the section titled \[OpenCurlyDoubleQuote]High-Dimensional \
 Probability Distributions.\[CloseCurlyDoubleQuote]  Again, there were 217 \
 axes. Unlike the electoral college example, where every state was either a \
 win or a loss, each of these axes is a continuous parameter. So not only have \
@@ -2366,18 +2382,16 @@ something that we estimated would take 30 years of computing time to \
 something that would take 1.3 * ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["10", "138"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["10", "138"], TraditionalForm]],ExpressionUUID->
   "a1d99d9c-753d-4b54-8c5a-ae179c116973"],
  " years of computing time. If you don\[CloseCurlyQuote]t think that is an \
 impossible amount of computing time, remember that the universe is only 1.3 * \
 ",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["10", "10"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   SuperscriptBox["10", "10"], TraditionalForm]],ExpressionUUID->
   "0ade761e-ae0b-47bb-909e-355db97f676c"],
- " old."
+ " years old."
 }], "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
@@ -2392,14 +2406,16 @@ impossible amount of computing time, remember that the universe is only 1.3 * \
    3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
    3.942614656687639*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
    3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437963`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665584843796*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
    3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
    3.9426662358671913`*^9}, {3.942666285720819*^9, 3.942666299558963*^9}, 
    3.9426663494708767`*^9, {3.942666930392304*^9, 3.942666949258411*^9}, {
    3.94266700086276*^9, 3.9426670393361177`*^9}, {3.942667089453788*^9, 
    3.9426671278068333`*^9}, {3.942667182338988*^9, 3.942667182685094*^9}, {
    3.942667758374187*^9, 3.942667770051393*^9}, {3.942667803726969*^9, 
-   3.94266786641437*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
+   3.94266786641437*^9}, {3.942828481446164*^9, 3.942828607639036*^9}, {
+   3.942828639680788*^9, 
+   3.942828640919306*^9}},ExpressionUUID->"6ccedfda-a5e2-433d-afc2-\
 592cc9a030bf"]
 }, Open  ]]
 }, Open  ]],
@@ -2417,21 +2433,16 @@ Cell["Conclusions", "Subsection",
    3.9426663672629004`*^9}},ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-\
 5edf717f7e00"],
 
-Cell[TextData[{
- "The goals of this third and last of my \[OpenCurlyDoubleQuote]Why Do They \
+Cell["\<\
+The goals of this third and last of my \[OpenCurlyDoubleQuote]Why Do They \
 Work?\[CloseCurlyDoubleQuote] write-ups were to (a) explain Gibbs sampling, \
 (b) convince you that it works, (c) suggest that with some simplifying \
-assumptions, instead of being a ridiculous and circular method, it could be \
-really effective. I hope you are there and that for our last class on Tuesday \
-Dec. 10th  you are in a position to appreciate \[OpenCurlyDoubleQuote]Monte \
-Carlo Methods Case Study\[CloseCurlyDoubleQuote] which I am in the process of \
-writing up:\n\n*",
- StyleBox[" \
-https://brianhill.github.io/bayesian-statistics/resources/\
-MonteCarloMethodsCaseStudy.nb.pdf\n\nWe are going to write out all 217 \
-likelihoods and priors and see how Gibbs sampling works on the posterior.",
-  FontSize->14]
-}], "Text",
+assumptions, instead of being a ridiculous and circular solution, it could be \
+efficient. I hope you now believe those three points. If so, for our last \
+class on Tuesday Dec. 10th  you are in a good position to appreciate the \
+\[OpenCurlyDoubleQuote]Monte Carlo Methods Case Study\[CloseCurlyDoubleQuote] \
+which I will present then.\
+\>", "Text",
  CellChangeTimes->{
   3.942585919609399*^9, {3.942586330290874*^9, 3.942586488441875*^9}, {
    3.942587269568102*^9, 3.942587270723974*^9}, {3.942587779199699*^9, 
@@ -2445,19 +2456,21 @@ likelihoods and priors and see how Gibbs sampling works on the posterior.",
    3.942614395415902*^9, 3.94261461312328*^9}, {3.9426146483965816`*^9, 
    3.942614656687639*^9}, {3.942664797119136*^9, 3.942665149327634*^9}, {
    3.942665181098475*^9, 3.942665325423851*^9}, {3.942665368309309*^9, 
-   3.9426655848437963`*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
+   3.942665584843796*^9}, {3.942665617219404*^9, 3.942665688991725*^9}, {
    3.942665741259639*^9, 3.942666014935264*^9}, {3.94266604709761*^9, 
    3.942666229852413*^9}, {3.942666303311258*^9, 3.942666323486396*^9}, {
    3.942666392287711*^9, 3.942666440153853*^9}, {3.942667346082728*^9, 
-   3.942667613127198*^9}, {3.9426679585329247`*^9, 3.9426679712946863`*^9}, {
-   3.9426680035388412`*^9, 3.94266800524137*^9}, {3.942668078253559*^9, 
-   3.942668089344819*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
+   3.942667613127198*^9}, {3.942667958532925*^9, 3.9426679712946863`*^9}, {
+   3.94266800353884*^9, 3.94266800524137*^9}, {3.942668078253559*^9, 
+   3.942668089344819*^9}, {3.9428286536907463`*^9, 3.942828700717455*^9}, {
+   3.942828747036965*^9, 
+   3.9428287489993963`*^9}},ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-\
 735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 },
 WindowSize->{1337, 1294},
-WindowMargins->{{Automatic, 387}, {Automatic, 6}},
+WindowMargins->{{Automatic, 25}, {Automatic, 0}},
 PrintingCopies->1,
 PrintingPageRange->{1, Automatic},
 Magnification:>1.25 Inherited,
@@ -2478,38 +2491,38 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 717, 12, 80, "Chapter",ExpressionUUID->"7472a2df-9d0d-480b-8ed7-1a27648aea9a"],
-Cell[1300, 36, 2617, 40, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
+Cell[1300, 36, 2682, 41, 301, "Text",ExpressionUUID->"44f69c99-0479-48db-bb5c-225ac6193fce"],
 Cell[CellGroupData[{
-Cell[3942, 80, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
-Cell[4384, 88, 9907, 257, 1025, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
+Cell[4007, 81, 439, 6, 67, "Subsection",ExpressionUUID->"eea115e5-e7df-4a2e-9813-88a601466e61"],
+Cell[4449, 89, 9907, 257, 1025, "Text",ExpressionUUID->"28a71991-cb0d-40e9-a92f-cb0896e68c3b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14328, 350, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
-Cell[14841, 359, 10408, 209, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
+Cell[14393, 351, 510, 7, 67, "Subsection",ExpressionUUID->"039041bb-74ce-499d-a3c5-1a70737b2ac2"],
+Cell[14906, 360, 10452, 209, 1259, "Text",ExpressionUUID->"9626e9aa-6d16-4ba1-b3b6-3a80e979eef4"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25286, 573, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
-Cell[25867, 584, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
+Cell[25395, 574, 578, 9, 67, "Subsection",ExpressionUUID->"5922671d-7bde-4a33-925b-a22ef8f86419"],
+Cell[25976, 585, 871, 25, 76, "Text",ExpressionUUID->"dbe4336c-fd73-4ec0-99e9-16334bcc3fc2"],
 Cell[CellGroupData[{
-Cell[26763, 613, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
-Cell[27015, 619, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
+Cell[26872, 614, 249, 4, 56, "Subsubsection",ExpressionUUID->"5966c6be-7b66-447e-b608-d38a98a01d28"],
+Cell[27124, 620, 9958, 221, 578, "Text",ExpressionUUID->"e5775bc2-53c7-4255-82e6-f7841ea324fa"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[37010, 845, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
-Cell[37299, 851, 1511, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
+Cell[37119, 846, 286, 4, 56, "Subsubsection",ExpressionUUID->"17c8b6a1-8aa3-41a9-bddb-a812aa584b0b"],
+Cell[37408, 852, 1554, 26, 303, "Text",ExpressionUUID->"b25f2c46-23eb-4b09-97ea-c58ed0afad90"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[38847, 882, 280, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
-Cell[39130, 888, 83754, 1378, 888, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
+Cell[38999, 883, 280, 4, 56, "Subsubsection",ExpressionUUID->"2f15c660-34e3-4865-9f1f-0eacd37e9f82"],
+Cell[39282, 889, 84092, 1391, 917, "Text",ExpressionUUID->"78179e72-31af-4148-a54f-b0aa25f2c089"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[122921, 2271, 322, 9, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
-Cell[123246, 2282, 5609, 120, 580, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
+Cell[123411, 2285, 322, 9, 57, "Subsubsection",ExpressionUUID->"a34025ec-bb81-47d8-9f77-28933aa593ee"],
+Cell[123736, 2296, 5802, 122, 609, "Text",ExpressionUUID->"6ccedfda-a5e2-433d-afc2-592cc9a030bf"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[128904, 2408, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
-Cell[129485, 2419, 2255, 35, 213, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
+Cell[129587, 2424, 578, 9, 67, "Subsection",ExpressionUUID->"c5eeb6e8-3f6a-408b-ba41-5edf717f7e00"],
+Cell[130168, 2435, 2110, 32, 102, "Text",ExpressionUUID->"a1f0fc8e-c101-46c9-8a4d-735e6063559f"]
 }, Open  ]]
 }, Open  ]]
 }
