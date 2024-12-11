@@ -18,7 +18,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 10 &mdash; Exam 2 &mdash; Start Bayesian Conjugates
 
-* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared &mdash; A Quick Summary of [Problem Sets 10, 10, 11, and 12](./resources/AQuickSummaryOfRecentProblemSets.nb.pdf)
+* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and &chi;-squared &mdash; See also the quick summary of [Problem Sets 10, 10, 11, and 12](./resources/AQuickSummaryOfRecentProblemSets.nb.pdf)
 * Friday, Nov. 15 &mdash; Study Chapter 10 &mdash; Introduce Bayesian Conjugates &mdash; Please examine the [Assignment for Friday](./assignments/AssignmentFor2024-11-15.nb.pdf) which is not to be turned in &mdash; Instead it just contains ideas for how you could approach Chapter 10
 
 ### Week 11 &mdash; Finish Bayesian Conjugates &mdash; Start Monte Carlo, Simple Applications
