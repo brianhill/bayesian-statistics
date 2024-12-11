@@ -18,7 +18,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 ### Week 10 &mdash; Exam 2 &mdash; Start Bayesian Conjugates
 
-* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared
+* Tuesday, Sept. 24 &mdash; [Exam 2](./exams/Exam2.nb.pdf) on Frequentist and Bayesian Statistics (covers Problem Sets 6 to 12 and Donovan and Mickey Chapters 1 to 9), including linear regression and the application of &chi;-squared &mdash; A Quick Summary of [Problem Sets 10, 10, 11, and 12](./resources/AQuickSummaryOfRecentProblemSets.nb.pdf)
 * Friday, Nov. 15 &mdash; Study Chapter 10 &mdash; Introduce Bayesian Conjugates &mdash; Please examine the [Assignment for Friday](./assignments/AssignmentFor2024-11-15.nb.pdf) which is not to be turned in &mdash; Instead it just contains ideas for how you could approach Chapter 10
 
 ### Week 11 &mdash; Finish Bayesian Conjugates &mdash; Start Monte Carlo, Simple Applications
@@ -39,7 +39,7 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
 * Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is the [In-Class Exercise for Tuesday](./assignments/AssignmentFor2024-12-10.nb.pdf)
-* Friday, Dec. 13 &mdash; Exam 3 covering: Chapters 10 and 11 of Donovan and Mickey on Bayesian Conjuagatesa and Chapters 13, 15, and 16 on Markov Chain Monte Carlo &mdash; For your review of chapters 13, 15, and 16, I'd recommend you use my Monte Carlo handouts, linked above, where I consistently illustrated the three Monte Carlo methods using binned distributions rather than continuous distributions &mdash; For all of your exam review, referring to the problem sets (specifically, Problem Sets 14 to 18) is the quickest way to review how I expect you to apply the theory
+* Friday, Dec. 13 &mdash; Exam 3 covering: Chapters 10 and 11 of Donovan and Mickey on Bayesian Conjuagatesa and Chapters 13, 15, and 16 on Markov Chain Monte Carlo &mdash; For your review of chapters 13, 15, and 16, I'd recommend you use my Monte Carlo handouts, linked above, where I consistently illustrated the three Monte Carlo methods using binned distributions rather than continuous distributions &mdash; For all of your exam review, referring to the problem sets (see my quick summary of [Problem Sets 14 to 18](./resources/AnotherQuickSummaryOfRecentProblemSets.nb.pdf)) is the quickest way to review how I expect you to apply the theory
 
 ### Week 15 &mdash; A Case Study Using Gibbs Sampling
 
