@@ -45,4 +45,6 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 
 * Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT - I WILL HAVE THE FINAL VERSION READY FOR THE LAST CLASS](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
 
-<img src="./resources/MarkovChain.png" alt="Markov Chain" width="80%">
+*Spiegelhalter, Best, Gilks, and Inskip use this graphic as a summary of the 217-parameter Hepatitis B model*
+
+<img src="./resources/GraphicalModelForHepatitisBData.png" alt="Graphical Model for Hepatitis B Data" width="80%">
