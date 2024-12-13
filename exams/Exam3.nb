@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     69678,       1330]
-NotebookOptionsPosition[     68011,       1292]
-NotebookOutlinePosition[     68495,       1311]
-CellTagsIndexPosition[     68452,       1308]
+NotebookDataLength[    111262,       2372]
+NotebookOptionsPosition[    107727,       2301]
+NotebookOutlinePosition[    108210,       2320]
+CellTagsIndexPosition[    108167,       2317]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -38,98 +38,117 @@ ce3b6af0b74d"],
 
 Cell[CellGroupData[{
 
-Cell["\<\
-1. A Beta Distribution Prior for Basketball Players Shooting 3-Pointers\
-\>", "Section",
+Cell["1. A Beta Distribution Prior for Players Shooting 3-Pointers", "Section",
  CellChangeTimes->{{3.936143651517674*^9, 3.93614365917845*^9}, {
   3.936174677930442*^9, 3.936174681020389*^9}, {3.936174750952456*^9, 
   3.9361747510391*^9}, {3.940341937965083*^9, 3.940341942810358*^9}, {
   3.940350130945884*^9, 3.94035013103664*^9}, {3.940377703584539*^9, 
   3.94037773293849*^9}, {3.940378008956699*^9, 3.940378023383347*^9}, {
   3.9403793151643248`*^9, 3.940379331259646*^9}, {3.940379364052906*^9, 
-  3.9403794045669827`*^9}, {3.940381431528981*^9, 3.94038143433399*^9}, {
+  3.940379404566983*^9}, {3.940381431528981*^9, 3.94038143433399*^9}, {
   3.940402436343687*^9, 3.940402459637848*^9}, {3.943051433905607*^9, 
-  3.943051466469449*^9}, {3.943051759803689*^9, 3.9430517643310413`*^9}, {
+  3.943051466469449*^9}, {3.943051759803689*^9, 3.943051764331042*^9}, {
   3.943052370355011*^9, 3.943052370503951*^9}, {3.9430529759828377`*^9, 
-  3.943052997355608*^9}, {3.943054523073599*^9, 
-  3.943054540561843*^9}},ExpressionUUID->"c5a4c470-0c03-40f9-8206-\
+  3.943052997355608*^9}, {3.943054523073599*^9, 3.943054540561843*^9}, {
+  3.943055815607552*^9, 
+  3.9430558158189487`*^9}},ExpressionUUID->"c5a4c470-0c03-40f9-8206-\
 4ddfd6fc1b6e"],
 
 Cell[TextData[{
  "An increasingly important shot in basketball is the \
 \[OpenCurlyDoubleQuote]3-pointer.\[CloseCurlyDoubleQuote] In the NBA, this is \
 a shot made from more than 23 feet 9 inches from the basket. There is a \
-stripe on the court marking this distance. An average offensive player that \
-shoots 3-pointers succeeds 30% of the time. (Otherwise you might as well just \
-go for 2-pointers, which offensive players can make about 45% of the time.)\n\
-\nThe beta distribution is:\n\n",
+stripe on the court marking this distance.\n\nLet\[CloseCurlyQuote]s say that \
+an average offensive player that shoots 3-pointers succeeds 30% of the time. \
+(Otherwise you might as well just go for 2-pointers, which offensive players \
+can make about 45% of the time.)\n\nThe beta distribution formulas are:\n\n",
  Cell[BoxData[
   FormBox[
-   FractionBox[
-    SuperscriptBox[
-     RowBox[{
-      SuperscriptBox["x", 
-       RowBox[{"\[Alpha]", "-", "1"}]], "(", 
-      RowBox[{"1", "-", "x"}], ")"}], 
-     RowBox[{"\[Beta]", "-", "1"}]], 
-    RowBox[{"B", "(", 
-     RowBox[{"\[Alpha]", ",", "\[Beta]"}], ")"}]], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "6c3c87af-8fdb-4762-a573-8b9f86b58fe1"],
+   RowBox[{
+    RowBox[{"P", "(", "x", ")"}], "=", 
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{
+       SuperscriptBox["x", 
+        RowBox[{"\[Alpha]", "-", "1"}]], "(", 
+       RowBox[{"1", "-", "x"}], ")"}], 
+      RowBox[{"\[Beta]", "-", "1"}]], 
+     RowBox[{"B", "(", 
+      RowBox[{"\[Alpha]", ",", "\[Beta]"}], ")"}]]}], TraditionalForm]],
+  FontSize->16,ExpressionUUID->"6c3c87af-8fdb-4762-a573-8b9f86b58fe1"],
  "\n\nThe mean of the beta distribution with parameters \[Alpha] and \[Beta] \
-is ",
+is",
+ StyleBox[" ",
+  FontSize->16],
  Cell[BoxData[
   FormBox[
    RowBox[{"\[Mu]", "=", 
     FractionBox["\[Alpha]", 
      RowBox[{"\[Alpha]", "+", "\[Beta]"}]]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "f0554cd1-2c4f-484b-bea4-ff424c02a148"],
- ".\n\n The variance of the distribution is kind of a mess. It is ",
+  FontSize->16,ExpressionUUID->"f0554cd1-2c4f-484b-bea4-ff424c02a148"],
+ ".\n\n The variance of the distribution is ",
  Cell[BoxData[
   FormBox[
    RowBox[{
-    SuperscriptBox["\[Sigma]", "2"], "=", 
+    StyleBox[
+     SuperscriptBox["\[Sigma]", "2"],
+     FontSize->16], 
+    StyleBox["=",
+     FontSize->16], 
     RowBox[{
-     FractionBox["\[Alpha]\[Beta]", 
-      RowBox[{
-       SuperscriptBox[
+     StyleBox[
+      FractionBox["\[Alpha]\[Beta]", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"(", 
+          RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "2"], 
         RowBox[{"(", 
-         RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "2"], 
-       RowBox[{"(", 
-        RowBox[{"\[Alpha]", "+", "\[Beta]", "+", "1"}], ")"}]}]], "."}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+         RowBox[{"\[Alpha]", "+", "\[Beta]", "+", "1"}], ")"}]}]],
+      FontSize->16], "."}]}], TraditionalForm]],ExpressionUUID->
   "08d72913-5727-4254-8ea4-61d92731ae31"],
  "\n\nA. Let\[CloseCurlyQuote]s assume we have followed a bunch of players \
-and their mean success rate ",
+last season and their mean success rate ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Mu]", "=", "0.3"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Mu]", "=", "0.3"}], TraditionalForm]],ExpressionUUID->
   "dfeeda42-b7ff-48f4-811e-e6343853b304"],
  ". What combination of integers \[Alpha] and \[Beta] will give ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Mu]", "=", "0.3"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Mu]", "=", "0.3"}], TraditionalForm]],ExpressionUUID->
   "8b12910e-27b3-4b0d-8571-d10186e1061a"],
  "? HINT: If you can\[CloseCurlyQuote]t just guess the combination of \
 integers that works, try ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Alpha]", "=", "3"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Alpha]", "=", "3"}], TraditionalForm]],ExpressionUUID->
   "276fe945-035a-47b4-9e35-bf6618d6adde"],
- " and see what \[Beta] has to be.\n\n\n\nB. What is the variance with the \
-\[Alpha] and \[Beta] you chose in Part A? Feel free to leave your answer for ",
+ " and see what \[Beta] must be. I put in the hint :)\n\n",
  Cell[BoxData[
   FormBox[
-   SuperscriptBox["\[Sigma]", "2"], TraditionalForm]],
+   RowBox[{"\[Alpha]", "="}], TraditionalForm]],
   FormatType->TraditionalForm,ExpressionUUID->
+  "953630b9-25cd-4bba-a75e-b72a974e7886"],
+ " 3\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"\[Beta]", "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "52661936-2263-49d0-872b-b04f811f90df"],
+ "\n\n\nB. What does the variance come out to with the \[Alpha] and \[Beta] \
+you chose in Part A? Feel free to leave your answer for ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox["\[Sigma]", "2"], TraditionalForm]],ExpressionUUID->
   "e63ecde3-172e-4138-b4ff-e288ae6d7ade"],
- " as a rational fraction.\n\n\nC. It turns out that the fraction you just \
-calculated in B comes out to about ",
+ " as a rational fraction.\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["\[Sigma]", "2"], "="}], TraditionalForm]],ExpressionUUID->
+  "a742f0d6-1d64-416c-8dbe-8d9c4b9896e5"],
+ "\n\n\nC. It turns out that the fraction you just calculated in B comes out \
+to about ",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -138,20 +157,17 @@ calculated in B comes out to about ",
  " and taking the square root of that, you get a standard deviation, ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Sigma]", "=", "0.14"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Sigma]", "=", "0.14"}], TraditionalForm]],ExpressionUUID->
   "8a0a7973-3191-41bd-ad8e-e578839d2864"],
  ". On the plot below, draw three nice vertical lines at \[Mu], at ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Mu]", "+", "\[Sigma]"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Mu]", "+", "\[Sigma]"}], TraditionalForm]],ExpressionUUID->
   "fc9c0f2f-f2fa-4299-9042-b2dafdca97b8"],
  ", and at ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"\[Mu]", "-", "\[Sigma]"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"\[Mu]", "-", "\[Sigma]"}], TraditionalForm]],ExpressionUUID->
   "2af5d993-ef45-4d5d-bb08-5c0a4b625c6b"],
  ". Shade in the region under the curve between these lines."
 }], "Text",
@@ -164,8 +180,8 @@ calculated in B comes out to about ",
    3.9392838105827303`*^9}, {3.939285528154049*^9, 3.939285536642383*^9}, {
    3.939577090909224*^9, 3.939577221342401*^9}, {3.9395773282087383`*^9, 
    3.939577439662232*^9}, {3.939577470567609*^9, 3.9395774713167453`*^9}, {
-   3.939578516138102*^9, 3.9395785161936803`*^9}, {3.939578747388451*^9, 
-   3.939578767755314*^9}, {3.9395962483444157`*^9, 3.939596258466804*^9}, {
+   3.939578516138102*^9, 3.93957851619368*^9}, {3.939578747388451*^9, 
+   3.939578767755314*^9}, {3.9395962483444166`*^9, 3.939596258466804*^9}, {
    3.939596295713986*^9, 3.939596375814836*^9}, {3.940402869096348*^9, 
    3.94040291336678*^9}, {3.940403056396578*^9, 3.940403416964629*^9}, {
    3.940403524970462*^9, 3.940403536484364*^9}, {3.940403587488524*^9, 
@@ -173,18 +189,20 @@ calculated in B comes out to about ",
    3.940404214082915*^9, 3.940404215907359*^9}, {3.940404324005643*^9, 
    3.94040432405834*^9}, {3.94040467427392*^9, 3.940404691615019*^9}, {
    3.940404744777527*^9, 3.940404772871648*^9}, {3.940404979704955*^9, 
-   3.9404049800357327`*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
+   3.940404980035733*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
    3.94040677983264*^9}, {3.940406813268916*^9, 3.940406831706234*^9}, {
    3.940406905373376*^9, 3.940406905473065*^9}, {3.94040938077527*^9, 
    3.940409411885313*^9}, {3.940409463312434*^9, 3.940409511225806*^9}, {
    3.943051771462235*^9, 3.943051828714365*^9}, {3.943052053800098*^9, 
    3.943052154557892*^9}, {3.943052194191328*^9, 3.943052591251761*^9}, {
    3.94305272225281*^9, 3.943052844684183*^9}, {3.9430528793061943`*^9, 
-   3.943052969729041*^9}, {3.94305300258103*^9, 3.9430531927848186`*^9}, {
+   3.943052969729041*^9}, {3.94305300258103*^9, 3.943053192784818*^9}, {
    3.9430533510898*^9, 3.943053493247242*^9}, {3.943054509514513*^9, 
-   3.943054753813945*^9}, {3.9430550113391542`*^9, 3.9430550382386703`*^9}, {
-   3.943055069772599*^9, 
-   3.9430550861087303`*^9}},ExpressionUUID->"b74b957a-f161-4794-9209-\
+   3.943054753813945*^9}, {3.943055011339154*^9, 3.9430550382386703`*^9}, {
+   3.943055069772599*^9, 3.9430550861087303`*^9}, {3.9430824746436996`*^9, 
+   3.943082548478401*^9}, {3.943083575879591*^9, 3.943083676935803*^9}, {
+   3.943083795096949*^9, 
+   3.943083826914234*^9}},ExpressionUUID->"b74b957a-f161-4794-9209-\
 1c647ec53fd4"],
 
 Cell[CellGroupData[{
@@ -225,7 +243,8 @@ Cell[BoxData[{
  CellChangeTimes->{{3.943053207398262*^9, 3.9430532649084053`*^9}, {
   3.943053314068337*^9, 3.943053321463944*^9}, {3.943053519910335*^9, 
   3.943053612788665*^9}},
- CellLabel->"In[16]:=",ExpressionUUID->"3dea841a-fd8d-4bbf-a2a3-f77832785d16"],
+ FontSize->10,
+ CellLabel->"In[13]:=",ExpressionUUID->"3dea841a-fd8d-4bbf-a2a3-f77832785d16"],
 
 Cell[BoxData[
  GraphicsBox[
@@ -997,6 +1016,7 @@ dWfLHTLwhWoxSd0NkvvsnHdBco8MutjOLaKVgFzyicObBwdkaH2rnXJud/Tq
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   ImagePadding->All,
+  ImageSize->{502.1250000000001, Automatic},
   Method->{
    "DefaultBoundaryStyle" -> Automatic, 
     "DefaultGraphicsInteraction" -> {
@@ -1037,16 +1057,20 @@ dWfLHTLwhWoxSd0NkvvsnHdBco8MutjOLaKVgFzyicObBwdkaH2rnXJud/Tq
       FormBox["2.5`", TraditionalForm]}, {3., 
       FormBox["3.`", TraditionalForm]}}}]], "Output",
  CellChangeTimes->{{3.943053561397204*^9, 3.943053573579574*^9}, 
-   3.943053613377158*^9},
- CellLabel->"Out[17]=",ExpressionUUID->"919354e8-d1b9-44cb-882a-7043a379bb47"]
+   3.943053613377158*^9, 3.9430577419457407`*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"3464f170-d8e8-445e-a32d-80d34f583bcd"]
 }, Open  ]],
 
 Cell[TextData[{
- "D. Make an estimate of the width, the average height, and the area you have \
-shaded in.\n\n\nE. Convert your answer to D into an estimate of the \
-percentage of players that make 3-pointers between 16% and 34% of the time.\n\
-\n\nF. To finish off your analysis of the prior, write it out with the \
-\[Alpha] and \[Beta] you have chosen:\n\n",
+ "D. Make an estimate of the width, the average height, and the area of the \
+region you have shaded in.\n\n\nwidth = \n\n\nestimate of average height = \n\
+\n\nestimate of area =\n\n\nE. Convert your answer to D into an estimate of \
+the percentage of players that make 3-pointers between 16% and 34% of the \
+time.\n\n\n\nF. To finish off your analysis of the prior, write it out with \
+the \[Alpha] and \[Beta] you have chosen (I\[CloseCurlyQuote]m just asking \
+you to plug in and simplify as much as you can, and I know you aren\
+\[CloseCurlyQuote]t going to be able to do anything to simplify the \
+denominator):\n\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -1061,13 +1085,25 @@ percentage of players that make 3-pointers between 16% and 34% of the time.\n\
        RowBox[{"\[Beta]", "-", "1"}]], 
       RowBox[{"B", "(", 
        RowBox[{"\[Alpha]", ",", "\[Beta]"}], ")"}]], "="}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "556d40aa-b923-45d5-abd8-30a85fe9841e"]
+   TraditionalForm]],ExpressionUUID->"556d40aa-b923-45d5-abd8-30a85fe9841e"],
+ "\n\n\nG. Oh, what the heck, I\[CloseCurlyQuote]ll make Mathematica simplify \
+the denominator. Mathematica says the denominator is 1/252, and dividing by \
+1/252 is the same as multiplying by 252, so use that to write the prior \
+again:\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"prior", "(", "x", ")"}], "="}], TraditionalForm]],ExpressionUUID->
+  "28d4ab4b-bd53-47ea-b2af-435ee63f7b86"],
+ "\n"
 }], "Text",
  CellChangeTimes->{{3.943054191862053*^9, 3.943054235662484*^9}, {
   3.943054770778323*^9, 3.9430548759798803`*^9}, {3.943055153069975*^9, 
-  3.943055198553338*^9}},ExpressionUUID->"49cab225-2736-4fef-a565-\
+  3.943055198553338*^9}, {3.9430825815226107`*^9, 3.943082585092936*^9}, {
+  3.943082624846406*^9, 3.943082653209036*^9}, {3.94308269363868*^9, 
+  3.943082764867259*^9}, {3.943083870913816*^9, 3.9430839448098993`*^9}, {
+  3.943083977571031*^9, 3.943083980703184*^9}, {3.943084169836524*^9, 
+  3.9430842003422318`*^9}},ExpressionUUID->"49cab225-2736-4fef-a565-\
 375f830c513c"]
 }, Open  ]],
 
@@ -1090,9 +1126,19 @@ Cell["2. A Likelihood for Nikola Jokic", "Section",
 4ca1f26962e2"],
 
 Cell[TextData[{
- "On Dec. 8, Nikola Jokic of the Denver Nuggets made 3 out of 6 of the \
-3-pointers that he attempted against the Atlanta Hawks.\n\nThe formula for \
-the binomial distribution is\n\n",
+ "Five days ago, on Dec. 8, Nikola Jokic of the Denver Nuggets made 3 out of \
+6 of the 3-pointers that he attempted against the Atlanta Hawks.\n\nThe \
+formula for the binomial distribution with ",
+ Cell[BoxData[
+  FormBox["N", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "913caf08-8a15-47a9-bbfd-5fef8dc267a2"],
+ " attempts and ",
+ Cell[BoxData[
+  FormBox["n", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "80b2ff82-fc60-4c27-9990-3b5bd04c7ef0"],
+ " successes is\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -1106,34 +1152,46 @@ the binomial distribution is\n\n",
       RowBox[{
        SuperscriptBox["x", "n"], "(", 
        RowBox[{"1", "-", "x"}], ")"}], 
-      RowBox[{"N", "-", "n"}]]}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+      RowBox[{"N", "-", "n"}]]}]}], TraditionalForm]],ExpressionUUID->
   "2480faf0-04a4-42d6-9948-5098c9b38001"],
  "\n\nYou don\[CloseCurlyQuote]t know ",
  Cell[BoxData[
-  FormBox["x", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["x", TraditionalForm]],ExpressionUUID->
   "5aef5b4c-f976-4ff3-9067-36cd65fba3c5"],
- ". It is whatever Nikola Jokic\[CloseCurlyQuote]s true average is, and you \
-don\[CloseCurlyQuote]t know that, so just leave ",
+ "! It is whatever Nikola Jokic\[CloseCurlyQuote]s true success rate is, and \
+you don\[CloseCurlyQuote]t know that from just one game\[CloseCurlyQuote]s \
+data, so just leave ",
  Cell[BoxData[
-  FormBox["x", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["x", TraditionalForm]],ExpressionUUID->
   "97d2b0b8-6fd0-44fa-b5c2-fa6fa64a6fbe"],
- " as a variable. But simplify ",
+ " as a variable. Simplify ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"L", "(", "x", ")"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"L", "(", "x", ")"}], TraditionalForm]],ExpressionUUID->
   "81ca2164-7eef-46af-81b4-20943611408e"],
- " as much as you can:\n\n",
+ " as much as you can:\n\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"L", "(", "x", ")"}], "="}], TraditionalForm]],
-  InitializationCell->True,
-  FormatType->TraditionalForm,ExpressionUUID->
+  InitializationCell->True,ExpressionUUID->
   "4ff0c941-1c17-426c-a975-db7aeb1d9c2e"],
+ "\n\n\nWhen you are simplifying you should use that\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"(", GridBox[{
+       {"N"},
+       {"n"}
+      }], ")"}], "=", 
+    FractionBox[
+     RowBox[{"N", "!"}], 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"N", "-", "n"}], ")"}], "!"}], 
+      RowBox[{"n", "!"}]}]]}], TraditionalForm]],ExpressionUUID->
+  "47403081-904a-481f-bbc2-0c77b8568c0b"],
  "\n\nNow you have a likelihood."
 }], "Text",
  CellChangeTimes->{{3.9392546018016863`*^9, 3.939254732194409*^9}, {
@@ -1145,8 +1203,8 @@ don\[CloseCurlyQuote]t know that, so just leave ",
    3.9392838105827303`*^9}, {3.939285528154049*^9, 3.939285536642383*^9}, {
    3.939577090909224*^9, 3.939577221342401*^9}, {3.9395773282087383`*^9, 
    3.939577439662232*^9}, {3.939577470567609*^9, 3.9395774713167453`*^9}, {
-   3.939578516138102*^9, 3.9395785161936803`*^9}, {3.939578747388451*^9, 
-   3.939578767755314*^9}, {3.9395962483444157`*^9, 3.939596258466804*^9}, {
+   3.939578516138102*^9, 3.93957851619368*^9}, {3.939578747388451*^9, 
+   3.939578767755314*^9}, {3.9395962483444166`*^9, 3.939596258466804*^9}, {
    3.939596295713986*^9, 3.939596375814836*^9}, {3.940402869096348*^9, 
    3.94040291336678*^9}, {3.940403056396578*^9, 3.940403416964629*^9}, {
    3.940403524970462*^9, 3.940403536484364*^9}, {3.940403587488524*^9, 
@@ -1154,7 +1212,7 @@ don\[CloseCurlyQuote]t know that, so just leave ",
    3.940404214082915*^9, 3.940404215907359*^9}, {3.940404324005643*^9, 
    3.94040432405834*^9}, {3.94040467427392*^9, 3.940404691615019*^9}, {
    3.940404744777527*^9, 3.940404772871648*^9}, {3.940404979704955*^9, 
-   3.9404049800357327`*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
+   3.940404980035733*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
    3.94040677983264*^9}, {3.940406813268916*^9, 3.940406831706234*^9}, {
    3.940406905373376*^9, 3.940406905473065*^9}, {3.94040938077527*^9, 
    3.940409411885313*^9}, {3.940409463312434*^9, 3.940409511225806*^9}, {
@@ -1163,11 +1221,13 @@ don\[CloseCurlyQuote]t know that, so just leave ",
    3.94305272225281*^9, 3.943052844684183*^9}, {3.9430528793061943`*^9, 
    3.943052969729041*^9}, {3.94305300258103*^9, 3.94305317499473*^9}, {
    3.943053633219572*^9, 3.943053733503499*^9}, {3.943053991451597*^9, 
-   3.943054134991495*^9}, {3.9430541677975187`*^9, 3.9430541800428534`*^9}, {
-   3.943054258551505*^9, 3.943054455029263*^9}, {3.9430548979999743`*^9, 
-   3.943054910780714*^9}, {3.943055104575356*^9, 3.9430551101637793`*^9}, {
-   3.943055202904029*^9, 
-   3.943055251249989*^9}},ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-\
+   3.943054134991495*^9}, {3.9430541677975197`*^9, 3.9430541800428534`*^9}, {
+   3.943054258551505*^9, 3.943054455029263*^9}, {3.9430548979999747`*^9, 
+   3.943054910780714*^9}, {3.943055104575356*^9, 3.943055110163779*^9}, {
+   3.943055202904029*^9, 3.943055251249989*^9}, {3.9430558372941628`*^9, 
+   3.9430558830743513`*^9}, {3.943084042672554*^9, 3.943084075225638*^9}, {
+   3.9430842378338137`*^9, 3.9430842523892097`*^9}, 
+   3.943084285161271*^9},ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-\
 8f248e26c0d8"]
 }, Open  ]],
 
@@ -1186,35 +1246,47 @@ cEcDiL6m/R1Mzws9PwFEP1xqNBFEAwC7X589
 Cell[TextData[{
  "A. Take the product of the prior from Problem 1 and the likelihood from \
 Problem 2. Simplify it as much as you can, but note that the denominator is a \
-mess, so just leave it as denominator.\n\n",
+nasty integral, so just leave it as \[OpenCurlyDoubleQuote]nasty integral\
+\[CloseCurlyDoubleQuote] in your answer:\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"posterior", "(", "x", ")"}], "=", 
-    FractionBox[
+    RowBox[{
+     FractionBox[
+      RowBox[{
+       RowBox[{"prior", "(", "x", ")"}], "*", 
+       RowBox[{"L", "(", "x", ")"}]}], 
+      RowBox[{
+       SubsuperscriptBox["\[Integral]", "0", "1"], 
+       RowBox[{
+        RowBox[{"prior", "(", "x", ")"}], "*", 
+        RowBox[{"L", "(", "x", ")"}], 
+        RowBox[{"\[DifferentialD]", "x"}]}]}]], "=", 
      RowBox[{
-      RowBox[{"prior", "(", "x", ")"}], "*", 
-      RowBox[{"L", "(", "x", ")"}]}], "denominator"]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "a0ea8e03-2e33-4acb-91e1-a9096b71b07a"],
- "\n\n\nB. Leave all the constants out and the messy denominator out. All \
-that is left is powers of ",
+      FractionBox[
+       RowBox[{
+        RowBox[{"prior", "(", "x", ")"}], "*", 
+        RowBox[{"L", "(", "x", ")"}]}], 
+       RowBox[{"nasty", " ", "integral"}]], "="}]}]}], TraditionalForm]],
+  ExpressionUUID->"a0ea8e03-2e33-4acb-91e1-a9096b71b07a"],
+ "\n\n\n\n\n\nB. Rewrite the posterior, but leaving all the constants off \
+including \[OpenCurlyDoubleQuote]nasty integral\[CloseCurlyDoubleQuote] which \
+is some constant that Mathematica could compute. All that is left is powers \
+of ",
  Cell[BoxData[
-  FormBox["x", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["x", TraditionalForm]],ExpressionUUID->
   "cb06021a-74e8-4619-a9c8-75143886b4ba"],
- " and 1-x. What is left?\n\n",
+ " and 1-x. Write out what is left:\n\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
     RowBox[{"posterior", "(", "x", ")"}], "\[Proportional]"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "46eda090-1af8-4a82-82b4-d1095642cac2"],
- "\n\nC. This is another beta distribution. What are the \[Alpha] and \[Beta] \
-of this distribution?\n\n\nD. Using your new \[Alpha] and \[Beta], you now \
-have a probability distribution for Nikola Jokic\[CloseCurlyQuote]s average. \
-What is \n\n",
+   TraditionalForm]],ExpressionUUID->"46eda090-1af8-4a82-82b4-d1095642cac2"],
+ "\n\n\nC. This is your posterior, and you recognize that it is another beta \
+distribution! What are the \[Alpha] and \[Beta] of the posterior \
+distribution?\n\n\n\nD. Using your new \[Alpha] and \[Beta] that describe the \
+posterior, what is the average of the posterior distribution:\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{"\[Mu]", "=", 
@@ -1222,8 +1294,8 @@ What is \n\n",
      FractionBox["\[Alpha]", 
       RowBox[{"\[Alpha]", "+", "\[Beta]"}]], "="}]}], TraditionalForm]],
   ExpressionUUID->"e8cab0bf-7a49-493d-95c9-a6ebe0edefde"],
- "\n\nfor this new distribution? You can leave it as a rational fraction.\n\n\
-E. What is the variance\n\n",
+ "\n\nYou can leave it as a rational fraction.\n\nE. What is the variance of \
+the posterior distribution:\n\n",
  Cell[BoxData[
   FormBox[
    RowBox[{
@@ -1236,11 +1308,12 @@ E. What is the variance\n\n",
          RowBox[{"\[Alpha]", "+", "\[Beta]"}], ")"}], "2"], 
        RowBox[{"(", 
         RowBox[{"\[Alpha]", "+", "\[Beta]", "+", "1"}], ")"}]}]], "="}]}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "d5af2a74-0a8f-45c3-9438-19b5827ec13b"],
- "\n\n\nfor this new distribution? You can leave the variance as a rational \
-fraction too.\n"
+   TraditionalForm]],ExpressionUUID->"d5af2a74-0a8f-45c3-9438-19b5827ec13b"],
+ "\n\nYou can leave the variance as a rational fraction too.\n\nCOMMENT: The \
+posterior is your new belief about Nikola Jokic\[CloseCurlyQuote]s 3-pointer \
+success rate. After incorporating the Dec. 8 game, you could update your \
+fantasy basketball software to reflect your new belief, and you could repeat \
+the entire process the posterior becoming the prior before the next game."
 }], "Text",
  CellChangeTimes->{{3.9392546018016863`*^9, 3.939254732194409*^9}, {
    3.939254778610716*^9, 3.939255266840878*^9}, {3.93925641292956*^9, 
@@ -1251,8 +1324,8 @@ fraction too.\n"
    3.9392838105827303`*^9}, {3.939285528154049*^9, 3.939285536642383*^9}, {
    3.939577090909224*^9, 3.939577221342401*^9}, {3.9395773282087383`*^9, 
    3.939577439662232*^9}, {3.939577470567609*^9, 3.9395774713167453`*^9}, {
-   3.939578516138102*^9, 3.9395785161936803`*^9}, {3.939578747388451*^9, 
-   3.939578767755314*^9}, {3.9395962483444157`*^9, 3.939596258466804*^9}, {
+   3.939578516138102*^9, 3.93957851619368*^9}, {3.939578747388451*^9, 
+   3.939578767755314*^9}, {3.9395962483444166`*^9, 3.939596258466804*^9}, {
    3.939596295713986*^9, 3.939596375814836*^9}, {3.940402869096348*^9, 
    3.94040291336678*^9}, {3.940403056396578*^9, 3.940403416964629*^9}, {
    3.940403524970462*^9, 3.940403536484364*^9}, {3.940403587488524*^9, 
@@ -1260,7 +1333,7 @@ fraction too.\n"
    3.940404214082915*^9, 3.940404215907359*^9}, {3.940404324005643*^9, 
    3.94040432405834*^9}, {3.94040467427392*^9, 3.940404691615019*^9}, {
    3.940404744777527*^9, 3.940404772871648*^9}, {3.940404979704955*^9, 
-   3.9404049800357327`*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
+   3.940404980035733*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
    3.94040677983264*^9}, {3.940406813268916*^9, 3.940406831706234*^9}, {
    3.940406905373376*^9, 3.940406905473065*^9}, {3.94040938077527*^9, 
    3.940409411885313*^9}, {3.940409463312434*^9, 3.940409511225806*^9}, {
@@ -1269,15 +1342,951 @@ fraction too.\n"
    3.94305272225281*^9, 3.943052844684183*^9}, {3.9430528793061943`*^9, 
    3.943052969729041*^9}, {3.94305300258103*^9, 3.94305317499473*^9}, {
    3.943053633219572*^9, 3.943053733503499*^9}, {3.943053991451597*^9, 
-   3.943054134991495*^9}, {3.9430541677975187`*^9, 3.9430541800428534`*^9}, {
+   3.943054134991495*^9}, {3.9430541677975197`*^9, 3.9430541800428534`*^9}, {
    3.943054258551505*^9, 3.9430544836178627`*^9}, {3.9430551148471537`*^9, 
-   3.943055133746689*^9}, {3.9430552662176237`*^9, 
-   3.943055637155198*^9}},ExpressionUUID->"ad154699-3703-469d-9c23-\
-ea321ae673b2"],
+   3.943055133746689*^9}, {3.943055266217624*^9, 3.943055637155198*^9}, {
+   3.9430559013785686`*^9, 3.943056028163094*^9}, {3.943082788850165*^9, 
+   3.943083251350854*^9}, {3.943084096661677*^9, 3.9430841212190847`*^9}, {
+   3.943084374912674*^9, 
+   3.9430843908441153`*^9}},ExpressionUUID->"ad154699-3703-469d-9c23-\
+ea321ae673b2"]
+}, Open  ]],
 
-Cell[TextData[StyleBox["Name ______________________________________\n\n1.     \
-         / 3\n2.              / 3\n3.              / 4\n4.              / 5\n\
-\nTOTAL          / 15",
+Cell[CellGroupData[{
+
+Cell["4. Metropolis-Hastings Acceptance Ratios", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IBoAHlqhcw==
+  "],ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
+
+Cell[TextData[{
+ "In this problem, I am just going to have you show me that you understand \
+the Metropolis-Hastings acceptance ratio. We\[CloseCurlyQuote]re going to do \
+iPhone sales again, so there are four bins, numbered 1 to 4, for Q1, Q2, Q3, \
+and Q4. Here are going to be our proposal probabilities, ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"g", "(", 
+    RowBox[{"j", "|", "i"}], ")"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e7d3d7b9-8d99-464a-a309-69a1857cdb02"],
+ ":\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"2", "|", "1"}], ")"}], "=", "1.0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a09ffad4-73f3-4c31-9c87-11c552bd0ee3"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"1", "|", "2"}], ")"}], "=", "0.5"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "d96777d1-075e-4318-a916-7abce29db39c"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"3", "|", "2"}], ")"}], "=", "0.5"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a2222f37-c478-4414-8b8f-e7dafa2cf854"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"2", "|", "3"}], ")"}], "=", "0.5"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "132887dc-7bae-451c-bf49-6c46394cbad4"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"4", "|", "3"}], ")"}], "=", "0.5"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b0a11374-4649-4de6-9b21-c1289d333a70"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"g", "(", 
+     RowBox[{"3", "|", "4"}], ")"}], "=", "1.0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cd4cf853-6cd2-4a84-96b6-881153d3be09"],
+ "\n\nThis is pleasantly simpler than the Metropolis-Hastings example we did \
+together, just because there are fewer possible proposals. \n\nNotice that:\n\
+\n* You can only propose moving right one bin from bin 1\n* You have an equal \
+chance of proposing left and right from either bin 2 or bin 3.\n* Finally, \
+you can only propose moving left one bin from bin 4.\n\n\
+We\[CloseCurlyQuote]ll use the same ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"p", "'"}], "s"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c6e2a835-03ee-4f65-bf2c-91e3fe1cc737"],
+ " as in prior iPhone sales examples:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "1"], "=", "0.1"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "67a8ce48-62c2-49b2-9a16-86853ecd7fc2"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "2"], "=", "0.2"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "f7736dd3-a38d-43d2-9dba-a8db501d84db"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "3"], "=", "0.4"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "41d7f0fb-2623-4efe-a2ee-13b530ee5cd6"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "4"], "=", "0.3"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "48ffda72-0ffd-4879-a0e2-b58dd08596a8"],
+ "\n\nThe formula for ",
+ StyleBox["accepting",
+  FontWeight->"Bold",
+  FontSlant->"Italic"],
+ " a movement in Metropolis-Hastings is\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"min", "(", 
+    RowBox[{
+     RowBox[{
+      FractionBox[
+       SubscriptBox["p", "j"], 
+       SubscriptBox["p", "i"]], 
+      FractionBox[
+       RowBox[{"g", "(", 
+        RowBox[{"i", "|", "j"}], ")"}], 
+       RowBox[{"g", "(", 
+        RowBox[{"j", "|", "i"}], ")"}]]}], ",", "1"}], ")"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "015369a8-b843-4a0e-819f-0c9119a818fe"],
+ ".\n\nOn the next page, to two decimal places, compute the six acceptance \
+probabilities.\n\nNOTE: If you want any partial credit for wrong answers, \
+write out the formula as I have done for the first one, so I have some chance \
+of seeing what you did wrong.\n",
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"Q1", "->", 
+     RowBox[{"Q2", ":", 
+      RowBox[{"min", "(", 
+       RowBox[{
+        StyleBox[
+         RowBox[{
+          FractionBox[
+           SubscriptBox["p", "2"], 
+           SubscriptBox["p", "1"]], 
+          FractionBox[
+           RowBox[{"g", "(", 
+            RowBox[{"1", "|", "2"}], ")"}], 
+           RowBox[{"g", "(", 
+            RowBox[{"2", "|", "1"}], ")"}]]}],
+         FontSize->18], 
+        StyleBox[",",
+         FontSize->14], 
+        StyleBox["1",
+         FontSize->14]}], 
+       StyleBox[")",
+        FontSize->18]}]}]}], 
+    StyleBox["=",
+     FontSize->18]}], TraditionalForm]],ExpressionUUID->
+  "9dcb5d38-0d18-486e-b282-458e895ed2f8"],
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "\n\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q2", "->", 
+    RowBox[{"Q1", ":"}]}], TraditionalForm]],ExpressionUUID->
+  "cd144023-cda8-4f79-84e0-c683787b4087"],
+ "\n\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q2", "->", 
+    RowBox[{"Q3", ":"}]}], TraditionalForm]],ExpressionUUID->
+  "a8c82751-a008-4961-83ad-fe0c352895c0"],
+ "\n\n",
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q3", "->", 
+    RowBox[{"Q2", ":"}]}], TraditionalForm]],ExpressionUUID->
+  "fd066bcb-e535-45fa-b776-a31ce2e3ac94"],
+ "\n\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q3", "->", 
+    RowBox[{"Q4", ":"}]}], TraditionalForm]],ExpressionUUID->
+  "02c3d1f9-2555-46bf-8491-b14e266fa2f6"],
+ "\n\n",
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q4", "->", " ", 
+    RowBox[{"Q3", ":"}]}], TraditionalForm]],ExpressionUUID->
+  "ae332b3e-fc95-46c6-9f5f-0edb0ef793a9"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.9392546018016863`*^9, 3.939254732194409*^9}, {
+   3.939254778610716*^9, 3.939255266840878*^9}, {3.93925641292956*^9, 
+   3.939256441490473*^9}, {3.9392565107640533`*^9, 3.939256599417603*^9}, {
+   3.9392568453492947`*^9, 3.939256848483842*^9}, {3.9392569072713737`*^9, 
+   3.939256944306962*^9}, {3.9392826462999353`*^9, 3.939282646522686*^9}, {
+   3.939283657907221*^9, 3.939283742765835*^9}, {3.939283797408921*^9, 
+   3.9392838105827303`*^9}, {3.939285528154049*^9, 3.939285536642383*^9}, {
+   3.939577090909224*^9, 3.939577221342401*^9}, {3.9395773282087383`*^9, 
+   3.939577439662232*^9}, {3.939577470567609*^9, 3.9395774713167453`*^9}, {
+   3.939578516138102*^9, 3.93957851619368*^9}, {3.939578747388451*^9, 
+   3.939578767755314*^9}, {3.9395962483444166`*^9, 3.939596258466804*^9}, {
+   3.939596295713986*^9, 3.939596375814836*^9}, {3.940402869096348*^9, 
+   3.94040291336678*^9}, {3.940403056396578*^9, 3.940403416964629*^9}, {
+   3.940403524970462*^9, 3.940403536484364*^9}, {3.940403587488524*^9, 
+   3.940403807123054*^9}, {3.9404038377292433`*^9, 3.940403922254443*^9}, {
+   3.940404214082915*^9, 3.940404215907359*^9}, {3.940404324005643*^9, 
+   3.94040432405834*^9}, {3.94040467427392*^9, 3.940404691615019*^9}, {
+   3.940404744777527*^9, 3.940404772871648*^9}, {3.940404979704955*^9, 
+   3.940404980035733*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
+   3.94040677983264*^9}, {3.940406813268916*^9, 3.940406831706234*^9}, {
+   3.940406905373376*^9, 3.940406905473065*^9}, {3.94040938077527*^9, 
+   3.940409411885313*^9}, {3.940409463312434*^9, 3.940409511225806*^9}, {
+   3.943051771462235*^9, 3.943051828714365*^9}, {3.943052053800098*^9, 
+   3.943052154557892*^9}, {3.943052194191328*^9, 3.943052591251761*^9}, {
+   3.94305272225281*^9, 3.943052844684183*^9}, {3.9430528793061943`*^9, 
+   3.943052969729041*^9}, {3.94305300258103*^9, 3.943053192784818*^9}, {
+   3.9430533510898*^9, 3.943053493247242*^9}, {3.943054509514513*^9, 
+   3.943054753813945*^9}, {3.943055011339154*^9, 3.9430550382386703`*^9}, {
+   3.943055069772599*^9, 3.9430550861087303`*^9}, {3.943056088224757*^9, 
+   3.94305627267948*^9}, {3.943056314648457*^9, 3.943056780323151*^9}, {
+   3.943056938420897*^9, 3.94305702539111*^9}, {3.9430571136006737`*^9, 
+   3.943057142106838*^9}, {3.943057173453925*^9, 3.9430572812539463`*^9}, {
+   3.943057332901869*^9, 3.943057343866685*^9}, {3.943057394482027*^9, 
+   3.943057409971827*^9}, {3.9430835133121233`*^9, 3.9430835160832376`*^9}, {
+   3.9430844502927*^9, 3.9430844946338167`*^9}, {3.943084529916091*^9, 
+   3.9430845399340677`*^9}, {3.94308473364049*^9, 
+   3.943084745368559*^9}},ExpressionUUID->"f8f67048-0db0-42bf-a1be-\
+453173785631"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5. Metropolis-Hastings Applied", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQAWIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IPoXtz7TSSB9a0oVC4gGAHebqUQ=
+  "],ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
+
+Cell["\<\
+If you are in bin 1, there is only one possible proposed move. You don\
+\[CloseCurlyQuote]t need to flip a coin to choose the proposed move. Ditto \
+for bin 4. So IF YOU ARE IN BIN 1 OR BIN 4, YOU CAN IGNORE THE COIN COLUMN. \
+However, for bins 2 and 3, you have to flip a coin to decide which direction \
+you go. SO THAT WE ARE ALL DOING THE SAME THING, a 0 in the coin column means \
+propose to go left, and a 1 means propose to go right.
+
+TO RANDOMLY DECIDE THE STARTING BIN, count the number of letters in your \
+first name. If that is more than 4, subtract 4. There are only four \
+possibilities. Maybe in my solution I will do all four. EXAMPLE: \
+\[OpenCurlyDoubleQuote]Brian\[CloseCurlyDoubleQuote] has 5 letters. 5 is more \
+than 4, so I subtract 4 and get 1. I start in bin 1.\
+\>", "Text",
+ CellChangeTimes->{{3.943057483241847*^9, 3.94305757167946*^9}, {
+  3.9430791882800217`*^9, 3.9430792299217167`*^9}, {3.94308329569454*^9, 
+  3.9430833322761393`*^9}, {3.943083379341362*^9, 3.943083398207209*^9}, {
+  3.943083432918838*^9, 3.9430834755638103`*^9}, {3.943084586739079*^9, 
+  3.9430846131534863`*^9}, {3.9430846791545687`*^9, 3.943084682813334*^9}, {
+  3.943084764782086*^9, 3.943084804008482*^9}, {3.94308485697786*^9, 
+  3.9430848577716303`*^9}, {3.9430848936398153`*^9, 
+  3.9430849601797667`*^9}},ExpressionUUID->"9d2332fc-0645-4264-895d-\
+919ed95243e6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"smallIterations", "=", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xxxrandomReals", "=", 
+   RowBox[{"Round", "[", 
+    RowBox[{
+     RowBox[{"RandomReal", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "1"}], "}"}], ",", "smallIterations"}], "]"}], ",", 
+     "0.01"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"xxxrandomCoinTosses", "=", 
+   RowBox[{"RandomInteger", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1"}], "}"}], ",", "smallIterations"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"rounds", "=", 
+   RowBox[{"Range", "[", 
+    RowBox[{"1", ",", "smallIterations"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"blanks", " ", "=", " ", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"\"\<                  \>\"", ",", "smallIterations"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{
+     "rounds", ",", "blanks", ",", " ", "randomCoinTosses", ",", " ", 
+      "blanks", ",", " ", "randomReals", ",", " ", "blanks"}], "}"}], "]"}], 
+   ",", " ", 
+   RowBox[{"TableHeadings", "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<round\>\"", ",", " ", "\"\<current bin\>\"", ",", " ", 
+        "\"\<coin\>\"", ",", " ", "\"\<proposed bin\>\"", ",", 
+        "\"\<random\>\"", ",", " ", "\"\<result bin\>\""}], "}"}]}], 
+     "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.941217273107713*^9, 3.941217345997686*^9}, {
+   3.941217396354566*^9, 3.941217708581647*^9}, {3.941217930211359*^9, 
+   3.941218037554425*^9}, {3.9412180919623213`*^9, 3.941218121265691*^9}, {
+   3.941231261228103*^9, 3.941231291203553*^9}, {3.941232653059176*^9, 
+   3.941232658539693*^9}, {3.941235672748213*^9, 3.941235673095675*^9}, {
+   3.941235708123122*^9, 3.941235754469912*^9}, 3.94123582635817*^9, {
+   3.941235877133659*^9, 3.941235901071157*^9}, {3.941235954324024*^9, 
+   3.9412359669686747`*^9}, {3.941236075483845*^9, 3.941236075978723*^9}, {
+   3.941236143362927*^9, 3.941236240889432*^9}, {3.941236315207159*^9, 
+   3.94123633052031*^9}, {3.941264771798922*^9, 3.941264773328274*^9}, {
+   3.941265750653493*^9, 3.941265750756592*^9}, {3.941265813071289*^9, 
+   3.941265816940924*^9}, {3.941266064155411*^9, 3.941266066835237*^9}, {
+   3.94128503614993*^9, 3.941285042367259*^9}, {3.941321886166559*^9, 
+   3.941321937947841*^9}, {3.941324656512684*^9, 3.941324657858295*^9}, {
+   3.942253115107122*^9, 3.942253115523449*^9}, {3.942253175288658*^9, 
+   3.94225319247517*^9}, {3.942253245101142*^9, 3.9422532884610558`*^9}, {
+   3.9422533648474817`*^9, 3.942253485179016*^9}, {3.9422536777107763`*^9, 
+   3.9422536843701463`*^9}, {3.942253764485858*^9, 3.942253895623122*^9}, {
+   3.942253948500265*^9, 3.942253969663704*^9}, {3.942254021611492*^9, 
+   3.942254093685117*^9}, {3.9422720015151863`*^9, 3.9422720015983*^9}, {
+   3.942272398635917*^9, 3.942272543160179*^9}, {3.942272589080984*^9, 
+   3.9422725951530843`*^9}, {3.942272625429078*^9, 3.942272678564658*^9}, {
+   3.943057579736868*^9, 3.94305758672327*^9}, {3.9430576888707314`*^9, 
+   3.9430576960206842`*^9}, {3.94305775286128*^9, 3.943057787011404*^9}},
+ FontSize->7,
+ CellLabel->"In[28]:=",ExpressionUUID->"03ed8239-d02b-4fc7-b2f8-8c5f619067cb"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"round\"\>",
+       HoldForm], 
+      TagBox["\<\"current bin\"\>",
+       HoldForm], 
+      TagBox["\<\"coin\"\>",
+       HoldForm], 
+      TagBox["\<\"proposed bin\"\>",
+       HoldForm], 
+      TagBox["\<\"random\"\>",
+       HoldForm], 
+      TagBox["\<\"result bin\"\>",
+       HoldForm]},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "1", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.26`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "2", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.62`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "3", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.07`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "4", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.66`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "5", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.52`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "6", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.96`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "7", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.9500000000000001`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "8", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.54`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "9", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.02`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "10", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.76`", "\<\"                  \"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{}, {
+      "round", "current bin", "coin", "proposed bin", "random", 
+       "result bin"}}]]]], "Output",
+ CellChangeTimes->{{3.9422540667857513`*^9, 3.942254095441394*^9}, 
+   3.942256407872623*^9, 3.942256484907275*^9, 3.942256553045278*^9, 
+   3.942257032111906*^9, 3.942257229300723*^9, 3.942272004590815*^9, {
+   3.9422724865354137`*^9, 3.942272497584023*^9}, 3.942272544572051*^9, 
+   3.942272595404295*^9, {3.942272636365185*^9, 3.942272642078851*^9}, 
+   3.942272702832788*^9, 3.943057602440906*^9, {3.943057738055423*^9, 
+   3.943057753559287*^9}, 3.943084665619733*^9},
+ CellLabel->
+  "Out[33]//TableForm=",ExpressionUUID->"699b4447-459e-4062-b396-\
+6cf986b4c6db"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["6. Gibbs Sampling \[LongDash] Conditional Probabilities", "Section",
+ CellChangeTimes->{{3.936143651517674*^9, 3.93614365917845*^9}, {
+   3.936174677930442*^9, 3.936174681020389*^9}, {3.936174750952456*^9, 
+   3.9361747510391*^9}, {3.940341937965083*^9, 3.940341942810358*^9}, {
+   3.940350130945884*^9, 3.94035013103664*^9}, {3.940377703584539*^9, 
+   3.94037773293849*^9}, {3.940378008956699*^9, 3.940378023383347*^9}, {
+   3.9403793151643248`*^9, 3.940379331259646*^9}, {3.940379364052906*^9, 
+   3.940379404566983*^9}, {3.940381431528981*^9, 3.94038143433399*^9}, {
+   3.940402436343687*^9, 3.940402459637848*^9}, {3.943051433905607*^9, 
+   3.943051466469449*^9}, {3.943051759803689*^9, 3.943051764331042*^9}, {
+   3.943052370355011*^9, 3.943052370503951*^9}, {3.9430529759828377`*^9, 
+   3.943052997355608*^9}, {3.943054523073599*^9, 3.943054540561843*^9}, {
+   3.943055815607552*^9, 3.9430558158189487`*^9}, {3.9430560663669653`*^9, 
+   3.943056077717987*^9}, {3.94305738381636*^9, 3.943057389212532*^9}, {
+   3.943057831927658*^9, 3.943057845376483*^9}, {3.943081328605784*^9, 
+   3.9430813353815117`*^9}, 
+   3.943085176077067*^9},ExpressionUUID->"c487a5e8-cfa2-4c24-b64c-\
+ce79bb084c3a"],
+
+Cell[TextData[{
+ "The fine print is motivation. Read it if you want to understand where Gibbs \
+sampling comes from. Or just skip the fine print and move to the actual \
+problem.\n\n",
+ StyleBox["=== BEGIN FINE PRINT ===\nGibbs sampling comes from statistical \
+mechanics. Statistical mechanics explains things like how a gas can be on the \
+verge of condensation. Let\[CloseCurlyQuote]s do the simplest statistical \
+mechanics problem I can come up with that gives a hint of how statistical \
+mechanics works.\n\nImagine a single atom stuck in a tall cylinder. Let\
+\[CloseCurlyQuote]s say it can be the near the bottom of the cylinder, near \
+the middle of the cylinder, or the near top of the cylinder and due to \
+gravity, the bottom of the cylinder is the most probable place to find the \
+atom:\n\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "bottom"], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"ad254685-de36-44f4-a374-ad955eb744fc"],
+ StyleBox[" 0.5\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "middle"], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"a858ea1a-0e6c-4c09-940d-5051aff9bb18"],
+ StyleBox[" 0.3\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", "top"], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"2bde8079-c828-40a7-9246-e914401ca93f"],
+ StyleBox[" 0.2\n\nNow we add a second atom that can also be near bottom, the \
+middle or the top. So accounting for both of the atoms, there are now nine \
+possibilities:\n\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "bottom"}]], "=", 
+    RowBox[{
+     RowBox[{"0.5", " ", "*", " ", "0.5"}], " ", "=", " ", "0.25"}]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"5960eb3e-9af1-4860-8ec7-39d337b776d6"],
+ StyleBox["\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "middle"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"0ccba6b2-4a02-4623-8ded-db75e6bee1ef"],
+ StyleBox[" 0.5 * 0.3 = 0.15\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "top"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"756af635-a7b2-4aa9-888a-dac07de9c928"],
+ StyleBox[" 0.5 * 0.2 = 0.10\n\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "bottom"}]], "=", 
+    RowBox[{
+     RowBox[{"0.3", " ", "*", " ", "0.5"}], " ", "=", " ", "0.15"}]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"e5ce946e-4668-41c0-952b-5f39792d0b4e"],
+ StyleBox["\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "middle"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"fccdb397-abe0-4ef0-b475-5ae993576377"],
+ StyleBox[" 0.3 * 0.3 = 0.09\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "top"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"527a9262-8b19-4458-9e50-383ea2660ea7"],
+ StyleBox[" 0.3 * 0.2 = 0.06\n\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "top", " ", "2", "bottom"}]], "=", 
+    RowBox[{
+     RowBox[{"0.2", " ", "*", " ", "0.5"}], " ", "=", " ", "0.10"}]}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"50d5a329-54d4-44d5-b300-30f4fcd67eab"],
+ StyleBox["\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "top", " ", "2", "middle"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"dbaa5d6b-384f-4c9f-bbfc-a82913a57479"],
+ StyleBox[" 0.2 * 0.3 = 0.06\n",
+  FontSize->10],
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "top", " ", "2", "top"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,
+  FontSize->10,ExpressionUUID->"a7709760-9a64-4a97-9cbb-49a7b5973688"],
+ StyleBox[" 0.2 * 0.2 = 0.04\n\nNow we add one more ingredient to start to \
+mock up condensation. We make it a little more probable that the atoms want \
+to be in the same region of the cylinder. In other words, we boost the \
+probabilities of bottom-bottom, middle-middle, and top-top a little. Of \
+course, to keep all the probabilities adding up to 1.00, we have to reduce \
+the others a little.\n=== END FINE PRINT ===\n\n",
+  FontSize->10],
+ StyleBox["Whether or not you skipped the fine print, here are the 3x3=9 \
+probabilities:\n",
+  FontSize->14],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "bottom"}]], "=", "0.35"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e8b4f565-c9c5-4168-a70a-7449fd9ce144"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "middle"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "05762ea0-a870-429b-b0b5-062a21377099"],
+ " 0.10\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "bottom", " ", "2", "top"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "b87bb744-2c34-4777-b771-0c2f4c38240a"],
+ " 0.05\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "bottom"}]], "=", " ", "0.10"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "2b2d8b94-cfff-4fed-8d39-d18e0089367d"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "middle"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "1507cc7c-0528-462b-b695-fa3013b8df65"],
+ " 0.15\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "top"}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "6e4b4d64-8369-4a8d-a8ca-c322bf9b995c"],
+ " 0.05\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{"1", "top", " ", "2", "bottom"}]], "=", " ", "0.05"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a2a8c699-f90c-4853-b895-9f62c5cd06c1"],
+ "\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"1", "top", " ", "2", "middle"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "e4119ad8-1e68-4700-b27d-df7d277c9d27"],
+ " = 0.05\n",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"1", "top", " ", "2", "top"}]], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "6bebb462-9462-480a-a687-33248808bb63"],
+ " = 0.10\n\nNow we\[CloseCurlyQuote]ll start computing conditional \
+probabilities. Let\[CloseCurlyQuote]s say you are at a step in the algorithm \
+where atom 1 and atom 2 are both in the middle state. Let\[CloseCurlyQuote]s \
+say you are moving atom 2 only. So atom 1 remains in middle. Write down the \
+three conditional probabilities for the movement of atom 2:\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "middle", " ", "2", "bottom"}], " ", "|", 
+      RowBox[{"1", "middle"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5a457aba-7ad7-4286-8f05-30cdfa706630"],
+ "\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "middle", " ", "2", "middle"}], " ", "|", 
+      RowBox[{"1", "middle"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "cf4a1f1d-b315-46ab-b61f-bfb6d79b9dd0"],
+ "\n\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "middle", " ", "2", "top"}], " ", "|", 
+      RowBox[{"1", "middle"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "94ba3234-bcee-471c-ac3b-4cbef27b5b95"],
+ "\n\n\nHINT: Stuck on what to write down? You know the first conditional \
+probability above has to somehow be proportional to ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["p", 
+    RowBox[{"1", "middle", " ", "2", "bottom"}]], TraditionalForm]],
+  ExpressionUUID->"22ed120a-c6da-4b21-8e1e-d288f122aa46"],
+ ", so it must look like\n\n",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "bottom"}]], 
+    RowBox[{" ", "denominator"}]], TraditionalForm]],ExpressionUUID->
+  "c4c1257b-9a51-440b-9913-b5a2372c3efb"],
+ "\n\nSimilarly, the second one must look like\n\n",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "middle"}]], 
+    RowBox[{" ", "denominator"}]], TraditionalForm]],ExpressionUUID->
+  "b21c5697-2293-4bea-9779-d8a4aedb0ef4"],
+ "\n\nAnd the third one must look like\n\n",
+ Cell[BoxData[
+  FormBox[
+   FractionBox[
+    SubscriptBox["p", 
+     RowBox[{"1", "middle", " ", "2", "top"}]], 
+    RowBox[{" ", "denominator"}]], TraditionalForm]],ExpressionUUID->
+  "13519f80-8ff6-4e2e-a939-ab955b8daa06"],
+ "\n\nFinally, the denominator has to be such that all three of these \
+conditional probabilities add up to 1.00."
+}], "Text",
+ CellChangeTimes->{{3.9430793507068453`*^9, 3.943079489474173*^9}, {
+   3.943079522131374*^9, 3.9430799004582663`*^9}, {3.943079933190186*^9, 
+   3.9430799400323677`*^9}, {3.943079970375231*^9, 3.9430805284986277`*^9}, {
+   3.943080572672945*^9, 3.94308061831896*^9}, {3.943080678952776*^9, 
+   3.943080682598681*^9}, {3.943080785621202*^9, 3.9430808128133717`*^9}, {
+   3.9430809055185537`*^9, 3.943080931122817*^9}, {3.9430809686098957`*^9, 
+   3.9430813080859756`*^9}, 3.943081346068761*^9, {3.943081409562769*^9, 
+   3.943081490237919*^9}, {3.9430815247566833`*^9, 3.943081624506624*^9}, {
+   3.943081698580741*^9, 3.943081833489801*^9}, {3.9430850075126143`*^9, 
+   3.94308513205995*^9}, {3.943085199227942*^9, 3.943085239210235*^9}, {
+   3.943085336109082*^9, 3.943085345795063*^9}, {3.943085412532426*^9, 
+   3.943085429107024*^9}, {3.943085477935335*^9, 
+   3.943085539358336*^9}},ExpressionUUID->"a0ecb5e7-7c5e-483f-ae7a-\
+d3935c22d0e8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["7. Two-Dimensional Gibbs Sampling \[LongDash] Proposed Move", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IDph/V+Tk0BajWeNGYiemiS87gqQjjB9
+A6b/CLhvBdEGMRPB9BqZ5ncgesr+LjANAMmPxII=
+  "],ExpressionUUID->"fe444103-b29e-4604-815f-06e25a1c2b0a"],
+
+Cell["\<\
+Now you draw a number between 0 and 1 to decide which of the three moves you \
+make.
+
+NOTE: I am going to put the ranges for Problem 7 on the blackboard.
+
+Let\[CloseCurlyQuote]s say the number is 0.80. What is the proposed move:
+
+_______________________________\
+\>", "Text",
+ CellChangeTimes->{{3.943081875344372*^9, 3.943081988221732*^9}, {
+  3.943085467073106*^9, 3.9430854697703753`*^9}, {3.9430856454587507`*^9, 
+  3.943085658072295*^9}},ExpressionUUID->"60a2b01c-4ade-4f3a-b7d8-\
+bb0e3e79ff0b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["8. Gibbs Sampling \[LongDash] More Conditional Probabilities", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQA2IQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IDph/V+Tk0BajWeNGYiemiS87gqQjjB9
+A6YTXeRZrgLpZapXWEE0ALjeuU0=
+  "],ExpressionUUID->"e2b8f88a-1c13-46de-9804-47d971126695"],
+
+Cell[TextData[{
+ "In Gibbs sampling, you always accept the proposed move. (And we proved that \
+that works!). So now the algorithm is in the state you found in Problem 7. \
+Now we move along the other axis. That means we move atom 1 only and 2 is \
+fixed. What are the three conditional probabilities for atom 1:\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "bottom", " ", "2", "top"}], " ", "|", 
+      RowBox[{"2", "top"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a39ba7dc-4219-4cbc-b601-eda6e9a86507"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "middle", " ", "2", "top"}], " ", "|", 
+      RowBox[{"2", "top"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a537128c-119a-414e-ac4f-1dea8c89b2ba"],
+ "\n\n",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["p", 
+     RowBox[{
+      RowBox[{"1", "top", " ", "2", "top"}], " ", "|", 
+      RowBox[{"2", "top"}]}]], "="}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "63f84ecc-c80e-474b-afe6-e357e26df21c"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.943082052339594*^9, 3.943082248948921*^9}, {
+  3.943082280615323*^9, 
+  3.9430823056347923`*^9}},ExpressionUUID->"0d6bf892-bafb-4cf0-9197-\
+01313cbff2de"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["9. Gibbs Sampling \[LongDash] Another Proposed Move", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAGIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IDph/V+Tk0BajWeNGYiemiS87gqQjjB9
+A6b/CLhvBdEGMRPB9BqZ5ncgesr+LjDNn/hP4yqQbimt1ALRAFW2zHs=
+  "],ExpressionUUID->"ef3bcd6f-fb7e-437a-9d95-6508cef8e2cc"],
+
+Cell["\<\
+Now you draw another number between 0 and 1 to decide which of the three \
+moves you make.
+
+NOTE: I will also put the ranges for Problem 9 on the blackboard.
+
+Let\[CloseCurlyQuote]s say the number is 0.30. What is the proposed move:
+
+_______________________________\
+\>", "Text",
+ CellChangeTimes->{{3.943081875344372*^9, 3.943081988221732*^9}, {
+  3.943082330672552*^9, 3.943082338142034*^9}, {3.943082422859488*^9, 
+  3.943082425142769*^9}, {3.943085668681219*^9, 
+  3.94308569766187*^9}},ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-\
+226291dc8b70"],
+
+Cell["", "PageBreak",
+ PageBreakBelow->True,ExpressionUUID->"0d4f8495-cc3d-43b6-b1f4-b2d60d60b61a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[StyleBox["Name ______________________________________", \
+"Chapter",
+ FontSize->24]], "Chapter",
+ CellChangeTimes->{{3.936148194104086*^9, 3.936148350712482*^9}, {
+   3.936174890877651*^9, 3.936174894475812*^9}, {3.936177212169316*^9, 
+   3.936177212529963*^9}, {3.9361772933966227`*^9, 3.936177369181458*^9}, {
+   3.936177404447695*^9, 3.936177406216123*^9}, {3.9361776495032787`*^9, 
+   3.9361776841251717`*^9}, {3.940409710561248*^9, 3.940409718630231*^9}, {
+   3.940409764339704*^9, 3.940409764895508*^9}, {3.943055384752245*^9, 
+   3.943055385549089*^9}, 
+   3.943082383741487*^9},ExpressionUUID->"7ac95294-3f1d-47f2-9756-\
+664291cf695b"],
+
+Cell[TextData[StyleBox["1.              / 3\n2.              / 3\n3.          \
+    / 4\n4.              / 5\n5.              / 3\n6.              / 3\n7.    \
+          / 4\n8.              / 5\n9.              / 3\n\nTOTAL          / \
+15",
  FontSize->24]], "Text",
  CellChangeTimes->{{3.936148194104086*^9, 3.936148350712482*^9}, {
   3.936174890877651*^9, 3.936174894475812*^9}, {3.936177212169316*^9, 
@@ -1285,13 +2294,13 @@ Cell[TextData[StyleBox["Name ______________________________________\n\n1.     \
   3.936177404447695*^9, 3.936177406216123*^9}, {3.9361776495032787`*^9, 
   3.9361776841251717`*^9}, {3.940409710561248*^9, 3.940409718630231*^9}, {
   3.940409764339704*^9, 3.940409764895508*^9}, {3.943055384752245*^9, 
-  3.943055385549089*^9}},ExpressionUUID->"b166be5d-083a-404c-bb6d-\
-a03d321dbaa8"]
-}, Open  ]]
+  3.943055385549089*^9}, {3.943085563632215*^9, 
+  3.9430855915889463`*^9}},ExpressionUUID->"ee662017-2509-4285-b8bb-\
+c70891435b2f"]
 }, Open  ]]
 },
 WindowSize->{1371, 1250},
-WindowMargins->{{272, Automatic}, {Automatic, 14}},
+WindowMargins->{{Automatic, 490}, {Automatic, 0}},
 PrintingCopies->1,
 PrintingPageRange->{1, Automatic},
 Magnification:>1.5 Inherited,
@@ -1314,23 +2323,56 @@ Cell[CellGroupData[{
 Cell[580, 22, 315, 5, 103, "Chapter",ExpressionUUID->"bc135800-0174-424d-8d74-603c06ce67d9"],
 Cell[898, 29, 329, 7, 79, "Subtitle",ExpressionUUID->"cf9e9b37-592d-4cb4-9e81-ce3b6af0b74d"],
 Cell[CellGroupData[{
-Cell[1252, 40, 946, 15, 101, "Section",ExpressionUUID->"c5a4c470-0c03-40f9-8206-4ddfd6fc1b6e"],
-Cell[2201, 57, 6071, 130, 846, "Text",ExpressionUUID->"b74b957a-f161-4794-9209-1c647ec53fd4"],
+Cell[1252, 40, 974, 14, 101, "Section",ExpressionUUID->"c5a4c470-0c03-40f9-8206-4ddfd6fc1b6e"],
+Cell[2229, 56, 6716, 149, 1223, "Text",ExpressionUUID->"b74b957a-f161-4794-9209-1c647ec53fd4"],
 Cell[CellGroupData[{
-Cell[8297, 191, 1230, 36, 143, "Input",ExpressionUUID->"3dea841a-fd8d-4bbf-a2a3-f77832785d16"],
-Cell[9530, 229, 46696, 811, 370, "Output",ExpressionUUID->"919354e8-d1b9-44cb-882a-7043a379bb47"]
+Cell[8970, 209, 1245, 37, 97, "Input",ExpressionUUID->"3dea841a-fd8d-4bbf-a2a3-f77832785d16"],
+Cell[10218, 248, 46765, 812, 502, "Output",ExpressionUUID->"3464f170-d8e8-445e-a32d-80d34f583bcd"]
 }, Open  ]],
-Cell[56241, 1043, 1104, 27, 338, "Text",ExpressionUUID->"49cab225-2736-4fef-a565-375f830c513c"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[57382, 1075, 1000, 14, 101, "Section",ExpressionUUID->"f036279e-88a6-43b5-bb2b-4ca1f26962e2"],
-Cell[58385, 1091, 3885, 79, 449, "Text",ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-8f248e26c0d8"]
+Cell[56998, 1063, 2059, 43, 1023, "Text",ExpressionUUID->"49cab225-2736-4fef-a565-375f830c513c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[62307, 1175, 490, 8, 101, "Section",ExpressionUUID->"b811d3b3-eaee-4072-affb-4bd135a22859"],
-Cell[62800, 1185, 4458, 90, 924, "Text",ExpressionUUID->"ad154699-3703-469d-9c23-ea321ae673b2"],
-Cell[67261, 1277, 722, 11, 423, "Text",ExpressionUUID->"b166be5d-083a-404c-bb6d-a03d321dbaa8"]
+Cell[59094, 1111, 1000, 14, 101, "Section",ExpressionUUID->"f036279e-88a6-43b5-bb2b-4ca1f26962e2"],
+Cell[60097, 1127, 4704, 103, 710, "Text",ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-8f248e26c0d8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64838, 1235, 490, 8, 101, "Section",ExpressionUUID->"b811d3b3-eaee-4072-affb-4bd135a22859"],
+Cell[65331, 1245, 5503, 106, 1242, "Text",ExpressionUUID->"ad154699-3703-469d-9c23-ea321ae673b2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70871, 1356, 503, 8, 101, "Section",ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
+Cell[71377, 1366, 8724, 235, 1774, "Text",ExpressionUUID->"f8f67048-0db0-42bf-a1be-453173785631"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80138, 1606, 509, 8, 101, "Section",ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
+Cell[80650, 1616, 1383, 22, 295, "Text",ExpressionUUID->"9d2332fc-0645-4264-895d-919ed95243e6"],
+Cell[CellGroupData[{
+Cell[82058, 1642, 3428, 72, 120, "Input",ExpressionUUID->"03ed8239-d02b-4fc7-b2f8-8c5f619067cb"],
+Cell[85489, 1716, 4424, 116, 330, "Output",ExpressionUUID->"699b4447-459e-4062-b396-6cf986b4c6db"]
 }, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[89962, 1838, 1202, 17, 101, "Section",ExpressionUUID->"c487a5e8-cfa2-4c24-b64c-ce79bb084c3a"],
+Cell[91167, 1857, 10595, 292, 2293, "Text",ExpressionUUID->"a0ecb5e7-7c5e-483f-ae7a-d3935c22d0e8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101799, 2154, 583, 9, 101, "Section",ExpressionUUID->"fe444103-b29e-4604-815f-06e25a1c2b0a"],
+Cell[102385, 2165, 510, 13, 260, "Text",ExpressionUUID->"60a2b01c-4ade-4f3a-b7d8-bb0e3e79ff0b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[102932, 2183, 572, 9, 101, "Section",ExpressionUUID->"e2b8f88a-1c13-46de-9804-47d971126695"],
+Cell[103507, 2194, 1371, 39, 359, "Text",ExpressionUUID->"0d6bf892-bafb-4cf0-9197-01313cbff2de"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[104915, 2238, 591, 9, 101, "Section",ExpressionUUID->"ef3bcd6f-fb7e-437a-9d95-6508cef8e2cc"],
+Cell[105509, 2249, 558, 14, 260, "Text",ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-226291dc8b70"],
+Cell[106070, 2265, 99, 1, 6, "PageBreak",ExpressionUUID->"0d4f8495-cc3d-43b6-b1f4-b2d60d60b61a",
+ PageBreakBelow->True]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[106218, 2272, 657, 11, 84, "Chapter",ExpressionUUID->"7ac95294-3f1d-47f2-9756-664291cf695b"],
+Cell[106878, 2285, 833, 13, 574, "Text",ExpressionUUID->"ee662017-2509-4285-b8bb-c70891435b2f"]
 }, Open  ]]
 }
 ]
