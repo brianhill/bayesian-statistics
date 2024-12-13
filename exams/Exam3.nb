@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    111101,       2352]
-NotebookOptionsPosition[    107686,       2283]
-NotebookOutlinePosition[    108169,       2302]
-CellTagsIndexPosition[    108126,       2299]
+NotebookDataLength[    111196,       2354]
+NotebookOptionsPosition[    107781,       2285]
+NotebookOutlinePosition[    108264,       2304]
+CellTagsIndexPosition[    108221,       2301]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1066,7 +1066,7 @@ Cell[TextData[{
 compute the area of the region you have shaded in.\n\n\nwidth = \n\n\n\
 estimate of average height = \n\n\narea =\n\n\nE. Convert your answer to D \
 into an estimate of the percentage of players that make 3-pointers between \
-16% and 34% of the time.\n\n\n\nF. To finish off your analysis of the prior, \
+16% and 44% of the time.\n\n\n\nF. To finish off your analysis of the prior, \
 write it out with the \[Alpha] and \[Beta] you have chosen (I\
 \[CloseCurlyQuote]m just asking you to plug in and simplify as much as you \
 can, and I know you aren\[CloseCurlyQuote]t going to be able to do anything \
@@ -1103,8 +1103,9 @@ again:\n\n\n",
   3.943082624846406*^9, 3.943082653209036*^9}, {3.94308269363868*^9, 
   3.943082764867259*^9}, {3.943083870913816*^9, 3.9430839448098993`*^9}, {
   3.943083977571031*^9, 3.943083980703184*^9}, {3.943084169836524*^9, 
-  3.943084200342232*^9}, {3.9430885091332493`*^9, 
-  3.9430885384609823`*^9}},ExpressionUUID->"49cab225-2736-4fef-a565-\
+  3.943084200342232*^9}, {3.943088509133249*^9, 3.943088538460983*^9}, {
+  3.943103709858378*^9, 
+  3.94310371101654*^9}},ExpressionUUID->"49cab225-2736-4fef-a565-\
 375f830c513c"]
 }, Open  ]],
 
@@ -2231,8 +2232,8 @@ Now you draw another number between 0 and 1 to decide which of the three \
 moves you make.
 
 If 0.00-0.25 go to 1 bottom 2 top.
-If 0.26-0.75 go to 1 middle 2 top.
-If 0.76-1.00 go to 1 top 2 top.
+If 0.26-0.50 go to 1 middle 2 top.
+If 0.51-1.00 go to 1 top 2 top.
 
 Let\[CloseCurlyQuote]s say the number is 0.30. What is the proposed move:
 
@@ -2242,7 +2243,8 @@ _________________________________________\
   3.943082330672552*^9, 3.943082338142034*^9}, {3.943082422859488*^9, 
   3.943082425142769*^9}, {3.943085668681219*^9, 3.94308569766187*^9}, {
   3.9430891544198923`*^9, 3.943089213802848*^9}, {3.943089273297657*^9, 
-  3.943089274766979*^9}},ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-\
+  3.943089274766979*^9}, {3.943103726923294*^9, 
+  3.9431037302192087`*^9}},ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-\
 226291dc8b70"]
 }, Open  ]]
 }, Open  ]],
@@ -2311,48 +2313,48 @@ Cell[CellGroupData[{
 Cell[8970, 209, 1245, 37, 97, "Input",ExpressionUUID->"3dea841a-fd8d-4bbf-a2a3-f77832785d16"],
 Cell[10218, 248, 46763, 812, 502, "Output",ExpressionUUID->"3464f170-d8e8-445e-a32d-80d34f583bcd"]
 }, Open  ]],
-Cell[56996, 1063, 2117, 44, 1023, "Text",ExpressionUUID->"49cab225-2736-4fef-a565-375f830c513c"]
+Cell[56996, 1063, 2161, 45, 1023, "Text",ExpressionUUID->"49cab225-2736-4fef-a565-375f830c513c"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[59150, 1112, 1000, 14, 101, "Section",ExpressionUUID->"f036279e-88a6-43b5-bb2b-4ca1f26962e2"],
-Cell[60153, 1128, 4757, 105, 710, "Text",ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-8f248e26c0d8"]
+Cell[59194, 1113, 1000, 14, 101, "Section",ExpressionUUID->"f036279e-88a6-43b5-bb2b-4ca1f26962e2"],
+Cell[60197, 1129, 4757, 105, 710, "Text",ExpressionUUID->"263a0d6b-a0ec-4a5a-a3d3-8f248e26c0d8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[64947, 1238, 490, 8, 101, "Section",ExpressionUUID->"b811d3b3-eaee-4072-affb-4bd135a22859"],
-Cell[65440, 1248, 5503, 106, 1242, "Text",ExpressionUUID->"ad154699-3703-469d-9c23-ea321ae673b2"]
+Cell[64991, 1239, 490, 8, 101, "Section",ExpressionUUID->"b811d3b3-eaee-4072-affb-4bd135a22859"],
+Cell[65484, 1249, 5503, 106, 1242, "Text",ExpressionUUID->"ad154699-3703-469d-9c23-ea321ae673b2"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[70980, 1359, 503, 8, 101, "Section",ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
-Cell[71486, 1369, 8356, 224, 1774, "Text",ExpressionUUID->"f8f67048-0db0-42bf-a1be-453173785631"]
+Cell[71024, 1360, 503, 8, 101, "Section",ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
+Cell[71530, 1370, 8356, 224, 1774, "Text",ExpressionUUID->"f8f67048-0db0-42bf-a1be-453173785631"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[79879, 1598, 509, 8, 101, "Section",ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
-Cell[80391, 1608, 1694, 32, 295, "Text",ExpressionUUID->"9d2332fc-0645-4264-895d-919ed95243e6"],
+Cell[79923, 1599, 509, 8, 101, "Section",ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
+Cell[80435, 1609, 1694, 32, 295, "Text",ExpressionUUID->"9d2332fc-0645-4264-895d-919ed95243e6"],
 Cell[CellGroupData[{
-Cell[82110, 1644, 3428, 72, 120, "Input",ExpressionUUID->"03ed8239-d02b-4fc7-b2f8-8c5f619067cb"],
-Cell[85541, 1718, 4424, 116, 330, "Output",ExpressionUUID->"699b4447-459e-4062-b396-6cf986b4c6db"]
+Cell[82154, 1645, 3428, 72, 120, "Input",ExpressionUUID->"03ed8239-d02b-4fc7-b2f8-8c5f619067cb"],
+Cell[85585, 1719, 4424, 116, 330, "Output",ExpressionUUID->"699b4447-459e-4062-b396-6cf986b4c6db"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[90014, 1840, 1202, 17, 101, "Section",ExpressionUUID->"c487a5e8-cfa2-4c24-b64c-ce79bb084c3a"],
-Cell[91219, 1859, 10000, 267, 2672, "Text",ExpressionUUID->"a0ecb5e7-7c5e-483f-ae7a-d3935c22d0e8"]
+Cell[90058, 1841, 1202, 17, 101, "Section",ExpressionUUID->"c487a5e8-cfa2-4c24-b64c-ce79bb084c3a"],
+Cell[91263, 1860, 10000, 267, 2672, "Text",ExpressionUUID->"a0ecb5e7-7c5e-483f-ae7a-d3935c22d0e8"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[101256, 2131, 583, 9, 101, "Section",ExpressionUUID->"fe444103-b29e-4604-815f-06e25a1c2b0a"],
-Cell[101842, 2142, 602, 16, 329, "Text",ExpressionUUID->"60a2b01c-4ade-4f3a-b7d8-bb0e3e79ff0b"]
+Cell[101300, 2132, 583, 9, 101, "Section",ExpressionUUID->"fe444103-b29e-4604-815f-06e25a1c2b0a"],
+Cell[101886, 2143, 602, 16, 329, "Text",ExpressionUUID->"60a2b01c-4ade-4f3a-b7d8-bb0e3e79ff0b"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[102481, 2163, 572, 9, 101, "Section",ExpressionUUID->"e2b8f88a-1c13-46de-9804-47d971126695"],
-Cell[103056, 2174, 1464, 38, 394, "Text",ExpressionUUID->"0d6bf892-bafb-4cf0-9197-01313cbff2de"]
+Cell[102525, 2164, 572, 9, 101, "Section",ExpressionUUID->"e2b8f88a-1c13-46de-9804-47d971126695"],
+Cell[103100, 2175, 1464, 38, 394, "Text",ExpressionUUID->"0d6bf892-bafb-4cf0-9197-01313cbff2de"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[104557, 2217, 591, 9, 101, "Section",ExpressionUUID->"ef3bcd6f-fb7e-437a-9d95-6508cef8e2cc"],
-Cell[105151, 2228, 701, 17, 329, "Text",ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-226291dc8b70"]
+Cell[104601, 2218, 591, 9, 101, "Section",ExpressionUUID->"ef3bcd6f-fb7e-437a-9d95-6508cef8e2cc"],
+Cell[105195, 2229, 752, 18, 329, "Text",ExpressionUUID->"364e14c9-1aee-4ba7-b5d4-226291dc8b70"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[105901, 2251, 657, 11, 84, "Chapter",ExpressionUUID->"7ac95294-3f1d-47f2-9756-664291cf695b"],
-Cell[106561, 2264, 1109, 16, 978, "Text",ExpressionUUID->"ee662017-2509-4285-b8bb-c70891435b2f"]
+Cell[105996, 2253, 657, 11, 84, "Chapter",ExpressionUUID->"7ac95294-3f1d-47f2-9756-664291cf695b"],
+Cell[106656, 2266, 1109, 16, 978, "Text",ExpressionUUID->"ee662017-2509-4285-b8bb-c70891435b2f"]
 }, Open  ]]
 }
 ]
