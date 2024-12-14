@@ -1,0 +1,801 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     30260,        793]
+NotebookOptionsPosition[     28327,        749]
+NotebookOutlinePosition[     28810,        768]
+CellTagsIndexPosition[     28767,        765]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The Four Solutions to Problem 5", "Chapter",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBWIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IHqKXcZRtsS3jh4LtY6D6FMyIYrsQPqO
+9k4lEA0AMTyu4Q==
+  "],ExpressionUUID->"96d1dcba-90fa-4779-bc84-5a17f1599c0f"],
+
+Cell[CellGroupData[{
+
+Cell["4. Metropolis-Hastings Acceptance Ratios", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IBoAHlqhcw==
+  "],ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
+
+Cell[TextData[{
+ "accepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q1", "->", 
+    RowBox[{"Q2", ":", "1"}]}], TraditionalForm]],ExpressionUUID->
+  "9dcb5d38-0d18-486e-b282-458e895ed2f8"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q2", "->", 
+    RowBox[{"Q1", ":", "1"}]}], TraditionalForm]],ExpressionUUID->
+  "cd144023-cda8-4f79-84e0-c683787b4087"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q2", "->", 
+    RowBox[{"Q3", ":", "1"}]}], TraditionalForm]],ExpressionUUID->
+  "a8c82751-a008-4961-83ad-fe0c352895c0"],
+ "\n",
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "accepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"Q3", "->", 
+     RowBox[{"Q2", ":", 
+      FractionBox["1", "2"]}]}], "=", "0.50"}], TraditionalForm]],
+  ExpressionUUID->"fd066bcb-e535-45fa-b776-a31ce2e3ac94"],
+ "\naccepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"Q3", "->", 
+    RowBox[{"Q4", ":", "1"}]}], TraditionalForm]],ExpressionUUID->
+  "02c3d1f9-2555-46bf-8491-b14e266fa2f6"],
+ "\n",
+ StyleBox[" ",
+  FontSize->9,
+  FontWeight->"Regular"],
+ "accepting ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"Q4", "->", " ", 
+     RowBox[{"Q3", ":", 
+      FractionBox["2", "3"]}]}], "=", 
+    RowBox[{
+     RowBox[{"0.67", " ", "or", " ", "0.667", " ", "or"}], " ", "..."}]}], 
+   TraditionalForm]],ExpressionUUID->"ae332b3e-fc95-46c6-9f5f-0edb0ef793a9"]
+}], "Text",
+ CellChangeTimes->{{3.9392546018016863`*^9, 3.939254732194409*^9}, {
+   3.939254778610716*^9, 3.939255266840878*^9}, {3.93925641292956*^9, 
+   3.939256441490473*^9}, {3.9392565107640533`*^9, 3.939256599417603*^9}, {
+   3.9392568453492947`*^9, 3.939256848483842*^9}, {3.9392569072713737`*^9, 
+   3.939256944306962*^9}, {3.9392826462999353`*^9, 3.939282646522686*^9}, {
+   3.939283657907221*^9, 3.939283742765835*^9}, {3.939283797408921*^9, 
+   3.9392838105827303`*^9}, {3.939285528154049*^9, 3.939285536642383*^9}, {
+   3.939577090909224*^9, 3.939577221342401*^9}, {3.9395773282087383`*^9, 
+   3.939577439662232*^9}, {3.939577470567609*^9, 3.9395774713167453`*^9}, {
+   3.939578516138102*^9, 3.93957851619368*^9}, {3.939578747388451*^9, 
+   3.939578767755314*^9}, {3.939596248344418*^9, 3.939596258466804*^9}, {
+   3.939596295713986*^9, 3.939596375814836*^9}, {3.940402869096348*^9, 
+   3.94040291336678*^9}, {3.940403056396578*^9, 3.940403416964629*^9}, {
+   3.940403524970462*^9, 3.940403536484364*^9}, {3.940403587488524*^9, 
+   3.940403807123054*^9}, {3.9404038377292433`*^9, 3.940403922254443*^9}, {
+   3.940404214082915*^9, 3.940404215907359*^9}, {3.940404324005643*^9, 
+   3.94040432405834*^9}, {3.94040467427392*^9, 3.940404691615019*^9}, {
+   3.940404744777527*^9, 3.940404772871648*^9}, {3.940404979704955*^9, 
+   3.940404980035733*^9}, 3.940405084004306*^9, {3.94040677740095*^9, 
+   3.94040677983264*^9}, {3.940406813268916*^9, 3.940406831706234*^9}, {
+   3.940406905373376*^9, 3.940406905473065*^9}, {3.94040938077527*^9, 
+   3.940409411885313*^9}, {3.940409463312434*^9, 3.940409511225806*^9}, {
+   3.943051771462235*^9, 3.943051828714365*^9}, {3.943052053800098*^9, 
+   3.943052154557892*^9}, {3.943052194191328*^9, 3.943052591251761*^9}, {
+   3.94305272225281*^9, 3.943052844684183*^9}, {3.9430528793061943`*^9, 
+   3.943052969729041*^9}, {3.94305300258103*^9, 3.943053192784818*^9}, {
+   3.9430533510898*^9, 3.943053493247242*^9}, {3.943054509514513*^9, 
+   3.943054753813945*^9}, {3.943055011339154*^9, 3.9430550382386703`*^9}, {
+   3.943055069772599*^9, 3.9430550861087303`*^9}, {3.943056088224757*^9, 
+   3.94305627267948*^9}, {3.943056314648457*^9, 3.943056780323151*^9}, {
+   3.943056938420897*^9, 3.94305702539111*^9}, {3.9430571136006737`*^9, 
+   3.943057142106838*^9}, {3.943057173453925*^9, 3.943057281253947*^9}, {
+   3.943057332901869*^9, 3.943057343866685*^9}, {3.943057394482027*^9, 
+   3.943057409971827*^9}, {3.943083513312124*^9, 3.9430835160832376`*^9}, {
+   3.9430844502927*^9, 3.9430844946338167`*^9}, {3.943084529916091*^9, 
+   3.9430845399340677`*^9}, {3.94308473364049*^9, 3.943084745368559*^9}, {
+   3.9431837548193483`*^9, 3.9431838689705143`*^9}, 
+   3.9431839446096373`*^9},ExpressionUUID->"f8f67048-0db0-42bf-a1be-\
+453173785631"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["5. Metropolis-Hastings Applied", "Section",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQAWIQfXJCgcrM4LeOd7emqoJovWN7vVYAafblCt4gurXq
+XjCI9nd4CKa/PbQTmx391rHk3U0wvd4lTmw+kNbQSQTT3Vs+9awB0jIc8yaA
+aPe5cptBdKLLmy0gWs0pNWwtkGb1z4gA0RkbG2NA9C6VSYkgOuvth7h1QJpn
+g1c8iK7537VgB5B2yCxZDKL3/LIRPZYAVM/qLwmiL23/aQuin07vsgPRDjHe
+XSA6TiEATGcU/78KolUSV98A0W+ikqYfB9Lzfk2cCaIFCz9bnADSV0x+gWm9
+fd4RIPrAz22RIHq+/K8/IFrg7LK/IPoXtz7TSSB9a0oVC4gGAHebqUQ=
+  "],ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
+
+Cell[TextData[{
+ StyleBox["TO EMPHASIZE THAT SOME COIN FLIPS ARE IGNORABLE",
+  FontWeight->"Bold"],
+ ", I x\[CloseCurlyQuote]d out the ignorable ones below.\n",
+ StyleBox["SO WE ALL HAVE THE SAME INTERPRETATION",
+  FontWeight->"Bold"],
+ ", a 0 in the coin column means propose to go left, and a 1 means propose to \
+go right (a decision is only needed when the current bin is bin 2 or 3)\n",
+ StyleBox["TO RANDOMLY DECIDE THE STARTING BIN:",
+  FontWeight->"Bold"],
+ "\nName has 5 letters: ",
+ StyleBox["Round 1 has starting bin ",
+  FontWeight->"Bold"],
+ StyleBox["1",
+  FontSize->24,
+  FontWeight->"Bold"],
+ " (Jacob, Rania, Sasha)\nName has 6 letters: ",
+ StyleBox["Round 1 has starting bin ",
+  FontWeight->"Bold"],
+ StyleBox["2",
+  FontSize->24,
+  FontWeight->"Bold"],
+ " (Jeremy)\nName has 3 letters or 7 letters: ",
+ StyleBox["Round 1 has starting bin ",
+  FontWeight->"Bold"],
+ StyleBox["3",
+  FontSize->24,
+  FontWeight->"Bold"],
+ " (Ada, Ren, Rebecca)\nName has 4 letters: ",
+ StyleBox["Round 1 has starting bin ",
+  FontWeight->"Bold"],
+ StyleBox["4",
+  FontSize->24,
+  FontWeight->"Bold"],
+ " (Ruby, Tahm)"
+}], "Text",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGCQAGIQbbY3nfNkwltH5X2lIiD6w9eORZeB9Na6vctB9BrL
+b4uvAmmVax0rQHTBm6x1ILp04bENIFo+XXYriN7DVbQLRHcuC3e9BqRjXi7x
+ANFWn54EgOirbFGBIPom28xoEF3j2pAAohd6yaeDaNONFmA6rnJLNohefoC1
+BEQvPl3ldQNIfyp1CwTRX+5ODgPREncVw0F02h6mqSD6tZvwNBB9fH7LGbbE
+t45PZHgvgej+WQ+vgeiksmlPQHTZ7DMvQLTLX81XIHqdy+y/IPqbKwMnO5Dm
+fifMC6I1pBLBtA7fc3EQfepqrSyIVle8oQKilT481ADR7XGSeiC62FsDTLsc
+fm8Mordf5DMB0Ta/V/qCzRMvCgTRq56vigXRTLycCSAaANizvds=
+  "],ExpressionUUID->"9d2332fc-0645-4264-895d-919ed95243e6"],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Starting Bin ",
+ StyleBox["1",
+  FontSize->24,
+  FontWeight->"Bold"]
+}], "Subsection",
+ CellChangeTimes->{{3.943184298687211*^9, 3.943184306918538*^9}, {
+  3.943184505930367*^9, 
+  3.943184507930312*^9}},ExpressionUUID->"7030eb1d-2924-4a41-8135-\
+3cf4e1777b15"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"round\"\>",
+       HoldForm], 
+      TagBox["\<\"current bin\"\>",
+       HoldForm], 
+      TagBox["\<\"coin\"\>",
+       HoldForm], 
+      TagBox["\<\"proposed bin\"\>",
+       HoldForm], 
+      TagBox["\<\"random\"\>",
+       HoldForm], 
+      TagBox["\<\"result bin\"\>",
+       HoldForm]},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "1", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.26`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "2", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.62`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "3", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.07`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "4", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.66`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "5", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.52`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "6", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.96`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "7", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.9500000000000001`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "8", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.54`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "9", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.02`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "10", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.76`", "\<\"                  \"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{}, {
+      "round", "current bin", "coin", "proposed bin", "random", 
+       "result bin"}}]]]], "Output",
+ CellChangeTimes->{{3.9422540667857513`*^9, 3.942254095441394*^9}, 
+   3.942256407872623*^9, 3.942256484907275*^9, 3.942256553045278*^9, 
+   3.942257032111906*^9, 3.942257229300723*^9, 3.942272004590815*^9, {
+   3.9422724865354137`*^9, 3.942272497584023*^9}, 3.942272544572051*^9, 
+   3.942272595404295*^9, {3.942272636365185*^9, 3.942272642078851*^9}, 
+   3.942272702832788*^9, 3.943057602440906*^9, {3.943057738055423*^9, 
+   3.943057753559287*^9}, 3.943084665619733*^9},
+ CellLabel->
+  "Out[33]//TableForm=",ExpressionUUID->"699b4447-459e-4062-b396-\
+6cf986b4c6db"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Starting Bin ",
+ StyleBox["2",
+  FontSize->24,
+  FontWeight->"Bold"]
+}], "Subsection",
+ CellChangeTimes->{{3.943184298687211*^9, 3.943184322188756*^9}, {
+  3.943184511796036*^9, 
+  3.9431845140596523`*^9}},ExpressionUUID->"c2762489-d6cd-439c-8fb7-\
+86a1d0b5e3e4"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"round\"\>",
+       HoldForm], 
+      TagBox["\<\"current bin\"\>",
+       HoldForm], 
+      TagBox["\<\"coin\"\>",
+       HoldForm], 
+      TagBox["\<\"proposed bin\"\>",
+       HoldForm], 
+      TagBox["\<\"random\"\>",
+       HoldForm], 
+      TagBox["\<\"result bin\"\>",
+       HoldForm]},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "1", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.26`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "2", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.62`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "3", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.07`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "4", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.66`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "5", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.52`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "6", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.96`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "7", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.9500000000000001`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "8", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.54`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "9", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.02`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "10", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.76`", "\<\"                  \"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{}, {
+      "round", "current bin", "coin", "proposed bin", "random", 
+       "result bin"}}]]]], "Output",
+ CellChangeTimes->{{3.9422540667857513`*^9, 3.942254095441394*^9}, 
+   3.942256407872623*^9, 3.942256484907275*^9, 3.942256553045278*^9, 
+   3.942257032111906*^9, 3.942257229300723*^9, 3.942272004590815*^9, {
+   3.9422724865354137`*^9, 3.942272497584023*^9}, 3.942272544572051*^9, 
+   3.942272595404295*^9, {3.942272636365185*^9, 3.942272642078851*^9}, 
+   3.942272702832788*^9, 3.943057602440906*^9, {3.943057738055423*^9, 
+   3.943057753559287*^9}, 3.943084665619733*^9},
+ CellLabel->
+  "Out[33]//TableForm=",ExpressionUUID->"b5021eae-91b7-454b-9033-\
+89cbcedc8e16"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Starting Bin ",
+ StyleBox["3",
+  FontSize->24,
+  FontWeight->"Bold"]
+}], "Subsection",
+ CellChangeTimes->{{3.943184298687211*^9, 3.9431843498944197`*^9}, {
+  3.94318451808082*^9, 
+  3.943184521906719*^9}},ExpressionUUID->"abaf7d9e-90fc-4b92-b1ec-\
+1c5e274f62e3"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"round\"\>",
+       HoldForm], 
+      TagBox["\<\"current bin\"\>",
+       HoldForm], 
+      TagBox["\<\"coin\"\>",
+       HoldForm], 
+      TagBox["\<\"proposed bin\"\>",
+       HoldForm], 
+      TagBox["\<\"random\"\>",
+       HoldForm], 
+      TagBox["\<\"result bin\"\>",
+       HoldForm]},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "1", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.26`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "2", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.62`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "3", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.07`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "4", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.66`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "5", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.52`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "6", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.96`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "7", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.9500000000000001`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "8", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.54`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "9", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.02`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "10", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.76`", "\<\"                  \"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{}, {
+      "round", "current bin", "coin", "proposed bin", "random", 
+       "result bin"}}]]]], "Output",
+ CellChangeTimes->{{3.9422540667857513`*^9, 3.942254095441394*^9}, 
+   3.942256407872623*^9, 3.942256484907275*^9, 3.942256553045278*^9, 
+   3.942257032111906*^9, 3.942257229300723*^9, 3.942272004590815*^9, {
+   3.9422724865354137`*^9, 3.942272497584023*^9}, 3.942272544572051*^9, 
+   3.942272595404295*^9, {3.942272636365185*^9, 3.942272642078851*^9}, 
+   3.942272702832788*^9, 3.943057602440906*^9, {3.943057738055423*^9, 
+   3.943057753559287*^9}, 3.943084665619733*^9},
+ CellLabel->
+  "Out[33]//TableForm=",ExpressionUUID->"cd06b35f-4004-4d38-8ad5-\
+899cfd8ce1b5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Starting Bin ",
+ StyleBox["4",
+  FontSize->24,
+  FontWeight->"Bold"]
+}], "Subsection",
+ CellChangeTimes->{{3.943184298687211*^9, 3.9431843498944197`*^9}, {
+  3.94318451808082*^9, 
+  3.943184528836299*^9}},ExpressionUUID->"8d0b6136-1c88-48ad-9078-\
+9aad61f697ea"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"round\"\>",
+       HoldForm], 
+      TagBox["\<\"current bin\"\>",
+       HoldForm], 
+      TagBox["\<\"coin\"\>",
+       HoldForm], 
+      TagBox["\<\"proposed bin\"\>",
+       HoldForm], 
+      TagBox["\<\"random\"\>",
+       HoldForm], 
+      TagBox["\<\"result bin\"\>",
+       HoldForm]},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "1", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.26`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "2", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.62`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "3", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.07`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "4", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.66`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "5", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.52`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "6", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.96`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "7", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.9500000000000001`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "8", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.54`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "9", "\<\"                  \"\>", "0", "\<\"                  \"\>", 
+      "0.02`", "\<\"                  \"\>"},
+     {
+      TagBox[
+       StyleBox["\<\"\[Null]\"\>",
+        ShowStringCharacters->False],
+       StyleForm[#, ShowStringCharacters -> False]& ], 
+      "10", "\<\"                  \"\>", "1", "\<\"                  \"\>", 
+      "0.76`", "\<\"                  \"\>"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{}, {
+      "round", "current bin", "coin", "proposed bin", "random", 
+       "result bin"}}]]]], "Output",
+ CellChangeTimes->{{3.9422540667857513`*^9, 3.942254095441394*^9}, 
+   3.942256407872623*^9, 3.942256484907275*^9, 3.942256553045278*^9, 
+   3.942257032111906*^9, 3.942257229300723*^9, 3.942272004590815*^9, {
+   3.9422724865354137`*^9, 3.942272497584023*^9}, 3.942272544572051*^9, 
+   3.942272595404295*^9, {3.942272636365185*^9, 3.942272642078851*^9}, 
+   3.942272702832788*^9, 3.943057602440906*^9, {3.943057738055423*^9, 
+   3.943057753559287*^9}, 3.943084665619733*^9},
+ CellLabel->
+  "Out[33]//TableForm=",ExpressionUUID->"c646defe-55a5-437c-92f0-\
+60abf220cbdb"],
+
+Cell["\<\
+
+If you got some of the acceptance ratios wrong, or had some different \
+interpretation, I made a pragmatic effort to check what you did anyway.\
+\>", "Text",
+ CellChangeTimes->{{3.943057483241847*^9, 3.94305757167946*^9}, {
+   3.9430791882800217`*^9, 3.943079229921717*^9}, {3.94308329569454*^9, 
+   3.94308333227614*^9}, {3.943083379341362*^9, 3.943083398207209*^9}, {
+   3.943083432918838*^9, 3.9430834755638103`*^9}, {3.943084586739079*^9, 
+   3.9430846131534863`*^9}, {3.9430846791545687`*^9, 3.943084682813334*^9}, {
+   3.943084764782086*^9, 3.943084804008482*^9}, {3.94308485697786*^9, 
+   3.9430848577716317`*^9}, {3.9430848936398153`*^9, 3.943084960179767*^9}, {
+   3.943088723837358*^9, 3.9430887782018976`*^9}, {3.943088820620844*^9, 
+   3.943088825058239*^9}, {3.943089320085498*^9, 3.943089328602407*^9}, {
+   3.943183972144504*^9, 3.9431840164097767`*^9}, {3.943184055050117*^9, 
+   3.943184164701951*^9}, {3.943184198393977*^9, 3.943184209312166*^9}, {
+   3.9431843648521338`*^9, 3.94318445600854*^9}, {3.943184488622808*^9, 
+   3.943184491034443*^9}, {3.94318457522048*^9, 3.9431846199323473`*^9}, {
+   3.943184678754047*^9, 3.943184747288836*^9}, 3.9431847807090607`*^9, {
+   3.943185230769806*^9, 
+   3.94318527341499*^9}},ExpressionUUID->"f28fbaf0-0adb-43ef-b238-\
+06bbaebcaa75"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1371, 1250},
+WindowMargins->{{Automatic, 490}, {Automatic, 0}},
+PrintingCopies->1,
+PrintingPageRange->{1, Automatic},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"6b8e329e-d554-4a29-895c-acee070f2111"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 531, 9, 103, "Chapter",ExpressionUUID->"96d1dcba-90fa-4779-bc84-5a17f1599c0f"],
+Cell[CellGroupData[{
+Cell[1136, 35, 503, 8, 101, "Section",ExpressionUUID->"09f96627-7f12-477d-917a-21ec20302f64"],
+Cell[1642, 45, 4175, 90, 243, "Text",ExpressionUUID->"f8f67048-0db0-42bf-a1be-453173785631"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5854, 140, 509, 8, 101, "Section",ExpressionUUID->"9c34722a-6cdf-48a9-ad83-28efaf2b8735"],
+Cell[6366, 150, 1646, 44, 359, "Text",ExpressionUUID->"9d2332fc-0645-4264-895d-919ed95243e6"],
+Cell[CellGroupData[{
+Cell[8037, 198, 279, 9, 88, "Subsection",ExpressionUUID->"7030eb1d-2924-4a41-8135-3cf4e1777b15"],
+Cell[8319, 209, 4424, 116, 330, "Output",ExpressionUUID->"699b4447-459e-4062-b396-6cf986b4c6db"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12780, 330, 281, 9, 88, "Subsection",ExpressionUUID->"c2762489-d6cd-439c-8fb7-86a1d0b5e3e4"],
+Cell[13064, 341, 4424, 116, 330, "Output",ExpressionUUID->"b5021eae-91b7-454b-9033-89cbcedc8e16"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17525, 462, 280, 9, 88, "Subsection",ExpressionUUID->"abaf7d9e-90fc-4b92-b1ec-1c5e274f62e3"],
+Cell[17808, 473, 4424, 116, 330, "Output",ExpressionUUID->"cd06b35f-4004-4d38-8ad5-899cfd8ce1b5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[22269, 594, 280, 9, 88, "Subsection",ExpressionUUID->"8d0b6136-1c88-48ad-9078-9aad61f697ea"],
+Cell[22552, 605, 4424, 116, 330, "Output",ExpressionUUID->"c646defe-55a5-437c-92f0-60abf220cbdb"],
+Cell[26979, 723, 1308, 21, 122, "Text",ExpressionUUID->"f28fbaf0-0adb-43ef-b238-06bbaebcaa75"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
