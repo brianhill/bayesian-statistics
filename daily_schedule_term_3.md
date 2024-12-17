@@ -39,11 +39,11 @@ See also: [Daily Schedule Term 2](./daily_schedule_term_2.html)
 ### Week 14 &mdash; The Gibbs Sampling Algorithm &mdash; Exam 3
 
 * Tuesday, Dec. 10 &mdash; Our final subject before Exam 3 is Gibbs sampling, and I am *not* going to have you look at Donovan and Mickey Chapter 16, because they have obscured what is almost laughably simple &mdash; Instead, in class we'll go through my [Monte Carlo Methods - Why Do They Work? - Part III](./resources/MonteCarloMethodsWhyDoTheyWork-III.nb.pdf) &mdash; Here is the [In-Class Exercise for Tuesday](./assignments/AssignmentFor2024-12-10.nb.pdf)
-* Friday, Dec. 13 &mdash;  [Exam 3](./exams/Exam3.nb.pdf) covering Chapters 10 and 11 of Donovan and Mickey on Bayesian Conjugates and Chapters 13, 15, and 16 on Markov Chain Monte Carlo &mdash; For understanding the theory of chapters 13, 15, and 16, I'd recommend you use my &ldquo;Monte Carlo Methods - Why do They Work?&rdquo; write-ups, linked above &mdash; Referring to the recent problem sets (see my quick summary of [Problem Sets 14 to 18](./resources/AnotherQuickSummaryOfRecentProblemSets.nb.pdf)) is the fastest way to review how I expect you to apply the theory
+* Friday, Dec. 13 &mdash;  [Exam 3](./exams/Exam3.nb.pdf) covering Chapters 10 and 11 of Donovan and Mickey on Bayesian Conjugates and Chapters 13, 15, and 16 on Markov Chain Monte Carlo &mdash; For understanding the theory of chapters 13, 15, and 16, I'd recommend you use my &ldquo;Monte Carlo Methods - Why do They Work?&rdquo; write-ups, linked above and my quick summary of [Problem Sets 14 to 18](./resources/AnotherQuickSummaryOfRecentProblemSets.nb.pdf)
 
 ### Week 15 &mdash; A Case Study Using Gibbs Sampling
 
-* Tuesday, Dec. 17 &mdash; We will work through my [Monte Carlo Methods Case Study - THIS IS PRETTY FAR ALONG, BUT STILL A DRAFT - I WILL HAVE THE FINAL VERSION READY FOR THE LAST CLASS](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
+* Tuesday, Dec. 17 &mdash; We will work through this [Monte Carlo Methods Case Study](./resources/MonteCarloMethodsCaseStudy.nb.pdf)
 
 *Spiegelhalter, Best, Gilks, and Inskip use this graphic as a summary of the 217-parameter Hepatitis B model*
 
